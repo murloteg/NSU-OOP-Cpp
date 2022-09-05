@@ -1,0 +1,16 @@
+# ninja log v5
+2	414	1662284282730657381	modules/module2/CMakeFiles/module2_lib.dir/module2.cpp.o	9649629ff46b5c28
+0	337	1662378407329717907	modules/module1/CMakeFiles/module1_lib.dir/module1.cpp.o	7baef4fcd895d5ac
+338	368	1662378407363919000	modules/module1/libmodule1_lib.a	2bd1ee4cd4a2d63
+7	111	1662379579137571868	build.ninja	3489b328db0fddd6
+1	460	1662378552635847979	CMakeFiles/intro_lab.dir/main.cpp.o	ed35af01ebfefe67
+414	1002	1662284283324046000	modules/module2/libmodule2_lib.a	2fffa4b65a89c2a4
+460	510	1662378552687561994	intro_lab	6c4f6a4a2e2af567
+1	351	1662379622326277048	modules/module3/CMakeFiles/module3_lib.dir/module3.cpp.o	356e0063c544fa19
+351	383	1662379622361115000	modules/module3/libmodule3_lib.a	5751249514b005ee
+1	477	1662379622450841341	CMakeFiles/intro_lab.dir/main.cpp.o	5fed1a50dd4743f2
+477	522	1662379622498171648	intro_lab	fcdea3d23c5df3d1
+1	495	1662379775015733015	CMakeFiles/intro_lab.dir/main.cpp.o	5fed1a50dd4743f2
+495	543	1662379775065693037	intro_lab	fcdea3d23c5df3d1
+1	500	1662379796832574430	CMakeFiles/intro_lab.dir/main.cpp.o	5fed1a50dd4743f2
+501	544	1662379796878698828	intro_lab	fcdea3d23c5df3d1
