@@ -1,0 +1,9 @@
+# ninja log v5
+1	498	1663735012478983849	CMakeFiles/BigInt.dir/main.cpp.o	226602df17f2be90
+498	547	1663735012528860746	BigInt	4081aa21ba2b3ea8
+1	541	1663734989107197004	BigInt_dir/CMakeFiles/BigInt_lib.dir/BigInt.cpp.o	bd89de9b3a86dd2
+541	575	1663734989145604000	BigInt_dir/libBigInt_lib.a	5c6b5cb858be0e32
+1	548	1663735427685144074	CMakeFiles/BigInt.dir/main.cpp.o	bed1eee5efcd4635
+2	599	1663735427736269865	BigInt_dir/CMakeFiles/BigInt_lib.dir/BigInt.cpp.o	4b344b633e553c14
+599	631	1663735427773147000	BigInt_dir/libBigInt_lib.a	5c6b5cb858be0e32
+631	681	1663735427821109746	BigInt	4081aa21ba2b3ea8

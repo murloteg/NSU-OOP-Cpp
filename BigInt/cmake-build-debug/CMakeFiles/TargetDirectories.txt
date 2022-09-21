@@ -1,0 +1,6 @@
+/Users/mac/Desktop/GitHub/NSU-OOP-Cpp/BigInt/cmake-build-debug/CMakeFiles/BigInt.dir
+/Users/mac/Desktop/GitHub/NSU-OOP-Cpp/BigInt/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/mac/Desktop/GitHub/NSU-OOP-Cpp/BigInt/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/mac/Desktop/GitHub/NSU-OOP-Cpp/BigInt/cmake-build-debug/BigInt_dir/CMakeFiles/BigInt_lib.dir
+/Users/mac/Desktop/GitHub/NSU-OOP-Cpp/BigInt/cmake-build-debug/BigInt_dir/CMakeFiles/edit_cache.dir
+/Users/mac/Desktop/GitHub/NSU-OOP-Cpp/BigInt/cmake-build-debug/BigInt_dir/CMakeFiles/rebuild_cache.dir
