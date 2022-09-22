@@ -3,8 +3,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <ostream> //
-#include <iomanip> //
+#include <iomanip>
 
 enum Consts : int
 {
@@ -15,15 +14,13 @@ class BigInt
 {
 private:
     std::vector<int> vector_;
-    size_t size_;
     bool sign_;
 public:
     BigInt();
-    explicit BigInt(int size);
+    explicit BigInt(int value);
     BigInt(std::string string);
     BigInt(const BigInt &origin);
     ~BigInt();
-    int operator[](int index);
 
 
     BigInt& operator=(const BigInt &other);
@@ -67,6 +64,5 @@ BigInt operator^(const BigInt &first, const BigInt &second);
 BigInt operator%(const BigInt &first, const BigInt &second);
 BigInt operator&(const BigInt &first, const BigInt &second);
 BigInt operator|(const BigInt &first, const BigInt &second);
-
 
 #endif //BIGINT_BIGINT_H

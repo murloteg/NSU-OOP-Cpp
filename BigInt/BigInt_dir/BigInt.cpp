@@ -2,15 +2,24 @@
 
 BigInt::BigInt()
 {
-    this->size_ = this->vector_.size();
 }
 
-BigInt::BigInt(int size)
+BigInt::BigInt(int value)
 {
-    this->size_ = size;
-    for (size_t i = 0; i < this->size(); ++i)
+    int length = 0;
+    int tempValue = value;
+    while (tempValue > 0)
     {
-        this->vector_.push_back(0);
+        ++length;
+        tempValue /= 10;
+    }
+
+    int realSize = (length / 3) + 1 * (length % 3 != 0);
+    for (size_t i = 0; i < realSize; ++i)
+    {
+        int nextPart = value % BASE;
+        this->vector_.push_back(nextPart);
+        value /= BASE;
     }
 }
 
@@ -36,14 +45,11 @@ BigInt::BigInt(std::string string)
     {
         this->vector_.pop_back();
     }
-
-    this->size_ = this->vector_.size();
 }
 
 BigInt::BigInt(const BigInt &origin)
 {
-    this->size_ = origin.size();
-    for (size_t i = 0; i < this->size_; ++i)
+    for (size_t i = 0; i < origin.size(); ++i)
     {
         this->vector_.push_back(origin.vector_[i]);
     }
@@ -59,15 +65,9 @@ size_t BigInt::size() const
     return this->vector_.size();
 }
 
-int BigInt::operator[](int index)
-{
-    return this->vector_[index];
-}
-
 BigInt& BigInt::operator=(const BigInt& other)
 {
     this->vector_ = other.vector_;
-    this->size_ = other.size_;
     return *this;
 }
 
@@ -99,14 +99,14 @@ const BigInt BigInt::operator--(int) const
 BigInt& BigInt::operator+=(const BigInt &other)
 {
     int carry = 0;
-    for (size_t i = 0; i < std::max(this->vector_.size(), other.vector_.size()) || carry; ++i)
+    for (size_t i = 0; i < std::max(this->size(), other.size()) || carry; ++i)
     {
-        if (i == this->vector_.size())
+        if (i == this->size())
         {
             this->vector_.push_back(0);
         }
 
-        this->vector_[i] += carry + ((i < other.vector_.size()) ? other.vector_[i] : 0);
+        this->vector_[i] += carry + ((i < other.size()) ? other.vector_[i] : 0);
         carry = (this->vector_[i] >= BASE);
         if (carry)
         {
@@ -119,15 +119,58 @@ BigInt& BigInt::operator+=(const BigInt &other)
 
 BigInt& BigInt::operator-=(const BigInt &other)
 {
+    int carry = 0;
+    for (size_t i = 0; i < std::max(this->size(), other.size()) || carry; ++i)
+    {
+        this->vector_[i] -= ((i < other.size()) ? other.vector_[i] : 0);
+        carry = (this->vector_[i] < 0);
+        if (carry)
+        {
+            this->vector_[i] += BASE;
+            this->vector_.at(i + 1) -= 1;
+        }
+    }
 
+    while (!this->vector_.empty() && this->vector_.back() == 0)
+    {
+        this->vector_.pop_back();
+    }
+
+    return *this;
+}
+
+BigInt& BigInt::operator*=(const BigInt &other)
+{
+    size_t sizeOfFirst = this->size();
+    BigInt tempValue(*this);
+    this->vector_.resize(sizeOfFirst + other.size());
+    for (int i = 0; i < sizeOfFirst; ++i)
+    {
+        this->vector_[i] = 0;
+    }
+
+    for (size_t i = 0; i < sizeOfFirst; ++i)
+    {
+        int carry = 0;
+        for (int j = 0; j < other.size() || carry; ++j)
+        {
+            long long int partialResult = this->vector_[i + j] + carry + tempValue.vector_[i] * other.vector_[j];
+            this->vector_[i + j] = static_cast<int> (partialResult % BASE);
+            carry = static_cast<int> (partialResult / BASE);
+        }
+    }
+
+    while(!this->vector_.empty() && this->vector_.back() == 0)
+    {
+        this->vector_.pop_back();
+    }
+
+    return *this;
 }
 
 BigInt operator+(const BigInt& first, const BigInt& second)
 {
-    size_t maxSize = (first.size() > second.size() ? first.size() : second.size());
-    BigInt tempVector(maxSize);
-
-    for (size_t i = 0; i < maxSize; ++i)
+    for (size_t i = 0; i < std::max(first.size(), second.size()); ++i)
     {
         // update later with using "+=".
     }
