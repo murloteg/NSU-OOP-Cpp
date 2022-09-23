@@ -2,10 +2,16 @@
 
 BigInt::BigInt()
 {
+
 }
 
 BigInt::BigInt(int value)
 {
+    if (value < 0)
+    {
+        this->sign_ = true;
+    }
+
     int length = 0;
     int tempValue = value;
     while (tempValue > 0)
@@ -41,10 +47,7 @@ BigInt::BigInt(std::string string)
         }
     }
 
-    while (!this->vector_.empty() && this->vector_.back() == 0)
-    {
-        this->vector_.pop_back();
-    }
+    this->DeleteZeros();
 }
 
 BigInt::BigInt(const BigInt &origin)
@@ -63,6 +66,14 @@ BigInt::~BigInt()
 size_t BigInt::size() const
 {
     return this->vector_.size();
+}
+
+void BigInt::DeleteZeros()
+{
+    while (!this->vector_.empty() && this->vector_.back() == 0)
+    {
+        this->vector_.pop_back();
+    }
 }
 
 BigInt& BigInt::operator=(const BigInt& other)
@@ -131,11 +142,7 @@ BigInt& BigInt::operator-=(const BigInt &other)
         }
     }
 
-    while (!this->vector_.empty() && this->vector_.back() == 0)
-    {
-        this->vector_.pop_back();
-    }
-
+    this->DeleteZeros();
     return *this;
 }
 
@@ -144,7 +151,7 @@ BigInt& BigInt::operator*=(const BigInt &other)
     size_t sizeOfFirst = this->size();
     BigInt tempValue(*this);
     this->vector_.resize(sizeOfFirst + other.size());
-    for (int i = 0; i < sizeOfFirst; ++i)
+    for (int i = 0; i < this->size(); ++i)
     {
         this->vector_[i] = 0;
     }
@@ -160,19 +167,32 @@ BigInt& BigInt::operator*=(const BigInt &other)
         }
     }
 
-    while(!this->vector_.empty() && this->vector_.back() == 0)
-    {
-        this->vector_.pop_back();
-    }
-
+    this->DeleteZeros();
     return *this;
 }
 
-BigInt operator+(const BigInt& first, const BigInt& second)
+BigInt &BigInt::operator/=(const BigInt &other)
 {
-    for (size_t i = 0; i < std::max(first.size(), second.size()); ++i)
+    // exception: division by zero.
+
+    if (other.size() == 1)
     {
-        // update later with using "+=".
+        int carry = 0;
+        for (int i = static_cast<int> (this->size() - 1); i >= 0; --i)
+        {
+            long long int partialResult = this->vector_[i] + carry * BASE;
+            this->vector_[i] = static_cast<int> (partialResult / other.vector_.back());
+            carry = static_cast<int> (partialResult % other.vector_.back());
+        }
+
+        this->DeleteZeros();
+        return *this;
+    }
+
+    else
+    {
+        BigInt temp(*this);
+        this->vector_.resize(0);
     }
 }
 
@@ -186,13 +206,32 @@ std::ostream& operator<<(std::ostream &output, const BigInt &value)
     else
     {
         output << value.vector_.back();
-        for (int i = value.size() - 2; i >= 0; --i)
+        char fillChar = output.fill('0');
+        for (int i = static_cast<int> (value.size() - 2); i >= 0; --i)
         {
             output << std::setw(3) << value.vector_[i];
         }
-
-        output.fill('0');
+        output.fill(fillChar);
     }
 
     return output;
+}
+
+BigInt BigInt::operator+() const
+{
+    return *this;
+}
+
+BigInt BigInt::operator-() const
+{
+    BigInt temp(*this);
+    temp.sign_ = !temp.sign_;
+    return temp;
+}
+
+BigInt operator+(const BigInt& first, const BigInt& second)
+{
+    BigInt temp = BigInt(first);
+    temp += second;
+    return temp;
 }

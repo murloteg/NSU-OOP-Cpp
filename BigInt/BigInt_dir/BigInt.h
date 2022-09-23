@@ -15,13 +15,13 @@ class BigInt
 private:
     std::vector<int> vector_;
     bool sign_;
+    void DeleteZeros();
 public:
     BigInt();
     explicit BigInt(int value);
     BigInt(std::string string);
     BigInt(const BigInt &origin);
     ~BigInt();
-
 
     BigInt& operator=(const BigInt &other);
     BigInt operator~() const;

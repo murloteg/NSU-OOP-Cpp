@@ -3,11 +3,10 @@
 int main()
 {
 //    BigInt sTest("1234567890");
-    BigInt sTest("500500");
-    BigInt second(sTest);
-    second += sTest;
+    BigInt sumTest("500501");
+    BigInt second(sumTest);
+    second += sumTest;
     std::cout << second << '\n';
-
 
     BigInt mulTest("99");
     BigInt nextMulValue("101");
@@ -15,9 +14,14 @@ int main()
     std::cout << mulTest << '\n';
 
     BigInt subTest(1234);
-    BigInt nextSubValue(235);
+    BigInt nextSubValue(1230);
     subTest -= nextSubValue;
     std::cout << subTest << '\n';
+
+    BigInt divTest(1000);
+    BigInt nextDivTest(2);
+    divTest /= nextDivTest;
+    std::cout << divTest << '\n';
 
     return 0;
 }
