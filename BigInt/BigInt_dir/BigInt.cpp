@@ -188,12 +188,6 @@ BigInt &BigInt::operator/=(const BigInt &other)
         this->DeleteZeros();
         return *this;
     }
-
-    else
-    {
-        BigInt temp(*this);
-        this->vector_.resize(0);
-    }
 }
 
 std::ostream& operator<<(std::ostream &output, const BigInt &value)
@@ -229,9 +223,116 @@ BigInt BigInt::operator-() const
     return temp;
 }
 
+bool BigInt::operator==(const BigInt &other)
+{
+    if (this->size() != other.size())
+    {
+        return false;
+    }
+
+    for (size_t i = 0; i < this->size(); ++i)
+    {
+        if (this->vector_[i] != other.vector_[i])
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+bool BigInt::operator!=(const BigInt &other)
+{
+    if (this->size() != other.size())
+    {
+        return true;
+    }
+
+    bool status = false;
+    for (size_t i = 0; i < this->size(); ++i)
+    {
+        if (this->vector_[i] != other.vector_[i])
+        {
+            status = true;
+        }
+    }
+
+    return status;
+}
+
+bool BigInt::operator<(const BigInt &other)
+{
+    if (this->size() < other.size())
+    {
+        return true;
+    }
+
+    else if (this->size() > other.size() || (*this == other))
+    {
+        return false;
+    }
+
+    for (int i = static_cast<int> (this->size() - 1); i >= 0; --i)
+    {
+        if (this->vector_[i] > other.vector_[i])
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+bool BigInt::operator>(const BigInt &other)
+{
+    if (this->size() > other.size())
+    {
+        return true;
+    }
+
+    else if (this->size() < other.size() || (*this == other))
+    {
+        return false;
+    }
+
+    for (int i = static_cast<int> (this->size() - 1); i >= 0; --i)
+    {
+        if (this->vector_[i] < other.vector_[i])
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+bool BigInt::operator<=(const BigInt &other)
+{
+    return (*this < other || *this == other);
+}
+
+bool BigInt::operator>=(const BigInt &other)
+{
+    return (*this > other || *this == other);
+}
+
 BigInt operator+(const BigInt& first, const BigInt& second)
 {
     BigInt temp = BigInt(first);
     temp += second;
+    return temp;
+}
+
+BigInt operator-(const BigInt &first, const BigInt &second)
+{
+    BigInt temp = BigInt(first);
+    temp -= second;
+    return temp;
+}
+
+BigInt operator*(const BigInt &first, const BigInt &second)
+{
+    BigInt temp = BigInt(first);
+    temp *= second;
     return temp;
 }
