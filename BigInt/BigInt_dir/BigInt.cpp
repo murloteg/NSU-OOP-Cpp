@@ -36,22 +36,28 @@ BigInt::BigInt(std::string string)
     {
         if (i > 3)
         {
-            this->vector_.push_back(atoi(string.substr(i - 3, 3).c_str()));
+            this->vector_.push_back(static_cast<int> (strtol(string.substr(i - 3, 3).c_str(), nullptr, 10)));
             ++indexInVector;
         }
 
         else
         {
-            this->vector_.push_back(atoi(string.substr(0, i).c_str()));
+            this->vector_.push_back(static_cast<int> (strtol(string.substr(0, i).c_str(), nullptr, 10)));
             ++indexInVector;
         }
     }
 
     this->DeleteZeros();
+    this->sign_ = false;
+    if (string.length() > 0 && string[0] == '-')
+    {
+        this->sign_ = true;
+    }
 }
 
 BigInt::BigInt(const BigInt &origin)
 {
+    this->sign_ = origin.sign_;
     for (size_t i = 0; i < origin.size(); ++i)
     {
         this->vector_.push_back(origin.vector_[i]);
@@ -76,9 +82,42 @@ void BigInt::DeleteZeros()
     }
 }
 
+bool BigInt::IsEqualsZero(const BigInt& object)
+{
+    if (this->size() == 0)
+    {
+        return true;
+    }
+
+    for (size_t i = 0; i < this->size(); ++i)
+    {
+        if (this->vector_[i] != 0)
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+bool BigInt::GetRightSign(const BigInt& first, const BigInt& second)
+{
+    if (first < second)
+    {
+        return true;
+    }
+
+    return false;
+}
+
 BigInt& BigInt::operator=(const BigInt& other)
 {
-    this->vector_ = other.vector_;
+    this->vector_.clear();
+    for (size_t i = 0; i < other.size(); ++i)
+    {
+        this->vector_.push_back(other.vector_[i]);
+    }
+
     return *this;
 }
 
@@ -89,26 +128,58 @@ BigInt BigInt::operator~() const
 
 BigInt& BigInt::operator++()
 {
-
+    (*this) += 1;
+    return *this;
 }
 
-const BigInt BigInt::operator++(int) const
+const BigInt BigInt::operator++(int)
 {
-
+    BigInt temp(*this);
+    (*this) += 1;
+    return temp;
 }
 
 BigInt& BigInt::operator--()
 {
-
+    (*this) -= 1;
+    return *this;
 }
 
-const BigInt BigInt::operator--(int) const
+const BigInt BigInt::operator--(int)
 {
-
+    BigInt temp(*this);
+    (*this) -= 1;
+    return temp;
 }
 
 BigInt& BigInt::operator+=(const BigInt &other)
 {
+    if (this->sign_ && !other.sign_)
+    {
+        this->sign_ = false;
+        *this = (other - *this);
+        this->sign_ = GetRightSign(other, *this);
+        return *this;
+    }
+
+    else if (!this->sign_ && other.sign_)
+    {
+        BigInt temp(other);
+        temp.sign_ = false;
+        *this = (*this - temp);
+        return *this;
+    }
+
+    else if (this->sign_ && other.sign_)
+    {
+        this->sign_ = false;
+        BigInt temp(other);
+        temp.sign_ = false;
+        *this = -(*this + temp);
+        this->sign_ = true;
+        return *this;
+    }
+
     int carry = 0;
     for (size_t i = 0; i < std::max(this->size(), other.size()) || carry; ++i)
     {
@@ -130,6 +201,37 @@ BigInt& BigInt::operator+=(const BigInt &other)
 
 BigInt& BigInt::operator-=(const BigInt &other)
 {
+    if (this->sign_ && !other.sign_)
+    {
+        this->sign_ = false;
+        *this = -(other + *this);
+        this->sign_ = true;
+        return *this;
+    }
+
+    else if (!this->sign_ && other.sign_)
+    {
+        BigInt temp(other);
+        temp.sign_ = false;
+        *this = (*this + temp);
+        return *this;
+    }
+
+    else if (this->sign_ && other.sign_)
+    {
+        BigInt temp(other);
+        temp.sign_ = false;
+        this->sign_ = false;
+        *this = (temp - *this);
+        return *this;
+    }
+
+    if (this->size() < other.size())
+    {
+        *this = (other - *this);
+        return (*this);
+    }
+
     int carry = 0;
     for (size_t i = 0; i < std::max(this->size(), other.size()) || carry; ++i)
     {
@@ -148,6 +250,31 @@ BigInt& BigInt::operator-=(const BigInt &other)
 
 BigInt& BigInt::operator*=(const BigInt &other)
 {
+    if (this->sign_ && !other.sign_)
+    {
+        this->sign_ = false;
+        *this = (*this * other);
+        this->sign_ = true;
+        return *this;
+    }
+
+    else if (!this->sign_ && other.sign_)
+    {
+        BigInt temp(other);
+        temp.sign_ = false;
+        *this = (*this * temp);
+        this->sign_ = true;
+        return *this;
+    }
+
+    else if (this->sign_ && other.sign_)
+    {
+        this->sign_ = false;
+        BigInt temp(other);
+        temp.sign_ = false;
+        *this = (*this * temp);
+    }
+
     size_t sizeOfFirst = this->size();
     BigInt tempValue(*this);
     this->vector_.resize(sizeOfFirst + other.size());
@@ -171,23 +298,76 @@ BigInt& BigInt::operator*=(const BigInt &other)
     return *this;
 }
 
-BigInt &BigInt::operator/=(const BigInt &other)
+BigInt BigInt::BinarySearch(const BigInt &remainder, const BigInt &other)
 {
-    // exception: division by zero.
-
-    if (other.size() == 1)
+    int leftValue = 0;
+    int rightValue = BASE;
+    int middleValue;
+    BigInt result(0);
+    while (leftValue <= rightValue)
     {
-        int carry = 0;
-        for (int i = static_cast<int> (this->size() - 1); i >= 0; --i)
+        middleValue = (leftValue + rightValue) / 2;
+        result = middleValue;
+        if (remainder == result * other)
         {
-            long long int partialResult = this->vector_[i] + carry * BASE;
-            this->vector_[i] = static_cast<int> (partialResult / other.vector_.back());
-            carry = static_cast<int> (partialResult % other.vector_.back());
+            break;
         }
 
-        this->DeleteZeros();
-        return *this;
+        (remainder > result * other) ? leftValue = middleValue + 1 : rightValue = middleValue - 1;
     }
+
+    while (remainder < (result * other))
+    {
+        result -= 1;
+    }
+
+    return result;
+}
+
+BigInt& BigInt::operator/=(const BigInt &other)
+{
+    // exception: division by zero.
+    const BigInt& tempValue(other);
+    BigInt remainder(0);
+    BigInt result(0);
+    BigInt partialResult(0);
+    BigInt objectOfBase(BASE);
+    for (int i = static_cast<int> (this->size() - 1); i >= 0; --i)
+    {
+        partialResult = objectOfBase * remainder;
+        remainder = this->vector_[i];
+        remainder += partialResult;
+        partialResult = remainder;
+        remainder = BinarySearch(remainder, tempValue);
+        result *= objectOfBase;
+        result += remainder;
+        if (IsEqualsZero(remainder))
+        {
+            remainder = this->vector_[i];
+        }
+
+        else
+        {
+            remainder = partialResult - (tempValue * remainder);
+        }
+    }
+
+    this->vector_.clear();
+    this->vector_ = result.vector_;
+    return *this;
+}
+
+BigInt& BigInt::operator%=(const BigInt &other)
+{
+    BigInt temp(*this);
+    temp /= other;
+    *this = (*this - temp * other);
+    return *this;
+}
+
+BigInt& BigInt::operator^=(const BigInt &other) // XOR
+{
+
 }
 
 std::ostream& operator<<(std::ostream &output, const BigInt &value)
@@ -199,6 +379,11 @@ std::ostream& operator<<(std::ostream &output, const BigInt &value)
 
     else
     {
+        if (value.sign_)
+        {
+            output << '-';
+        }
+
         output << value.vector_.back();
         char fillChar = output.fill('0');
         for (int i = static_cast<int> (value.size() - 2); i >= 0; --i)
@@ -316,23 +501,48 @@ bool BigInt::operator>=(const BigInt &other)
     return (*this > other || *this == other);
 }
 
+BigInt::operator int() const
+{
+    int result = 0;
+    for (int i = static_cast<int> (this->size() - 1); i >= 0; --i)
+    {
+        result = result * BASE + this->vector_[i];
+    }
+
+    return result;
+}
+
 BigInt operator+(const BigInt& first, const BigInt& second)
 {
-    BigInt temp = BigInt(first);
+    BigInt temp(first);
     temp += second;
     return temp;
 }
 
 BigInt operator-(const BigInt &first, const BigInt &second)
 {
-    BigInt temp = BigInt(first);
+    BigInt temp(first);
     temp -= second;
     return temp;
 }
 
 BigInt operator*(const BigInt &first, const BigInt &second)
 {
-    BigInt temp = BigInt(first);
+    BigInt temp(first);
     temp *= second;
+    return temp;
+}
+
+BigInt operator/(const BigInt &first, const BigInt &second)
+{
+    BigInt temp(first);
+    temp /= second;
+    return temp;
+}
+
+BigInt operator%(const BigInt &first, const BigInt &second)
+{
+    BigInt temp(first);
+    temp %= second;
     return temp;
 }

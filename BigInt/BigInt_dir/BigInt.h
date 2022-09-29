@@ -16,9 +16,12 @@ private:
     std::vector<int> vector_;
     bool sign_;
     void DeleteZeros();
+    bool IsEqualsZero(const BigInt& object);
+    bool GetRightSign(const BigInt& first, const BigInt& second);
+    BigInt BinarySearch(const BigInt& rem, const BigInt& other);
 public:
     BigInt();
-    explicit BigInt(int value);
+    BigInt(int value);
     BigInt(std::string string);
     BigInt(const BigInt &origin);
     ~BigInt();
@@ -26,9 +29,9 @@ public:
     BigInt& operator=(const BigInt &other);
     BigInt operator~() const;
     BigInt& operator++();
-    const BigInt operator++(int) const;
+    const BigInt operator++(int);
     BigInt& operator--();
-    const BigInt operator--(int) const;
+    const BigInt operator--(int);
 
     BigInt& operator+=(const BigInt &other);
     BigInt& operator-=(const BigInt &other);
