@@ -32,27 +32,41 @@ BigInt::BigInt(int value)
 BigInt::BigInt(std::string string)
 {
     int indexInVector = 0;
-    for (int i = static_cast<int> (string.length()); i > 0; i -= 3)
+    if (string.size() == 0)
     {
-        if (i > 3)
-        {
-            this->vector_.push_back(static_cast<int> (strtol(string.substr(i - 3, 3).c_str(), nullptr, 10)));
-            ++indexInVector;
-        }
+        this->sign_ = false;
+    }
 
+    else
+    {
+        if (string[0] == '-')
+        {
+            string = string.substr(1);
+            this->sign_ = true;
+        }
         else
         {
-            this->vector_.push_back(static_cast<int> (strtol(string.substr(0, i).c_str(), nullptr, 10)));
-            ++indexInVector;
+            this->sign_ = false;
+        }
+
+        for (int i = static_cast<int> (string.length()); i > 0; i -= 3)
+        {
+            if (i > 3)
+            {
+                this->vector_.push_back(static_cast<int> (strtol(string.substr(i - 3, 3).c_str(), nullptr, 10)));
+                ++indexInVector;
+            }
+
+            else
+            {
+                this->vector_.push_back(static_cast<int> (strtol(string.substr(0, i).c_str(), nullptr, 10)));
+                ++indexInVector;
+            }
         }
     }
 
+
     this->DeleteZeros();
-    this->sign_ = false;
-    if (string.length() > 0 && string[0] == '-')
-    {
-        this->sign_ = true;
-    }
 }
 
 BigInt::BigInt(const BigInt &origin)
@@ -100,16 +114,6 @@ bool BigInt::IsEqualsZero(const BigInt& object)
     return true;
 }
 
-bool BigInt::GetRightSign(const BigInt& first, const BigInt& second)
-{
-    if (first < second)
-    {
-        return true;
-    }
-
-    return false;
-}
-
 BigInt& BigInt::operator=(const BigInt& other)
 {
     this->vector_.clear();
@@ -154,29 +158,32 @@ const BigInt BigInt::operator--(int)
 
 BigInt& BigInt::operator+=(const BigInt &other)
 {
-    if (this->sign_ && !other.sign_)
+    if (this->sign_ && !other.sign_ || !this->sign_ && other.sign_ || this->sign_ && other.sign_)
     {
-        this->sign_ = false;
-        *this = (other - *this);
-        this->sign_ = GetRightSign(other, *this);
-        return *this;
-    }
+        BigInt bigger(GetBigger(*this, other));
+        BigInt lower(GetLower(*this, other));
 
-    else if (!this->sign_ && other.sign_)
-    {
-        BigInt temp(other);
-        temp.sign_ = false;
-        *this = (*this - temp);
-        return *this;
-    }
+        if (!bigger.sign_ && lower.sign_)
+        {
+            lower.sign_ = false;
+            *this = (bigger - lower);
+            this->sign_ = false;
+        }
 
-    else if (this->sign_ && other.sign_)
-    {
-        this->sign_ = false;
-        BigInt temp(other);
-        temp.sign_ = false;
-        *this = -(*this + temp);
-        this->sign_ = true;
+        else if (bigger.sign_ && lower.sign_)
+        {
+            lower.sign_ = false;
+            bigger.sign_ = false;
+            *this = -(bigger + lower);
+            this->sign_ = true;
+        }
+
+        else if (bigger.sign_ && !lower.sign_)
+        {
+            bigger.sign_ = false;
+            *this = -(bigger - lower);
+        }
+
         return *this;
     }
 
@@ -201,28 +208,43 @@ BigInt& BigInt::operator+=(const BigInt &other)
 
 BigInt& BigInt::operator-=(const BigInt &other)
 {
-    if (this->sign_ && !other.sign_)
+    if (this->sign_ && !other.sign_ || !this->sign_ && other.sign_ || this->sign_ && other.sign_)
     {
-        this->sign_ = false;
-        *this = -(other + *this);
-        this->sign_ = true;
-        return *this;
-    }
+        BigInt bigger(GetBigger(*this, other));
+        BigInt lower(GetLower(*this, other));
+        if (lower.sign_ && bigger.sign_)
+        {
+            if (bigger == *this)
+            {
+                lower.sign_ = false;
+                bigger.sign_ = false;
+                this->sign_ = false;
+                *this = (lower - bigger);
+            }
 
-    else if (!this->sign_ && other.sign_)
-    {
-        BigInt temp(other);
-        temp.sign_ = false;
-        *this = (*this + temp);
-        return *this;
-    }
+            else if (bigger == other)
+            {
+                lower.sign_ = false;
+                bigger.sign_ = false;
+                this->sign_ = true;
+                *this = -(lower - bigger);
+            }
+        }
 
-    else if (this->sign_ && other.sign_)
-    {
-        BigInt temp(other);
-        temp.sign_ = false;
-        this->sign_ = false;
-        *this = (temp - *this);
+        else if (lower.sign_ && !bigger.sign_)
+        {
+            lower.sign_ = false;
+            this->sign_ = false;
+            *this = (bigger + lower);
+        }
+
+        else if (!lower.sign_ && bigger.sign_)
+        {
+            bigger.sign_ = false;
+            this->sign_ = true;
+            *this = (bigger + lower);
+        }
+
         return *this;
     }
 
@@ -510,6 +532,16 @@ BigInt::operator int() const
     }
 
     return result;
+}
+
+BigInt BigInt::GetBigger(const BigInt &first, const BigInt &second)
+{
+    return (first >= second) ? first : second;
+}
+
+BigInt BigInt::GetLower(const BigInt &first, const BigInt &second)
+{
+    return (first < second) ? first : second;
 }
 
 BigInt operator+(const BigInt& first, const BigInt& second)

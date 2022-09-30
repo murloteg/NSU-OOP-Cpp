@@ -17,7 +17,8 @@ private:
     bool sign_;
     void DeleteZeros();
     bool IsEqualsZero(const BigInt& object);
-    bool GetRightSign(const BigInt& first, const BigInt& second);
+    BigInt GetBigger(const BigInt& first, const BigInt& second);
+    BigInt GetLower(const BigInt& first, const BigInt& second);
     BigInt BinarySearch(const BigInt& rem, const BigInt& other);
 public:
     BigInt();

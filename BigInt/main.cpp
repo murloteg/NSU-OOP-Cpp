@@ -23,12 +23,12 @@ int main()
     std::cout << divTest << '\n';
 
     BigInt remTest("11");
-    BigInt nextRemTest("3");
+    BigInt nextRemTest("6");
     remTest %= nextRemTest;
     std::cout << remTest << '\n';
 
-    BigInt mSubTest("-10");
-    BigInt nextmSubTest("3");
+    BigInt mSubTest("5");
+    BigInt nextmSubTest("5");
     mSubTest += nextmSubTest;
     std::cout << mSubTest << '\n';
 
