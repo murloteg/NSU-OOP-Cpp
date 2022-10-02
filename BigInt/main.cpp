@@ -2,15 +2,13 @@
 
 int main()
 {
-    //std::cout << strlen("") << '\n';
 //    BigInt sumTest("500500");
 //    BigInt second(sumTest);
 //    second += sumTest;
 //    std::cout << "sum: " << second << '\n';
 //
-//    BigInt mulTest("123456789123456789"); //error
-//    BigInt nextMulValue("123456789");
-    BigInt mulTest("123456789123456789"); //error
+
+    BigInt mulTest("123456789123456789");
     BigInt nextMulValue("123456789");
     mulTest *= nextMulValue;
     std::cout << "mul: " << mulTest << '\n';
