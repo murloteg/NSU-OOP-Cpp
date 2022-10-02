@@ -15,11 +15,14 @@ class BigInt
 private:
     std::vector<int> vector_;
     bool sign_;
+    std::string binaryNotation;
     void DeleteZeros();
     bool IsEqualsZero(const BigInt& object);
     BigInt GetBigger(const BigInt& first, const BigInt& second);
     BigInt GetLower(const BigInt& first, const BigInt& second);
-    BigInt BinarySearch(const BigInt& rem, const BigInt& other);
+    void ConvertToBinaryString();
+    BigInt& DivideBy2(BigInt& value);
+    int GetRemainderBy2(BigInt& value);
 public:
     BigInt();
     BigInt(int value);
