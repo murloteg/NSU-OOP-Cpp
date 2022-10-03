@@ -2,11 +2,11 @@
 
 int main()
 {
-//    BigInt sumTest("500500");
-//    BigInt second(sumTest);
-//    second += sumTest;
-//    std::cout << "sum: " << second << '\n';
-//
+    BigInt sumTest("9999999999999");
+    BigInt second(sumTest);
+    ++second;
+    ++sumTest;
+    std::cout << "sum: " << sumTest << '\n';
 
     BigInt mulTest("123456789123456789");
     BigInt nextMulValue("123456789");

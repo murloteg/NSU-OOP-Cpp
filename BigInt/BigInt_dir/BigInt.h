@@ -60,7 +60,6 @@ public:
     operator std::string() const;
 
     size_t size() const;
-    friend std::ostream& operator<<(std::ostream &o, const BigInt &value);
 };
 
 BigInt operator+(const BigInt &first, const BigInt &second);
@@ -71,5 +70,7 @@ BigInt operator^(const BigInt &first, const BigInt &second);
 BigInt operator%(const BigInt &first, const BigInt &second);
 BigInt operator&(const BigInt &first, const BigInt &second);
 BigInt operator|(const BigInt &first, const BigInt &second);
+
+std::ostream& operator<<(std::ostream &o, const BigInt &value);
 
 #endif //BIGINT_BIGINT_H

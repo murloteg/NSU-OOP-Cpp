@@ -7,9 +7,16 @@ BigInt::BigInt()
 
 BigInt::BigInt(int value)
 {
+    bool overflowStatus = false;
     if (value < 0)
     {
         this->sign_ = true;
+        if (value == INT_MIN)
+        {
+            value += 1;
+            overflowStatus = true;
+        }
+
         value *= (-1);
     }
 
@@ -39,23 +46,49 @@ BigInt::BigInt(int value)
         this->vector_.push_back(nextPart);
         value /= BASE;
     }
+
+    if (overflowStatus)
+    {
+        ++this->vector_[0];
+    }
 }
 
 BigInt::BigInt(std::string string)
 {
     int indexInVector = 0;
-    if (string.size() == 0)
+    bool isNormalString = false;
+    for (char i : string)
     {
-        this->sign_ = false;
+        if (i >= '0' && i <= '9')
+        {
+            isNormalString = true;
+            break;
+        }
+    }
+
+    if (string.empty() || !isNormalString)
+    {
+        return;
     }
 
     else
     {
-        if (string[0] == '-')
+        bool isZero = true;
+        for (int i = 1; i < string.length(); ++i)
+        {
+            if (string[i] != '0')
+            {
+                isZero = false;
+                break;
+            }
+        }
+
+        if (string[0] == '-' && !isZero)
         {
             string = string.substr(1);
             this->sign_ = true;
         }
+
         else
         {
             this->sign_ = false;
@@ -102,13 +135,13 @@ size_t BigInt::size() const
 
 void BigInt::DeleteZeros()
 {
-    if (this->size() == 1)
-    {
-        return;
-    }
-
     while (!this->vector_.empty() && this->vector_.back() == 0)
     {
+        if (this->size() == 1)
+        {
+            return;
+        }
+
         this->vector_.pop_back();
     }
 }
@@ -154,7 +187,13 @@ void BigInt::ConvertToBinaryString()
 
 BigInt& BigInt::operator=(const BigInt& other)
 {
+    if (*this == other)
+    {
+        return *this;
+    }
+
     this->vector_.clear();
+    this->sign_ = other.sign_;
     for (size_t i = 0; i < other.size(); ++i)
     {
         this->vector_.push_back(other.vector_[i]);
@@ -165,7 +204,7 @@ BigInt& BigInt::operator=(const BigInt& other)
 
 BigInt BigInt::operator~() const
 {
-
+    return 0; ///
 }
 
 BigInt& BigInt::operator++()
@@ -486,27 +525,7 @@ BigInt& BigInt::operator^=(const BigInt &other) // XOR
 
 std::ostream& operator<<(std::ostream &output, const BigInt &value)
 {
-    if (value.size() == 0)
-    {
-        output << 0;
-    }
-
-    else
-    {
-        if (value.sign_)
-        {
-            output << '-';
-        }
-
-        output << value.vector_.back();
-        char fillChar = output.fill('0');
-        for (int i = static_cast<int> (value.size() - 2); i >= 0; --i)
-        {
-            output << std::setw(3) << value.vector_[i];
-        }
-        output.fill(fillChar);
-    }
-
+    output << (std::string) value;
     return output;
 }
 
@@ -648,7 +667,15 @@ BigInt::operator std::string() const
 
     for (int i = static_cast<int> (this->size() - 1); i >= 0; --i)
     {
-        string += std::to_string(this->vector_[i]);
+        if (this->vector_[i] != 0 || this->size() == 1)
+        {
+            string += std::to_string(this->vector_[i]);
+        }
+
+        else
+        {
+            string += "000";
+        }
     }
 
     return string;
@@ -666,6 +693,14 @@ BigInt BigInt::GetLower(const BigInt &first, const BigInt &second)
     BigInt firstTemp(first);
     BigInt secondTemp(second);
     return (firstTemp < secondTemp) ? first : second;
+}
+
+BigInt &BigInt::operator&=(const BigInt &other) {
+    return *this; ///
+}
+
+BigInt &BigInt::operator|=(const BigInt &other) {
+    return *this; ///
 }
 
 BigInt operator+(const BigInt& first, const BigInt& second)
@@ -701,4 +736,16 @@ BigInt operator%(const BigInt &first, const BigInt &second)
     BigInt temp(first);
     temp %= second;
     return temp;
+}
+
+BigInt operator&(const BigInt &first, const BigInt &second) {
+    return BigInt();
+}
+
+BigInt operator^(const BigInt &first, const BigInt &second) {
+    return BigInt();
+}
+
+BigInt operator|(const BigInt &first, const BigInt &second) {
+    return BigInt();
 }
