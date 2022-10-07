@@ -1,14 +1,14 @@
 # ninja log v5
-2	3554	1665118469902820811	CMakeFiles/BigInt.dir/Tests/all_tests.cpp.o	61a470f04ea323a0
-1	610	1664811133694168320	CMakeFiles/BigInt.dir/main.cpp.o	bed1eee5efcd4635
-3616	3694	1664811528944247000	lib/libgtest.a	21fa1f62a564646f
-792	942	1665118700575839848	BigInt	db50fc5daa8da2a4
-2	3615	1664811528843610448	_deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o	64d3da00d60eb989
-2	3714	1664799744344738063	CMakeFiles/BigInt.dir/all_tests.cpp.o	6bbe0e361ee02e80
-1	986	1664811526226714692	_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o	c9873be4b6cf31d4
-1	1237	1665057217092198712	CMakeFiles/BigInt.dir/my_tests.cpp.o	b94c6e57b8175dc
-0	268	1665118909982511745	build.ninja	3f93e2f42321b9a9
-759	792	1665118700439904000	BigInt_dir/libBigInt_lib.a	5c6b5cb858be0e32
-2	759	1665118700401168881	BigInt_dir/CMakeFiles/BigInt_lib.dir/BigInt.cpp.o	4b344b633e553c14
+2	1566	1665156736676725409	CMakeFiles/BigInt.dir/Tests/my_tests.cpp.o	77bcecd2a16ba2db
 3695	3732	1664811528981970000	lib/libgtest_main.a	1a22b72292c1559
-2	1454	1665118352798857086	CMakeFiles/BigInt.dir/Tests/my_tests.cpp.o	77bcecd2a16ba2db
+2	724	1665155115215887809	BigInt_dir/CMakeFiles/BigInt_lib.dir/BigInt.cpp.o	4b344b633e553c14
+724	757	1665155115257909000	BigInt_dir/libBigInt_lib.a	5c6b5cb858be0e32
+1	1237	1665057217092198712	CMakeFiles/BigInt.dir/my_tests.cpp.o	b94c6e57b8175dc
+0	349	1665158491646077811	build.ninja	3f93e2f42321b9a9
+1	986	1664811526226714692	_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o	c9873be4b6cf31d4
+2	3714	1664799744344738063	CMakeFiles/BigInt.dir/all_tests.cpp.o	6bbe0e361ee02e80
+2	3615	1664811528843610448	_deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o	64d3da00d60eb989
+3481	3634	1665158273942772025	BigInt	db50fc5daa8da2a4
+3616	3694	1664811528944247000	lib/libgtest.a	21fa1f62a564646f
+1	610	1664811133694168320	CMakeFiles/BigInt.dir/main.cpp.o	bed1eee5efcd4635
+2	3481	1665158273779959870	CMakeFiles/BigInt.dir/Tests/all_tests.cpp.o	61a470f04ea323a0

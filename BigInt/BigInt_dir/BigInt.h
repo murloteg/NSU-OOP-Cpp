@@ -7,7 +7,9 @@
 
 enum Consts : int
 {
-    BASE = 1000
+    BASE = 1000,
+    MAX_BIT_INDEX = 7,
+    BIT_LENGTH = 8
 };
 
 class BigInt
@@ -21,14 +23,16 @@ private:
     BigInt GetBigger(const BigInt& first, const BigInt& second);
     BigInt GetLower(const BigInt& first, const BigInt& second);
     void ConvertToBinaryString();
-    BigInt ConvertFromBinaryNotation(std::string &string);
+    static BigInt ConvertFromBinaryNotation(std::string &string);
     int GetNumberOfZerosFromCell(int value) const;
     BigInt& DivideBy2(BigInt& value);
     int GetRemainderBy2(BigInt& value);
     void Swap(BigInt& first, BigInt& second);
-    BigInt BitwiseXOR(std::string& first, std::string& second);
-    BigInt BitwiseAND(std::string& first, std::string& second);
-    void AddMoreZeros(std::string& string, int count);
+    static BigInt BitwiseXOR(std::string& first, std::string& second);
+    static BigInt BitwiseAND(std::string& first, std::string& second);
+    static BigInt BitwiseOR(std::string& first, std::string& second);
+    static void AddMoreZeros(std::string& string, int count);
+    bool CheckSign();
 public:
     BigInt();
     BigInt(int value);

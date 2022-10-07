@@ -130,7 +130,7 @@ INSTANTIATE_TEST_SUITE_P(
         BigIntPairArg(BigInt("-1000"), BigInt("1000"), "-2000"),
         BigIntPairArg(BigInt("-1000"), BigInt("-1000"), "0"),
         BigIntPairArg(BigInt("2147483648"), BigInt("1"), "2147483647"),
-        BigIntPairArg(BigInt("2147483647"), BigInt("4294967296"), "−2147483649"),
+        BigIntPairArg(BigInt("2147483647"), BigInt("4294967296"), "-2147483649"),
         BigIntPairArg(BigInt("4294967296"), BigInt("2147483647"), "2147483649")
 )
 );
@@ -211,14 +211,13 @@ INSTANTIATE_TEST_SUITE_P(
         BigIntPairArg(BigInt("-1000"), BigInt("-1000"), "0"),
         BigIntPairArg(BigInt("54321"), BigInt("123"), "54346"),
         //BigIntPairArg(BigInt("54321"), BigInt("-123"), "-54348"), //Дополнительный код
-        //BigIntPairArg(BigInt("54321"), BigInt("-123"), "-54346"), //Прямой код
+        BigIntPairArg(BigInt("54321"), BigInt("-123"), "-54346"), //Прямой код
         BigIntPairArg(BigInt("4294967296"), BigInt("512"), "4294967808")
 )
 );
 
 TEST_P(BigIntXorTest, assignment_xor_op) {
 BigIntPairArg arg = GetParam();
-std::cout << arg.val1 << ' ' << arg.val2;
 arg.val1 ^= arg.val2;
 ASSERT_EQ(arg.expected, (std::string) arg.val1);
 }
@@ -261,8 +260,8 @@ INSTANTIATE_TEST_SUITE_P(
         BigIntAndTest,
         ::testing::Values(
         BigIntPairArg(BigInt("10"), BigInt("1"), "0"),
-        //BigIntPairArg(BigInt("1000"), BigInt("-1000"), "1000"), //Прямой код
-        //BigIntPairArg(BigInt("1000"), BigInt("-1000"), "8"), //Дополнительный код
+        BigIntPairArg(BigInt("1000"), BigInt("-1000"), "1000"), //Прямой код
+//        BigIntPairArg(BigInt("1000"), BigInt("-1000"), "8"), //Дополнительный код
         BigIntPairArg(BigInt("-1000"), BigInt("-1000"), "-1000"),
         BigIntPairArg(BigInt("54321"), BigInt("123"), "49"),
         BigIntPairArg(BigInt("4294967296"), BigInt("512"), "0"),
@@ -289,7 +288,7 @@ INSTANTIATE_TEST_SUITE_P(
         BigIntOrTest,
         ::testing::Values(
         BigIntPairArg(BigInt("10"), BigInt("1"), "11"),
-        //BigIntPairArg(BigInt("1000"), BigInt("-1000"), "-1000"), //Прямой код
+        BigIntPairArg(BigInt("1000"), BigInt("-1000"), "-1000"), //Прямой код
         //BigIntPairArg(BigInt("1000"), BigInt("-1000"), "-8"), //Дополнительный код
         BigIntPairArg(BigInt("-1000"), BigInt("-1000"), "-1000"),
         BigIntPairArg(BigInt("54321"), BigInt("123"), "54395"),

@@ -160,12 +160,21 @@ TEST(BigIntTest, operator_sub_tests)
 
 TEST(BigIntTest, operator_mul_tests)
 {
+    BigInt value(-10000000);
+    value *= value;
+    ASSERT_EQ("100000000000000", (std::string) value);
 
+    BigInt second("123456789123456789");
+    value = 123456789;
+    value *= second;
+    ASSERT_EQ("15241578765432099750190521", (std::string) value);
 }
 
 TEST(BigIntTest, operator_div_tests)
 {
-
+    BigInt value(-10);
+    value /= value;
+    ASSERT_EQ("1", (std::string) value);
 }
 
 TEST(BigIntTest, operator_rem_tests)
@@ -204,6 +213,14 @@ TEST(BigIntTest, bitwise_and_tests)
     second = 3839;
     first &= second;
     ASSERT_EQ("17", (std::string) first);
+}
+
+TEST(BigIntTest, bitwise_or_tests)
+{
+    BigInt first(128);
+    BigInt second (127);
+    first |= second;
+    ASSERT_EQ("255", (std::string) first);
 }
 
 int main()
