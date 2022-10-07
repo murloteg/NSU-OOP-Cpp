@@ -21,8 +21,14 @@ private:
     BigInt GetBigger(const BigInt& first, const BigInt& second);
     BigInt GetLower(const BigInt& first, const BigInt& second);
     void ConvertToBinaryString();
+    BigInt ConvertFromBinaryNotation(std::string &string);
+    int GetNumberOfZerosFromCell(int value) const;
     BigInt& DivideBy2(BigInt& value);
     int GetRemainderBy2(BigInt& value);
+    void Swap(BigInt& first, BigInt& second);
+    BigInt BitwiseXOR(std::string& first, std::string& second);
+    BigInt BitwiseAND(std::string& first, std::string& second);
+    void AddMoreZeros(std::string& string, int count);
 public:
     BigInt();
     BigInt(int value);
@@ -71,6 +77,6 @@ BigInt operator%(const BigInt &first, const BigInt &second);
 BigInt operator&(const BigInt &first, const BigInt &second);
 BigInt operator|(const BigInt &first, const BigInt &second);
 
-std::ostream& operator<<(std::ostream &o, const BigInt &value);
+std::ostream& operator<<(std::ostream &output, const BigInt &value);
 
 #endif //BIGINT_BIGINT_H

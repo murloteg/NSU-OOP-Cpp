@@ -18,9 +18,10 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
-add_executable(BigInt my_tests.cpp)
-
+add_executable(BigInt Tests/my_tests.cpp)
+#add_executable(BigInt Tests/all_tests.cpp)
 add_subdirectory(BigInt_dir)
 target_include_directories(BigInt PUBLIC BigInt_dir)
 target_link_libraries(BigInt PRIVATE gtest_main)
 target_link_libraries(BigInt PRIVATE BigInt_lib)
+

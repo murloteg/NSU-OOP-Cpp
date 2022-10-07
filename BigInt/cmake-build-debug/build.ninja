@@ -46,12 +46,12 @@ cmake_ninja_workdir = /Users/mac/Desktop/GitHub/NSU-OOP-Cpp/BigInt/cmake-build-d
 
 build cmake_object_order_depends_target_BigInt: phony || cmake_object_order_depends_target_BigInt_lib cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main
 
-build CMakeFiles/BigInt.dir/my_tests.cpp.o: CXX_COMPILER__BigInt_Debug /Users/mac/Desktop/GitHub/NSU-OOP-Cpp/BigInt/my_tests.cpp || cmake_object_order_depends_target_BigInt
-  DEP_FILE = CMakeFiles/BigInt.dir/my_tests.cpp.o.d
+build CMakeFiles/BigInt.dir/Tests/my_tests.cpp.o: CXX_COMPILER__BigInt_Debug /Users/mac/Desktop/GitHub/NSU-OOP-Cpp/BigInt/Tests/my_tests.cpp || cmake_object_order_depends_target_BigInt
+  DEP_FILE = CMakeFiles/BigInt.dir/Tests/my_tests.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -std=gnu++17
   INCLUDES = -I/Users/mac/Desktop/GitHub/NSU-OOP-Cpp/BigInt/BigInt_dir -isystem /Users/mac/Desktop/GitHub/NSU-OOP-Cpp/BigInt/cmake-build-debug/_deps/googletest-src/googletest/include -isystem /Users/mac/Desktop/GitHub/NSU-OOP-Cpp/BigInt/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles/BigInt.dir
-  OBJECT_FILE_DIR = CMakeFiles/BigInt.dir
+  OBJECT_FILE_DIR = CMakeFiles/BigInt.dir/Tests
 
 
 # =============================================================================
@@ -61,7 +61,7 @@ build CMakeFiles/BigInt.dir/my_tests.cpp.o: CXX_COMPILER__BigInt_Debug /Users/ma
 #############################################
 # Link the executable BigInt
 
-build BigInt: CXX_EXECUTABLE_LINKER__BigInt_Debug CMakeFiles/BigInt.dir/my_tests.cpp.o | lib/libgtest_main.a BigInt_dir/libBigInt_lib.a lib/libgtest.a || BigInt_dir/libBigInt_lib.a lib/libgtest.a lib/libgtest_main.a
+build BigInt: CXX_EXECUTABLE_LINKER__BigInt_Debug CMakeFiles/BigInt.dir/Tests/my_tests.cpp.o | lib/libgtest_main.a BigInt_dir/libBigInt_lib.a lib/libgtest.a || BigInt_dir/libBigInt_lib.a lib/libgtest.a lib/libgtest_main.a
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk
   LINK_LIBRARIES = lib/libgtest_main.a  BigInt_dir/libBigInt_lib.a  lib/libgtest.a
   OBJECT_DIR = CMakeFiles/BigInt.dir

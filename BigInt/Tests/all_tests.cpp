@@ -218,6 +218,7 @@ INSTANTIATE_TEST_SUITE_P(
 
 TEST_P(BigIntXorTest, assignment_xor_op) {
 BigIntPairArg arg = GetParam();
+std::cout << arg.val1 << ' ' << arg.val2;
 arg.val1 ^= arg.val2;
 ASSERT_EQ(arg.expected, (std::string) arg.val1);
 }
