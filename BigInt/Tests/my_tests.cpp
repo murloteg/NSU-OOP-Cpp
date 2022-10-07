@@ -122,6 +122,8 @@ TEST(BigIntTest, operator_add_tests)
 {
     ASSERT_EQ("0", (std::string) (BigInt("-10000000000") + BigInt("10000000000")));
     ASSERT_EQ("0", (std::string) (BigInt("10000000000") + BigInt("-10000000000")));
+    ASSERT_EQ("-20000000000", (std::string) (BigInt("-10000000000") + BigInt("-10000000000")));
+    ASSERT_EQ("20000000000", (std::string) (BigInt("10000000000") + BigInt("10000000000")));
     ASSERT_EQ("0", (std::string) (BigInt(0) + BigInt(0)));
     ASSERT_EQ("0", (std::string) (BigInt("0") + BigInt("-0")));
     ASSERT_EQ("-1", (std::string) (BigInt(INT_MIN) + BigInt(INT_MAX)));
@@ -140,7 +142,6 @@ TEST(BigIntTest, operator_add_tests)
     value += value;
     ASSERT_EQ("246913578246913578246913578246913578", (std::string) value);
 }
-
 
 TEST(BigIntTest, operator_sub_tests)
 {
@@ -168,18 +169,45 @@ TEST(BigIntTest, operator_mul_tests)
     value = 123456789;
     value *= second;
     ASSERT_EQ("15241578765432099750190521", (std::string) value);
+
+    ASSERT_EQ("11133355577800022244466688799900", (std::string) (BigInt("100200300400500600700800900") * BigInt("111111")));
+    ASSERT_EQ("22266711155600044488933377599800", (std::string) (BigInt("100200300400500600700800900") * BigInt("222222")));
+    ASSERT_EQ("0", (std::string) (BigInt("100200300400500600700800900") * BigInt("0")));
+    ASSERT_EQ("0", (std::string) (BigInt("0") * BigInt("100200300400500600700800900")));
 }
 
 TEST(BigIntTest, operator_div_tests)
 {
-    BigInt value(-10);
+    BigInt value("-123456789123456789123456789123456789123456789123456789123456789123456789");
     value /= value;
     ASSERT_EQ("1", (std::string) value);
+
+    BigInt first("15241578765432099750190521");
+    ASSERT_EQ("123456789123456789", (std::string) (first / BigInt(123456789)));
+    ASSERT_EQ("123456789", (std::string) (first / BigInt("123456789123456789")));
+
+    BigInt second("22266711155600044488933377599800");
+    ASSERT_EQ("22266711155600044488933377599800", (std::string) (second / BigInt(1)));
+    ASSERT_EQ("100200300400500600700800900", (std::string) (second / BigInt(222222)));
+    ASSERT_EQ("222222", (std::string) (second / BigInt("100200300400500600700800900")));
+    ASSERT_EQ("-22266711155600044488933377599800", (std::string) (second / BigInt(-1)));
+    ASSERT_EQ("100200300400500600700800900", (std::string) (-second / BigInt(-222222)));
+    ASSERT_EQ("-222222", (std::string) (-second / BigInt("100200300400500600700800900")));
 }
 
 TEST(BigIntTest, operator_rem_tests)
 {
+    BigInt value("-123456789123456789123456789123456789123456789123456789123456789123456789");
+    ASSERT_EQ("1", (std::string) (value % BigInt(2)));
+    ASSERT_EQ("1", (std::string) (-value % BigInt(2)));
 
+    value = 123456789;
+    value %= 12345678;
+    ASSERT_EQ("9", (std::string) value);
+
+    ASSERT_EQ("1000", (std::string) (BigInt("100000000000000000000000000000") % BigInt(1100)));
+    ASSERT_EQ("99", (std::string) (BigInt("999999999") % BigInt(1111111)));
+    ASSERT_EQ("0", (std::string) (BigInt("999999999") % BigInt(111111111)));
 }
 
 TEST(BigIntTest, xor_tests)
@@ -199,20 +227,26 @@ TEST(BigIntTest, xor_tests)
     fourth ^= second;
     ASSERT_EQ("562950081548438", (std::string) fourth);
 
-    // TODO: add tests for non-assignment operators.
+    ASSERT_EQ("15", (std::string) (BigInt("127127127127127") ^ BigInt("127127127127128")));
+    ASSERT_EQ("-15", (std::string) (BigInt("-127127127127128") ^ BigInt("127127127127127")));
+    ASSERT_EQ("15", (std::string) (BigInt("-127127127127128") ^ BigInt("-127127127127127")));
 }
 
 TEST(BigIntTest, bitwise_and_tests)
 {
-    BigInt first(127);
-    BigInt second(64);
+    BigInt first("11112222");
+    BigInt second("22221111");
     first &= second;
-    ASSERT_EQ("64", (std::string) first);
+    ASSERT_EQ("65814", (std::string) first);
 
     first = 4369;
     second = 3839;
     first &= second;
     ASSERT_EQ("17", (std::string) first);
+
+    ASSERT_EQ("512", (std::string) (BigInt("123456789123456789") & BigInt(512)));
+    ASSERT_EQ("512", (std::string) (BigInt("-123456789123456789") & BigInt(512)));
+    ASSERT_EQ("-512", (std::string) (BigInt("-123456789123456789") & BigInt(-512)));
 }
 
 TEST(BigIntTest, bitwise_or_tests)
@@ -221,6 +255,61 @@ TEST(BigIntTest, bitwise_or_tests)
     BigInt second (127);
     first |= second;
     ASSERT_EQ("255", (std::string) first);
+}
+
+TEST(BigIntTest, unary_minus_tests)
+{
+
+}
+
+TEST(BigIntTest, unary_plus_tests)
+{
+
+}
+
+TEST(BigIntTest, less_tests)
+{
+
+}
+
+TEST(BigIntTest, less_or_equals_tests)
+{
+
+}
+
+TEST(BigIntTest, more_tests)
+{
+
+}
+
+TEST(BigIntTest, more_or_equals_tests)
+{
+
+}
+
+TEST(BigIntTest, equals_tests)
+{
+
+}
+
+TEST(BigIntTest, not_equals_tests)
+{
+
+}
+
+TEST(BigIntTest, cast_to_int_tests)
+{
+
+}
+
+TEST(BigIntTest, cast_to_string_tests)
+{
+
+}
+
+TEST(BigIntTest, get_size_tests)
+{
+
 }
 
 int main()

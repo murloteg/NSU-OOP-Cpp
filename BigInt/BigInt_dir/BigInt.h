@@ -24,10 +24,10 @@ private:
     BigInt GetLower(const BigInt& first, const BigInt& second);
     void ConvertToBinaryString();
     static BigInt ConvertFromBinaryNotation(std::string &string);
-    int GetNumberOfZerosFromCell(int value) const;
+    static int GetNumberOfZerosFromCell(int value);
     BigInt& DivideBy2(BigInt& value);
-    int GetRemainderBy2(BigInt& value);
-    void Swap(BigInt& first, BigInt& second);
+    static int GetRemainderBy2(BigInt& value);
+    static void Swap(BigInt& first, BigInt& second);
     static BigInt BitwiseXOR(std::string& first, std::string& second);
     static BigInt BitwiseAND(std::string& first, std::string& second);
     static BigInt BitwiseOR(std::string& first, std::string& second);

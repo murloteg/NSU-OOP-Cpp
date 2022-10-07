@@ -185,7 +185,7 @@ void BigInt::ConvertToBinaryString()
     std::reverse(binaryNotation.begin(), binaryNotation.end());
 }
 
-int BigInt::GetNumberOfZerosFromCell(int value) const
+int BigInt::GetNumberOfZerosFromCell(int value)
 {
     int numberOfZeros = 0;
     int base = BASE;
