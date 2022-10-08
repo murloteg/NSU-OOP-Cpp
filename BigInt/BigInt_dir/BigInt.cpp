@@ -6,7 +6,7 @@ BigInt::BigInt()
     this->vector_.push_back(0);
 }
 
-BigInt::BigInt(int value)
+BigInt::BigInt(int value) 
 {
     bool overflowStatus = false;
     if (value < 0)
@@ -40,7 +40,7 @@ BigInt::BigInt(int value)
         tempValue /= 10;
     }
 
-    int realSize = (length / 3) + 1 * (length % 3 != 0);
+    int realSize = (length / getLengthOfBase()) + 1 * (length % getLengthOfBase() != 0);
     for (size_t i = 0; i < realSize; ++i)
     {
         int nextPart = value % BASE;
@@ -95,11 +95,11 @@ BigInt::BigInt(std::string string)
             this->sign_ = false;
         }
 
-        for (int i = static_cast<int> (string.length()); i > 0; i -= 3)
+        for (int i = static_cast<int> (string.length()); i > 0; i -= getLengthOfBase())
         {
-            if (i > 3)
+            if (i > getLengthOfBase())
             {
-                this->vector_.push_back(static_cast<int> (strtol(string.substr(i - 3, 3).c_str(), nullptr, 10)));
+                this->vector_.push_back(static_cast<int> (strtol(string.substr(i - getLengthOfBase(), getLengthOfBase()).c_str(), nullptr, 10)));
                 ++indexInVector;
             }
 
@@ -111,7 +111,7 @@ BigInt::BigInt(std::string string)
         }
     }
 
-    this->DeleteZeros();
+    this->deleteZeros();
 }
 
 BigInt::BigInt(const BigInt &origin)
@@ -133,7 +133,21 @@ size_t BigInt::size() const
     return this->vector_.size();
 }
 
-void BigInt::DeleteZeros()
+int BigInt::getLengthOfBase()
+{
+    int length = 0;
+    int base = BASE;
+    while (base > 0)
+    {
+        base /= 10;
+        ++length;
+    }
+
+    --length;
+    return length;
+}
+
+void BigInt::deleteZeros()
 {
     while (!this->vector_.empty() && this->vector_.back() == 0)
     {
@@ -146,7 +160,7 @@ void BigInt::DeleteZeros()
     }
 }
 
-bool BigInt::IsEqualsZero(const BigInt& object)
+bool BigInt::isEqualsZero(const BigInt& object)
 {
     if (this->size() == 0)
     {
@@ -164,11 +178,11 @@ bool BigInt::IsEqualsZero(const BigInt& object)
     return true;
 }
 
-void BigInt::ConvertToBinaryString()
+void BigInt::convertToBinaryString()
 {
     this->binaryNotation = "";
     BigInt two(2);
-    while (!IsEqualsZero(*this))
+    while (!isEqualsZero(*this))
     {
         int result = *this % two;
         if (result == 0)
@@ -185,7 +199,7 @@ void BigInt::ConvertToBinaryString()
     std::reverse(binaryNotation.begin(), binaryNotation.end());
 }
 
-int BigInt::GetNumberOfZerosFromCell(int value)
+int BigInt::getNumberOfZerosFromCell(int value)
 {
     int numberOfZeros = 0;
     int base = BASE;
@@ -205,16 +219,16 @@ int BigInt::GetNumberOfZerosFromCell(int value)
     return numberOfZeros;
 }
 
-void BigInt::Swap(BigInt& first, BigInt& second)
+void BigInt::swap(BigInt& first, BigInt& second)
 {
     BigInt tempValue(first);
     first = second;
     second = tempValue;
 }
 
-bool BigInt::CheckSign()
+bool BigInt::checkSign()
 {
-    if (IsEqualsZero(*this))
+    if (isEqualsZero(*this))
     {
         return false;
     }
@@ -264,7 +278,7 @@ BigInt& BigInt::operator--()
 {
     if (!this->sign_)
     {
-        if (IsEqualsZero(*this))
+        if (isEqualsZero(*this))
         {
             this->vector_[0] = 1;
             this->sign_ = true;
@@ -314,7 +328,7 @@ BigInt& BigInt::operator--()
         }
     }
 
-    DeleteZeros();
+    deleteZeros();
     return *this;
 }
 
@@ -329,8 +343,8 @@ BigInt& BigInt::operator+=(const BigInt &other)
 {
     if (this->sign_ && !other.sign_ || !this->sign_ && other.sign_ || this->sign_ && other.sign_)
     {
-        BigInt bigger(GetBigger(*this, other));
-        BigInt lower(GetLower(*this, other));
+        BigInt bigger(getBigger(*this, other));
+        BigInt lower(getLower(*this, other));
         if (bigger.sign_ && lower.sign_)
         {
             bigger.sign_ = lower.sign_ = false;
@@ -367,10 +381,10 @@ BigInt& BigInt::operator+=(const BigInt &other)
 
 BigInt& BigInt::operator-=(const BigInt &other)
 {
-    if (IsEqualsZero(*this))
+    if (isEqualsZero(*this))
     {
         BigInt tempValue(other);
-        if (IsEqualsZero(tempValue))
+        if (isEqualsZero(tempValue))
         {
             tempValue.sign_ = true;
         }
@@ -381,8 +395,8 @@ BigInt& BigInt::operator-=(const BigInt &other)
 
     if (this->sign_ && !other.sign_ || !this->sign_ && other.sign_ || this->sign_ && other.sign_)
     {
-        BigInt bigger(GetBigger(*this, other));
-        BigInt lower(GetLower(*this, other));
+        BigInt bigger(getBigger(*this, other));
+        BigInt lower(getLower(*this, other));
         bool firstIsBigger = (bigger == *this);
         if (lower.sign_ && bigger.sign_)
         {
@@ -418,11 +432,11 @@ BigInt& BigInt::operator-=(const BigInt &other)
     }
 
     *this = result;
-    DeleteZeros();
+    deleteZeros();
     return *this;
 }
 
-BigInt &BigInt::DivideBy2(BigInt& value)
+BigInt &BigInt::divideBy2(BigInt& value)
 {
     int carry = 0;
     int length = static_cast<int> (value.size());
@@ -439,7 +453,7 @@ BigInt &BigInt::DivideBy2(BigInt& value)
     return *this;
 }
 
-int BigInt::GetRemainderBy2(BigInt& value)
+int BigInt::getRemainderBy2(BigInt& value)
 {
     if (value.size() == 0 || value.vector_[0] % 2 == 0)
     {
@@ -462,7 +476,7 @@ BigInt& BigInt::operator*=(const BigInt &other) // first * second = 2^n + q
     }
 
     first.sign_ = second.sign_ = false;
-    if (IsEqualsZero(first) || IsEqualsZero(second))
+    if (isEqualsZero(first) || isEqualsZero(second))
     {
         *this = 0;
         return *this;
@@ -470,15 +484,15 @@ BigInt& BigInt::operator*=(const BigInt &other) // first * second = 2^n + q
 
     if (first.size() < second.size())
     {
-        Swap(first, second);
+        swap(first, second);
     }
 
     while (second > static_cast<BigInt> (0))
     {
-        if (GetRemainderBy2(second) == 0)
+        if (getRemainderBy2(second) == 0)
         {
             first = first + first;
-            second = DivideBy2(second);
+            second = divideBy2(second);
         }
 
         else
@@ -541,7 +555,7 @@ BigInt& BigInt::operator/=(const BigInt &other)
 
     *this = result;
     this->sign_ = sign;
-    DeleteZeros();
+    deleteZeros();
     return *this;
 }
 
@@ -555,7 +569,7 @@ BigInt& BigInt::operator%=(const BigInt &other)
     return *this;
 }
 
-void BigInt::AddMoreZeros(std::string &string, int count)
+void BigInt::addMoreZeros(std::string &string, int count)
 {
     std::reverse(string.begin(), string.end());
     for (int i = 0; i < count; ++i)
@@ -565,7 +579,7 @@ void BigInt::AddMoreZeros(std::string &string, int count)
     std::reverse(string.begin(), string.end());
 }
 
-BigInt BigInt::ConvertFromBinaryNotation(std::string &string)
+BigInt BigInt::convertFromBinaryNotation(std::string &string)
 {
     int realSize = static_cast<int> (string.length() / BIT_LENGTH);
     BigInt result(0);
@@ -595,42 +609,40 @@ BigInt BigInt::ConvertFromBinaryNotation(std::string &string)
     return result;
 }
 
-BigInt BigInt::BitwiseXOR(std::string& first, std::string& second)
+int BigInt::prepareStringsAndGetMaxLength(std::string& first, std::string& second)
 {
     int maxLength = static_cast<int> (std::max(first.length(), second.length()));
     if (first.length() != maxLength || first.length() < BIT_LENGTH)
     {
-        AddMoreZeros(first, static_cast<int> (maxLength - first.length()));
+        addMoreZeros(first, static_cast<int> (maxLength - first.length()));
     }
 
     else if (second.length() != maxLength || second.length() < BIT_LENGTH)
     {
-        AddMoreZeros(second, static_cast<int> (maxLength - second.length()));
+        addMoreZeros(second, static_cast<int> (maxLength - second.length()));
     }
 
     if (first.length() <= BIT_LENGTH && second.length() <= BIT_LENGTH)
     {
-        AddMoreZeros(first, static_cast<int> (BIT_LENGTH - first.length()));
-        AddMoreZeros(second, static_cast<int> (BIT_LENGTH - second.length()));
+        addMoreZeros(first, static_cast<int> (BIT_LENGTH - first.length()));
+        addMoreZeros(second, static_cast<int> (BIT_LENGTH - second.length()));
         maxLength = BIT_LENGTH;
     }
 
+    return maxLength;
+}
+
+BigInt BigInt::bitwiseXOR(std::string& first, std::string& second)
+{
     std::string result;
+    int maxLength = prepareStringsAndGetMaxLength(first, second);
     for (int i = 0; i < maxLength; ++i)
     {
-        if (first[i] == second[i])
-        {
-            result += '0';
-        }
-
-        else
-        {
-            result += '1';
-        }
+        result += (first[i] == second[i]) ? "0" : "1";
     }
 
-    BigInt tempValue = ConvertFromBinaryNotation(result);
-    tempValue.DeleteZeros();
+    BigInt tempValue = convertFromBinaryNotation(result);
+    tempValue.deleteZeros();
     return tempValue;
 }
 
@@ -639,50 +651,25 @@ BigInt& BigInt::operator^=(const BigInt &other)
     bool sign = (this->sign_ != other.sign_);
     BigInt second(other);
     this->sign_ = second.sign_ = false;
-    this->ConvertToBinaryString();
-    second.ConvertToBinaryString();
-    *this = BitwiseXOR(this->binaryNotation, second.binaryNotation);
+    this->convertToBinaryString();
+    second.convertToBinaryString();
+    *this = bitwiseXOR(this->binaryNotation, second.binaryNotation);
     this->sign_ = sign;
-    this->sign_ = CheckSign();
+    this->sign_ = checkSign();
     return *this;
 }
 
-BigInt BigInt::BitwiseAND(std::string& first, std::string& second)
+BigInt BigInt::bitwiseAND(std::string& first, std::string& second)
 {
     std::string result;
-    int maxLength = static_cast<int> (std::max(first.length(), second.length()));
-    if (first.length() != maxLength || first.length() < BIT_LENGTH)
-    {
-        AddMoreZeros(first, static_cast<int> (maxLength - first.length()));
-    }
-
-    else if (second.length() != maxLength || second.length() < BIT_LENGTH)
-    {
-        AddMoreZeros(second, static_cast<int> (maxLength - second.length()));
-    }
-
-    if (first.length() <= BIT_LENGTH && second.length() <= BIT_LENGTH)
-    {
-        AddMoreZeros(first, static_cast<int> (BIT_LENGTH - first.length()));
-        AddMoreZeros(second, static_cast<int> (BIT_LENGTH - second.length()));
-        maxLength = BIT_LENGTH;
-    }
-
+    int maxLength = prepareStringsAndGetMaxLength(first, second);
     for (int i = 0; i < maxLength; ++i)
     {
-        if (first[i] == '1' && second[i] == '1')
-        {
-            result += '1';
-        }
-
-        else
-        {
-            result += '0';
-        }
+        result += (first[i] == '1' && second[i] == '1') ? "1" : "0";
     }
 
-    BigInt tempValue = ConvertFromBinaryNotation(result);
-    tempValue.DeleteZeros();
+    BigInt tempValue = convertFromBinaryNotation(result);
+    tempValue.deleteZeros();
     return tempValue;
 }
 
@@ -691,50 +678,25 @@ BigInt &BigInt::operator&=(const BigInt &other)
     bool sign = (this->sign_ == other.sign_) && this->sign_ && other.sign_;
     BigInt second(other);
     this->sign_ = second.sign_ = false;
-    this->ConvertToBinaryString();
-    second.ConvertToBinaryString();
-    *this = BitwiseAND(this->binaryNotation, second.binaryNotation);
+    this->convertToBinaryString();
+    second.convertToBinaryString();
+    *this = bitwiseAND(this->binaryNotation, second.binaryNotation);
     this->sign_ = sign;
-    this->sign_ = CheckSign();
+    this->sign_ = checkSign();
     return *this;
 }
 
-BigInt BigInt::BitwiseOR(std::string& first, std::string& second)
+BigInt BigInt::bitwiseOR(std::string& first, std::string& second)
 {
     std::string result;
-    int maxLength = static_cast<int> (std::max(first.length(), second.length()));
-    if (first.length() != maxLength || first.length() < BIT_LENGTH)
-    {
-        AddMoreZeros(first, static_cast<int> (maxLength - first.length()));
-    }
-
-    else if (second.length() != maxLength || second.length() < BIT_LENGTH)
-    {
-        AddMoreZeros(second, static_cast<int> (maxLength - second.length()));
-    }
-
-    if (first.length() <= BIT_LENGTH && second.length() <= BIT_LENGTH)
-    {
-        AddMoreZeros(first, static_cast<int> (BIT_LENGTH - first.length()));
-        AddMoreZeros(second, static_cast<int> (BIT_LENGTH - second.length()));
-        maxLength = BIT_LENGTH;
-    }
-
+    int maxLength = prepareStringsAndGetMaxLength(first, second);
     for (int i = 0; i < maxLength; ++i)
     {
-        if (first[i] == '1' || second[i] == '1')
-        {
-            result += '1';
-        }
-
-        else
-        {
-            result += '0';
-        }
+        result += (first[i] == '1' || second[i] == '1') ? '1' : '0';
     }
 
-    BigInt tempValue = ConvertFromBinaryNotation(result);
-    tempValue.DeleteZeros();
+    BigInt tempValue = convertFromBinaryNotation(result);
+    tempValue.deleteZeros();
     return tempValue;
 }
 
@@ -743,11 +705,11 @@ BigInt &BigInt::operator|=(const BigInt &other)
     bool sign = (this->sign_ != other.sign_) || (this->sign_ && other.sign_);
     BigInt second(other);
     this->sign_ = second.sign_ = false;
-    this->ConvertToBinaryString();
-    second.ConvertToBinaryString();
-    *this = BitwiseOR(this->binaryNotation, second.binaryNotation);
+    this->convertToBinaryString();
+    second.convertToBinaryString();
+    *this = bitwiseOR(this->binaryNotation, second.binaryNotation);
     this->sign_ = sign;
-    this->sign_ = CheckSign();
+    this->sign_ = checkSign();
     return *this;
 }
 
@@ -881,7 +843,7 @@ BigInt::operator int() const
     {
         result = result * BASE + this->vector_[i];
     }
-
+    // TODO: exception: overflow int.
     return result;
 }
 
@@ -895,8 +857,8 @@ BigInt::operator std::string() const
 
     for (int i = static_cast<int> (this->size() - 1); i >= 0; --i)
     {
-        int numberOfZeros = GetNumberOfZerosFromCell(this->vector_[i]);
-        if (numberOfZeros == 3 && this->size() != 1)
+        int numberOfZeros = getNumberOfZerosFromCell(this->vector_[i]);
+        if (numberOfZeros == getLengthOfBase() && this->size() != 1)
         {
             string += "000";
             continue;
@@ -913,14 +875,14 @@ BigInt::operator std::string() const
     return string;
 }
 
-BigInt BigInt::GetBigger(const BigInt &first, const BigInt &second)
+BigInt BigInt::getBigger(const BigInt &first, const BigInt &second)
 {
     BigInt firstTemp(first);
     BigInt secondTemp(second);
     return (firstTemp >= secondTemp) ? first : second;
 }
 
-BigInt BigInt::GetLower(const BigInt &first, const BigInt &second)
+BigInt BigInt::getLower(const BigInt &first, const BigInt &second)
 {
     BigInt firstTemp(first);
     BigInt secondTemp(second);

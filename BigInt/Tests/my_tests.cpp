@@ -7,6 +7,12 @@ const std::string INT_MIN_LOCAL_STRING = "-2147483648";
 
 TEST(BigIntTest, int_constructor_tests)
 {
+    BigInt temp(1); // TODO: remove helping actions.
+    for (int i = 0; i < 60; ++i)
+    {
+        std::cout << temp << '\n';
+        temp *= 2;
+    }
     ASSERT_EQ("123456789", (std::string) BigInt(123456789));
     ASSERT_EQ("-123456789", (std::string) BigInt(-123456789));
     ASSERT_EQ("0", (std::string) BigInt(-0));
@@ -255,21 +261,32 @@ TEST(BigIntTest, bitwise_or_tests)
     BigInt second (127);
     first |= second;
     ASSERT_EQ("255", (std::string) first);
+    ASSERT_EQ("127127135", (std::string) (BigInt("127127128") | BigInt("127127127")));
+    ASSERT_EQ("288230376151715840", (std::string) (BigInt("288230376151711744") | BigInt("4096"))); // 2^58 | 2^12
 }
 
 TEST(BigIntTest, unary_minus_tests)
 {
-
+    BigInt first("123456789123456789");
+    ASSERT_EQ("-123456789123456789", (std::string) -first);
+    first = -123456789;
+    ASSERT_EQ("123456789", (std::string) -first);
 }
 
 TEST(BigIntTest, unary_plus_tests)
 {
-
+    BigInt first("123456789123456789");
+    ASSERT_EQ("123456789123456789", (std::string) +first);
+    first = -123456789;
+    ASSERT_EQ("-123456789", (std::string) +first);
 }
 
 TEST(BigIntTest, less_tests)
 {
-
+    ASSERT_TRUE(BigInt("123456789123456788") < BigInt("123456789123456789"));
+    ASSERT_FALSE(BigInt("123456789123456789") < BigInt("123456789123456788"));
+    BigInt first("1000000000");
+    ASSERT_FALSE(first < first);
 }
 
 TEST(BigIntTest, less_or_equals_tests)
