@@ -6,7 +6,7 @@
 #include <iomanip>
 
 enum Consts : int {
-    BASE = 1000,
+    BASE = 1000000000,
     MAX_BIT_INDEX = 7,
     BIT_LENGTH = 8
 };
@@ -70,6 +70,7 @@ private:
     static BigInt bitwiseOR(std::string& first, std::string& second);
     static int prepareStringsAndGetMaxLength(std::string& first, std::string& second);
     static void addMoreZeros(std::string& string, int count);
+    static std::string getZeroStringForBase();
 };
 
 BigInt operator+(const BigInt &first, const BigInt &second);

@@ -5,38 +5,95 @@
 const std::string INT_MAX_LOCAL_STRING = "2147483647";
 const std::string INT_MIN_LOCAL_STRING = "-2147483648";
 
-TEST(BigIntTest, int_constructor_tests)
+struct IntArg
 {
-    BigInt temp(1); // TODO: remove helping actions.
-    for (int i = 0; i < 60; ++i)
-    {
-        std::cout << temp << '\n';
-        temp *= 2;
-    }
-    ASSERT_EQ("123456789", (std::string) BigInt(123456789));
-    ASSERT_EQ("-123456789", (std::string) BigInt(-123456789));
-    ASSERT_EQ("0", (std::string) BigInt(-0));
-    ASSERT_EQ("999999999", (std::string) BigInt(+999999999));
-    ASSERT_EQ("1020304050", (std::string) BigInt(+1020304050));
-    ASSERT_EQ(std::to_string(INT_MAX), (std::string) BigInt(INT_MAX));
-    ASSERT_EQ(std::to_string(INT_MIN), (std::string) BigInt(INT_MIN));
+    int val;
+    std::string expected;
+    IntArg(int val, std::string expected) : val(val), expected(std::move(expected)) {}
+};
+
+struct StringArg
+{
+    std::string val;
+    std::string expected;
+    StringArg(std::string val, std::string expected) : val(std::move(val)), expected(std::move(expected)) {}
+};
+
+struct BigIntSingleArg
+{
+    BigInt val;
+    std::string expected;
+    BigIntSingleArg(const BigInt &val, std::string expected) : val(val), expected(std::move(expected)) {}
+};
+
+struct BigIntPairArg
+{
+    BigInt val1;
+    BigInt val2;
+    std::string expected;
+    BigIntPairArg(const BigInt &val1, const BigInt &val2, std::string expected) :
+            val1(val1), val2(val2), expected(std::move(expected)) {}
+};
+
+class IntConstructorTests : public ::testing::TestWithParam<IntArg> {};
+
+INSTANTIATE_TEST_SUITE_P(
+        BigIntTest,
+        IntConstructorTests,
+        ::testing::Values(
+                IntArg(123456789, "123456789"),
+                IntArg(-123456789, "-123456789"),
+                IntArg(-0, "0"),
+                IntArg(+999999999, "999999999"),
+                IntArg(1020304050, "1020304050"),
+                IntArg(INT_MAX, INT_MAX_LOCAL_STRING),
+                IntArg(INT_MIN, INT_MIN_LOCAL_STRING)
+        )
+);
+
+//    BigInt temp(1); // TODO: remove helping actions.
+//    for (int i = 0; i < 60; ++i)
+//    {
+//        std::cout << temp << '\n';
+//        temp *= 2;
+//    }
+
+TEST_P(IntConstructorTests, int_constructor_tests)
+{
+    IntArg arg = GetParam();
+    ASSERT_EQ(arg.expected, (std::string) BigInt(arg.val));
 }
 
-TEST(BigIntTest, string_constructor_tests)
+class StringConstructorTests : public ::testing::TestWithParam<StringArg> {};
+
+INSTANTIATE_TEST_SUITE_P(
+        BigIntTest,
+        StringConstructorTests,
+        ::testing::Values(
+                StringArg("123456789123456789123456789", "123456789123456789123456789"),
+                StringArg("-123456789123456789123456789", "-123456789123456789123456789"),
+                StringArg("0", "0"),
+                StringArg("-0", "0"),
+                StringArg("00000000000000000000000000000", "0"),
+                StringArg("000000001541154", "1541154"),
+                StringArg("-000000001541154", "-1541154"),
+                StringArg("-01000500040001000100050004000", "-1000500040001000100050004000")
+        )
+);
+
+TEST_P(StringConstructorTests, string_constructor_tests)
 {
-    ASSERT_EQ("123456789123456789123456789", (std::string) BigInt("123456789123456789123456789"));
-    ASSERT_EQ("-123456789123456789123456789", (std::string) BigInt("-123456789123456789123456789"));
-    ASSERT_EQ("0", (std::string) BigInt("0"));
-    ASSERT_EQ("0", (std::string) BigInt("00000000000000000000000000000"));
-    ASSERT_EQ("1541154", (std::string) BigInt("000000001541154"));
-    ASSERT_EQ("-1541154", (std::string) BigInt("-000000001541154"));
-    ASSERT_EQ("-1000500040001000100050004000", (std::string) BigInt("-01000500040001000100050004000"));
-    ASSERT_EQ("0", (std::string) BigInt("-0"));
-    ASSERT_NE("0", (std::string) BigInt(""));
-    ASSERT_NE("0", (std::string) BigInt("      "));
-    ASSERT_NE("0", (std::string) BigInt("-"));
-    ASSERT_NE("0", (std::string) BigInt("+"));
-    ASSERT_NE("0", (std::string) BigInt("+-+-"));
+    StringArg arg = GetParam();
+    ASSERT_EQ(arg.expected, (std::string) BigInt(arg.val));
+}
+
+TEST(BigIntTest, string_constructor_exception_tests)
+{
+    ASSERT_ANY_THROW((std::string) BigInt(""));
+    ASSERT_ANY_THROW((std::string) BigInt("-"));
+    ASSERT_ANY_THROW((std::string) BigInt("+"));
+    ASSERT_ANY_THROW((std::string) BigInt("-+"));
+    ASSERT_ANY_THROW((std::string) BigInt("abcdef"));
 }
 
 TEST(BigIntTest, copy_constructor_tests)
@@ -50,8 +107,12 @@ TEST(BigIntTest, copy_constructor_tests)
 TEST(BigIntTest, copy_operator_test)
 {
     BigInt value("123456789123456789123456789");
-    const BigInt &copy = value;
-    ASSERT_EQ("123456789123456789123456789", (std::string) copy);
+    const BigInt &firstCopy = value;
+    ASSERT_EQ("123456789123456789123456789", (std::string) firstCopy);
+
+    value = INT_MIN;
+    const BigInt &secondCopy = value;
+    ASSERT_EQ(INT_MIN_LOCAL_STRING, (std::string) value);
 }
 
 TEST(BigIntTest, copy_operator_self_assignment_test)
@@ -109,21 +170,26 @@ TEST(BigIntTest, postfix_decrement_tests)
     ASSERT_EQ("-1", (std::string) value);
 }
 
-TEST(BigIntTest, bitwise_not_tests)
+class BitwiseNotTests : public ::testing::TestWithParam<BigIntSingleArg> {};
+
+INSTANTIATE_TEST_SUITE_P(
+    BigIntTest,
+    BitwiseNotTests,
+    ::testing::Values(
+            BigIntSingleArg(BigInt(INT_MIN), INT_MAX_LOCAL_STRING),
+            BigIntSingleArg(BigInt(INT_MAX), INT_MIN_LOCAL_STRING),
+            BigIntSingleArg(BigInt(0), "-1"),
+            BigIntSingleArg(BigInt(127), "-128")
+    )
+);
+
+TEST_P(BitwiseNotTests, bitwise_not_tests)
 {
-    BigInt value(INT_MIN);
-    value = ~value;
-    ASSERT_EQ(std::to_string(INT_MAX), (std::string) value);
-
-    value = INT_MAX;
-    value = ~value;
-    ASSERT_EQ(std::to_string(INT_MIN), (std::string) value);
-
-    value = 127;
-    value = ~value;
-    ASSERT_EQ("-128", (std::string) value);
+    BigIntSingleArg arg = GetParam();
+    ASSERT_EQ(arg.expected, (std::string) ~arg.val);
 }
 
+// TODO: add more tests with parameters.
 TEST(BigIntTest, operator_add_tests)
 {
     ASSERT_EQ("0", (std::string) (BigInt("-10000000000") + BigInt("10000000000")));

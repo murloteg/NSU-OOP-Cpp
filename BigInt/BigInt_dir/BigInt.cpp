@@ -69,7 +69,7 @@ BigInt::BigInt(std::string string)
 
     if (string.empty() || !isNormalString)
     {
-        return;
+        throw std::invalid_argument("bad value");
     }
 
     else
@@ -145,6 +145,17 @@ int BigInt::getLengthOfBase()
 
     --length;
     return length;
+}
+
+std::string BigInt::getZeroStringForBase()
+{
+    std::string zeroString;
+    for (int i = 0; i < getLengthOfBase(); ++i)
+    {
+        zeroString += '0';
+    }
+
+    return zeroString;
 }
 
 void BigInt::deleteZeros()
@@ -513,6 +524,11 @@ BigInt& BigInt::operator/=(const BigInt &other)
     bool sign = false;
     BigInt first(*this);
     BigInt second(other);
+    if (isEqualsZero(other))
+    {
+        throw std::invalid_argument("division by zero");
+    }
+
     if (this->sign_ && !other.sign_ || !this->sign_ && other.sign_)
     {
         sign = true;
@@ -839,11 +855,22 @@ bool BigInt::operator>=(const BigInt &other)
 BigInt::operator int() const
 {
     int result = 0;
+    bool isOverflow = false;
     for (int i = static_cast<int> (this->size() - 1); i >= 0; --i)
     {
+        if (result < 0)
+        {
+            isOverflow = true;
+            break;
+        }
         result = result * BASE + this->vector_[i];
     }
-    // TODO: exception: overflow int.
+
+    if (isOverflow)
+    {
+        throw std::length_error("overflow for int type");
+    }
+
     return result;
 }
 
@@ -860,7 +887,7 @@ BigInt::operator std::string() const
         int numberOfZeros = getNumberOfZerosFromCell(this->vector_[i]);
         if (numberOfZeros == getLengthOfBase() && this->size() != 1)
         {
-            string += "000";
+            string += getZeroStringForBase();
             continue;
         }
 
