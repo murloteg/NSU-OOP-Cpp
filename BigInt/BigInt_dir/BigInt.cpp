@@ -173,14 +173,14 @@ void BigInt::deleteZeros()
 
 bool BigInt::isEqualsZero(const BigInt& object)
 {
-    if (this->size() == 0)
+    if (object.size() == 0)
     {
         return true;
     }
 
-    for (size_t i = 0; i < this->size(); ++i)
+    for (size_t i = 0; i < object.size(); ++i)
     {
-        if (this->vector_[i] != 0)
+        if (object.vector_[i] != 0)
         {
             return false;
         }

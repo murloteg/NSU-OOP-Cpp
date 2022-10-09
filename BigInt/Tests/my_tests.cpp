@@ -179,7 +179,9 @@ INSTANTIATE_TEST_SUITE_P(
             BigIntSingleArg(BigInt(INT_MIN), INT_MAX_LOCAL_STRING),
             BigIntSingleArg(BigInt(INT_MAX), INT_MIN_LOCAL_STRING),
             BigIntSingleArg(BigInt(0), "-1"),
-            BigIntSingleArg(BigInt(127), "-128")
+            BigIntSingleArg(BigInt(128128128), "-128128129"),
+            BigIntSingleArg(BigInt("123456789123456789"), "-123456789123456790"),
+            BigIntSingleArg(BigInt("-123456789123456790"), "123456789123456789")
     )
 );
 
@@ -188,8 +190,6 @@ TEST_P(BitwiseNotTests, bitwise_not_tests)
     BigIntSingleArg arg = GetParam();
     ASSERT_EQ(arg.expected, (std::string) ~arg.val);
 }
-
-// TODO: add more tests with parameters.
 
 class OperatorSumTests : public ::testing::TestWithParam<BigIntPairArg> {};
 
@@ -207,7 +207,8 @@ INSTANTIATE_TEST_SUITE_P(
                 BigIntPairArg(BigInt("9999999999999"), BigInt("1"), "10000000000000"),
                 BigIntPairArg(BigInt("1"), BigInt("9999999999999"), "10000000000000"),
                 BigIntPairArg(BigInt(INT_MAX), BigInt("10000000000000"), "10002147483647"),
-                BigIntPairArg(BigInt("123456789123456789123456789123456789"), BigInt("123456789123456789123456789123456789"), "246913578246913578246913578246913578")
+                BigIntPairArg(BigInt("123456789123456789123456789123456789"), BigInt("123456789123456789123456789123456789"), "246913578246913578246913578246913578"),
+                BigIntPairArg(BigInt("123456789123456789123456789123456789"), BigInt("-123456789123456789123456789123456789"), "0")
         )
 );
 
@@ -224,39 +225,73 @@ TEST_P(OperatorSumTests, assignment_sum_tests)
     ASSERT_EQ(arg.expected, (std::string) arg.val1);
 }
 
-TEST(BigIntTest, operator_sub_tests)
-{
-    ASSERT_EQ("0", (std::string) (BigInt("10000000000") - BigInt("10000000000")));
-    ASSERT_EQ("0", (std::string) (BigInt("-10000000000") - BigInt("-10000000000")));
-    ASSERT_EQ("-20000000000", (std::string) (BigInt("-10000000000") - BigInt("10000000000")));
-    ASSERT_EQ("20000000000", (std::string) (BigInt("10000000000") - BigInt("-10000000000")));
-    ASSERT_EQ("0", (std::string) (BigInt(0) - BigInt(0)));
-    ASSERT_EQ("0", (std::string) (BigInt("0") - BigInt("-0")));
-    ASSERT_EQ("4294967295", (std::string) (BigInt(INT_MAX_LOCAL_STRING) - BigInt(INT_MIN_LOCAL_STRING)));
-    ASSERT_EQ("400000000000000", (std::string) (BigInt("500000000000000") - BigInt("100000000000000")));
+class OperatorSubTests : public ::testing::TestWithParam<BigIntPairArg> {};
 
-    BigInt value("123456789123456789123456789123456789");
-    value -= BigInt("100000000000000000000000000000000000");
-    ASSERT_EQ("23456789123456789123456789123456789", (std::string) value);
+INSTANTIATE_TEST_SUITE_P(
+        BigIntTest,
+        OperatorSubTests,
+        ::testing::Values(
+                BigIntPairArg(BigInt("10000000000"), BigInt("10000000000"), "0"),
+                BigIntPairArg(BigInt("-10000000000"), BigInt("-10000000000"), "0"),
+                BigIntPairArg(BigInt("-10000000000"), BigInt("10000000000"), "-20000000000"),
+                BigIntPairArg(BigInt("10000000000"), BigInt("-10000000000"), "20000000000"),
+                BigIntPairArg(BigInt("0"), BigInt("0"), "0"),
+                BigIntPairArg(BigInt("0"), BigInt("-0"), "0"),
+                BigIntPairArg(BigInt(INT_MAX_LOCAL_STRING), BigInt(INT_MIN_LOCAL_STRING), "4294967295"),
+                BigIntPairArg(BigInt("500000000000000"), BigInt("100000000000000"), "400000000000000"),
+                BigIntPairArg(BigInt("123456789123456789123456789123456789"), BigInt("100000000000000000000000000000000000"), "23456789123456789123456789123456789"),
+                BigIntPairArg(BigInt("123456789123456789123456789123456789"), BigInt("123456789123456789123456789123456789"), "0")
+        )
+);
+
+TEST_P(OperatorSubTests, operator_sub_tests)
+{
+    BigIntPairArg arg = GetParam();
+    ASSERT_EQ(arg.expected, (std::string) (arg.val1 - arg.val2));
 }
 
-TEST(BigIntTest, operator_mul_tests)
+TEST_P(OperatorSubTests, assignment_sub_tests)
 {
-    BigInt value(-10000000);
-    value *= value;
-    ASSERT_EQ("100000000000000", (std::string) value);
-
-    BigInt second("123456789123456789");
-    value = 123456789;
-    value *= second;
-    ASSERT_EQ("15241578765432099750190521", (std::string) value);
-
-    ASSERT_EQ("11133355577800022244466688799900", (std::string) (BigInt("100200300400500600700800900") * BigInt("111111")));
-    ASSERT_EQ("22266711155600044488933377599800", (std::string) (BigInt("100200300400500600700800900") * BigInt("222222")));
-    ASSERT_EQ("0", (std::string) (BigInt("100200300400500600700800900") * BigInt("0")));
-    ASSERT_EQ("0", (std::string) (BigInt("0") * BigInt("100200300400500600700800900")));
+    BigIntPairArg arg = GetParam();
+    arg.val1 -= arg.val2;
+    ASSERT_EQ(arg.expected, (std::string) arg.val1);
 }
 
+class OperatorMulTests : public ::testing::TestWithParam<BigIntPairArg> {};
+
+INSTANTIATE_TEST_SUITE_P(
+        BigIntTest,
+        OperatorMulTests,
+        ::testing::Values(
+                BigIntPairArg(BigInt(-10000000), BigInt(-10000000), "100000000000000"),
+                BigIntPairArg(BigInt(-10000000), BigInt(10000000), "-100000000000000"),
+                BigIntPairArg(BigInt(10000000), BigInt(-10000000), "-100000000000000"),
+                BigIntPairArg(BigInt(10000000), BigInt(10000000), "100000000000000"),
+                BigIntPairArg(BigInt("123456789123456789"), BigInt("123456789"), "15241578765432099750190521"),
+                BigIntPairArg(BigInt("100200300400500600700800900"), BigInt("111111"), "11133355577800022244466688799900"),
+                BigIntPairArg(BigInt("100200300400500600700800900"), BigInt("-111111"), "-11133355577800022244466688799900"),
+                BigIntPairArg(BigInt("100200300400500600700800900"), BigInt("222222"), "22266711155600044488933377599800"),
+                BigIntPairArg(BigInt("100200300400500600700800900"), BigInt("0"), "0"),
+                BigIntPairArg(BigInt("0"), BigInt("100200300400500600700800900"), "0"),
+                BigIntPairArg(BigInt("0"), BigInt("0"), "0"),
+                BigIntPairArg(BigInt("-0"), BigInt("-0"), "0")
+        )
+);
+
+TEST_P(OperatorMulTests, operator_mul_tests)
+{
+    BigIntPairArg arg = GetParam();
+    ASSERT_EQ(arg.expected, (std::string) (arg.val1 * arg.val2));
+}
+
+TEST_P(OperatorMulTests, assignment_mul_tests)
+{
+    BigIntPairArg arg = GetParam();
+    arg.val1 *= arg.val2;
+    ASSERT_EQ(arg.expected, (std::string) arg.val1);
+}
+
+// TODO: add more tests with parameters.
 TEST(BigIntTest, operator_div_tests)
 {
     BigInt value("-123456789123456789123456789123456789123456789123456789123456789123456789");
@@ -274,6 +309,12 @@ TEST(BigIntTest, operator_div_tests)
     ASSERT_EQ("-22266711155600044488933377599800", (std::string) (second / BigInt(-1)));
     ASSERT_EQ("100200300400500600700800900", (std::string) (-second / BigInt(-222222)));
     ASSERT_EQ("-222222", (std::string) (-second / BigInt("100200300400500600700800900")));
+}
+
+TEST(BigIntTest, division_exception_test)
+{
+    ASSERT_ANY_THROW(BigInt("123456789123456789") / BigInt("0"));
+    ASSERT_ANY_THROW(BigInt("123456789123456789") / BigInt("-0"));
 }
 
 TEST(BigIntTest, operator_rem_tests)
