@@ -89,11 +89,11 @@ TEST_P(StringConstructorTests, string_constructor_tests)
 
 TEST(BigIntTest, string_constructor_exception_tests)
 {
-    ASSERT_ANY_THROW((std::string) BigInt(""));
-    ASSERT_ANY_THROW((std::string) BigInt("-"));
-    ASSERT_ANY_THROW((std::string) BigInt("+"));
-    ASSERT_ANY_THROW((std::string) BigInt("-+"));
-    ASSERT_ANY_THROW((std::string) BigInt("abcdef"));
+    ASSERT_ANY_THROW(BigInt(""));
+    ASSERT_ANY_THROW(BigInt("-"));
+    ASSERT_ANY_THROW(BigInt("+"));
+    ASSERT_ANY_THROW(BigInt("-+"));
+    ASSERT_ANY_THROW(BigInt("abcdef"));
 }
 
 TEST(BigIntTest, copy_constructor_tests)
@@ -190,29 +190,38 @@ TEST_P(BitwiseNotTests, bitwise_not_tests)
 }
 
 // TODO: add more tests with parameters.
-TEST(BigIntTest, operator_add_tests)
+
+class OperatorSumTests : public ::testing::TestWithParam<BigIntPairArg> {};
+
+INSTANTIATE_TEST_SUITE_P(
+        BigIntTest,
+        OperatorSumTests,
+        ::testing::Values(
+                BigIntPairArg(BigInt("-10000000000"), BigInt("10000000000"), "0"),
+                BigIntPairArg(BigInt("10000000000"), BigInt("-10000000000"), "0"),
+                BigIntPairArg(BigInt("10000000000"), BigInt("10000000000"), "20000000000"),
+                BigIntPairArg(BigInt("-10000000000"), BigInt("-10000000000"), "-20000000000"),
+                BigIntPairArg(BigInt(0), BigInt(0), "0"),
+                BigIntPairArg(BigInt("-0"), BigInt(0), "0"),
+                BigIntPairArg(BigInt(INT_MIN), BigInt(INT_MAX), "-1"),
+                BigIntPairArg(BigInt("9999999999999"), BigInt("1"), "10000000000000"),
+                BigIntPairArg(BigInt("1"), BigInt("9999999999999"), "10000000000000"),
+                BigIntPairArg(BigInt(INT_MAX), BigInt("10000000000000"), "10002147483647"),
+                BigIntPairArg(BigInt("123456789123456789123456789123456789"), BigInt("123456789123456789123456789123456789"), "246913578246913578246913578246913578")
+        )
+);
+
+TEST_P(OperatorSumTests, operator_sum_tests)
 {
-    ASSERT_EQ("0", (std::string) (BigInt("-10000000000") + BigInt("10000000000")));
-    ASSERT_EQ("0", (std::string) (BigInt("10000000000") + BigInt("-10000000000")));
-    ASSERT_EQ("-20000000000", (std::string) (BigInt("-10000000000") + BigInt("-10000000000")));
-    ASSERT_EQ("20000000000", (std::string) (BigInt("10000000000") + BigInt("10000000000")));
-    ASSERT_EQ("0", (std::string) (BigInt(0) + BigInt(0)));
-    ASSERT_EQ("0", (std::string) (BigInt("0") + BigInt("-0")));
-    ASSERT_EQ("-1", (std::string) (BigInt(INT_MIN) + BigInt(INT_MAX)));
-    ASSERT_EQ("1000000000000000", (std::string) (BigInt("500000000000000") + BigInt("500000000000000")));
-    ASSERT_EQ("10000000000000", (std::string) (BigInt("9999999999999") + BigInt("1")));
-    ASSERT_EQ("10000000000000", (std::string) (BigInt("1") + BigInt("9999999999999")));
+    BigIntPairArg arg = GetParam();
+    ASSERT_EQ(arg.expected, (std::string) (arg.val1 + arg.val2));
+}
 
-    BigInt value = INT_MAX;
-    value += BigInt("10000000000000");
-    ASSERT_EQ("10002147483647", (std::string) value);
-
-    value = 0;
-    value += BigInt("123456789123456789123456789123456789");
-    ASSERT_EQ("123456789123456789123456789123456789", (std::string) value);
-
-    value += value;
-    ASSERT_EQ("246913578246913578246913578246913578", (std::string) value);
+TEST_P(OperatorSumTests, assignment_sum_tests)
+{
+    BigIntPairArg arg = GetParam();
+    arg.val1 += arg.val2;
+    ASSERT_EQ(arg.expected, (std::string) arg.val1);
 }
 
 TEST(BigIntTest, operator_sub_tests)
