@@ -1,7 +1,0 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -G Ninja -S "/Users/mac/CLionProjects/Cpp-Projects/Prisoner's Dilemma" -B "/Users/mac/CLionProjects/Cpp-Projects/Prisoner's Dilemma/cmake-build-debug"
--- Could NOT find Boost (missing: Boost_INCLUDE_DIR program_options) 
--- Boost: Debug build, static libraries, MPI OFF, Python OFF, testing OFF
--- Boost: libraries included: program_options
--- Configuring done
--- Generating done
--- Build files have been written to: /Users/mac/CLionProjects/Cpp-Projects/Prisoner's Dilemma/cmake-build-debug
