@@ -8,7 +8,8 @@
 					"build" : ".",
 					"childIndexes" : 
 					[
-						1
+						1,
+						41
 					],
 					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
@@ -511,6 +512,21 @@
 					"parentIndex" : 1,
 					"projectIndex" : 40,
 					"source" : "cmake-build-debug/_deps/boost-src/libs/winapi"
+				},
+				{
+					"build" : "Strategies",
+					"jsonFile" : "directory-Strategies-Debug-102a129a9fa95a8a29d1.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.23"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "Strategies",
+					"targetIndexes" : 
+					[
+						3
+					]
 				}
 			],
 			"name" : "Debug",
@@ -523,12 +539,14 @@
 					],
 					"directoryIndexes" : 
 					[
-						0
+						0,
+						41
 					],
 					"name" : "Dilemma",
 					"targetIndexes" : 
 					[
-						0
+						0,
+						3
 					]
 				},
 				{
@@ -907,7 +925,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Dilemma::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Dilemma-Debug-38801c58af02b59f12a8.json",
+					"jsonFile" : "target-Dilemma-Debug-0bfd766cd440cc6988f2.json",
 					"name" : "Dilemma",
 					"projectIndex" : 0
 				},
@@ -924,6 +942,13 @@
 					"jsonFile" : "target-boost_program_options-Debug-0f342bd100d913410768.json",
 					"name" : "boost_program_options",
 					"projectIndex" : 28
+				},
+				{
+					"directoryIndex" : 41,
+					"id" : "strategies_lib::@7b1a4c656ec2b66574ca",
+					"jsonFile" : "target-strategies_lib-Debug-eb00a76a2d7bb1185289.json",
+					"name" : "strategies_lib",
+					"projectIndex" : 0
 				}
 			]
 		}

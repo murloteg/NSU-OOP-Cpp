@@ -2,11 +2,6 @@
 -- Could NOT find Boost (missing: Boost_INCLUDE_DIR program_options) 
 -- Boost: Debug build, static libraries, MPI OFF, Python OFF, testing OFF
 -- Boost: libraries included: program_options
-CMake Error at CMakeLists.txt:40 (set_target_properties):
-  set_target_properties Can not find target to add properties to:
-  strategies_lib
-
-
--- Configuring incomplete, errors occurred!
-See also "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/CMakeFiles/CMakeOutput.log".
-See also "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/CMakeFiles/CMakeError.log".
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug

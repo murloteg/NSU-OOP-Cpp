@@ -1,1 +1,1 @@
-add_library(strategies_lib STATIC GameStrategy.h Trivial_Always_C.h Trivial_Always_D.h Trivial_Random.h)
+add_library(strategies_lib STATIC GameStrategy.h Trivial_Always_C.cpp Trivial_Always_D.cpp Trivial_Random.cpp)

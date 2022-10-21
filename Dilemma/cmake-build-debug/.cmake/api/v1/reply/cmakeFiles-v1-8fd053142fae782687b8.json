@@ -406,6 +406,9 @@
 		{
 			"isGenerated" : true,
 			"path" : "cmake-build-debug/_deps/boost-src/libs/winapi/CMakeLists.txt"
+		},
+		{
+			"path" : "Strategies/CMakeLists.txt"
 		}
 	],
 	"kind" : "cmakeFiles",

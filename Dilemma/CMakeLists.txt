@@ -39,5 +39,4 @@ include_directories(${BOOST_INCLUDE_LIBRARIES})
 
 add_subdirectory(Strategies)
 target_include_directories(Dilemma PUBLIC Strategies)
-target_link_libraries(Dilemma PUBLIC Boost::program_options)
-target_link_libraries(Dilemma PUBLIC strategies_lib) # TODO: work on it.
+target_link_libraries(Dilemma PUBLIC Boost::program_options strategies_lib)

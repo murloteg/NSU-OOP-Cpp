@@ -8,8 +8,6 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-    enum StrategiesNames s = TRIVIAL_ALWAYS_C;
-    cout << s << endl;
     vector<string> names;
     string mode;
     int steps;
