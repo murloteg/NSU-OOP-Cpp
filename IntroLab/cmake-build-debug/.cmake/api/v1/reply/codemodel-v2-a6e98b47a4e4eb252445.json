@@ -96,7 +96,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "intro_lab::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-intro_lab-Debug-e5e6bd3db1fc15eaa862.json",
+					"jsonFile" : "target-intro_lab-Debug-95254349a8b22a7764d5.json",
 					"name" : "intro_lab",
 					"projectIndex" : 0
 				},
@@ -127,8 +127,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/Users/mac/CLionProjects/Cpp-Projects/intro_lab/cmake-build-debug",
-		"source" : "/Users/mac/CLionProjects/Cpp-Projects/intro_lab"
+		"build" : "/Users/mac/CLionProjects/Cpp-Projects/IntroLab/cmake-build-debug",
+		"source" : "/Users/mac/CLionProjects/Cpp-Projects/IntroLab"
 	},
 	"version" : 
 	{

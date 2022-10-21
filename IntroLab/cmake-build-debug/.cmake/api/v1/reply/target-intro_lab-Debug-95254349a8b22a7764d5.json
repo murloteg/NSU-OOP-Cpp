@@ -71,15 +71,15 @@
 			[
 				{
 					"backtrace" : 3,
-					"path" : "/Users/mac/CLionProjects/Cpp-Projects/intro_lab/modules/module1"
+					"path" : "/Users/mac/CLionProjects/Cpp-Projects/IntroLab/modules/module1"
 				},
 				{
 					"backtrace" : 4,
-					"path" : "/Users/mac/CLionProjects/Cpp-Projects/intro_lab/modules/module2"
+					"path" : "/Users/mac/CLionProjects/Cpp-Projects/IntroLab/modules/module2"
 				},
 				{
 					"backtrace" : 5,
-					"path" : "/Users/mac/CLionProjects/Cpp-Projects/intro_lab/modules/module3"
+					"path" : "/Users/mac/CLionProjects/Cpp-Projects/IntroLab/modules/module3"
 				}
 			],
 			"language" : "CXX",
@@ -101,15 +101,15 @@
 	[
 		{
 			"backtrace" : 2,
+			"id" : "module1_lib::@9af30fd340da8f4bfef3"
+		},
+		{
+			"backtrace" : 2,
 			"id" : "module2_lib::@d099830ac294d1289245"
 		},
 		{
 			"backtrace" : 2,
 			"id" : "module3_lib::@fba5b853b15d94a86c92"
-		},
-		{
-			"backtrace" : 2,
-			"id" : "module1_lib::@9af30fd340da8f4bfef3"
 		}
 	],
 	"id" : "intro_lab::@6890427a1f51a3e7e1df",

@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/mac/CLionProjects/Cpp-Projects/intro_lab/cmake-build-debug"
+			"value" : "/Users/mac/CLionProjects/Cpp-Projects/IntroLab/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -515,7 +515,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/mac/CLionProjects/Cpp-Projects/intro_lab"
+			"value" : "/Users/mac/CLionProjects/Cpp-Projects/IntroLab"
 		},
 		{
 			"name" : "CMAKE_INSTALL_NAME_TOOL",
@@ -1087,7 +1087,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/mac/CLionProjects/Cpp-Projects/intro_lab/cmake-build-debug"
+			"value" : "/Users/mac/CLionProjects/Cpp-Projects/IntroLab/cmake-build-debug"
 		},
 		{
 			"name" : "intro_lab_IS_TOP_LEVEL",
@@ -1111,7 +1111,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/mac/CLionProjects/Cpp-Projects/intro_lab"
+			"value" : "/Users/mac/CLionProjects/Cpp-Projects/IntroLab"
 		}
 	],
 	"kind" : "cache",

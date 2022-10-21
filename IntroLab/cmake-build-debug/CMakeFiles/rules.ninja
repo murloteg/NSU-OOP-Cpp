@@ -99,7 +99,7 @@ rule CXX_STATIC_LIBRARY_LINKER__module3_lib_Debug
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/mac/CLionProjects/Cpp-Projects/intro_lab -B/Users/mac/CLionProjects/Cpp-Projects/intro_lab/cmake-build-debug
+  command = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/mac/CLionProjects/Cpp-Projects/IntroLab -B/Users/mac/CLionProjects/Cpp-Projects/IntroLab/cmake-build-debug
   description = Re-running CMake...
   generator = 1
 
