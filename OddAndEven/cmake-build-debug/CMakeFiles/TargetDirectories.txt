@@ -1,6 +1,0 @@
-/Users/mac/CLionProjects/Cpp-Projects/OddAndEven/cmake-build-debug/CMakeFiles/OddAndEven.dir
-/Users/mac/CLionProjects/Cpp-Projects/OddAndEven/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/mac/CLionProjects/Cpp-Projects/OddAndEven/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/mac/CLionProjects/Cpp-Projects/OddAndEven/cmake-build-debug/MyFunction_lib/CMakeFiles/OddAndEven_lib.dir
-/Users/mac/CLionProjects/Cpp-Projects/OddAndEven/cmake-build-debug/MyFunction_lib/CMakeFiles/edit_cache.dir
-/Users/mac/CLionProjects/Cpp-Projects/OddAndEven/cmake-build-debug/MyFunction_lib/CMakeFiles/rebuild_cache.dir
