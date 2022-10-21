@@ -1,0 +1,1 @@
+add_library(OddAndEven_lib STATIC OddAndEven.cpp OddAndEven.h)

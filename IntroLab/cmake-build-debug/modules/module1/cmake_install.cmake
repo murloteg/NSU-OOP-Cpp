@@ -1,4 +1,4 @@
-# Install script for directory: /Users/mac/Desktop/GitHub/NSU-OOP-Cpp/IntroLab/modules/module1
+# Install script for directory: /Users/mac/CLionProjects/Cpp-Projects/intro_lab/modules/module1
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

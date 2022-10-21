@@ -3,28 +3,35 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <iomanip>
+#include <ostream> //
+#include <iomanip> //
 
-enum Consts : int {
-    BASE = 1000000000,
-    MAX_BIT_INDEX = 7,
-    BIT_LENGTH = 8
+enum Consts : int
+{
+    BASE = 1000
 };
 
-class BigInt {
+class BigInt
+{
+private:
+    std::vector<int> vector_;
+    size_t size_;
+    bool sign_;
 public:
     BigInt();
-    BigInt(int value);
+    explicit BigInt(int size);
     BigInt(std::string string);
     BigInt(const BigInt &origin);
     ~BigInt();
+    int operator[](int index);
+
 
     BigInt& operator=(const BigInt &other);
     BigInt operator~() const;
     BigInt& operator++();
-    const BigInt operator++(int);
+    const BigInt operator++(int) const;
     BigInt& operator--();
-    const BigInt operator--(int);
+    const BigInt operator--(int) const;
 
     BigInt& operator+=(const BigInt &other);
     BigInt& operator-=(const BigInt &other);
@@ -49,28 +56,7 @@ public:
     operator std::string() const;
 
     size_t size() const;
-private:
-    std::vector<int> vector_;
-    bool sign_;
-    std::string binaryNotation;
-    void deleteZeros();
-    bool isEqualsZero(const BigInt& object);
-    bool checkSign();
-    static int getLengthOfBase();
-    BigInt getBigger(const BigInt& first, const BigInt& second);
-    BigInt getLower(const BigInt& first, const BigInt& second);
-    static int getNumberOfZerosFromCell(int value);
-    BigInt& divideBy2(BigInt& value);
-    static int getRemainderBy2(BigInt& value);
-    static void swap(BigInt& first, BigInt& second);
-    void convertToBinaryString();
-    static BigInt convertFromBinaryNotation(std::string &string);
-    static BigInt bitwiseXOR(std::string& first, std::string& second);
-    static BigInt bitwiseAND(std::string& first, std::string& second);
-    static BigInt bitwiseOR(std::string& first, std::string& second);
-    static int prepareStringsAndGetMaxLength(std::string& first, std::string& second);
-    static void addMoreZeros(std::string& string, int count);
-    static std::string getZeroStringForBase();
+    friend std::ostream& operator<<(std::ostream &o, const BigInt &value);
 };
 
 BigInt operator+(const BigInt &first, const BigInt &second);
@@ -82,6 +68,5 @@ BigInt operator%(const BigInt &first, const BigInt &second);
 BigInt operator&(const BigInt &first, const BigInt &second);
 BigInt operator|(const BigInt &first, const BigInt &second);
 
-std::ostream& operator<<(std::ostream &output, const BigInt &value);
 
 #endif //BIGINT_BIGINT_H

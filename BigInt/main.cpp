@@ -2,10 +2,14 @@
 
 int main()
 {
-    BigInt first("123456789123456789");
-    BigInt second("123456789");
-    first *= second;
-    std::cout << "mul: " << first << '\n';
+    BigInt sTest("1234567890");
+    //BigInt sTest("0500500");
+    std::cout << sTest << '\n';
+
+    BigInt second(sTest);
+    second += sTest;
+    std::cout << second << '\n';
+
 
     return 0;
 }

@@ -1,0 +1,12 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -G Ninja -S /Users/mac/CLionProjects/Cpp-Projects/Dilemma -B /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug
+-- Could NOT find Boost (missing: Boost_INCLUDE_DIR program_options) 
+-- Boost: Debug build, static libraries, MPI OFF, Python OFF, testing OFF
+-- Boost: libraries included: program_options
+CMake Error at CMakeLists.txt:40 (set_target_properties):
+  set_target_properties Can not find target to add properties to:
+  strategies_lib
+
+
+-- Configuring incomplete, errors occurred!
+See also "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/CMakeFiles/CMakeOutput.log".
+See also "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/CMakeFiles/CMakeError.log".

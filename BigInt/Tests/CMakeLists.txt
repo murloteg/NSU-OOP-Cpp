@@ -1,1 +1,0 @@
-add_library(Tests_lib STATIC all_tests.cpp my_tests.cpp)

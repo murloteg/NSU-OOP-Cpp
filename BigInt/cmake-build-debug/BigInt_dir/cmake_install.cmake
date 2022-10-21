@@ -1,4 +1,4 @@
-# Install script for directory: /Users/mac/Desktop/GitHub/NSU-OOP-Cpp/BigInt/BigInt_dir
+# Install script for directory: /Users/mac/CLionProjects/Cpp-Projects/BigInt/BigInt_dir
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -1,0 +1,15 @@
+# ninja log v5
+1	510	1662885620252197344	CMakeFiles/vector.dir/main.cpp.o	b34ac08c648ca133
+494	526	1663473818744975000	module_vector/libvector_lib.a	3474f779be4ebd7c
+2	494	1663473818707479602	module_vector/CMakeFiles/vector_lib.dir/vector.cpp.o	4a6063e53e9e19de
+1	966	1663473819179341202	CMakeFiles/vector.dir/vector_test.cpp.o	d97a8dd595ea3619
+3282	3348	1663472670129093000	lib/libgtest.a	21fa1f62a564646f
+966	1049	1663473819261772169	vector	38facd623a5bf87f
+1	3281	1663472670045794918	_deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o	c544e736c995bcdc
+1	939	1663472667713065937	_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o	5b9a1bb887b363dc
+2	718	1664515661110119660	CMakeFiles/vector.dir/module_vector/vector.cpp.o	954f046b3592cdf6
+3348	3378	1663472670159384000	lib/libgtest_main.a	1a22b72292c1559
+5	597	1664516473244483146	module_vector/CMakeFiles/vector_lib.dir/vector.cpp.o	4a6063e53e9e19de
+597	638	1664516473290076000	module_vector/libvector_lib.a	3474f779be4ebd7c
+2	1244	1664516473889992714	CMakeFiles/vector.dir/vector_test.cpp.o	d97a8dd595ea3619
+1244	1352	1664516473997458600	vector	38facd623a5bf87f

@@ -1,4 +1,4 @@
-# Install script for directory: /Users/mac/Desktop/GitHub/NSU-OOP-Cpp/BigInt
+# Install script for directory: /Users/mac/CLionProjects/Cpp-Projects/BigInt
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,12 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/mac/Desktop/GitHub/NSU-OOP-Cpp/BigInt/cmake-build-debug/_deps/googletest-build/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("/Users/mac/Desktop/GitHub/NSU-OOP-Cpp/BigInt/cmake-build-debug/BigInt_dir/cmake_install.cmake")
+  include("/Users/mac/CLionProjects/Cpp-Projects/BigInt/cmake-build-debug/BigInt_dir/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -55,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/mac/Desktop/GitHub/NSU-OOP-Cpp/BigInt/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/mac/CLionProjects/Cpp-Projects/BigInt/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

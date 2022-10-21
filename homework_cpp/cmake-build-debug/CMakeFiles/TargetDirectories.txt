@@ -1,0 +1,6 @@
+/Users/mac/CLionProjects/Cpp-Projects/homework_cpp/cmake-build-debug/CMakeFiles/homework_cpp.dir
+/Users/mac/CLionProjects/Cpp-Projects/homework_cpp/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/mac/CLionProjects/Cpp-Projects/homework_cpp/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/mac/CLionProjects/Cpp-Projects/homework_cpp/cmake-build-debug/TestClass/CMakeFiles/my_class_lib.dir
+/Users/mac/CLionProjects/Cpp-Projects/homework_cpp/cmake-build-debug/TestClass/CMakeFiles/edit_cache.dir
+/Users/mac/CLionProjects/Cpp-Projects/homework_cpp/cmake-build-debug/TestClass/CMakeFiles/rebuild_cache.dir
