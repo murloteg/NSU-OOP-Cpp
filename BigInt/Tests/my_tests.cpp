@@ -35,6 +35,13 @@ struct BigIntPairArg
             val1(val1), val2(val2), expected(std::move(expected)) {}
 };
 
+struct BigIntForBoolArg
+{
+    BigInt val1;
+    BigInt val2;
+    BigIntForBoolArg(const BigInt &val1, const BigInt &val2) : val1(val1), val2(val2) {}
+};
+
 class IntConstructorTests : public ::testing::TestWithParam<IntArg> {};
 
 INSTANTIATE_TEST_SUITE_P(
@@ -50,13 +57,6 @@ INSTANTIATE_TEST_SUITE_P(
                 IntArg(INT_MIN, INT_MIN_LOCAL_STRING)
         )
 );
-
-//    BigInt temp(1); // TODO: remove helping actions.
-//    for (int i = 0; i < 60; ++i)
-//    {
-//        std::cout << temp << '\n';
-//        temp *= 2;
-//    }
 
 TEST_P(IntConstructorTests, int_constructor_tests)
 {
@@ -98,10 +98,10 @@ TEST(BigIntTest, string_constructor_exception_tests)
 
 TEST(BigIntTest, copy_constructor_tests)
 {
-    BigInt value("123456789123456789123456789");
-    ASSERT_EQ("123456789123456789123456789", (std::string) BigInt(value));
-    ASSERT_EQ("-123456789123456789123456789", (std::string) BigInt(-value));
-    ASSERT_EQ("123456789123456789123456789", (std::string) BigInt(+value));
+    BigInt value(INT_MAX_LOCAL_STRING);
+    ASSERT_EQ("2147483647", (std::string) BigInt(value));
+    ASSERT_EQ("-2147483647", (std::string) BigInt(-value));
+    ASSERT_EQ("2147483647", (std::string) BigInt(+value));
 }
 
 TEST(BigIntTest, copy_operator_test)
@@ -327,95 +327,196 @@ TEST(BigIntTest, division_exception_test)
     ASSERT_ANY_THROW(BigInt("123456789123456789") / BigInt("-0"));
 }
 
-// TODO: add more tests with parameters.
-TEST(BigIntTest, operator_rem_tests)
+class OperatorRemTests : public ::testing::TestWithParam<BigIntPairArg> {};
+
+INSTANTIATE_TEST_SUITE_P(
+        BigIntTest,
+        OperatorRemTests,
+        ::testing::Values(
+                BigIntPairArg(BigInt("123456789123456789123456789123456789123456789123456789123456789123456789"), BigInt("2"), "1"),
+                BigIntPairArg(BigInt("123456789123456789123456789123456789123456789123456789123456789123456788"), BigInt("2"), "0"),
+                BigIntPairArg(BigInt("123456789"), BigInt("12345678"), "9"),
+                BigIntPairArg(BigInt("100000000000000000000000000000"), BigInt("1100"), "1000"),
+                BigIntPairArg(BigInt("999999999"), BigInt("111111111"), "0")
+        )
+);
+
+TEST_P(OperatorRemTests, assignment_rem_tests)
 {
-    BigInt value("-123456789123456789123456789123456789123456789123456789123456789123456789");
-    ASSERT_EQ("1", (std::string) (value % BigInt(2)));
-    ASSERT_EQ("1", (std::string) (-value % BigInt(2)));
-
-    value = 123456789;
-    value %= 12345678;
-    ASSERT_EQ("9", (std::string) value);
-
-    ASSERT_EQ("1000", (std::string) (BigInt("100000000000000000000000000000") % BigInt(1100)));
-    ASSERT_EQ("99", (std::string) (BigInt("999999999") % BigInt(1111111)));
-    ASSERT_EQ("0", (std::string) (BigInt("999999999") % BigInt(111111111)));
+    BigIntPairArg arg = GetParam();
+    arg.val1 %= arg.val2;
+    ASSERT_EQ(arg.expected, (std::string) arg.val1);
 }
 
-TEST(BigIntTest, xor_tests)
+TEST_P(OperatorRemTests, operator_rem_tests)
 {
-    BigInt first("10");
-    BigInt second("1");
-    first ^= second;
-    ASSERT_EQ("11", (std::string) first);
-
-    BigInt third("4294967296");
-    second = 512;
-    third ^= second;
-    ASSERT_EQ("4294967808", (std::string) third);
-
-    BigInt fourth("562949953421313"); // 2^49 + 1
-    second = 128127127;
-    fourth ^= second;
-    ASSERT_EQ("562950081548438", (std::string) fourth);
-
-    ASSERT_EQ("15", (std::string) (BigInt("127127127127127") ^ BigInt("127127127127128")));
-    ASSERT_EQ("-15", (std::string) (BigInt("-127127127127128") ^ BigInt("127127127127127")));
-    ASSERT_EQ("15", (std::string) (BigInt("-127127127127128") ^ BigInt("-127127127127127")));
+    BigIntPairArg arg = GetParam();
+    ASSERT_EQ(arg.expected, (std::string) (arg.val1 % arg.val2));
 }
 
-TEST(BigIntTest, bitwise_and_tests)
+class OperatorXorTests : public ::testing::TestWithParam<BigIntPairArg> {};
+
+INSTANTIATE_TEST_SUITE_P(
+        BigIntTest,
+        OperatorXorTests,
+        ::testing::Values(
+                BigIntPairArg(BigInt("4294967296"), BigInt("512"), "4294967808"),
+                BigIntPairArg(BigInt("562949953421313"), BigInt("128127127"), "562950081548438"), // (2^49 + 1) | 128127127.
+                BigIntPairArg(BigInt("127127127127127"), BigInt("127127127127128"), "15"),
+                BigIntPairArg(BigInt("-127127127127128"), BigInt("127127127127127"), "-15"),
+                BigIntPairArg(BigInt("-127127127127127"), BigInt("-127127127127128"), "15"),
+                BigIntPairArg(BigInt(INT_MAX_LOCAL_STRING), BigInt(INT_MAX_LOCAL_STRING), "0")
+        )
+);
+
+TEST_P(OperatorXorTests, assignment_xor_tests)
 {
-    BigInt first("11112222");
-    BigInt second("22221111");
-    first &= second;
-    ASSERT_EQ("65814", (std::string) first);
-
-    first = 4369;
-    second = 3839;
-    first &= second;
-    ASSERT_EQ("17", (std::string) first);
-
-    ASSERT_EQ("512", (std::string) (BigInt("123456789123456789") & BigInt(512)));
-    ASSERT_EQ("512", (std::string) (BigInt("-123456789123456789") & BigInt(512)));
-    ASSERT_EQ("-512", (std::string) (BigInt("-123456789123456789") & BigInt(-512)));
+    BigIntPairArg arg = GetParam();
+    arg.val1 ^= arg.val2;
+    ASSERT_EQ(arg.expected, (std::string) arg.val1);
 }
 
-TEST(BigIntTest, bitwise_or_tests)
+TEST_P(OperatorXorTests, operator_xor_tests)
 {
-    BigInt first(128);
-    BigInt second (127);
-    first |= second;
-    ASSERT_EQ("255", (std::string) first);
-    ASSERT_EQ("127127135", (std::string) (BigInt("127127128") | BigInt("127127127")));
-    ASSERT_EQ("288230376151715840", (std::string) (BigInt("288230376151711744") | BigInt("4096"))); // 2^58 | 2^12
+    BigIntPairArg arg = GetParam();
+    ASSERT_EQ(arg.expected, (std::string) (arg.val1 ^ arg.val2));
 }
 
-TEST(BigIntTest, unary_minus_tests)
+class OperatorAndTests : public ::testing::TestWithParam<BigIntPairArg> {};
+
+INSTANTIATE_TEST_SUITE_P(
+        BigIntTest,
+        OperatorAndTests,
+        ::testing::Values(
+                BigIntPairArg(BigInt("123456789123456789"), BigInt("512"), "512"),
+                BigIntPairArg(BigInt("-123456789123456789"), BigInt("512"), "512"),
+                BigIntPairArg(BigInt("-123456789123456789"), BigInt("-512"), "-512"),
+                BigIntPairArg(BigInt(INT_MAX_LOCAL_STRING), BigInt("2147483648"), "0"),
+                BigIntPairArg(BigInt(INT_MIN_LOCAL_STRING), BigInt(INT_MIN_LOCAL_STRING), INT_MIN_LOCAL_STRING)
+        )
+);
+
+TEST_P(OperatorAndTests, assignment_and_tests)
 {
-    BigInt first("123456789123456789");
-    ASSERT_EQ("-123456789123456789", (std::string) -first);
-    first = -123456789;
-    ASSERT_EQ("123456789", (std::string) -first);
+    BigIntPairArg arg = GetParam();
+    arg.val1 &= arg.val2;
+    ASSERT_EQ(arg.expected, (std::string) arg.val1);
 }
 
-TEST(BigIntTest, unary_plus_tests)
+TEST_P(OperatorAndTests, operator_and_tests)
 {
-    BigInt first("123456789123456789");
-    ASSERT_EQ("123456789123456789", (std::string) +first);
-    first = -123456789;
-    ASSERT_EQ("-123456789", (std::string) +first);
+    BigIntPairArg arg = GetParam();
+    ASSERT_EQ(arg.expected, (std::string) (arg.val1 & arg.val2));
 }
 
-TEST(BigIntTest, less_tests)
+class OperatorOrTests : public ::testing::TestWithParam<BigIntPairArg> {};
+
+INSTANTIATE_TEST_SUITE_P(
+        BigIntTest,
+        OperatorOrTests,
+        ::testing::Values(
+                BigIntPairArg(BigInt(INT_MAX_LOCAL_STRING), BigInt("1"), INT_MAX_LOCAL_STRING),
+                BigIntPairArg(BigInt("2147483648"), BigInt("1"), "2147483649"),
+                BigIntPairArg(BigInt(INT_MIN_LOCAL_STRING), BigInt("1"), "-2147483649"),
+                BigIntPairArg(BigInt(INT_MIN_LOCAL_STRING), BigInt(INT_MIN_LOCAL_STRING), INT_MIN_LOCAL_STRING),
+                BigIntPairArg(BigInt(INT_MAX_LOCAL_STRING), BigInt(0), INT_MAX_LOCAL_STRING),
+                BigIntPairArg(BigInt(INT_MAX_LOCAL_STRING), BigInt(-INT_MAX), "-2147483647"),
+                BigIntPairArg(BigInt("1180591620717411303424"), BigInt("1099511627776"), "1180591621816922931200") // 2^70 | 2^40.
+        )
+);
+
+TEST_P(OperatorOrTests, assignment_or_tests)
 {
-    ASSERT_TRUE(BigInt("123456789123456788") < BigInt("123456789123456789"));
-    ASSERT_FALSE(BigInt("123456789123456789") < BigInt("123456789123456788"));
-    BigInt first("1000000000");
-    ASSERT_FALSE(first < first);
+    BigIntPairArg arg = GetParam();
+    arg.val1 |= arg.val2;
+    ASSERT_EQ(arg.expected, (std::string) arg.val1);
 }
 
+TEST_P(OperatorOrTests, operator_or_tests)
+{
+    BigIntPairArg arg = GetParam();
+    ASSERT_EQ(arg.expected, (std::string) (arg.val1 | arg.val2));
+}
+
+class OperatorUnaryMinusTests : public ::testing::TestWithParam<BigIntSingleArg> {};
+
+INSTANTIATE_TEST_SUITE_P(
+        BigIntTest,
+        OperatorUnaryMinusTests,
+        ::testing::Values(
+                BigIntSingleArg(BigInt("123456789123456789"), "-123456789123456789"),
+                BigIntSingleArg(BigInt("-123456789123456789"), "123456789123456789"),
+                BigIntSingleArg(BigInt("0"), "0"),
+                BigIntSingleArg(BigInt("-0"), "0")
+        )
+);
+
+TEST_P(OperatorUnaryMinusTests, unary_minus_tests)
+{
+    BigIntSingleArg arg = GetParam();
+    ASSERT_EQ(arg.expected, (std::string) -arg.val);
+}
+
+class OperatorUnaryPlusTests : public ::testing::TestWithParam<BigIntSingleArg> {};
+
+INSTANTIATE_TEST_SUITE_P(
+        BigIntTest,
+        OperatorUnaryPlusTests,
+        ::testing::Values(
+                BigIntSingleArg(BigInt("123456789123456789"), "123456789123456789"),
+                BigIntSingleArg(BigInt("-123456789123456789"), "-123456789123456789"),
+                BigIntSingleArg(BigInt("0"), "0"),
+                BigIntSingleArg(BigInt("-0"), "0")
+        )
+);
+
+TEST_P(OperatorUnaryPlusTests, unary_plus_tests)
+{
+    BigIntSingleArg arg = GetParam();
+    ASSERT_EQ(arg.expected, (std::string) +arg.val);
+}
+
+class OperatorLessTests : public ::testing::TestWithParam<BigIntForBoolArg> {};
+
+INSTANTIATE_TEST_SUITE_P(
+        BigIntTest,
+        OperatorLessTests,
+        ::testing::Values(
+                BigIntForBoolArg(BigInt("123456789123456788"), BigInt("123456789123456789")),
+                BigIntForBoolArg(BigInt("-123456789123456789"), BigInt("123456789123456788")),
+                BigIntForBoolArg(BigInt("-123456789123456789"), BigInt("-123456789123456788"))
+        )
+);
+
+TEST_P(OperatorLessTests, operator_less_tests)
+{
+    BigIntForBoolArg arg = GetParam();
+    ASSERT_TRUE(arg.val1 < arg.val2);
+    ASSERT_FALSE(arg.val2 < arg.val1);
+}
+
+class OperatorLessOrEqualsTests : public ::testing::TestWithParam<BigIntForBoolArg> {};
+
+INSTANTIATE_TEST_SUITE_P(
+        BigIntTest,
+        OperatorLessOrEqualsTests,
+        ::testing::Values(
+                BigIntForBoolArg(BigInt("123456789123456788"), BigInt("123456789123456789")),
+                BigIntForBoolArg(BigInt("123456789123456789"), BigInt("123456789123456789")),
+                BigIntForBoolArg(BigInt("-123456789123456789"), BigInt("123456789123456788")),
+                BigIntForBoolArg(BigInt("-123456789123456789"), BigInt("-123456789123456788")),
+                BigIntForBoolArg(BigInt("-123456789123456789"), BigInt("-123456789123456789")),
+                BigIntForBoolArg(BigInt("-0"), BigInt("0"))
+        )
+);
+
+TEST_P(OperatorLessOrEqualsTests, operator_less_or_equals_tests)
+{
+    BigIntForBoolArg arg = GetParam();
+    ASSERT_TRUE(arg.val1 <= arg.val2);
+}
+
+// TODO: do other tests.
 TEST(BigIntTest, less_or_equals_tests)
 {
 

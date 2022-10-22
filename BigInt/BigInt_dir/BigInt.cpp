@@ -116,10 +116,13 @@ BigInt::BigInt(std::string string)
 
 BigInt::BigInt(const BigInt &origin)
 {
-    this->sign_ = origin.sign_;
-    for (size_t i = 0; i < origin.size(); ++i)
+    if (this != &origin)
     {
-        this->vector_.push_back(origin.vector_[i]);
+        this->sign_ = origin.sign_;
+        for (size_t i = 0; i < origin.size(); ++i)
+        {
+            this->vector_.push_back(origin.vector_[i]);
+        }
     }
 }
 
@@ -394,13 +397,7 @@ BigInt& BigInt::operator-=(const BigInt &other)
 {
     if (isEqualsZero(*this))
     {
-        BigInt tempValue(other);
-        if (isEqualsZero(tempValue))
-        {
-            tempValue.sign_ = true;
-        }
-
-        *this = -tempValue;
+        *this = -other;
         return *this;
     }
 
@@ -742,6 +739,11 @@ BigInt BigInt::operator+() const
 
 BigInt BigInt::operator-() const
 {
+    if (*this == 0)
+    {
+        return *this;
+    }
+
     BigInt tempValue(*this);
     tempValue.sign_ = !tempValue.sign_;
     return tempValue;
