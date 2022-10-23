@@ -516,45 +516,92 @@ TEST_P(OperatorLessOrEqualsTests, operator_less_or_equals_tests)
     ASSERT_TRUE(arg.val1 <= arg.val2);
 }
 
-// TODO: do other tests.
-TEST(BigIntTest, less_or_equals_tests)
-{
+class OperatorMoreTests : public ::testing::TestWithParam<BigIntForBoolArg> {};
 
+INSTANTIATE_TEST_SUITE_P(
+        BigIntTest,
+        OperatorMoreTests,
+        ::testing::Values(
+                BigIntForBoolArg(BigInt("123456789123456789"), BigInt("123456789123456788")),
+                BigIntForBoolArg(BigInt("-123456789123456788"), BigInt("-123456789123456789")),
+                BigIntForBoolArg(BigInt("123456789123456789"), BigInt("-123456789123456788"))
+        )
+);
+
+TEST_P(OperatorMoreTests, operator_more_tests)
+{
+    BigIntForBoolArg arg = GetParam();
+    ASSERT_TRUE(arg.val1 > arg.val2);
+    ASSERT_FALSE(arg.val2 > arg.val1);
 }
 
-TEST(BigIntTest, more_tests)
-{
+class OperatorMoreOrEqualsTests : public ::testing::TestWithParam<BigIntForBoolArg> {};
 
+INSTANTIATE_TEST_SUITE_P(
+        BigIntTest,
+        OperatorMoreOrEqualsTests,
+        ::testing::Values(
+                BigIntForBoolArg(BigInt("123456789123456789"), BigInt("123456789123456788")),
+                BigIntForBoolArg(BigInt("123456789123456789"), BigInt("123456789123456789")),
+                BigIntForBoolArg(BigInt("123456789123456789"), BigInt("-123456789123456788")),
+                BigIntForBoolArg(BigInt("-123456789123456788"), BigInt("-123456789123456789")),
+                BigIntForBoolArg(BigInt("-123456789123456789"), BigInt("-123456789123456789")),
+                BigIntForBoolArg(BigInt("-0"), BigInt("0"))
+        )
+);
+
+TEST_P(OperatorMoreOrEqualsTests, operator_more_or_equals_tests)
+{
+    BigIntForBoolArg arg = GetParam();
+    ASSERT_TRUE(arg.val1 >= arg.val2);
 }
 
-TEST(BigIntTest, more_or_equals_tests)
-{
+class OperatorEqualsTests : public ::testing::TestWithParam<BigIntForBoolArg> {};
 
+INSTANTIATE_TEST_SUITE_P(
+        BigIntTest,
+        OperatorEqualsTests,
+        ::testing::Values(
+                BigIntForBoolArg(BigInt("-0"), BigInt("0")),
+                BigIntForBoolArg(BigInt("-123456789123456789"), BigInt("-123456789123456789")),
+                BigIntForBoolArg(BigInt("123456789123456789"), BigInt("123456789123456789")),
+                BigIntForBoolArg(BigInt("123456789123456789"), BigInt("0000000000123456789123456789")),
+                BigIntForBoolArg(BigInt("-123456789123456789"), BigInt("-0000000000123456789123456789"))
+        )
+);
+
+TEST_P(OperatorEqualsTests, operator_equals_tests)
+{
+    BigIntForBoolArg arg = GetParam();
+    ASSERT_TRUE(arg.val1 == arg.val2);
 }
 
-TEST(BigIntTest, equals_tests)
-{
+class OperatorNotEqualsTests : public ::testing::TestWithParam<BigIntForBoolArg> {};
 
+INSTANTIATE_TEST_SUITE_P(
+        BigIntTest,
+        OperatorNotEqualsTests,
+        ::testing::Values(
+                BigIntForBoolArg(BigInt("-123456789123456789"), BigInt("123456789123456789")),
+                BigIntForBoolArg(BigInt("-123456789123456789"), BigInt("123456789123456789")),
+                BigIntForBoolArg(BigInt("123456789123456789"), BigInt("1234567891234567890000000000")),
+                BigIntForBoolArg(BigInt("-123456789123456789"), BigInt("-1234567891234567890000000000"))
+        )
+);
+
+TEST_P(OperatorNotEqualsTests, operator_not_equals_tests)
+{
+    BigIntForBoolArg arg = GetParam();
+    ASSERT_TRUE(arg.val1 != arg.val2);
 }
 
-TEST(BigIntTest, not_equals_tests)
+TEST(BigIntTest, operator_size_tests)
 {
-
-}
-
-TEST(BigIntTest, cast_to_int_tests)
-{
-
-}
-
-TEST(BigIntTest, cast_to_string_tests)
-{
-
-}
-
-TEST(BigIntTest, get_size_tests)
-{
-
+    ASSERT_TRUE(BigInt("123456789123456789123456789").size() == 3);
+    ASSERT_TRUE(BigInt("-123456789123456789123456789").size() == 3);
+    ASSERT_TRUE(BigInt("0").size() == 1);
+    ASSERT_TRUE(BigInt("-0").size() == 1);
+    ASSERT_TRUE(BigInt("123456789123456789123456789123456789123456789123456789123456789123456789123456789").size() == 9);
 }
 
 int main()
