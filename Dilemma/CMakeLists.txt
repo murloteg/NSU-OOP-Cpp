@@ -38,5 +38,6 @@ add_executable(Dilemma main.cpp)
 include_directories(${BOOST_INCLUDE_LIBRARIES})
 
 add_subdirectory(Strategies)
-target_include_directories(Dilemma PUBLIC Strategies)
-target_link_libraries(Dilemma PUBLIC Boost::program_options strategies_lib)
+add_subdirectory(Factory)
+target_include_directories(Dilemma PUBLIC Strategies Factory)
+target_link_libraries(Dilemma PUBLIC Boost::program_options strategies_lib factory_lib)

@@ -10,7 +10,15 @@ enum StrategiesNames
     TRIVIAL_RANDOM = 3
 };
 
-class GameStrategy
+enum Choice
 {
+    COOPERATE = 0,
+    DEFECT = 1
+};
 
+class GameStrategy {
+public:
+    virtual Choice vote();
+    virtual void update(Choice firstEnemy, Choice secondEnemy);
+    virtual ~GameStrategy() = default;
 };

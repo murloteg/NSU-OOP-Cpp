@@ -1,9 +1,13 @@
 #ifndef DILEMMA_TRIVIAL_RANDOM_H
 #define DILEMMA_TRIVIAL_RANDOM_H
+#include "GameStrategy.h"
+#include <random>
 
-
-class Trivial_Random {
-private:
+class TrivialRandom : public GameStrategy{
+public:
+    TrivialRandom();
+    Choice vote() override;
+    ~TrivialRandom() override = default;
 };
 
 

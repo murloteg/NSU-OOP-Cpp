@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <boost/program_options.hpp>
-#include "Strategies/GameStrategy.h"
+#include "GameStrategy.h"
 
 namespace po = boost::program_options;
 using namespace std;

@@ -86,3 +86,6 @@
 /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/Strategies/CMakeFiles/strategies_lib.dir
 /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/Strategies/CMakeFiles/edit_cache.dir
 /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/Strategies/CMakeFiles/rebuild_cache.dir
+/Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/Factory/CMakeFiles/factory_lib.dir
+/Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/Factory/CMakeFiles/edit_cache.dir
+/Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/Factory/CMakeFiles/rebuild_cache.dir
