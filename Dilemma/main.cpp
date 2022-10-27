@@ -1,13 +1,16 @@
-#include <iostream>
 #include <vector>
 #include <boost/program_options.hpp>
 #include "GameStrategy.h"
+#include "StrategyFactory.h" //
 
 namespace po = boost::program_options;
 using namespace std;
 
 int main(int argc, char* argv[])
 {
+    auto* strategy = StrategyFactory::createStrategy("TRIVIAL_ALWAYS_C");
+    cout << strategy->vote() << endl;
+
     vector<string> names;
     string mode;
     int steps;

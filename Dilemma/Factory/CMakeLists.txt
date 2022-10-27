@@ -1,1 +1,1 @@
-add_library(factory_lib STATIC StrategyFactory.cpp)
+add_library(factory_lib STATIC ../StrategyFactory.cpp)

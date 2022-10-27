@@ -1,7 +1,6 @@
 #ifndef DILEMMA_GAMESTRATEGY_H
 #define DILEMMA_GAMESTRATEGY_H
-
-#endif //DILEMMA_GAMESTRATEGY_H
+#include <iostream>
 
 enum StrategiesNames
 {
@@ -18,7 +17,9 @@ enum Choice
 
 class GameStrategy {
 public:
-    virtual Choice vote();
-    virtual void update(Choice firstEnemy, Choice secondEnemy);
+    virtual Choice vote() = 0;
+    virtual void update(Choice firstEnemy, Choice secondEnemy) {};
     virtual ~GameStrategy() = default;
 };
+
+#endif //DILEMMA_GAMESTRATEGY_H
