@@ -1,0 +1,138 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.23"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "Strategies",
+					"jsonFile" : "directory-Strategies-Debug-102a129a9fa95a8a29d1.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.23"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "Strategies",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "Factory",
+					"jsonFile" : "directory-Factory-Debug-b15864e7a859d6f2a889.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.23"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "Factory",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "GameController",
+					"jsonFile" : "directory-GameController-Debug-dd2cea88e25ae3ed4471.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.23"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "GameController",
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					],
+					"name" : "Dilemma",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Dilemma::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Dilemma-Debug-8431312186171a5ee5dc.json",
+					"name" : "Dilemma",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "factory_lib::@afec5811ca4b60e82f6b",
+					"jsonFile" : "target-factory_lib-Debug-75fe9db2e60e8a6a3c20.json",
+					"name" : "factory_lib",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "game_controller_lib::@0f03e324aabc9768faec",
+					"jsonFile" : "target-game_controller_lib-Debug-c497975c6e0dbba1558c.json",
+					"name" : "game_controller_lib",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "strategies_lib::@7b1a4c656ec2b66574ca",
+					"jsonFile" : "target-strategies_lib-Debug-dfc26628965225a6a7c7.json",
+					"name" : "strategies_lib",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug",
+		"source" : "/Users/mac/CLionProjects/Cpp-Projects/Dilemma"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}

@@ -1,0 +1,1 @@
+add_library(game_controller_lib STATIC GameController.h GameController.cpp)

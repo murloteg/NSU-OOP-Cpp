@@ -1,7 +1,6 @@
 #include <vector>
 #include <boost/program_options.hpp>
-#include "GameStrategy.h"
-#include "StrategyFactory.h" //
+#include "StrategyFactory.h"
 
 namespace po = boost::program_options;
 using namespace std;
