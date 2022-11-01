@@ -129,6 +129,13 @@ build Strategies/CMakeFiles/strategies_lib.dir/Trivial_Random.cpp.o: CXX_COMPILE
   OBJECT_DIR = Strategies/CMakeFiles/strategies_lib.dir
   OBJECT_FILE_DIR = Strategies/CMakeFiles/strategies_lib.dir
 
+build Strategies/CMakeFiles/strategies_lib.dir/Friendly_Fool.cpp.o: CXX_COMPILER__strategies_lib_Debug /Users/mac/CLionProjects/Cpp-Projects/Dilemma/Strategies/Friendly_Fool.cpp || cmake_object_order_depends_target_strategies_lib
+  DEP_FILE = Strategies/CMakeFiles/strategies_lib.dir/Friendly_Fool.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/program_options
+  OBJECT_DIR = Strategies/CMakeFiles/strategies_lib.dir
+  OBJECT_FILE_DIR = Strategies/CMakeFiles/strategies_lib.dir
+
 
 # =============================================================================
 # Link build statements for STATIC_LIBRARY target strategies_lib
@@ -137,7 +144,7 @@ build Strategies/CMakeFiles/strategies_lib.dir/Trivial_Random.cpp.o: CXX_COMPILE
 #############################################
 # Link the static library Strategies/libstrategies_lib.a
 
-build Strategies/libstrategies_lib.a: CXX_STATIC_LIBRARY_LINKER__strategies_lib_Debug Strategies/CMakeFiles/strategies_lib.dir/Trivial_Always_C.cpp.o Strategies/CMakeFiles/strategies_lib.dir/Trivial_Always_D.cpp.o Strategies/CMakeFiles/strategies_lib.dir/Trivial_Random.cpp.o
+build Strategies/libstrategies_lib.a: CXX_STATIC_LIBRARY_LINKER__strategies_lib_Debug Strategies/CMakeFiles/strategies_lib.dir/Trivial_Always_C.cpp.o Strategies/CMakeFiles/strategies_lib.dir/Trivial_Always_D.cpp.o Strategies/CMakeFiles/strategies_lib.dir/Trivial_Random.cpp.o Strategies/CMakeFiles/strategies_lib.dir/Friendly_Fool.cpp.o
   ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = Strategies/CMakeFiles/strategies_lib.dir

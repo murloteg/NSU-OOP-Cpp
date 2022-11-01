@@ -8,28 +8,15 @@ GameStrategy *StrategyFactory::createStrategy(std::string name)
         throw std::invalid_argument("Unavailable name");
     }
 
-    auto unusedFile = configFiles.find(UNUSED);
     switch (isAvailableName->second)
     {
         case TRIVIAL_ALWAYS_C:
-        {
-            configFiles.extract(UNUSED);
-            configFiles.insert(std::make_pair(USED, unusedFile->second));
             return new TrivialAlwaysC();
-        }
-
         case TRIVIAL_ALWAYS_D:
-        {
-            configFiles.extract(UNUSED);
-            configFiles.insert(std::make_pair(USED, unusedFile->second));
             return new TrivialAlwaysD();
-        }
-
         case TRIVIAL_RANDOM:
-        {
-            configFiles.extract(UNUSED);
-            configFiles.insert(std::make_pair(USED, unusedFile->second));
             return new TrivialRandom();
-        }
+        case FRIENDLY_FOOL:
+            return new FriendlyFool();
     }
 }

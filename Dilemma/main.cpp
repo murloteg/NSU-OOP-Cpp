@@ -7,7 +7,7 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-    auto* strategy = StrategyFactory::createStrategy("TRIVIAL_ALWAYS_C");
+    auto* strategy = StrategyFactory::createStrategy("TRIVIAL_RANDOM");
     cout << strategy->vote() << endl;
 
     vector<string> names;
