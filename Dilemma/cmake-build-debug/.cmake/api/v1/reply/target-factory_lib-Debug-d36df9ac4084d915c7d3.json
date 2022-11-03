@@ -12,9 +12,9 @@
 		"commands" : 
 		[
 			"add_library",
-			"target_link_libraries",
 			"include_directories",
-			"target_include_directories"
+			"target_include_directories",
+			"target_link_libraries"
 		],
 		"files" : 
 		[
@@ -33,24 +33,24 @@
 				"parent" : 0
 			},
 			{
-				"command" : 1,
-				"file" : 0,
-				"line" : 3,
-				"parent" : 0
-			},
-			{
 				"file" : 1
 			},
 			{
-				"command" : 2,
+				"command" : 1,
 				"file" : 1,
 				"line" : 39,
-				"parent" : 3
+				"parent" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 4,
+				"parent" : 0
 			},
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 4,
+				"line" : 3,
 				"parent" : 0
 			}
 		]
@@ -70,16 +70,28 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 4,
+					"backtrace" : 3,
 					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/program_options"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 4,
 					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Factory/../Strategies"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 4,
 					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Factory/../GameController"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/GameController/../Modes"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/GameController/../Factory"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Modes/../Strategies"
 				}
 			],
 			"language" : "CXX",
@@ -100,11 +112,6 @@
 	"dependencies" : 
 	[
 		{
-			"backtrace" : 2,
-			"id" : "strategies_lib::@7b1a4c656ec2b66574ca"
-		},
-		{
-			"backtrace" : 2,
 			"id" : "game_controller_lib::@0f03e324aabc9768faec"
 		}
 	],

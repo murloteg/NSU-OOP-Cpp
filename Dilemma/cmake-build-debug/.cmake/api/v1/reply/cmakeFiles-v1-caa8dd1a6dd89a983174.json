@@ -221,6 +221,9 @@
 		},
 		{
 			"path" : "GameController/CMakeLists.txt"
+		},
+		{
+			"path" : "Modes/CMakeLists.txt"
 		}
 	],
 	"kind" : "cmakeFiles",

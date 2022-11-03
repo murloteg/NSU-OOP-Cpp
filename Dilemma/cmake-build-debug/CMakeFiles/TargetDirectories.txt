@@ -10,3 +10,6 @@
 /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/GameController/CMakeFiles/game_controller_lib.dir
 /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/GameController/CMakeFiles/edit_cache.dir
 /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/GameController/CMakeFiles/rebuild_cache.dir
+/Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/Modes/CMakeFiles/modes_lib.dir
+/Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/Modes/CMakeFiles/edit_cache.dir
+/Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/Modes/CMakeFiles/rebuild_cache.dir

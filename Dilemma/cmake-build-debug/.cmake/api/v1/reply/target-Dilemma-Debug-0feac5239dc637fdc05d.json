@@ -33,7 +33,7 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 45,
+				"line" : 46,
 				"parent" : 0
 			},
 			{
@@ -45,7 +45,7 @@
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 44,
+				"line" : 45,
 				"parent" : 0
 			}
 		]
@@ -92,12 +92,28 @@
 					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/GameController"
 				},
 				{
+					"backtrace" : 4,
+					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Modes"
+				},
+				{
 					"backtrace" : 2,
 					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Factory/../Strategies"
 				},
 				{
 					"backtrace" : 2,
 					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Factory/../GameController"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/GameController/../Modes"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/GameController/../Factory"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Modes/../Strategies"
 				},
 				{
 					"backtrace" : 2,
@@ -132,7 +148,7 @@
 		},
 		{
 			"backtrace" : 2,
-			"id" : "game_controller_lib::@0f03e324aabc9768faec"
+			"id" : "modes_lib::@346f7c0331f09390c529"
 		}
 	],
 	"id" : "Dilemma::@6890427a1f51a3e7e1df",
@@ -166,6 +182,26 @@
 			{
 				"backtrace" : 2,
 				"fragment" : "GameController/libgame_controller_lib.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "Modes/libmodes_lib.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "Factory/libfactory_lib.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "GameController/libgame_controller_lib.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "Modes/libmodes_lib.a",
 				"role" : "libraries"
 			},
 			{

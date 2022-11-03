@@ -20,6 +20,7 @@ enum Choice
 
 class GameStrategy {
 public:
+    int strategyScore = 0;
     virtual Choice vote() = 0;
     virtual void update(Choice firstEnemy, Choice secondEnemy) {};
     virtual ~GameStrategy() = default;

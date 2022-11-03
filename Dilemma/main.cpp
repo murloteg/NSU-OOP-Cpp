@@ -1,14 +1,15 @@
 #include <vector>
 #include <boost/program_options.hpp>
 #include "StrategyFactory.h"
+#include "Detailed.h"
 
 namespace po = boost::program_options;
 using namespace std;
 
 int main(int argc, char* argv[])
 {
-    auto* strategy = StrategyFactory::createStrategy("TRIVIAL_RANDOM");
-    cout << strategy->vote() << endl;
+    Detailed detailed(10, "game_matrix.txt", StrategyFactory::createStrategy("TRIVIAL_RANDOM"), StrategyFactory::createStrategy("TRIVIAL_ALWAYS_C"), StrategyFactory::createStrategy("TRIVIAL_ALWAYS_D"));
+    detailed.play();
 
     vector<string> names;
     string mode;

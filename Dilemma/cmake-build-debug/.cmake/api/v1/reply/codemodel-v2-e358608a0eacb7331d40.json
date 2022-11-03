@@ -10,7 +10,8 @@
 					[
 						1,
 						2,
-						3
+						3,
+						4
 					],
 					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
@@ -36,7 +37,7 @@
 					"source" : "Strategies",
 					"targetIndexes" : 
 					[
-						3
+						4
 					]
 				},
 				{
@@ -68,6 +69,21 @@
 					[
 						2
 					]
+				},
+				{
+					"build" : "Modes",
+					"jsonFile" : "directory-Modes-Debug-43dab80c0046838c6a2b.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.23"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "Modes",
+					"targetIndexes" : 
+					[
+						3
+					]
 				}
 			],
 			"name" : "Debug",
@@ -79,7 +95,8 @@
 						0,
 						1,
 						2,
-						3
+						3,
+						4
 					],
 					"name" : "Dilemma",
 					"targetIndexes" : 
@@ -87,7 +104,8 @@
 						0,
 						1,
 						2,
-						3
+						3,
+						4
 					]
 				}
 			],
@@ -96,22 +114,29 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Dilemma::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Dilemma-Debug-8431312186171a5ee5dc.json",
+					"jsonFile" : "target-Dilemma-Debug-0feac5239dc637fdc05d.json",
 					"name" : "Dilemma",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 2,
 					"id" : "factory_lib::@afec5811ca4b60e82f6b",
-					"jsonFile" : "target-factory_lib-Debug-75fe9db2e60e8a6a3c20.json",
+					"jsonFile" : "target-factory_lib-Debug-d36df9ac4084d915c7d3.json",
 					"name" : "factory_lib",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 3,
 					"id" : "game_controller_lib::@0f03e324aabc9768faec",
-					"jsonFile" : "target-game_controller_lib-Debug-c497975c6e0dbba1558c.json",
+					"jsonFile" : "target-game_controller_lib-Debug-56297007ffe72938f181.json",
 					"name" : "game_controller_lib",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "modes_lib::@346f7c0331f09390c529",
+					"jsonFile" : "target-modes_lib-Debug-d01302ca9171526f3bfb.json",
+					"name" : "modes_lib",
 					"projectIndex" : 0
 				},
 				{

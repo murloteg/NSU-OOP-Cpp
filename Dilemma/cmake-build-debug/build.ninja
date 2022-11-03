@@ -44,13 +44,13 @@ cmake_ninja_workdir = /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-
 #############################################
 # Order-only phony target for Dilemma
 
-build cmake_object_order_depends_target_Dilemma: phony || cmake_object_order_depends_target_factory_lib cmake_object_order_depends_target_game_controller_lib cmake_object_order_depends_target_strategies_lib
+build cmake_object_order_depends_target_Dilemma: phony || cmake_object_order_depends_target_factory_lib cmake_object_order_depends_target_modes_lib cmake_object_order_depends_target_strategies_lib
 
 build CMakeFiles/Dilemma.dir/main.cpp.o: CXX_COMPILER__Dilemma_Debug /Users/mac/CLionProjects/Cpp-Projects/Dilemma/main.cpp || cmake_object_order_depends_target_Dilemma
   DEFINES = -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DBOOST_PROGRAM_OPTIONS_NO_LIB
   DEP_FILE = CMakeFiles/Dilemma.dir/main.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -std=gnu++17
-  INCLUDES = -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/program_options -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Strategies -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Factory -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/GameController -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Factory/../Strategies -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Factory/../GameController -isystem /usr/local/include
+  INCLUDES = -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/program_options -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Strategies -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Factory -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/GameController -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Modes -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Factory/../Strategies -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Factory/../GameController -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/GameController/../Modes -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/GameController/../Factory -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Modes/../Strategies -isystem /usr/local/include
   OBJECT_DIR = CMakeFiles/Dilemma.dir
   OBJECT_FILE_DIR = CMakeFiles/Dilemma.dir
 
@@ -62,9 +62,9 @@ build CMakeFiles/Dilemma.dir/main.cpp.o: CXX_COMPILER__Dilemma_Debug /Users/mac/
 #############################################
 # Link the executable Dilemma
 
-build Dilemma: CXX_EXECUTABLE_LINKER__Dilemma_Debug CMakeFiles/Dilemma.dir/main.cpp.o | /usr/local/lib/libboost_program_options-mt.dylib Strategies/libstrategies_lib.a Factory/libfactory_lib.a GameController/libgame_controller_lib.a Strategies/libstrategies_lib.a || Factory/libfactory_lib.a GameController/libgame_controller_lib.a Strategies/libstrategies_lib.a
+build Dilemma: CXX_EXECUTABLE_LINKER__Dilemma_Debug CMakeFiles/Dilemma.dir/main.cpp.o | /usr/local/lib/libboost_program_options-mt.dylib Strategies/libstrategies_lib.a Factory/libfactory_lib.a GameController/libgame_controller_lib.a Modes/libmodes_lib.a Factory/libfactory_lib.a GameController/libgame_controller_lib.a Modes/libmodes_lib.a Strategies/libstrategies_lib.a || Factory/libfactory_lib.a Modes/libmodes_lib.a Strategies/libstrategies_lib.a
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk
-  LINK_LIBRARIES = /usr/local/lib/libboost_program_options-mt.dylib  Strategies/libstrategies_lib.a  Factory/libfactory_lib.a  GameController/libgame_controller_lib.a  Strategies/libstrategies_lib.a
+  LINK_LIBRARIES = /usr/local/lib/libboost_program_options-mt.dylib  Strategies/libstrategies_lib.a  Factory/libfactory_lib.a  GameController/libgame_controller_lib.a  Modes/libmodes_lib.a  Factory/libfactory_lib.a  GameController/libgame_controller_lib.a  Modes/libmodes_lib.a  Strategies/libstrategies_lib.a
   OBJECT_DIR = CMakeFiles/Dilemma.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -188,12 +188,12 @@ build Strategies/rebuild_cache: phony Strategies/CMakeFiles/rebuild_cache.util
 #############################################
 # Order-only phony target for factory_lib
 
-build cmake_object_order_depends_target_factory_lib: phony || cmake_object_order_depends_target_game_controller_lib cmake_object_order_depends_target_strategies_lib
+build cmake_object_order_depends_target_factory_lib: phony || cmake_object_order_depends_target_game_controller_lib
 
 build Factory/CMakeFiles/factory_lib.dir/StrategyFactory.cpp.o: CXX_COMPILER__factory_lib_Debug /Users/mac/CLionProjects/Cpp-Projects/Dilemma/Factory/StrategyFactory.cpp || cmake_object_order_depends_target_factory_lib
   DEP_FILE = Factory/CMakeFiles/factory_lib.dir/StrategyFactory.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -std=gnu++17
-  INCLUDES = -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/program_options -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Factory/../Strategies -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Factory/../GameController
+  INCLUDES = -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/program_options -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Factory/../Strategies -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Factory/../GameController -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/GameController/../Modes -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/GameController/../Factory -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Modes/../Strategies
   OBJECT_DIR = Factory/CMakeFiles/factory_lib.dir
   OBJECT_FILE_DIR = Factory/CMakeFiles/factory_lib.dir
 
@@ -205,7 +205,7 @@ build Factory/CMakeFiles/factory_lib.dir/StrategyFactory.cpp.o: CXX_COMPILER__fa
 #############################################
 # Link the static library Factory/libfactory_lib.a
 
-build Factory/libfactory_lib.a: CXX_STATIC_LIBRARY_LINKER__factory_lib_Debug Factory/CMakeFiles/factory_lib.dir/StrategyFactory.cpp.o || GameController/libgame_controller_lib.a Strategies/libstrategies_lib.a
+build Factory/libfactory_lib.a: CXX_STATIC_LIBRARY_LINKER__factory_lib_Debug Factory/CMakeFiles/factory_lib.dir/StrategyFactory.cpp.o || GameController/libgame_controller_lib.a
   ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = Factory/CMakeFiles/factory_lib.dir
@@ -249,12 +249,12 @@ build Factory/rebuild_cache: phony Factory/CMakeFiles/rebuild_cache.util
 #############################################
 # Order-only phony target for game_controller_lib
 
-build cmake_object_order_depends_target_game_controller_lib: phony || GameController/CMakeFiles/game_controller_lib.dir
+build cmake_object_order_depends_target_game_controller_lib: phony || cmake_object_order_depends_target_modes_lib cmake_object_order_depends_target_strategies_lib
 
 build GameController/CMakeFiles/game_controller_lib.dir/GameController.cpp.o: CXX_COMPILER__game_controller_lib_Debug /Users/mac/CLionProjects/Cpp-Projects/Dilemma/GameController/GameController.cpp || cmake_object_order_depends_target_game_controller_lib
   DEP_FILE = GameController/CMakeFiles/game_controller_lib.dir/GameController.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -std=gnu++17
-  INCLUDES = -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/program_options
+  INCLUDES = -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/program_options -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/GameController/../Modes -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/GameController/../Factory -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Modes/../Strategies -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Factory/../Strategies -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Factory/../GameController
   OBJECT_DIR = GameController/CMakeFiles/game_controller_lib.dir
   OBJECT_FILE_DIR = GameController/CMakeFiles/game_controller_lib.dir
 
@@ -266,7 +266,7 @@ build GameController/CMakeFiles/game_controller_lib.dir/GameController.cpp.o: CX
 #############################################
 # Link the static library GameController/libgame_controller_lib.a
 
-build GameController/libgame_controller_lib.a: CXX_STATIC_LIBRARY_LINKER__game_controller_lib_Debug GameController/CMakeFiles/game_controller_lib.dir/GameController.cpp.o
+build GameController/libgame_controller_lib.a: CXX_STATIC_LIBRARY_LINKER__game_controller_lib_Debug GameController/CMakeFiles/game_controller_lib.dir/GameController.cpp.o || Modes/libmodes_lib.a Strategies/libstrategies_lib.a
   ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = GameController/CMakeFiles/game_controller_lib.dir
@@ -299,6 +299,67 @@ build GameController/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 build GameController/rebuild_cache: phony GameController/CMakeFiles/rebuild_cache.util
 
 # =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/mac/CLionProjects/Cpp-Projects/Dilemma/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target modes_lib
+
+
+#############################################
+# Order-only phony target for modes_lib
+
+build cmake_object_order_depends_target_modes_lib: phony || cmake_object_order_depends_target_strategies_lib
+
+build Modes/CMakeFiles/modes_lib.dir/Detailed.cpp.o: CXX_COMPILER__modes_lib_Debug /Users/mac/CLionProjects/Cpp-Projects/Dilemma/Modes/Detailed.cpp || cmake_object_order_depends_target_modes_lib
+  DEP_FILE = Modes/CMakeFiles/modes_lib.dir/Detailed.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/program_options -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Modes/../Strategies
+  OBJECT_DIR = Modes/CMakeFiles/modes_lib.dir
+  OBJECT_FILE_DIR = Modes/CMakeFiles/modes_lib.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target modes_lib
+
+
+#############################################
+# Link the static library Modes/libmodes_lib.a
+
+build Modes/libmodes_lib.a: CXX_STATIC_LIBRARY_LINKER__modes_lib_Debug Modes/CMakeFiles/modes_lib.dir/Detailed.cpp.o || Strategies/libstrategies_lib.a
+  ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = Modes/CMakeFiles/modes_lib.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = Modes/libmodes_lib.a
+  TARGET_PDB = modes_lib.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build Modes/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/Modes && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build Modes/edit_cache: phony Modes/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build Modes/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/Modes && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/mac/CLionProjects/Cpp-Projects/Dilemma -B/Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build Modes/rebuild_cache: phony Modes/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
 # Target aliases.
 
 build factory_lib: phony Factory/libfactory_lib.a
@@ -309,7 +370,11 @@ build libfactory_lib.a: phony Factory/libfactory_lib.a
 
 build libgame_controller_lib.a: phony GameController/libgame_controller_lib.a
 
+build libmodes_lib.a: phony Modes/libmodes_lib.a
+
 build libstrategies_lib.a: phony Strategies/libstrategies_lib.a
+
+build modes_lib: phony Modes/libmodes_lib.a
 
 build strategies_lib: phony Strategies/libstrategies_lib.a
 
@@ -321,7 +386,7 @@ build strategies_lib: phony Strategies/libstrategies_lib.a
 #############################################
 # Folder: /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug
 
-build all: phony Dilemma Strategies/all Factory/all GameController/all
+build all: phony Dilemma Strategies/all Factory/all GameController/all Modes/all
 
 # =============================================================================
 
@@ -340,6 +405,13 @@ build GameController/all: phony GameController/libgame_controller_lib.a
 # =============================================================================
 
 #############################################
+# Folder: /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/Modes
+
+build Modes/all: phony Modes/libmodes_lib.a
+
+# =============================================================================
+
+#############################################
 # Folder: /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/Strategies
 
 build Strategies/all: phony Strategies/libstrategies_lib.a
@@ -351,14 +423,14 @@ build Strategies/all: phony Strategies/libstrategies_lib.a
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ../CMakeLists.txt ../Factory/CMakeLists.txt ../GameController/CMakeLists.txt ../Strategies/CMakeLists.txt /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindBoost.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/UnixPaths.cmake /usr/local/lib/cmake/Boost-1.80.0/BoostConfig.cmake /usr/local/lib/cmake/Boost-1.80.0/BoostConfigVersion.cmake /usr/local/lib/cmake/BoostDetectToolset-1.80.0.cmake /usr/local/lib/cmake/boost_headers-1.80.0/boost_headers-config-version.cmake /usr/local/lib/cmake/boost_headers-1.80.0/boost_headers-config.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/boost_program_options-config-version.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/boost_program_options-config.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-mt-shared.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-mt-static.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-shared.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-static.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | ../CMakeLists.txt ../Factory/CMakeLists.txt ../GameController/CMakeLists.txt ../Modes/CMakeLists.txt ../Strategies/CMakeLists.txt /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindBoost.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/UnixPaths.cmake /usr/local/lib/cmake/Boost-1.80.0/BoostConfig.cmake /usr/local/lib/cmake/Boost-1.80.0/BoostConfigVersion.cmake /usr/local/lib/cmake/BoostDetectToolset-1.80.0.cmake /usr/local/lib/cmake/boost_headers-1.80.0/boost_headers-config-version.cmake /usr/local/lib/cmake/boost_headers-1.80.0/boost_headers-config.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/boost_program_options-config-version.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/boost_program_options-config.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-mt-shared.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-mt-static.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-shared.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-static.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ../CMakeLists.txt ../Factory/CMakeLists.txt ../GameController/CMakeLists.txt ../Strategies/CMakeLists.txt /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindBoost.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/UnixPaths.cmake /usr/local/lib/cmake/Boost-1.80.0/BoostConfig.cmake /usr/local/lib/cmake/Boost-1.80.0/BoostConfigVersion.cmake /usr/local/lib/cmake/BoostDetectToolset-1.80.0.cmake /usr/local/lib/cmake/boost_headers-1.80.0/boost_headers-config-version.cmake /usr/local/lib/cmake/boost_headers-1.80.0/boost_headers-config.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/boost_program_options-config-version.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/boost_program_options-config.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-mt-shared.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-mt-static.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-shared.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-static.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake: phony
+build ../CMakeLists.txt ../Factory/CMakeLists.txt ../GameController/CMakeLists.txt ../Modes/CMakeLists.txt ../Strategies/CMakeLists.txt /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindBoost.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/UnixPaths.cmake /usr/local/lib/cmake/Boost-1.80.0/BoostConfig.cmake /usr/local/lib/cmake/Boost-1.80.0/BoostConfigVersion.cmake /usr/local/lib/cmake/BoostDetectToolset-1.80.0.cmake /usr/local/lib/cmake/boost_headers-1.80.0/boost_headers-config-version.cmake /usr/local/lib/cmake/boost_headers-1.80.0/boost_headers-config.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/boost_program_options-config-version.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/boost_program_options-config.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-mt-shared.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-mt-static.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-shared.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-static.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake: phony
 
 
 #############################################
