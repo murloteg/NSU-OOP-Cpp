@@ -2,14 +2,23 @@
 #include <boost/program_options.hpp>
 #include "StrategyFactory.h"
 #include "Detailed.h"
+#include "Fast.h"
+#include "Tournament.h"
 
 namespace po = boost::program_options;
 using namespace std;
 
 int main(int argc, char* argv[])
 {
-    Detailed detailed(10, "game_matrix.txt", StrategyFactory::createStrategy("TRIVIAL_RANDOM"), StrategyFactory::createStrategy("TRIVIAL_ALWAYS_C"), StrategyFactory::createStrategy("TRIVIAL_ALWAYS_D"));
-    detailed.play();
+//    Detailed detailed(10, "game_matrix.txt", StrategyFactory::createStrategy("TRIVIAL_RANDOM"), StrategyFactory::createStrategy("TRIVIAL_RANDOM"), StrategyFactory::createStrategy("TRIVIAL_RANDOM"));
+//    detailed.play();
+//
+//    Fast fast(50, "game_matrix.txt", StrategyFactory::createStrategy("TRIVIAL_RANDOM"), StrategyFactory::createStrategy("TRIVIAL_ALWAYS_C"), StrategyFactory::createStrategy("TRIVIAL_ALWAYS_D"));
+//    fast.play();
+
+    std::vector<GameStrategy*> vectorStrategy = {StrategyFactory::createStrategy("TRIVIAL_RANDOM"),  StrategyFactory::createStrategy("TRIVIAL_ALWAYS_C"), StrategyFactory::createStrategy("TRIVIAL_ALWAYS_D"), StrategyFactory::createStrategy("TRIVIAL_RANDOM")};
+    Tournament tournament(10, "game_matrix.txt", vectorStrategy);
+    tournament.play();
 
     vector<string> names;
     string mode;

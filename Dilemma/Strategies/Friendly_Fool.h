@@ -8,6 +8,7 @@ public:
     FriendlyFool();
     Choice vote() override;
     void update(Choice firstEnemy, Choice secondEnemy) override;
+    void printStrategyName() override;
     ~FriendlyFool() override = default;
 };
 

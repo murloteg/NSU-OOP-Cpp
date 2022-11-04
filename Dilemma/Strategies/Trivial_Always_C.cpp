@@ -6,3 +6,8 @@ Choice TrivialAlwaysC::vote()
 {
     return COOPERATE;
 }
+
+void TrivialAlwaysC::printStrategyName()
+{
+    std::cout << "TRIVIAL_ALWAYS_C";
+}

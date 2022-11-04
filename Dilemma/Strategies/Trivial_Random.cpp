@@ -4,7 +4,13 @@ TrivialRandom::TrivialRandom() {}
 
 Choice TrivialRandom::vote()
 {
-    srand(static_cast<unsigned> (time(nullptr)));
-    int randomValue = rand();
-    return (randomValue % 2 == 0) ? COOPERATE : DEFECT;
+    std::random_device device;
+    std::mt19937 range(device());
+    std::uniform_int_distribution<std::mt19937::result_type> distance(0, 100);
+    return (distance(range) > 50) ? COOPERATE : DEFECT;
+}
+
+void TrivialRandom::printStrategyName()
+{
+    std::cout << "TRIVIAL_RANDOM";
 }

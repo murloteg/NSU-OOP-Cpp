@@ -136,6 +136,20 @@ build Strategies/CMakeFiles/strategies_lib.dir/Friendly_Fool.cpp.o: CXX_COMPILER
   OBJECT_DIR = Strategies/CMakeFiles/strategies_lib.dir
   OBJECT_FILE_DIR = Strategies/CMakeFiles/strategies_lib.dir
 
+build Strategies/CMakeFiles/strategies_lib.dir/Probability.cpp.o: CXX_COMPILER__strategies_lib_Debug /Users/mac/CLionProjects/Cpp-Projects/Dilemma/Strategies/Probability.cpp || cmake_object_order_depends_target_strategies_lib
+  DEP_FILE = Strategies/CMakeFiles/strategies_lib.dir/Probability.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/program_options
+  OBJECT_DIR = Strategies/CMakeFiles/strategies_lib.dir
+  OBJECT_FILE_DIR = Strategies/CMakeFiles/strategies_lib.dir
+
+build Strategies/CMakeFiles/strategies_lib.dir/Dominator.cpp.o: CXX_COMPILER__strategies_lib_Debug /Users/mac/CLionProjects/Cpp-Projects/Dilemma/Strategies/Dominator.cpp || cmake_object_order_depends_target_strategies_lib
+  DEP_FILE = Strategies/CMakeFiles/strategies_lib.dir/Dominator.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/program_options
+  OBJECT_DIR = Strategies/CMakeFiles/strategies_lib.dir
+  OBJECT_FILE_DIR = Strategies/CMakeFiles/strategies_lib.dir
+
 
 # =============================================================================
 # Link build statements for STATIC_LIBRARY target strategies_lib
@@ -144,7 +158,7 @@ build Strategies/CMakeFiles/strategies_lib.dir/Friendly_Fool.cpp.o: CXX_COMPILER
 #############################################
 # Link the static library Strategies/libstrategies_lib.a
 
-build Strategies/libstrategies_lib.a: CXX_STATIC_LIBRARY_LINKER__strategies_lib_Debug Strategies/CMakeFiles/strategies_lib.dir/Trivial_Always_C.cpp.o Strategies/CMakeFiles/strategies_lib.dir/Trivial_Always_D.cpp.o Strategies/CMakeFiles/strategies_lib.dir/Trivial_Random.cpp.o Strategies/CMakeFiles/strategies_lib.dir/Friendly_Fool.cpp.o
+build Strategies/libstrategies_lib.a: CXX_STATIC_LIBRARY_LINKER__strategies_lib_Debug Strategies/CMakeFiles/strategies_lib.dir/Trivial_Always_C.cpp.o Strategies/CMakeFiles/strategies_lib.dir/Trivial_Always_D.cpp.o Strategies/CMakeFiles/strategies_lib.dir/Trivial_Random.cpp.o Strategies/CMakeFiles/strategies_lib.dir/Friendly_Fool.cpp.o Strategies/CMakeFiles/strategies_lib.dir/Probability.cpp.o Strategies/CMakeFiles/strategies_lib.dir/Dominator.cpp.o
   ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = Strategies/CMakeFiles/strategies_lib.dir
@@ -312,8 +326,29 @@ build GameController/rebuild_cache: phony GameController/CMakeFiles/rebuild_cach
 
 build cmake_object_order_depends_target_modes_lib: phony || cmake_object_order_depends_target_strategies_lib
 
+build Modes/CMakeFiles/modes_lib.dir/GameMode.cpp.o: CXX_COMPILER__modes_lib_Debug /Users/mac/CLionProjects/Cpp-Projects/Dilemma/Modes/GameMode.cpp || cmake_object_order_depends_target_modes_lib
+  DEP_FILE = Modes/CMakeFiles/modes_lib.dir/GameMode.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/program_options -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Modes/../Strategies
+  OBJECT_DIR = Modes/CMakeFiles/modes_lib.dir
+  OBJECT_FILE_DIR = Modes/CMakeFiles/modes_lib.dir
+
 build Modes/CMakeFiles/modes_lib.dir/Detailed.cpp.o: CXX_COMPILER__modes_lib_Debug /Users/mac/CLionProjects/Cpp-Projects/Dilemma/Modes/Detailed.cpp || cmake_object_order_depends_target_modes_lib
   DEP_FILE = Modes/CMakeFiles/modes_lib.dir/Detailed.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/program_options -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Modes/../Strategies
+  OBJECT_DIR = Modes/CMakeFiles/modes_lib.dir
+  OBJECT_FILE_DIR = Modes/CMakeFiles/modes_lib.dir
+
+build Modes/CMakeFiles/modes_lib.dir/Fast.cpp.o: CXX_COMPILER__modes_lib_Debug /Users/mac/CLionProjects/Cpp-Projects/Dilemma/Modes/Fast.cpp || cmake_object_order_depends_target_modes_lib
+  DEP_FILE = Modes/CMakeFiles/modes_lib.dir/Fast.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/program_options -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Modes/../Strategies
+  OBJECT_DIR = Modes/CMakeFiles/modes_lib.dir
+  OBJECT_FILE_DIR = Modes/CMakeFiles/modes_lib.dir
+
+build Modes/CMakeFiles/modes_lib.dir/Tournament.cpp.o: CXX_COMPILER__modes_lib_Debug /Users/mac/CLionProjects/Cpp-Projects/Dilemma/Modes/Tournament.cpp || cmake_object_order_depends_target_modes_lib
+  DEP_FILE = Modes/CMakeFiles/modes_lib.dir/Tournament.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -std=gnu++17
   INCLUDES = -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/program_options -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Modes/../Strategies
   OBJECT_DIR = Modes/CMakeFiles/modes_lib.dir
@@ -327,7 +362,7 @@ build Modes/CMakeFiles/modes_lib.dir/Detailed.cpp.o: CXX_COMPILER__modes_lib_Deb
 #############################################
 # Link the static library Modes/libmodes_lib.a
 
-build Modes/libmodes_lib.a: CXX_STATIC_LIBRARY_LINKER__modes_lib_Debug Modes/CMakeFiles/modes_lib.dir/Detailed.cpp.o || Strategies/libstrategies_lib.a
+build Modes/libmodes_lib.a: CXX_STATIC_LIBRARY_LINKER__modes_lib_Debug Modes/CMakeFiles/modes_lib.dir/GameMode.cpp.o Modes/CMakeFiles/modes_lib.dir/Detailed.cpp.o Modes/CMakeFiles/modes_lib.dir/Fast.cpp.o Modes/CMakeFiles/modes_lib.dir/Tournament.cpp.o || Strategies/libstrategies_lib.a
   ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = Modes/CMakeFiles/modes_lib.dir

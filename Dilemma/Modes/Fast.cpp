@@ -1,16 +1,16 @@
-#include "Detailed.h"
+#include "Fast.h"
 
-Detailed::Detailed(int steps, std::string matrix, GameStrategy* first, GameStrategy* second, GameStrategy* third)
+Fast::Fast(int steps, std::string matrix, GameStrategy *first, GameStrategy *second, GameStrategy *third)
 {
-    steps_ = steps;
     currentSteps_ = 0;
+    steps_ = steps;
     matrix_ = matrix;
     firstStrategy_ = first;
     secondStrategy_ = second;
     thirdStrategy_ = third;
 }
 
-void Detailed::viewMatrix()
+void Fast::viewMatrix()
 {
     std::string matrixPath = "../ConfigurationFiles/" + matrix_;
     std::ifstream file(matrixPath);
@@ -35,7 +35,7 @@ void Detailed::viewMatrix()
     file.close();
 }
 
-void Detailed::updateMatrix(std::string currentScore)
+void Fast::updateMatrix(std::string currentScore)
 {
     std::string matrixPath = "../ConfigurationFiles/" + matrix_;
     std::ofstream file(matrixPath, std::ios_base::app);
@@ -66,36 +66,15 @@ void Detailed::updateMatrix(std::string currentScore)
     file.close();
 }
 
-void Detailed::pressButton()
-{
-    std::string currentString;
-    std::cout << "TYPE \"quit\" to exit. TYPE another string to continue:" << std::endl;
-    std::cin >> currentString;
-    if (currentString == "quit")
-    {
-        statusOfButton_ = EXIT;
-        return;
-    }
-
-    statusOfButton_ = CONTINUE;
-    ++currentSteps_;
-}
-
-void Detailed::play()
+void Fast::play()
 {
     std::string matrixPath = "../ConfigurationFiles/" + matrix_;
     std::fstream file(matrixPath, std::ios::out);
     file.close();
 
-    while (true)
+    while (currentSteps_ < steps_)
     {
-        pressButton();
-        if (statusOfButton_ == EXIT)
-        {
-            viewMatrix();
-            return;
-        }
-
+        ++currentSteps_;
         Choice firstVote = firstStrategy_->vote();
         Choice secondVote = secondStrategy_->vote();
         Choice thirdVote = thirdStrategy_->vote();
@@ -106,6 +85,6 @@ void Detailed::play()
         secondStrategy_->strategyScore += convertCharToInt(scoreString->second[1]);
         thirdStrategy_->strategyScore += convertCharToInt(scoreString->second[2]);
         updateMatrix(scoreString->first);
-        viewMatrix();
     }
+    viewMatrix();
 }

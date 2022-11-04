@@ -6,3 +6,8 @@ Choice TrivialAlwaysD::vote()
 {
     return DEFECT;
 }
+
+void TrivialAlwaysD::printStrategyName()
+{
+    std::cout << "TRIVIAL_ALWAYS_D";
+}

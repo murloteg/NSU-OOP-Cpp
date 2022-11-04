@@ -5,6 +5,7 @@
 #include <map>
 #include "StrategyFactory.h"
 #include "Detailed.h"
+#include "Fast.h"
 
 enum Modes
 {

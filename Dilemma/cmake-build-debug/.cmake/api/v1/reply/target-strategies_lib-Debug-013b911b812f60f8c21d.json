@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "Modes/libmodes_lib.a"
+			"path" : "Strategies/libstrategies_lib.a"
 		}
 	],
 	"backtrace" : 1,
@@ -12,13 +12,11 @@
 		"commands" : 
 		[
 			"add_library",
-			"target_link_libraries",
-			"include_directories",
-			"target_include_directories"
+			"include_directories"
 		],
 		"files" : 
 		[
-			"Modes/CMakeLists.txt",
+			"Strategies/CMakeLists.txt",
 			"CMakeLists.txt"
 		],
 		"nodes" : 
@@ -33,25 +31,13 @@
 				"parent" : 0
 			},
 			{
-				"command" : 1,
-				"file" : 0,
-				"line" : 2,
-				"parent" : 0
-			},
-			{
 				"file" : 1
 			},
 			{
-				"command" : 2,
+				"command" : 1,
 				"file" : 1,
 				"line" : 39,
-				"parent" : 3
-			},
-			{
-				"command" : 3,
-				"file" : 0,
-				"line" : 3,
-				"parent" : 0
+				"parent" : 2
 			}
 		]
 	},
@@ -70,12 +56,8 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 4,
+					"backtrace" : 3,
 					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/program_options"
-				},
-				{
-					"backtrace" : 5,
-					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Modes/../Strategies"
 				}
 			],
 			"language" : "CXX",
@@ -89,24 +71,22 @@
 			},
 			"sourceIndexes" : 
 			[
-				1
+				1,
+				2,
+				3,
+				4,
+				5,
+				6
 			]
 		}
 	],
-	"dependencies" : 
-	[
-		{
-			"backtrace" : 2,
-			"id" : "strategies_lib::@7b1a4c656ec2b66574ca"
-		}
-	],
-	"id" : "modes_lib::@346f7c0331f09390c529",
-	"name" : "modes_lib",
-	"nameOnDisk" : "libmodes_lib.a",
+	"id" : "strategies_lib::@7b1a4c656ec2b66574ca",
+	"name" : "strategies_lib",
+	"nameOnDisk" : "libstrategies_lib.a",
 	"paths" : 
 	{
-		"build" : "Modes",
-		"source" : "Modes"
+		"build" : "Strategies",
+		"source" : "Strategies"
 	},
 	"sourceGroups" : 
 	[
@@ -121,7 +101,12 @@
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				1
+				1,
+				2,
+				3,
+				4,
+				5,
+				6
 			]
 		}
 	],
@@ -129,13 +114,43 @@
 	[
 		{
 			"backtrace" : 1,
-			"path" : "Modes/GameMode.h",
+			"path" : "Strategies/GameStrategy.h",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "Modes/Detailed.cpp",
+			"path" : "Strategies/Trivial_Always_C.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "Strategies/Trivial_Always_D.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "Strategies/Trivial_Random.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "Strategies/Friendly_Fool.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "Strategies/Probability.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "Strategies/Dominator.cpp",
 			"sourceGroupIndex" : 1
 		}
 	],

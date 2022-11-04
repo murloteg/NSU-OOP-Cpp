@@ -6,6 +6,7 @@ class TrivialAlwaysD : public GameStrategy {
 public:
     TrivialAlwaysD();
     Choice vote() override;
+    void printStrategyName() override;
     ~TrivialAlwaysD() override = default;
 };
 

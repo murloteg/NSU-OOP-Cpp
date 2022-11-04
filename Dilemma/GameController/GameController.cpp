@@ -24,7 +24,8 @@ void GameController::startGame()
 
         case fast:
         {
-
+            Fast fastMode(steps_, matrixFile_, firstStrategy, secondStrategy, thirdStrategy);
+            fastMode.play();
         }
 
         case tournament:
