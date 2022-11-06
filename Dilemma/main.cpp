@@ -20,6 +20,7 @@ int main(int argc, char* argv[])
     Tournament tournament(10, "game_matrix.txt", vectorStrategy);
     tournament.play();
 
+    // TODO: integrate boost's parser with other modules.
     vector<string> names;
     string mode;
     int steps;
@@ -29,7 +30,7 @@ int main(int argc, char* argv[])
     po::options_description description;
     description.add_options()
             ("help", "Get info about program's arguments.")
-            ("names", po::value< vector<string> >(&names)->default_value(names, "undefined"), "Input name of one strategy.")
+            ("name", po::value< vector<string> >(&names)->default_value(names, "undefined"), "Input name of one strategy.")
             ("mode", po::value<string>(&mode)->default_value(mode,"detailed"), "Select simulation type.")
             ("steps", po::value<int>(&steps)->default_value(0), "Input number of iterations.")
             ("configs", po::value< vector<string> >(&configs)->default_value(configs, "undefined"), "Select file with strategy's config.")

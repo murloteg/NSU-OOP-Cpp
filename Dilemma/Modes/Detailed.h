@@ -18,6 +18,7 @@ public:
     StatusesOfButton statusOfButton_;
     Detailed(int steps, std::string matrix, GameStrategy* first, GameStrategy* second, GameStrategy* third);
     void pressButton();
+    void printMode() override;
     void viewMatrix() override;
     void updateMatrix(std::string currentScore) override;
     void play() override;

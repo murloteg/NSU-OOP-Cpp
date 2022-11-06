@@ -4,6 +4,7 @@
 
 class Probability {
     // TODO: update this strategy.
+    // TODO: integrate config file.
 };
 
 

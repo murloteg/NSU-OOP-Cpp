@@ -1,6 +1,9 @@
 #include "Trivial_Random.h"
 
-TrivialRandom::TrivialRandom() {}
+TrivialRandom::TrivialRandom()
+{
+    strategyName_ = "\"TRIVIAL_RANDOM\"";
+}
 
 Choice TrivialRandom::vote()
 {
@@ -12,5 +15,5 @@ Choice TrivialRandom::vote()
 
 void TrivialRandom::printStrategyName()
 {
-    std::cout << "TRIVIAL_RANDOM";
+    std::cout << "\"TRIVIAL_RANDOM\"";
 }

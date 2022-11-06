@@ -4,6 +4,7 @@ Tournament::Tournament(int steps, std::string matrix, std::vector<GameStrategy*>
 {
     steps_ = steps;
     currentSteps_ = 0;
+    currentRound_ = 0;
     matrix_ = matrix;
     for (int i = 0; i < arrayWithStrategies.size(); ++i)
     {
@@ -12,6 +13,17 @@ Tournament::Tournament(int steps, std::string matrix, std::vector<GameStrategy*>
     vectorWithStrategies_ = std::move(arrayWithStrategies);
     currentFirstIndex = currentSecondIndex = currentThirdIndex = 0;
 }
+
+void Tournament::printMode()
+{
+    std::cout << ">>>MODE: TOURNAMENT<<<" << std::endl;
+}
+
+void Tournament::printCurrentRound() const
+{
+    std::cout << "ROUND " << currentRound_ << ":" << std::endl;
+}
+
 
 void Tournament::viewMatrix()
 {
@@ -45,6 +57,22 @@ void Tournament::viewMatrix()
     file.close();
 }
 
+void Tournament::viewFinalProtocol()
+{
+    std::cout << "=======[FINAL PROTOCOL]========" << std::endl;
+    std::multimap<std::string, int> results;
+    for (int i = 0; i < vectorWithStrategies_.size(); ++i)
+    {
+        results.insert(std::make_pair(vectorWithStrategies_[i]->getStrategyName(), scoresOfStrategies_[i]));
+    }
+
+    for (const auto& item : results)
+    {
+        std::cout << item.first << " : " << item.second << std::endl;
+    }
+    std::cout << std::endl;
+}
+
 void Tournament::viewWinner()
 {
     int maxScore = 0;
@@ -58,9 +86,9 @@ void Tournament::viewWinner()
         }
     }
 
-    std::cout << "====[WINNER IS: ";
+    std::cout << "!!! WINNER IS: ";
     winner->printStrategyName();
-    std::cout << "]====" << std::endl;
+    std::cout << " !!! " << std::endl;
 }
 
 void Tournament::updateMatrix(std::string currentScore)
@@ -96,12 +124,15 @@ void Tournament::updateMatrix(std::string currentScore)
 
 void Tournament::play()
 {
+    printMode();
     for (int i = 0; i < vectorWithStrategies_.size(); ++i)
     {
         for (int j = i + 1; j < vectorWithStrategies_.size(); ++j)
         {
             for (int k = j + 1; k < vectorWithStrategies_.size(); ++k)
             {
+                ++currentRound_;
+                printCurrentRound();
                 GameStrategy* first = vectorWithStrategies_[i];
                 GameStrategy* second = vectorWithStrategies_[j];
                 GameStrategy* third = vectorWithStrategies_[k];
@@ -126,9 +157,9 @@ void Tournament::play()
                     third->strategyScore += convertCharToInt(scoreString->second[2]);
                     updateMatrix(scoreString->first);
                 }
-                scoresOfStrategies_[i] = std::max(first->strategyScore, scoresOfStrategies_[i]);
-                scoresOfStrategies_[j] = std::max(second->strategyScore, scoresOfStrategies_[j]);
-                scoresOfStrategies_[k] = std::max(third->strategyScore, scoresOfStrategies_[k]);
+                scoresOfStrategies_[i] += first->strategyScore;
+                scoresOfStrategies_[j] += second->strategyScore;
+                scoresOfStrategies_[k] += third->strategyScore;
                 currentSteps_ = 0;
                 first->strategyScore = 0;
                 second->strategyScore = 0;
@@ -137,5 +168,6 @@ void Tournament::play()
             }
         }
     }
+    viewFinalProtocol();
     viewWinner();
 }

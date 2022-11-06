@@ -10,6 +10,11 @@ Detailed::Detailed(int steps, std::string matrix, GameStrategy* first, GameStrat
     thirdStrategy_ = third;
 }
 
+void Detailed::printMode()
+{
+    std::cout << ">>>MODE: DETAILED<<<" << std::endl;
+}
+
 void Detailed::viewMatrix()
 {
     std::string matrixPath = "../ConfigurationFiles/" + matrix_;
@@ -83,6 +88,7 @@ void Detailed::pressButton()
 
 void Detailed::play()
 {
+    printMode();
     std::string matrixPath = "../ConfigurationFiles/" + matrix_;
     std::fstream file(matrixPath, std::ios::out);
     file.close();

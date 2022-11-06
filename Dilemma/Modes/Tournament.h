@@ -6,6 +6,7 @@
 class Tournament : public GameMode {
 private:
     int currentSteps_;
+    int currentRound_;
     std::vector<int> scoresOfStrategies_;
     std::vector<GameStrategy*> vectorWithStrategies_;
     int currentFirstIndex;
@@ -13,8 +14,11 @@ private:
     int currentThirdIndex;
 public:
     Tournament(int steps, std::string matrix, std::vector<GameStrategy*> arrayWithStrategies);
+    void printCurrentRound() const;
+    void printMode() override;
     void viewMatrix() override;
     void viewWinner();
+    void viewFinalProtocol();
     void updateMatrix(std::string current) override;
     void play() override;
     ~Tournament() override = default;

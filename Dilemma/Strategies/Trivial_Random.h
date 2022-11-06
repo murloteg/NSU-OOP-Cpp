@@ -3,7 +3,7 @@
 #include "GameStrategy.h"
 #include <random>
 
-class TrivialRandom : public GameStrategy{
+class TrivialRandom : public GameStrategy {
 public:
     TrivialRandom();
     Choice vote() override;

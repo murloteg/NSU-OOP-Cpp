@@ -20,9 +20,11 @@ enum Choice
 
 class GameStrategy {
 public:
+    std::string strategyName_;
     int strategyScore = 0;
     virtual Choice vote() = 0;
     virtual void update(Choice firstEnemy, Choice secondEnemy) {};
+    std::string getStrategyName() {return strategyName_;}
     virtual void printStrategyName() = 0;
     virtual ~GameStrategy() = default;
 };

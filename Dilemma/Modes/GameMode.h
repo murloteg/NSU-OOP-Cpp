@@ -13,6 +13,7 @@ public:
     static int getLengthOfInt(int value);
     static std::string convertScoreString(std::string scoreString);
     static int convertCharToInt(unsigned char symbol);
+    virtual void printMode() = 0;
     virtual void viewMatrix() = 0;
     virtual void updateMatrix(std::string) = 0;
     virtual void play() = 0;

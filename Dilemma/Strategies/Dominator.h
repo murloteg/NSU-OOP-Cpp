@@ -4,6 +4,7 @@
 
 class Dominator {
     // TODO: update this strategy.
+    // TODO: integrate config file.
 };
 
 

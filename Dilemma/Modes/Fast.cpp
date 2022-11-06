@@ -10,6 +10,11 @@ Fast::Fast(int steps, std::string matrix, GameStrategy *first, GameStrategy *sec
     thirdStrategy_ = third;
 }
 
+void Fast::printMode()
+{
+    std::cout << ">>>MODE: FAST<<<" << std::endl;
+}
+
 void Fast::viewMatrix()
 {
     std::string matrixPath = "../ConfigurationFiles/" + matrix_;
@@ -68,6 +73,7 @@ void Fast::updateMatrix(std::string currentScore)
 
 void Fast::play()
 {
+    printMode();
     std::string matrixPath = "../ConfigurationFiles/" + matrix_;
     std::fstream file(matrixPath, std::ios::out);
     file.close();
