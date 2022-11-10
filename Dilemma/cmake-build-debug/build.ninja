@@ -44,15 +44,15 @@ cmake_ninja_workdir = /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-
 #############################################
 # Order-only phony target for Dilemma
 
-build cmake_object_order_depends_target_Dilemma: phony || cmake_object_order_depends_target_factory_lib cmake_object_order_depends_target_modes_lib cmake_object_order_depends_target_strategies_lib
+build cmake_object_order_depends_target_Dilemma: phony || cmake_object_order_depends_target_factory_lib cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main cmake_object_order_depends_target_modes_lib cmake_object_order_depends_target_strategies_lib cmake_object_order_depends_target_tests_lib
 
-build CMakeFiles/Dilemma.dir/main.cpp.o: CXX_COMPILER__Dilemma_Debug /Users/mac/CLionProjects/Cpp-Projects/Dilemma/main.cpp || cmake_object_order_depends_target_Dilemma
+build CMakeFiles/Dilemma.dir/Tests/my_tests.cpp.o: CXX_COMPILER__Dilemma_Debug /Users/mac/CLionProjects/Cpp-Projects/Dilemma/Tests/my_tests.cpp || cmake_object_order_depends_target_Dilemma
   DEFINES = -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DBOOST_PROGRAM_OPTIONS_NO_LIB
-  DEP_FILE = CMakeFiles/Dilemma.dir/main.cpp.o.d
+  DEP_FILE = CMakeFiles/Dilemma.dir/Tests/my_tests.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -std=gnu++17
-  INCLUDES = -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/program_options -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Strategies -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Factory -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/GameController -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Modes -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Factory/../Strategies -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Factory/../GameController -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/GameController/../Modes -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/GameController/../Factory -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Modes/../Strategies -isystem /usr/local/include
+  INCLUDES = -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/program_options -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Strategies -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Factory -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/GameController -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Modes -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Tests -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Factory/../Strategies -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Factory/../GameController -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/GameController/../Modes -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/GameController/../Factory -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Modes/../Strategies -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Tests/../GameController -isystem /usr/local/include -isystem /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-src/googletest/include -isystem /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles/Dilemma.dir
-  OBJECT_FILE_DIR = CMakeFiles/Dilemma.dir
+  OBJECT_FILE_DIR = CMakeFiles/Dilemma.dir/Tests
 
 
 # =============================================================================
@@ -62,9 +62,9 @@ build CMakeFiles/Dilemma.dir/main.cpp.o: CXX_COMPILER__Dilemma_Debug /Users/mac/
 #############################################
 # Link the executable Dilemma
 
-build Dilemma: CXX_EXECUTABLE_LINKER__Dilemma_Debug CMakeFiles/Dilemma.dir/main.cpp.o | /usr/local/lib/libboost_program_options-mt.dylib Strategies/libstrategies_lib.a Factory/libfactory_lib.a GameController/libgame_controller_lib.a Modes/libmodes_lib.a Factory/libfactory_lib.a GameController/libgame_controller_lib.a Modes/libmodes_lib.a Strategies/libstrategies_lib.a || Factory/libfactory_lib.a Modes/libmodes_lib.a Strategies/libstrategies_lib.a
+build Dilemma: CXX_EXECUTABLE_LINKER__Dilemma_Debug CMakeFiles/Dilemma.dir/Tests/my_tests.cpp.o | /usr/local/lib/libboost_program_options-mt.dylib Strategies/libstrategies_lib.a Factory/libfactory_lib.a GameController/libgame_controller_lib.a Modes/libmodes_lib.a lib/libgtest_main.a Tests/libtests_lib.a Factory/libfactory_lib.a GameController/libgame_controller_lib.a Factory/libfactory_lib.a GameController/libgame_controller_lib.a Modes/libmodes_lib.a Strategies/libstrategies_lib.a lib/libgtest_main.a lib/libgtest.a || Factory/libfactory_lib.a Modes/libmodes_lib.a Strategies/libstrategies_lib.a Tests/libtests_lib.a lib/libgtest.a lib/libgtest_main.a
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk
-  LINK_LIBRARIES = /usr/local/lib/libboost_program_options-mt.dylib  Strategies/libstrategies_lib.a  Factory/libfactory_lib.a  GameController/libgame_controller_lib.a  Modes/libmodes_lib.a  Factory/libfactory_lib.a  GameController/libgame_controller_lib.a  Modes/libmodes_lib.a  Strategies/libstrategies_lib.a
+  LINK_LIBRARIES = /usr/local/lib/libboost_program_options-mt.dylib  Strategies/libstrategies_lib.a  Factory/libfactory_lib.a  GameController/libgame_controller_lib.a  Modes/libmodes_lib.a  lib/libgtest_main.a  Tests/libtests_lib.a  Factory/libfactory_lib.a  GameController/libgame_controller_lib.a  Factory/libfactory_lib.a  GameController/libgame_controller_lib.a  Modes/libmodes_lib.a  Strategies/libstrategies_lib.a  lib/libgtest_main.a  lib/libgtest.a
   OBJECT_DIR = CMakeFiles/Dilemma.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -93,6 +93,390 @@ build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
   restat = 1
 
 build rebuild_cache: phony CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build CMakeFiles/install.util: CUSTOM_COMMAND all
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build install: phony CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build CMakeFiles/install/local.util: CUSTOM_COMMAND all
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build install/local: phony CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build CMakeFiles/install/strip.util: CUSTOM_COMMAND all
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build install/strip: phony CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/mac/CLionProjects/Cpp-Projects/Dilemma/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for edit_cache
+
+build _deps/googletest-build/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-build && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build _deps/googletest-build/edit_cache: phony _deps/googletest-build/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build _deps/googletest-build/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-build && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/mac/CLionProjects/Cpp-Projects/Dilemma -B/Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/rebuild_cache: phony _deps/googletest-build/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build _deps/googletest-build/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build _deps/googletest-build/CMakeFiles/install.util: CUSTOM_COMMAND _deps/googletest-build/all
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-build && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/install: phony _deps/googletest-build/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build _deps/googletest-build/CMakeFiles/install/local.util: CUSTOM_COMMAND _deps/googletest-build/all
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-build && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/install/local: phony _deps/googletest-build/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build _deps/googletest-build/CMakeFiles/install/strip.util: CUSTOM_COMMAND _deps/googletest-build/all
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-build && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/install/strip: phony _deps/googletest-build/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-src/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gmock
+
+
+#############################################
+# Order-only phony target for gmock
+
+build cmake_object_order_depends_target_gmock: phony || cmake_object_order_depends_target_gtest
+
+build _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o: CXX_COMPILER__gmock_Debug /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-src/googlemock/src/gmock-all.cc || cmake_object_order_depends_target_gmock
+  DEP_FILE = _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk  -DGTEST_HAS_PTHREAD=1   -std=c++17
+  INCLUDES = -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/program_options -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-src/googlemock/include -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-src/googlemock -isystem /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-src/googletest/include -isystem /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-src/googletest
+  OBJECT_DIR = _deps/googletest-build/googlemock/CMakeFiles/gmock.dir
+  OBJECT_FILE_DIR = _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gmock
+
+
+#############################################
+# Link the static library lib/libgmock.a
+
+build lib/libgmock.a: CXX_STATIC_LIBRARY_LINKER__gmock_Debug _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o || lib/libgtest.a
+  ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = _deps/googletest-build/googlemock/CMakeFiles/gmock.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = lib/libgmock.a
+  TARGET_PDB = gmock.a.dbg
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gmock_main
+
+
+#############################################
+# Order-only phony target for gmock_main
+
+build cmake_object_order_depends_target_gmock_main: phony || cmake_object_order_depends_target_gmock cmake_object_order_depends_target_gtest
+
+build _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o: CXX_COMPILER__gmock_main_Debug /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-src/googlemock/src/gmock_main.cc || cmake_object_order_depends_target_gmock_main
+  DEP_FILE = _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk  -DGTEST_HAS_PTHREAD=1   -std=c++17
+  INCLUDES = -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/program_options -isystem /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-src/googlemock/include -isystem /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-src/googlemock -isystem /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-src/googletest/include -isystem /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-src/googletest
+  OBJECT_DIR = _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir
+  OBJECT_FILE_DIR = _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gmock_main
+
+
+#############################################
+# Link the static library lib/libgmock_main.a
+
+build lib/libgmock_main.a: CXX_STATIC_LIBRARY_LINKER__gmock_main_Debug _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o || lib/libgmock.a lib/libgtest.a
+  ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = lib/libgmock_main.a
+  TARGET_PDB = gmock_main.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build _deps/googletest-build/googlemock/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-build/googlemock && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build _deps/googletest-build/googlemock/edit_cache: phony _deps/googletest-build/googlemock/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build _deps/googletest-build/googlemock/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-build/googlemock && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/mac/CLionProjects/Cpp-Projects/Dilemma -B/Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/googlemock/rebuild_cache: phony _deps/googletest-build/googlemock/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build _deps/googletest-build/googlemock/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build _deps/googletest-build/googlemock/CMakeFiles/install.util: CUSTOM_COMMAND _deps/googletest-build/googlemock/all
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-build/googlemock && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/googlemock/install: phony _deps/googletest-build/googlemock/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build _deps/googletest-build/googlemock/CMakeFiles/install/local.util: CUSTOM_COMMAND _deps/googletest-build/googlemock/all
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-build/googlemock && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/googlemock/install/local: phony _deps/googletest-build/googlemock/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build _deps/googletest-build/googlemock/CMakeFiles/install/strip.util: CUSTOM_COMMAND _deps/googletest-build/googlemock/all
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-build/googlemock && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/googlemock/install/strip: phony _deps/googletest-build/googlemock/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-src/googlemock/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gtest
+
+
+#############################################
+# Order-only phony target for gtest
+
+build cmake_object_order_depends_target_gtest: phony || _deps/googletest-build/googletest/CMakeFiles/gtest.dir
+
+build _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o: CXX_COMPILER__gtest_Debug /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-src/googletest/src/gtest-all.cc || cmake_object_order_depends_target_gtest
+  DEP_FILE = _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk  -DGTEST_HAS_PTHREAD=1   -std=c++17
+  INCLUDES = -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/program_options -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-src/googletest/include -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-src/googletest
+  OBJECT_DIR = _deps/googletest-build/googletest/CMakeFiles/gtest.dir
+  OBJECT_FILE_DIR = _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gtest
+
+
+#############################################
+# Link the static library lib/libgtest.a
+
+build lib/libgtest.a: CXX_STATIC_LIBRARY_LINKER__gtest_Debug _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+  ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = _deps/googletest-build/googletest/CMakeFiles/gtest.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = lib/libgtest.a
+  TARGET_PDB = gtest.a.dbg
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gtest_main
+
+
+#############################################
+# Order-only phony target for gtest_main
+
+build cmake_object_order_depends_target_gtest_main: phony || cmake_object_order_depends_target_gtest
+
+build _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o: CXX_COMPILER__gtest_main_Debug /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-src/googletest/src/gtest_main.cc || cmake_object_order_depends_target_gtest_main
+  DEP_FILE = _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk  -DGTEST_HAS_PTHREAD=1   -std=c++17
+  INCLUDES = -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/program_options -isystem /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-src/googletest/include -isystem /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-src/googletest
+  OBJECT_DIR = _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir
+  OBJECT_FILE_DIR = _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gtest_main
+
+
+#############################################
+# Link the static library lib/libgtest_main.a
+
+build lib/libgtest_main.a: CXX_STATIC_LIBRARY_LINKER__gtest_main_Debug _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o || lib/libgtest.a
+  ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = lib/libgtest_main.a
+  TARGET_PDB = gtest_main.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build _deps/googletest-build/googletest/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-build/googletest && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build _deps/googletest-build/googletest/edit_cache: phony _deps/googletest-build/googletest/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build _deps/googletest-build/googletest/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-build/googletest && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/mac/CLionProjects/Cpp-Projects/Dilemma -B/Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/googletest/rebuild_cache: phony _deps/googletest-build/googletest/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build _deps/googletest-build/googletest/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build _deps/googletest-build/googletest/CMakeFiles/install.util: CUSTOM_COMMAND _deps/googletest-build/googletest/all
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-build/googletest && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/googletest/install: phony _deps/googletest-build/googletest/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build _deps/googletest-build/googletest/CMakeFiles/install/local.util: CUSTOM_COMMAND _deps/googletest-build/googletest/all
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-build/googletest && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/googletest/install/local: phony _deps/googletest-build/googletest/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build _deps/googletest-build/googletest/CMakeFiles/install/strip.util: CUSTOM_COMMAND _deps/googletest-build/googletest/all
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-build/googletest && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build _deps/googletest-build/googletest/install/strip: phony _deps/googletest-build/googletest/CMakeFiles/install/strip.util
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
@@ -190,6 +574,48 @@ build Strategies/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build Strategies/rebuild_cache: phony Strategies/CMakeFiles/rebuild_cache.util
 
+
+#############################################
+# Utility command for list_install_components
+
+build Strategies/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build Strategies/CMakeFiles/install.util: CUSTOM_COMMAND Strategies/all
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/Strategies && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build Strategies/install: phony Strategies/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build Strategies/CMakeFiles/install/local.util: CUSTOM_COMMAND Strategies/all
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/Strategies && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build Strategies/install/local: phony Strategies/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build Strategies/CMakeFiles/install/strip.util: CUSTOM_COMMAND Strategies/all
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/Strategies && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build Strategies/install/strip: phony Strategies/CMakeFiles/install/strip.util
+
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
 # /Users/mac/CLionProjects/Cpp-Projects/Dilemma/CMakeLists.txt
@@ -251,6 +677,48 @@ build Factory/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build Factory/rebuild_cache: phony Factory/CMakeFiles/rebuild_cache.util
 
+
+#############################################
+# Utility command for list_install_components
+
+build Factory/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build Factory/CMakeFiles/install.util: CUSTOM_COMMAND Factory/all
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/Factory && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build Factory/install: phony Factory/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build Factory/CMakeFiles/install/local.util: CUSTOM_COMMAND Factory/all
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/Factory && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build Factory/install/local: phony Factory/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build Factory/CMakeFiles/install/strip.util: CUSTOM_COMMAND Factory/all
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/Factory && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build Factory/install/strip: phony Factory/CMakeFiles/install/strip.util
+
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
 # /Users/mac/CLionProjects/Cpp-Projects/Dilemma/CMakeLists.txt
@@ -311,6 +779,48 @@ build GameController/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
   restat = 1
 
 build GameController/rebuild_cache: phony GameController/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build GameController/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build GameController/CMakeFiles/install.util: CUSTOM_COMMAND GameController/all
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/GameController && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build GameController/install: phony GameController/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build GameController/CMakeFiles/install/local.util: CUSTOM_COMMAND GameController/all
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/GameController && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build GameController/install/local: phony GameController/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build GameController/CMakeFiles/install/strip.util: CUSTOM_COMMAND GameController/all
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/GameController && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build GameController/install/strip: phony GameController/CMakeFiles/install/strip.util
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
@@ -394,6 +904,151 @@ build Modes/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build Modes/rebuild_cache: phony Modes/CMakeFiles/rebuild_cache.util
 
+
+#############################################
+# Utility command for list_install_components
+
+build Modes/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build Modes/CMakeFiles/install.util: CUSTOM_COMMAND Modes/all
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/Modes && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build Modes/install: phony Modes/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build Modes/CMakeFiles/install/local.util: CUSTOM_COMMAND Modes/all
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/Modes && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build Modes/install/local: phony Modes/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build Modes/CMakeFiles/install/strip.util: CUSTOM_COMMAND Modes/all
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/Modes && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build Modes/install/strip: phony Modes/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/mac/CLionProjects/Cpp-Projects/Dilemma/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target tests_lib
+
+
+#############################################
+# Order-only phony target for tests_lib
+
+build cmake_object_order_depends_target_tests_lib: phony || cmake_object_order_depends_target_factory_lib cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main cmake_object_order_depends_target_modes_lib cmake_object_order_depends_target_strategies_lib
+
+build Tests/CMakeFiles/tests_lib.dir/my_tests.cpp.o: CXX_COMPILER__tests_lib_Debug /Users/mac/CLionProjects/Cpp-Projects/Dilemma/Tests/my_tests.cpp || cmake_object_order_depends_target_tests_lib
+  DEP_FILE = Tests/CMakeFiles/tests_lib.dir/my_tests.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -std=gnu++17
+  INCLUDES = -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/program_options -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Tests/../GameController -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/GameController/../Modes -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/GameController/../Factory -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Modes/../Strategies -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Factory/../Strategies -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Factory/../GameController -isystem /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-src/googletest/include -isystem /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-src/googletest
+  OBJECT_DIR = Tests/CMakeFiles/tests_lib.dir
+  OBJECT_FILE_DIR = Tests/CMakeFiles/tests_lib.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target tests_lib
+
+
+#############################################
+# Link the static library Tests/libtests_lib.a
+
+build Tests/libtests_lib.a: CXX_STATIC_LIBRARY_LINKER__tests_lib_Debug Tests/CMakeFiles/tests_lib.dir/my_tests.cpp.o || Factory/libfactory_lib.a Modes/libmodes_lib.a Strategies/libstrategies_lib.a lib/libgtest.a lib/libgtest_main.a
+  ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = Tests/CMakeFiles/tests_lib.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = Tests/libtests_lib.a
+  TARGET_PDB = tests_lib.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build Tests/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/Tests && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build Tests/edit_cache: phony Tests/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build Tests/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/Tests && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/mac/CLionProjects/Cpp-Projects/Dilemma -B/Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build Tests/rebuild_cache: phony Tests/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build Tests/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build Tests/CMakeFiles/install.util: CUSTOM_COMMAND Tests/all
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/Tests && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build Tests/install: phony Tests/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build Tests/CMakeFiles/install/local.util: CUSTOM_COMMAND Tests/all
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/Tests && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build Tests/install/local: phony Tests/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build Tests/CMakeFiles/install/strip.util: CUSTOM_COMMAND Tests/all
+  COMMAND = cd /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/Tests && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build Tests/install/strip: phony Tests/CMakeFiles/install/strip.util
+
 # =============================================================================
 # Target aliases.
 
@@ -401,17 +1056,37 @@ build factory_lib: phony Factory/libfactory_lib.a
 
 build game_controller_lib: phony GameController/libgame_controller_lib.a
 
+build gmock: phony lib/libgmock.a
+
+build gmock_main: phony lib/libgmock_main.a
+
+build gtest: phony lib/libgtest.a
+
+build gtest_main: phony lib/libgtest_main.a
+
 build libfactory_lib.a: phony Factory/libfactory_lib.a
 
 build libgame_controller_lib.a: phony GameController/libgame_controller_lib.a
+
+build libgmock.a: phony lib/libgmock.a
+
+build libgmock_main.a: phony lib/libgmock_main.a
+
+build libgtest.a: phony lib/libgtest.a
+
+build libgtest_main.a: phony lib/libgtest_main.a
 
 build libmodes_lib.a: phony Modes/libmodes_lib.a
 
 build libstrategies_lib.a: phony Strategies/libstrategies_lib.a
 
+build libtests_lib.a: phony Tests/libtests_lib.a
+
 build modes_lib: phony Modes/libmodes_lib.a
 
 build strategies_lib: phony Strategies/libstrategies_lib.a
+
+build tests_lib: phony Tests/libtests_lib.a
 
 # =============================================================================
 # Folder targets.
@@ -421,7 +1096,7 @@ build strategies_lib: phony Strategies/libstrategies_lib.a
 #############################################
 # Folder: /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug
 
-build all: phony Dilemma Strategies/all Factory/all GameController/all Modes/all
+build all: phony Dilemma _deps/googletest-build/all Strategies/all Factory/all GameController/all Modes/all Tests/all
 
 # =============================================================================
 
@@ -452,20 +1127,48 @@ build Modes/all: phony Modes/libmodes_lib.a
 build Strategies/all: phony Strategies/libstrategies_lib.a
 
 # =============================================================================
+
+#############################################
+# Folder: /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/Tests
+
+build Tests/all: phony Tests/libtests_lib.a
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-build
+
+build _deps/googletest-build/all: phony _deps/googletest-build/googlemock/all
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-build/googlemock
+
+build _deps/googletest-build/googlemock/all: phony lib/libgmock.a lib/libgmock_main.a _deps/googletest-build/googletest/all
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-build/googletest
+
+build _deps/googletest-build/googletest/all: phony lib/libgtest.a lib/libgtest_main.a
+
+# =============================================================================
 # Built-in targets
 
 
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ../CMakeLists.txt ../Factory/CMakeLists.txt ../GameController/CMakeLists.txt ../Modes/CMakeLists.txt ../Strategies/CMakeLists.txt /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindBoost.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/UnixPaths.cmake /usr/local/lib/cmake/Boost-1.80.0/BoostConfig.cmake /usr/local/lib/cmake/Boost-1.80.0/BoostConfigVersion.cmake /usr/local/lib/cmake/BoostDetectToolset-1.80.0.cmake /usr/local/lib/cmake/boost_headers-1.80.0/boost_headers-config-version.cmake /usr/local/lib/cmake/boost_headers-1.80.0/boost_headers-config.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/boost_program_options-config-version.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/boost_program_options-config.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-mt-shared.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-mt-static.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-shared.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-static.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | ../CMakeLists.txt ../Factory/CMakeLists.txt ../GameController/CMakeLists.txt ../Modes/CMakeLists.txt ../Strategies/CMakeLists.txt ../Tests/CMakeLists.txt /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeDependentOption.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakePackageConfigHelpers.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckCSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckIncludeFile.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckLibraryExists.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FetchContent.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FetchContent/CMakeLists.cmake.in /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindBoost.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPython.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPython/Support.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindThreads.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/GNUInstallDirs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Internal/CheckSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/UnixPaths.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/WriteBasicConfigVersionFile.cmake /usr/local/lib/cmake/Boost-1.80.0/BoostConfig.cmake /usr/local/lib/cmake/Boost-1.80.0/BoostConfigVersion.cmake /usr/local/lib/cmake/BoostDetectToolset-1.80.0.cmake /usr/local/lib/cmake/boost_headers-1.80.0/boost_headers-config-version.cmake /usr/local/lib/cmake/boost_headers-1.80.0/boost_headers-config.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/boost_program_options-config-version.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/boost_program_options-config.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-mt-shared.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-mt-static.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-shared.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-static.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake _deps/googletest-src/CMakeLists.txt _deps/googletest-src/googlemock/CMakeLists.txt _deps/googletest-src/googlemock/cmake/gmock.pc.in _deps/googletest-src/googlemock/cmake/gmock_main.pc.in _deps/googletest-src/googletest/CMakeLists.txt _deps/googletest-src/googletest/cmake/Config.cmake.in _deps/googletest-src/googletest/cmake/gtest.pc.in _deps/googletest-src/googletest/cmake/gtest_main.pc.in _deps/googletest-src/googletest/cmake/internal_utils.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ../CMakeLists.txt ../Factory/CMakeLists.txt ../GameController/CMakeLists.txt ../Modes/CMakeLists.txt ../Strategies/CMakeLists.txt /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindBoost.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/UnixPaths.cmake /usr/local/lib/cmake/Boost-1.80.0/BoostConfig.cmake /usr/local/lib/cmake/Boost-1.80.0/BoostConfigVersion.cmake /usr/local/lib/cmake/BoostDetectToolset-1.80.0.cmake /usr/local/lib/cmake/boost_headers-1.80.0/boost_headers-config-version.cmake /usr/local/lib/cmake/boost_headers-1.80.0/boost_headers-config.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/boost_program_options-config-version.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/boost_program_options-config.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-mt-shared.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-mt-static.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-shared.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-static.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake: phony
+build ../CMakeLists.txt ../Factory/CMakeLists.txt ../GameController/CMakeLists.txt ../Modes/CMakeLists.txt ../Strategies/CMakeLists.txt ../Tests/CMakeLists.txt /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeDependentOption.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakePackageConfigHelpers.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckCSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckIncludeFile.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckLibraryExists.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FetchContent.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FetchContent/CMakeLists.cmake.in /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindBoost.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPython.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPython/Support.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindThreads.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/GNUInstallDirs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Internal/CheckSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/UnixPaths.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/WriteBasicConfigVersionFile.cmake /usr/local/lib/cmake/Boost-1.80.0/BoostConfig.cmake /usr/local/lib/cmake/Boost-1.80.0/BoostConfigVersion.cmake /usr/local/lib/cmake/BoostDetectToolset-1.80.0.cmake /usr/local/lib/cmake/boost_headers-1.80.0/boost_headers-config-version.cmake /usr/local/lib/cmake/boost_headers-1.80.0/boost_headers-config.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/boost_program_options-config-version.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/boost_program_options-config.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-mt-shared.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-mt-static.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-shared.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-static.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake _deps/googletest-src/CMakeLists.txt _deps/googletest-src/googlemock/CMakeLists.txt _deps/googletest-src/googlemock/cmake/gmock.pc.in _deps/googletest-src/googlemock/cmake/gmock_main.pc.in _deps/googletest-src/googletest/CMakeLists.txt _deps/googletest-src/googletest/cmake/Config.cmake.in _deps/googletest-src/googletest/cmake/gtest.pc.in _deps/googletest-src/googletest/cmake/gtest_main.pc.in _deps/googletest-src/googletest/cmake/internal_utils.cmake: phony
 
 
 #############################################

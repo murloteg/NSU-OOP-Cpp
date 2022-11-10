@@ -1,13 +1,14 @@
 #include "Detailed.h"
 
-Detailed::Detailed(int steps, std::string matrix, GameStrategy* first, GameStrategy* second, GameStrategy* third)
+Detailed::Detailed(int steps, std::string matrix, std::shared_ptr<GameStrategy> first, std::shared_ptr<GameStrategy> second, std::shared_ptr<GameStrategy> third)
 {
     steps_ = steps;
     currentSteps_ = 0;
-    matrix_ = matrix;
-    firstStrategy_ = first;
-    secondStrategy_ = second;
-    thirdStrategy_ = third;
+    matrix_ = std::move(matrix);
+    firstStrategy_ = std::move(first);
+    secondStrategy_ = std::move(second);
+    thirdStrategy_ = std::move(third);
+    statusOfButton_ = CONTINUE;
 }
 
 void Detailed::printMode()
@@ -21,6 +22,12 @@ void Detailed::viewMatrix()
     std::ifstream file(matrixPath);
     if (file.is_open())
     {
+        firstStrategy_->printStrategyName();
+        std::cout << " VS ";
+        secondStrategy_->printStrategyName();
+        std::cout << " VS ";
+        thirdStrategy_->printStrategyName();
+        std::cout << std::endl;
         while (!file.eof())
         {
             char currentChar = static_cast<char> (file.get());
@@ -112,6 +119,9 @@ void Detailed::play()
         secondStrategy_->strategyScore += convertCharToInt(scoreString->second[1]);
         thirdStrategy_->strategyScore += convertCharToInt(scoreString->second[2]);
         updateMatrix(scoreString->first);
+        firstStrategy_->update(secondVote, thirdVote);
+        secondStrategy_->update(firstVote, thirdVote);
+        thirdStrategy_->update(firstVote, secondVote);
         viewMatrix();
     }
 }

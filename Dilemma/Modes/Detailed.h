@@ -11,12 +11,12 @@ enum StatusesOfButton
 class Detailed : public GameMode {
 private:
     int currentSteps_;
-    GameStrategy* firstStrategy_;
-    GameStrategy* secondStrategy_;
-    GameStrategy* thirdStrategy_;
+    std::shared_ptr<GameStrategy> firstStrategy_;
+    std::shared_ptr<GameStrategy> secondStrategy_;
+    std::shared_ptr<GameStrategy> thirdStrategy_;
 public:
     StatusesOfButton statusOfButton_;
-    Detailed(int steps, std::string matrix, GameStrategy* first, GameStrategy* second, GameStrategy* third);
+    Detailed(int steps, std::string matrix, std::shared_ptr<GameStrategy> first, std::shared_ptr<GameStrategy> second, std::shared_ptr<GameStrategy> third);
     void pressButton();
     void printMode() override;
     void viewMatrix() override;

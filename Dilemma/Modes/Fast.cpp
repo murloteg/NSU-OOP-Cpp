@@ -1,13 +1,13 @@
 #include "Fast.h"
 
-Fast::Fast(int steps, std::string matrix, GameStrategy *first, GameStrategy *second, GameStrategy *third)
+Fast::Fast(int steps, std::string matrix, std::shared_ptr<GameStrategy> first, std::shared_ptr<GameStrategy> second, std::shared_ptr<GameStrategy> third)
 {
     currentSteps_ = 0;
     steps_ = steps;
-    matrix_ = matrix;
-    firstStrategy_ = first;
-    secondStrategy_ = second;
-    thirdStrategy_ = third;
+    matrix_ = std::move(matrix);
+    firstStrategy_ = std::move(first);
+    secondStrategy_ = std::move(second);
+    thirdStrategy_ = std::move(third);
 }
 
 void Fast::printMode()
@@ -21,6 +21,12 @@ void Fast::viewMatrix()
     std::ifstream file(matrixPath);
     if (file.is_open())
     {
+        firstStrategy_->printStrategyName();
+        std::cout << " VS ";
+        secondStrategy_->printStrategyName();
+        std::cout << " VS ";
+        thirdStrategy_->printStrategyName();
+        std::cout << std::endl;
         while (!file.eof())
         {
             char currentChar = static_cast<char> (file.get());
@@ -91,6 +97,9 @@ void Fast::play()
         secondStrategy_->strategyScore += convertCharToInt(scoreString->second[1]);
         thirdStrategy_->strategyScore += convertCharToInt(scoreString->second[2]);
         updateMatrix(scoreString->first);
+        firstStrategy_->update(secondVote, thirdVote);
+        secondStrategy_->update(firstVote, thirdVote);
+        thirdStrategy_->update(firstVote, secondVote);
     }
     viewMatrix();
 }

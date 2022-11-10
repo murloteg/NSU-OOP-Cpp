@@ -1,11 +1,11 @@
 #include "Tournament.h"
 
-Tournament::Tournament(int steps, std::string matrix, std::vector<GameStrategy*> arrayWithStrategies)
+Tournament::Tournament(int steps, std::string matrix, std::vector<std::shared_ptr<GameStrategy>> arrayWithStrategies)
 {
     steps_ = steps;
     currentSteps_ = 0;
     currentRound_ = 0;
-    matrix_ = matrix;
+    matrix_ = std::move(matrix);
     for (int i = 0; i < arrayWithStrategies.size(); ++i)
     {
         scoresOfStrategies_.push_back(0);
@@ -23,7 +23,6 @@ void Tournament::printCurrentRound() const
 {
     std::cout << "ROUND " << currentRound_ << ":" << std::endl;
 }
-
 
 void Tournament::viewMatrix()
 {
@@ -76,7 +75,7 @@ void Tournament::viewFinalProtocol()
 void Tournament::viewWinner()
 {
     int maxScore = 0;
-    GameStrategy* winner = nullptr;
+    std::shared_ptr<GameStrategy> winner = nullptr;
     for (int i = 0; i < scoresOfStrategies_.size(); ++i)
     {
         if (scoresOfStrategies_[i] > maxScore)
@@ -133,9 +132,9 @@ void Tournament::play()
             {
                 ++currentRound_;
                 printCurrentRound();
-                GameStrategy* first = vectorWithStrategies_[i];
-                GameStrategy* second = vectorWithStrategies_[j];
-                GameStrategy* third = vectorWithStrategies_[k];
+                std::shared_ptr<GameStrategy> first = vectorWithStrategies_[i];
+                std::shared_ptr<GameStrategy> second = vectorWithStrategies_[j];
+                std::shared_ptr<GameStrategy> third = vectorWithStrategies_[k];
                 currentFirstIndex = i;
                 currentSecondIndex = j;
                 currentThirdIndex = k;

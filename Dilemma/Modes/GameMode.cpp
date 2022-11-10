@@ -11,7 +11,7 @@ int GameMode::getLengthOfInt(int value)
     return length;
 }
 
-std::string GameMode::convertScoreString(std::string scoreString)
+std::string GameMode::convertScoreString(const std::string& scoreString)
 {
     std::string result;
     for (char symbol : scoreString)

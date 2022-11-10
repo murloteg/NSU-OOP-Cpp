@@ -10,8 +10,8 @@ enum StrategiesNames
     TRIVIAL_ALWAYS_D = 2,
     TRIVIAL_RANDOM = 3,
     FRIENDLY_FOOL = 4,
-    PROBABILITY = 5, // Probability-Is-Power
-    DOMINATOR = 6 // D-MEANS-DOMINATOR
+    PROBABILITY = 5,
+    DOMINATOR = 6
 };
 
 enum Choice

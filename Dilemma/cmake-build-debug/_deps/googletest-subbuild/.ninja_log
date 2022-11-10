@@ -1,0 +1,21 @@
+# ninja log v5
+29	4355	1668100277211106309	/Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-download	be863182441710bc
+0	29	1668100272886290151	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-mkdir	b6c7b73a7f372f97
+4395	4429	1668100277286661118	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-patch	cf575807f8d93463
+4429	4460	1668100277317660959	/Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-configure	9fe2a30b9628ad6e
+4556	4596	1668100277454159520	/Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-subbuild/CMakeFiles/googletest-populate-complete	31584a4663c3c61a
+4556	4596	1668100277454159520	CMakeFiles/googletest-populate-complete	31584a4663c3c61a
+4556	4596	1668100277454159520	/Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-done	31584a4663c3c61a
+4460	4492	1668100277349272570	/Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-build	e514006b15840b0b
+0	29	1668100272886290151	/Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-mkdir	b6c7b73a7f372f97
+4355	4395	1668100277252428554	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-update	9e99bfc4df2808e
+29	4355	1668100277211106309	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-download	be863182441710bc
+4556	4596	1668100277454159520	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-done	31584a4663c3c61a
+4460	4492	1668100277349272570	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-build	e514006b15840b0b
+4395	4429	1668100277286661118	/Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-patch	cf575807f8d93463
+4525	4556	1668100277414078142	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-test	5c2acf29e488d562
+4355	4395	1668100277252428554	/Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-update	9e99bfc4df2808e
+4492	4525	1668100277382974469	/Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-install	c7b6099d824472cb
+4429	4460	1668100277317660959	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-configure	9fe2a30b9628ad6e
+4525	4556	1668100277414078142	/Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-test	5c2acf29e488d562
+4492	4525	1668100277382974469	googletest-populate-prefix/src/googletest-populate-stamp/googletest-populate-install	c7b6099d824472cb

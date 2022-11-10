@@ -1,11 +1,11 @@
 #include "GameController.h"
 
-GameController::GameController(std::string gameMode, std::string matrixFile, std::string configDirectory, std::vector<std::string> names, int steps)
+GameController::GameController(std::vector<std::string> strategies, std::string gameMode, int steps, std::string configDirectory, std::string matrixFile)
 {
-    gameMode_ = gameMode;
-    matrixFile_ = matrixFile;
-    configDirectory_ = configDirectory;
-    names_ = names;
+    gameMode_ = std::move(gameMode);
+    matrixFile_ = std::move(matrixFile);
+    configDirectory_ = std::move(configDirectory);
+    strategies_ = std::move(strategies);
     steps_ = steps;
 }
 
@@ -19,7 +19,7 @@ void GameController::prepareStrategies(int numberOfStrategies)
 
     for (int i = 0; i < numberOfStrategies; ++i)
     {
-        vectorWithStrategies_[i] = StrategyFactory::createStrategy(names_[i], configDirectory_);
+        vectorWithStrategies_[i] = StrategyFactory::createStrategy(strategies_[i], configDirectory_);
     }
 }
 
@@ -28,25 +28,34 @@ void GameController::startGame()
     auto currentMode = modes.find(gameMode_);
     switch (currentMode->second)
     {
-        case detailed:
+        case DETAILED:
         {
-            prepareStrategies(static_cast<int> (names_.size()));
+            prepareStrategies(static_cast<int> (strategies_.size()));
             Detailed detailedMode(steps_, matrixFile_, vectorWithStrategies_[0], vectorWithStrategies_[1], vectorWithStrategies_[2]);
             detailedMode.play();
+            return;
         }
 
-        case fast:
+        case FAST:
         {
-            prepareStrategies(static_cast<int> (names_.size()));
+            prepareStrategies(static_cast<int> (strategies_.size()));
             Fast fastMode(steps_, matrixFile_, vectorWithStrategies_[0], vectorWithStrategies_[1], vectorWithStrategies_[2]);
             fastMode.play();
+            return;
         }
 
-        case tournament:
+        case TOURNAMENT:
         {
-            prepareStrategies(static_cast<int> (names_.size()));
+            prepareStrategies(static_cast<int> (strategies_.size()));
             Tournament tournamentMode(steps_, matrixFile_, vectorWithStrategies_);
             tournamentMode.play();
+            return;
         }
     }
+}
+
+GameController::~GameController()
+{
+    strategies_.clear();
+    vectorWithStrategies_.clear();
 }

@@ -248,3 +248,75 @@ Parsed CXX implicit link information from above output:
   implicit fwks: [/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/System/Library/Frameworks]
 
 
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/Applications/CLion.app/Contents/bin/ninja/mac/ninja cmTC_6f22c && [1/2] Building C object CMakeFiles/cmTC_6f22c.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_6f22c
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD succeeded with the following output:
+Change Dir: /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/Applications/CLion.app/Contents/bin/ninja/mac/ninja cmTC_e0908 && [1/2] Building C object CMakeFiles/cmTC_e0908.dir/src.c.o
+[2/2] Linking C executable cmTC_e0908
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/Applications/CLion.app/Contents/bin/ninja/mac/ninja cmTC_a81bf && [1/2] Building C object CMakeFiles/cmTC_a81bf.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_a81bf
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD succeeded with the following output:
+Change Dir: /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/Applications/CLion.app/Contents/bin/ninja/mac/ninja cmTC_ee69b && [1/2] Building C object CMakeFiles/cmTC_ee69b.dir/src.c.o
+[2/2] Linking C executable cmTC_ee69b
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+

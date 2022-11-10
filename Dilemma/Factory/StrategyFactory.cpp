@@ -1,6 +1,6 @@
 #include "StrategyFactory.h"
 
-GameStrategy *StrategyFactory::createStrategy(std::string strategyName, const std::string& configDirectory)
+std::shared_ptr<GameStrategy> StrategyFactory::createStrategy(const std::string& strategyName, const std::string& configDirectory)
 {
     auto isAvailableName = availableStrategies.find(strategyName);
     if (isAvailableName == availableStrategies.end())
@@ -11,16 +11,16 @@ GameStrategy *StrategyFactory::createStrategy(std::string strategyName, const st
     switch (isAvailableName->second)
     {
         case TRIVIAL_ALWAYS_C:
-            return new TrivialAlwaysC(configDirectory);
+            return std::shared_ptr<GameStrategy>(new TrivialAlwaysC(configDirectory));
         case TRIVIAL_ALWAYS_D:
-            return new TrivialAlwaysD(configDirectory);
+            return std::shared_ptr<GameStrategy>(new TrivialAlwaysD(configDirectory));
         case TRIVIAL_RANDOM:
-            return new TrivialRandom(configDirectory);
+            return std::shared_ptr<GameStrategy>(new TrivialRandom(configDirectory));
         case FRIENDLY_FOOL:
-            return new FriendlyFool(configDirectory);
+            return std::shared_ptr<GameStrategy>(new FriendlyFool(configDirectory));
         case PROBABILITY:
-            return new Probability(configDirectory);
+            return std::shared_ptr<GameStrategy>(new Probability(configDirectory));
         case DOMINATOR:
-            return new Dominator(configDirectory);
+            return std::shared_ptr<GameStrategy>(new Dominator(configDirectory));
     }
 }

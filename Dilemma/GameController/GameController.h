@@ -10,25 +10,25 @@
 
 enum Modes
 {
-    detailed = 0,
-    fast = 1,
-    tournament = 2
+    DETAILED = 1,
+    FAST = 2,
+    TOURNAMENT = 3
 };
 
-std::map<std::string, int> modes = {std::make_pair("detailed", 1), std::make_pair("fast", 2), std::make_pair("tournament", 3)};
-//TODO: update it.
+static std::map<std::string, int> modes = {std::make_pair("DETAILED", 1), std::make_pair("FAST", 2), std::make_pair("TOURNAMENT", 3)};
+
 class GameController {
 public:
-    GameController(std::string gameMode, std::string matrixFile, std::string configDirectory, std::vector<std::string> names, int steps);
+    GameController(std::vector<std::string> strategies, std::string gameMode, int steps, std::string configDirectory, std::string matrixFile);
     std::string gameMode_;
     std::string matrixFile_;
     std::string configDirectory_;
-    std::vector<std::string> names_;
+    std::vector<std::string> strategies_;
     int steps_;
-    std::vector<GameStrategy*> vectorWithStrategies_;
+    std::vector<std::shared_ptr<GameStrategy>> vectorWithStrategies_;
     void prepareStrategies(int numberOfStrategies);
     void startGame();
-    ~GameController() = default;
+    ~GameController();
 };
 
 

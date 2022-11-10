@@ -14,7 +14,7 @@ static std::map<std::string, int> availableStrategies {std::make_pair("TRIVIAL_A
 class StrategyFactory {
 public:
     StrategyFactory() = default;
-    static GameStrategy* createStrategy(std::string strategyName, const std::string& configDirectory);
+    static std::shared_ptr<GameStrategy> createStrategy(const std::string& strategyName, const std::string& configDirectory);
 };
 
 

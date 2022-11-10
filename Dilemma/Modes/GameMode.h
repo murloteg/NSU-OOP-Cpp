@@ -5,13 +5,14 @@
 #include <iostream>
 #include <map>
 #include "GameStrategy.h"
+#include <utility>
 
 class GameMode {
 public:
     int steps_;
     std::string matrix_;
     static int getLengthOfInt(int value);
-    static std::string convertScoreString(std::string scoreString);
+    static std::string convertScoreString(const std::string& scoreString);
     static int convertCharToInt(unsigned char symbol);
     virtual void printMode() = 0;
     virtual void viewMatrix() = 0;

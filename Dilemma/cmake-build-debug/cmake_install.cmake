@@ -39,6 +39,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+  include("/Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-build/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
   include("/Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/Strategies/cmake_install.cmake")
 endif()
 
@@ -55,6 +60,11 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
   include("/Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/Modes/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/Tests/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
