@@ -2,15 +2,18 @@
 #define DILEMMA_FRIENDLY_FOOL_H
 #include "GameStrategy.h"
 
-// TODO: integrate config file.
 class FriendlyFool : public GameStrategy {
+private:
+    int configParameter_;
+    std::vector<Choice> previousVotes_;
 public:
-    std::string configPath; // TODO: add new method.
-    FriendlyFool();
+    FriendlyFool(std::string configDirectory);
     Choice vote() override;
+    void shiftVectorOfVotes();
     void update(Choice firstEnemy, Choice secondEnemy) override;
+    void restoreStateOfStrategy() override;
     void printStrategyName() override;
-    ~FriendlyFool() override = default;
+    ~FriendlyFool() override;
 };
 
 

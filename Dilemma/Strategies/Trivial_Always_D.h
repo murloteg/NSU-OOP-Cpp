@@ -4,7 +4,7 @@
 
 class TrivialAlwaysD : public GameStrategy {
 public:
-    TrivialAlwaysD();
+    TrivialAlwaysD(std::string configDirectory_);
     Choice vote() override;
     void printStrategyName() override;
     ~TrivialAlwaysD() override = default;

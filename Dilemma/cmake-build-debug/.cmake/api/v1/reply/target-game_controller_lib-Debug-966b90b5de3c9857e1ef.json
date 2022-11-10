@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "Modes/libmodes_lib.a"
+			"path" : "GameController/libgame_controller_lib.a"
 		}
 	],
 	"backtrace" : 1,
@@ -18,7 +18,7 @@
 		],
 		"files" : 
 		[
-			"Modes/CMakeLists.txt",
+			"GameController/CMakeLists.txt",
 			"CMakeLists.txt"
 		],
 		"nodes" : 
@@ -44,7 +44,7 @@
 			{
 				"command" : 2,
 				"file" : 1,
-				"line" : 39,
+				"line" : 10,
 				"parent" : 3
 			},
 			{
@@ -75,7 +75,23 @@
 				},
 				{
 					"backtrace" : 5,
+					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/GameController/../Modes"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/GameController/../Factory"
+				},
+				{
+					"backtrace" : 2,
 					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Modes/../Strategies"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Factory/../Strategies"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Factory/../GameController"
 				}
 			],
 			"language" : "CXX",
@@ -89,10 +105,7 @@
 			},
 			"sourceIndexes" : 
 			[
-				1,
-				2,
-				3,
-				4
+				1
 			]
 		}
 	],
@@ -101,15 +114,19 @@
 		{
 			"backtrace" : 2,
 			"id" : "strategies_lib::@7b1a4c656ec2b66574ca"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "modes_lib::@346f7c0331f09390c529"
 		}
 	],
-	"id" : "modes_lib::@346f7c0331f09390c529",
-	"name" : "modes_lib",
-	"nameOnDisk" : "libmodes_lib.a",
+	"id" : "game_controller_lib::@0f03e324aabc9768faec",
+	"name" : "game_controller_lib",
+	"nameOnDisk" : "libgame_controller_lib.a",
 	"paths" : 
 	{
-		"build" : "Modes",
-		"source" : "Modes"
+		"build" : "GameController",
+		"source" : "GameController"
 	},
 	"sourceGroups" : 
 	[
@@ -124,10 +141,7 @@
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				1,
-				2,
-				3,
-				4
+				1
 			]
 		}
 	],
@@ -135,31 +149,13 @@
 	[
 		{
 			"backtrace" : 1,
-			"path" : "Modes/GameMode.h",
+			"path" : "GameController/GameController.h",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "Modes/GameMode.cpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "Modes/Detailed.cpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "Modes/Fast.cpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "Modes/Tournament.cpp",
+			"path" : "GameController/GameController.cpp",
 			"sourceGroupIndex" : 1
 		}
 	],

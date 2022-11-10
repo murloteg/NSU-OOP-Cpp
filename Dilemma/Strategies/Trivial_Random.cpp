@@ -1,8 +1,9 @@
 #include "Trivial_Random.h"
 
-TrivialRandom::TrivialRandom()
+TrivialRandom::TrivialRandom(std::string configDirectory)
 {
     strategyName_ = "\"TRIVIAL_RANDOM\"";
+    configDirectory_ = configDirectory;
 }
 
 Choice TrivialRandom::vote()
@@ -15,5 +16,5 @@ Choice TrivialRandom::vote()
 
 void TrivialRandom::printStrategyName()
 {
-    std::cout << "\"TRIVIAL_RANDOM\"";
+    std::cout << strategyName_;
 }

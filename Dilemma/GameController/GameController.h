@@ -6,6 +6,7 @@
 #include "StrategyFactory.h"
 #include "Detailed.h"
 #include "Fast.h"
+#include "Tournament.h"
 
 enum Modes
 {
@@ -15,14 +16,17 @@ enum Modes
 };
 
 std::map<std::string, int> modes = {std::make_pair("detailed", 1), std::make_pair("fast", 2), std::make_pair("tournament", 3)};
-
+//TODO: update it.
 class GameController {
 public:
-    GameController(std::string gameMode, std::string matrixFile, std::vector<std::string> names, int steps);
+    GameController(std::string gameMode, std::string matrixFile, std::string configDirectory, std::vector<std::string> names, int steps);
     std::string gameMode_;
     std::string matrixFile_;
+    std::string configDirectory_;
     std::vector<std::string> names_;
     int steps_;
+    std::vector<GameStrategy*> vectorWithStrategies_;
+    void prepareStrategies(int numberOfStrategies);
     void startGame();
     ~GameController() = default;
 };

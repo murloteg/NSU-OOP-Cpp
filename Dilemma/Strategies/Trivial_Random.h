@@ -5,7 +5,7 @@
 
 class TrivialRandom : public GameStrategy {
 public:
-    TrivialRandom();
+    TrivialRandom(std::string configDirectory_);
     Choice vote() override;
     void printStrategyName() override;
     ~TrivialRandom() override = default;

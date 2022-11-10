@@ -156,6 +156,9 @@ void Tournament::play()
                     second->strategyScore += convertCharToInt(scoreString->second[1]);
                     third->strategyScore += convertCharToInt(scoreString->second[2]);
                     updateMatrix(scoreString->first);
+                    first->update(secondVote, thirdVote);
+                    second->update(firstVote, thirdVote);
+                    third->update(firstVote, secondVote);
                 }
                 scoresOfStrategies_[i] += first->strategyScore;
                 scoresOfStrategies_[j] += second->strategyScore;
@@ -164,6 +167,9 @@ void Tournament::play()
                 first->strategyScore = 0;
                 second->strategyScore = 0;
                 third->strategyScore = 0;
+                first->restoreStateOfStrategy();
+                second->restoreStateOfStrategy();
+                third->restoreStateOfStrategy();
                 viewMatrix();
             }
         }

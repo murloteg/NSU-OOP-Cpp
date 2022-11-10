@@ -4,6 +4,8 @@
 #include "Trivial_Always_D.h"
 #include "Trivial_Random.h"
 #include "Friendly_Fool.h"
+#include "Probability.h"
+#include "Dominator.h"
 #include <map>
 static std::map<std::string, int> availableStrategies {std::make_pair("TRIVIAL_ALWAYS_C", 1), std::make_pair("TRIVIAL_ALWAYS_D", 2),
                                                        std::make_pair("TRIVIAL_RANDOM", 3), std::make_pair("FRIENDLY_FOOL", 4),
@@ -12,7 +14,7 @@ static std::map<std::string, int> availableStrategies {std::make_pair("TRIVIAL_A
 class StrategyFactory {
 public:
     StrategyFactory() = default;
-    static GameStrategy* createStrategy(std::string name);
+    static GameStrategy* createStrategy(std::string strategyName, const std::string& configDirectory);
 };
 
 

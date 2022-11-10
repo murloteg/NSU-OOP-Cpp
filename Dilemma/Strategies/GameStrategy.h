@@ -1,6 +1,8 @@
 #ifndef DILEMMA_GAMESTRATEGY_H
 #define DILEMMA_GAMESTRATEGY_H
 #include <iostream>
+#include <vector>
+#include <fstream>
 
 enum StrategiesNames
 {
@@ -20,11 +22,13 @@ enum Choice
 
 class GameStrategy {
 public:
+    std::string configDirectory_;
     std::string strategyName_;
     int strategyScore = 0;
     virtual Choice vote() = 0;
     virtual void update(Choice firstEnemy, Choice secondEnemy) {};
-    std::string getStrategyName() {return strategyName_;}
+    virtual void restoreStateOfStrategy() {};
+    std::string getStrategyName() const {return strategyName_;}
     virtual void printStrategyName() = 0;
     virtual ~GameStrategy() = default;
 };

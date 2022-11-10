@@ -1,8 +1,9 @@
 #include "Trivial_Always_C.h"
 
-TrivialAlwaysC::TrivialAlwaysC()
+TrivialAlwaysC::TrivialAlwaysC(std::string configDirectory)
 {
     strategyName_ = "\"TRIVIAL_ALWAYS_C\"";
+    configDirectory_ = configDirectory;
 }
 
 Choice TrivialAlwaysC::vote()
@@ -12,5 +13,5 @@ Choice TrivialAlwaysC::vote()
 
 void TrivialAlwaysC::printStrategyName()
 {
-    std::cout << "\"TRIVIAL_ALWAYS_C\"";
+    std::cout << strategyName_;
 }

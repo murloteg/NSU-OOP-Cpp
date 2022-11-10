@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
 //    Fast fast(50, "game_matrix.txt", StrategyFactory::createStrategy("TRIVIAL_RANDOM"), StrategyFactory::createStrategy("TRIVIAL_ALWAYS_C"), StrategyFactory::createStrategy("TRIVIAL_ALWAYS_D"));
 //    fast.play();
 
-    std::vector<GameStrategy*> vectorStrategy = {StrategyFactory::createStrategy("TRIVIAL_RANDOM"),  StrategyFactory::createStrategy("TRIVIAL_ALWAYS_C"), StrategyFactory::createStrategy("TRIVIAL_ALWAYS_D"), StrategyFactory::createStrategy("TRIVIAL_RANDOM")};
+    std::vector<GameStrategy*> vectorStrategy = {StrategyFactory::createStrategy("FRIENDLY_FOOL", "Main_Build"),  StrategyFactory::createStrategy("PROBABILITY", "Main_Build"), StrategyFactory::createStrategy("DOMINATOR", "Main_Build"), StrategyFactory::createStrategy("TRIVIAL_RANDOM", "Main_Build"), StrategyFactory::createStrategy("TRIVIAL_ALWAYS_D", "Main_Build")};
     Tournament tournament(10, "game_matrix.txt", vectorStrategy);
     tournament.play();
 
