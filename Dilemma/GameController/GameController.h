@@ -4,9 +4,9 @@
 #include <vector>
 #include <map>
 #include "StrategyFactory.h"
-#include "Detailed.h"
-#include "Fast.h"
-#include "Tournament.h"
+#include "Detailed/Detailed.h"
+#include "Fast/Fast.h"
+#include "Tournament/Tournament.h"
 
 enum Modes
 {

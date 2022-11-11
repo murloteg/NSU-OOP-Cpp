@@ -1,6 +1,6 @@
 #ifndef DILEMMA_FRIENDLY_FOOL_H
 #define DILEMMA_FRIENDLY_FOOL_H
-#include "GameStrategy.h"
+#include "../GameStrategy.h"
 
 class FriendlyFool : public GameStrategy {
 private:

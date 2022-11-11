@@ -30,5 +30,7 @@ std::shared_ptr<GameStrategy> StrategyFactory::createStrategy(const std::string&
             return std::shared_ptr<GameStrategy>(new Probability(configDirectory));
         case DOMINATOR:
             return std::shared_ptr<GameStrategy>(new Dominator(configDirectory));
+        default:
+            return nullptr;
     }
 }

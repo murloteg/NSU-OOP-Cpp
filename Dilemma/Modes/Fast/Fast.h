@@ -1,6 +1,6 @@
 #ifndef DILEMMA_FAST_H
 #define DILEMMA_FAST_H
-#include "GameMode.h"
+#include "../GameMode.h"
 
 class Fast : public GameMode {
 private:

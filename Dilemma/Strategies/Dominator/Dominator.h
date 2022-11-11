@@ -1,6 +1,6 @@
 #ifndef DILEMMA_DOMINATOR_H
 #define DILEMMA_DOMINATOR_H
-#include "GameStrategy.h"
+#include "../GameStrategy.h"
 
 class Dominator : public GameStrategy {
 private:

@@ -1,6 +1,6 @@
 #ifndef DILEMMA_TOURNAMENT_H
 #define DILEMMA_TOURNAMENT_H
-#include "GameMode.h"
+#include "../GameMode.h"
 #include <vector>
 
 class Tournament : public GameMode {

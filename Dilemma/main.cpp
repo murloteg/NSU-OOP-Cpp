@@ -44,7 +44,7 @@ int main(int argc, char* argv[])
     {
         if (variablesMap.count("name"))
         {
-            strategies = static_cast<vector <string> > (variablesMap["name"].as< vector<string> >());
+            strategies = variablesMap["name"].as< vector<string> >();
             if (strategies.size() < 3)
             {
                 throw invalid_argument("[EXCEPTION]: too few strategies.");

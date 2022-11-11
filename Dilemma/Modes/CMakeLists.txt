@@ -1,3 +1,3 @@
-add_library(modes_lib STATIC GameMode.h GameMode.cpp Detailed.cpp Fast.cpp Tournament.cpp)
+add_library(modes_lib STATIC GameMode.h GameMode.cpp Detailed/Detailed.cpp Fast/Fast.cpp Tournament/Tournament.cpp)
 target_link_libraries(modes_lib PUBLIC strategies_lib)
 target_include_directories(modes_lib PUBLIC ../Strategies)

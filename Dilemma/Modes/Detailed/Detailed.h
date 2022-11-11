@@ -1,6 +1,6 @@
 #ifndef DILEMMA_DETAILED_H
 #define DILEMMA_DETAILED_H
-#include "GameMode.h"
+#include "../GameMode.h"
 
 enum StatusesOfButton
 {

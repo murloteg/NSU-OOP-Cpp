@@ -1,6 +1,6 @@
 #ifndef DILEMMA_PROBABILITY_H
 #define DILEMMA_PROBABILITY_H
-#include "GameStrategy.h"
+#include "../GameStrategy.h"
 
 class Probability : public GameStrategy{
 private:
