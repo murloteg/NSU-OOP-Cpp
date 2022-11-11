@@ -46,13 +46,13 @@ cmake_ninja_workdir = /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-
 
 build cmake_object_order_depends_target_Dilemma: phony || cmake_object_order_depends_target_factory_lib cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main cmake_object_order_depends_target_modes_lib cmake_object_order_depends_target_strategies_lib cmake_object_order_depends_target_tests_lib
 
-build CMakeFiles/Dilemma.dir/Tests/my_tests.cpp.o: CXX_COMPILER__Dilemma_Debug /Users/mac/CLionProjects/Cpp-Projects/Dilemma/Tests/my_tests.cpp || cmake_object_order_depends_target_Dilemma
+build CMakeFiles/Dilemma.dir/main.cpp.o: CXX_COMPILER__Dilemma_Debug /Users/mac/CLionProjects/Cpp-Projects/Dilemma/main.cpp || cmake_object_order_depends_target_Dilemma
   DEFINES = -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DBOOST_PROGRAM_OPTIONS_NO_LIB
-  DEP_FILE = CMakeFiles/Dilemma.dir/Tests/my_tests.cpp.o.d
+  DEP_FILE = CMakeFiles/Dilemma.dir/main.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -std=gnu++17
   INCLUDES = -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/program_options -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Strategies -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Factory -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/GameController -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Modes -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Tests -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Factory/../Strategies -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Factory/../GameController -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/GameController/../Modes -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/GameController/../Factory -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Modes/../Strategies -I/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Tests/../GameController -isystem /usr/local/include -isystem /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-src/googletest/include -isystem /Users/mac/CLionProjects/Cpp-Projects/Dilemma/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = CMakeFiles/Dilemma.dir
-  OBJECT_FILE_DIR = CMakeFiles/Dilemma.dir/Tests
+  OBJECT_FILE_DIR = CMakeFiles/Dilemma.dir
 
 
 # =============================================================================
@@ -62,7 +62,7 @@ build CMakeFiles/Dilemma.dir/Tests/my_tests.cpp.o: CXX_COMPILER__Dilemma_Debug /
 #############################################
 # Link the executable Dilemma
 
-build Dilemma: CXX_EXECUTABLE_LINKER__Dilemma_Debug CMakeFiles/Dilemma.dir/Tests/my_tests.cpp.o | /usr/local/lib/libboost_program_options-mt.dylib Strategies/libstrategies_lib.a Factory/libfactory_lib.a GameController/libgame_controller_lib.a Modes/libmodes_lib.a lib/libgtest_main.a Tests/libtests_lib.a Factory/libfactory_lib.a GameController/libgame_controller_lib.a Factory/libfactory_lib.a GameController/libgame_controller_lib.a Modes/libmodes_lib.a Strategies/libstrategies_lib.a lib/libgtest_main.a lib/libgtest.a || Factory/libfactory_lib.a Modes/libmodes_lib.a Strategies/libstrategies_lib.a Tests/libtests_lib.a lib/libgtest.a lib/libgtest_main.a
+build Dilemma: CXX_EXECUTABLE_LINKER__Dilemma_Debug CMakeFiles/Dilemma.dir/main.cpp.o | /usr/local/lib/libboost_program_options-mt.dylib Strategies/libstrategies_lib.a Factory/libfactory_lib.a GameController/libgame_controller_lib.a Modes/libmodes_lib.a lib/libgtest_main.a Tests/libtests_lib.a Factory/libfactory_lib.a GameController/libgame_controller_lib.a Factory/libfactory_lib.a GameController/libgame_controller_lib.a Modes/libmodes_lib.a Strategies/libstrategies_lib.a lib/libgtest_main.a lib/libgtest.a || Factory/libfactory_lib.a Modes/libmodes_lib.a Strategies/libstrategies_lib.a Tests/libtests_lib.a lib/libgtest.a lib/libgtest_main.a
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk
   LINK_LIBRARIES = /usr/local/lib/libboost_program_options-mt.dylib  Strategies/libstrategies_lib.a  Factory/libfactory_lib.a  GameController/libgame_controller_lib.a  Modes/libmodes_lib.a  lib/libgtest_main.a  Tests/libtests_lib.a  Factory/libfactory_lib.a  GameController/libgame_controller_lib.a  Factory/libfactory_lib.a  GameController/libgame_controller_lib.a  Modes/libmodes_lib.a  Strategies/libstrategies_lib.a  lib/libgtest_main.a  lib/libgtest.a
   OBJECT_DIR = CMakeFiles/Dilemma.dir

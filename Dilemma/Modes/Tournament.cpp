@@ -44,7 +44,6 @@ void Tournament::viewMatrix()
             {
                 std::cout << currentChar;
             }
-
             else
             {
                 break;

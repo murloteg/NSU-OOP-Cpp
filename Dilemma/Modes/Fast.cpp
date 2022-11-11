@@ -34,7 +34,6 @@ void Fast::viewMatrix()
             {
                 std::cout << currentChar;
             }
-
             else
             {
                 break;

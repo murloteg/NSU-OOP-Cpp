@@ -35,7 +35,6 @@ void Detailed::viewMatrix()
             {
                 std::cout << currentChar;
             }
-
             else
             {
                 break;

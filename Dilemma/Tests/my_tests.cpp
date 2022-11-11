@@ -33,3 +33,21 @@ TEST(Strategies, trivial_random_test)
     auto strategy = StrategyFactory::createStrategy("TRIVIAL_RANDOM", "FirstBuild");
     ASSERT_EQ("\"TRIVIAL_RANDOM\"", strategy->getStrategyName());
 }
+
+TEST(Strategies, friendly_fool_test)
+{
+    auto strategy = StrategyFactory::createStrategy("FRIENDLY_FOOL", "ThirdBuild");
+    ASSERT_EQ("\"FRIENDLY_FOOL\"", strategy->getStrategyName());
+}
+
+TEST(Strategies, probability_test)
+{
+    auto strategy = StrategyFactory::createStrategy("PROBABILITY", "FirstBuild");
+    ASSERT_EQ("\"PROBABILITY\"", strategy->getStrategyName());
+}
+
+TEST(Strategies, dominator_test)
+{
+    auto strategy = StrategyFactory::createStrategy("DOMINATOR", "FirstBuild");
+    ASSERT_EQ("\"DOMINATOR\"", strategy->getStrategyName());
+}

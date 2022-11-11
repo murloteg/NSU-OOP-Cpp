@@ -9,7 +9,30 @@ GameController::GameController(std::vector<std::string> strategies, std::string 
     steps_ = steps;
 }
 
-void GameController::prepareStrategies(int numberOfStrategies)
+WorkStatuses GameController::checkConfigParameters() const
+{
+    std::string matrixPath = "../ConfigurationFiles/" + matrixFile_;
+    std::string configDirectoryPath = "../ConfigurationFiles/" + configDirectory_;
+    std::ifstream matrixFile(matrixPath);
+    if (!matrixFile.is_open())
+    {
+        matrixFile.close();
+        return SOMETHING_WENT_WRONG;
+    }
+    matrixFile.close();
+
+    std::ifstream directoryFile(configDirectoryPath);
+    if (!directoryFile.is_open())
+    {
+        directoryFile.close();
+        return SOMETHING_WENT_WRONG;
+    }
+    directoryFile.close();
+
+    return EVERYTHING_IS_OK;
+}
+
+WorkStatuses GameController::prepareStrategies(int numberOfStrategies)
 {
     vectorWithStrategies_.clear();
     for (int i = 0; i < numberOfStrategies; ++i)
@@ -20,17 +43,42 @@ void GameController::prepareStrategies(int numberOfStrategies)
     for (int i = 0; i < numberOfStrategies; ++i)
     {
         vectorWithStrategies_[i] = StrategyFactory::createStrategy(strategies_[i], configDirectory_);
+        if (vectorWithStrategies_[i] == nullptr)
+        {
+            return SOMETHING_WENT_WRONG;
+        }
     }
+
+    return EVERYTHING_IS_OK;
 }
 
 void GameController::startGame()
 {
+    WorkStatuses statusOfConfigParameters = checkConfigParameters();
+    try
+    {
+        if (statusOfConfigParameters == SOMETHING_WENT_WRONG)
+        {
+            throw std::invalid_argument("[EXCEPTION]: invalid file path.");
+        }
+    }
+    catch (std::exception& exception)
+    {
+        std::cout << exception.what() << std::endl;
+        return;
+    }
+
+    WorkStatuses statusOfFactory = prepareStrategies(static_cast<int> (strategies_.size()));
+    if (statusOfFactory == SOMETHING_WENT_WRONG)
+    {
+        return;
+    }
+
     auto currentMode = modes.find(gameMode_);
     switch (currentMode->second)
     {
         case DETAILED:
         {
-            prepareStrategies(static_cast<int> (strategies_.size()));
             Detailed detailedMode(steps_, matrixFile_, vectorWithStrategies_[0], vectorWithStrategies_[1], vectorWithStrategies_[2]);
             detailedMode.play();
             return;
@@ -38,7 +86,6 @@ void GameController::startGame()
 
         case FAST:
         {
-            prepareStrategies(static_cast<int> (strategies_.size()));
             Fast fastMode(steps_, matrixFile_, vectorWithStrategies_[0], vectorWithStrategies_[1], vectorWithStrategies_[2]);
             fastMode.play();
             return;
@@ -46,7 +93,6 @@ void GameController::startGame()
 
         case TOURNAMENT:
         {
-            prepareStrategies(static_cast<int> (strategies_.size()));
             Tournament tournamentMode(steps_, matrixFile_, vectorWithStrategies_);
             tournamentMode.play();
             return;

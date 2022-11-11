@@ -6,8 +6,8 @@ find_package(Boost COMPONENTS program_options)
 set(BOOST_INCLUDE_LIBRARIES program_options)
 set(BOOST_ENABLE_CMAKE ON)
 
-#add_executable(Dilemma main.cpp) # standard application
-add_executable(Dilemma Tests/my_tests.cpp) # my_tests
+add_executable(Dilemma main.cpp) # standard application
+#add_executable(Dilemma Tests/my_tests.cpp) # my_tests
 include_directories(${BOOST_INCLUDE_LIBRARIES})
 include(FetchContent)
 FetchContent_Declare(

@@ -15,6 +15,12 @@ enum Modes
     TOURNAMENT = 3
 };
 
+enum WorkStatuses
+{
+    SOMETHING_WENT_WRONG = 0,
+    EVERYTHING_IS_OK = 1
+};
+
 static std::map<std::string, int> modes = {std::make_pair("DETAILED", 1), std::make_pair("FAST", 2), std::make_pair("TOURNAMENT", 3)};
 
 class GameController {
@@ -26,7 +32,8 @@ public:
     std::vector<std::string> strategies_;
     int steps_;
     std::vector<std::shared_ptr<GameStrategy>> vectorWithStrategies_;
-    void prepareStrategies(int numberOfStrategies);
+    WorkStatuses checkConfigParameters() const;
+    WorkStatuses prepareStrategies(int numberOfStrategies);
     void startGame();
     ~GameController();
 };

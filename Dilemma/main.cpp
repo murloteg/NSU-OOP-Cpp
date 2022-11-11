@@ -5,6 +5,14 @@
 namespace po = boost::program_options;
 using namespace std;
 
+void ConvertSymbolsToUppercase(string& mode)
+{
+    for (char &symbol : mode)
+    {
+        symbol -= 32;
+    }
+}
+
 int main(int argc, char* argv[])
 {
     vector<string> strategies;
@@ -32,23 +40,59 @@ int main(int argc, char* argv[])
         return 1;
     }
 
-    if (variablesMap.count("name"))
+    try
     {
-        strategies = static_cast<vector <string> > (variablesMap["name"].as< vector<string> >());
-    }
-
-    if (variablesMap.count("mode"))
-    {
-        mode = variablesMap["mode"].as<string>();
-        if (!(mode == "DETAILED" || mode == "FAST" || mode == "TOURNAMENT"))
+        if (variablesMap.count("name"))
         {
-            throw invalid_argument("incorrect mode");
+            strategies = static_cast<vector <string> > (variablesMap["name"].as< vector<string> >());
+            if (strategies.size() < 3)
+            {
+                throw invalid_argument("[EXCEPTION]: too few strategies.");
+            }
         }
     }
-
-    if (variablesMap.count("steps"))
+    catch (exception& exception)
     {
-        steps = variablesMap["steps"].as<int>();
+        cout << exception.what() << endl;
+        return -1;
+    }
+
+    try
+    {
+        if (variablesMap.count("mode"))
+        {
+            mode = variablesMap["mode"].as<string>();
+            if (!(mode == "DETAILED" || mode == "detailed" || mode == "FAST" || mode == "fast" || mode == "TOURNAMENT" || mode == "tournament"))
+            {
+                throw invalid_argument("[EXCEPTION]: incorrect mode.");
+            }
+            if (mode == "detailed" || mode == "fast" || mode == "tournament")
+            {
+                ConvertSymbolsToUppercase(mode);
+            }
+        }
+    }
+    catch (exception& exception)
+    {
+        cout << exception.what() << endl;
+        return -1;
+    }
+
+    try
+    {
+        if (variablesMap.count("steps"))
+        {
+            steps = variablesMap["steps"].as<int>();
+            if (steps < 0)
+            {
+                throw invalid_argument("[EXCEPTION]: \"steps\" value is less than 0.");
+            }
+        }
+    }
+    catch (exception& exception)
+    {
+        cout << exception.what() << endl;
+        return -1;
     }
 
     if (variablesMap.count("configDirectory"))

@@ -3,9 +3,17 @@
 std::shared_ptr<GameStrategy> StrategyFactory::createStrategy(const std::string& strategyName, const std::string& configDirectory)
 {
     auto isAvailableName = availableStrategies.find(strategyName);
-    if (isAvailableName == availableStrategies.end())
+    try
     {
-        throw std::invalid_argument("Unavailable name");
+        if (isAvailableName == availableStrategies.end())
+        {
+            throw std::invalid_argument("[EXCEPTION]: unavailable name of strategy: \"");
+        }
+    }
+    catch (std::exception& exception)
+    {
+        std::cout << exception.what() << strategyName << "\"" << std::endl;
+        return nullptr;
     }
 
     switch (isAvailableName->second)
