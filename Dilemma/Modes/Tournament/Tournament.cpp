@@ -1,11 +1,12 @@
 #include "Tournament.h"
 
-Tournament::Tournament(int steps, std::string matrix, std::vector<std::shared_ptr<GameStrategy>> arrayWithStrategies)
+Tournament::Tournament(int steps, std::string matrix, std::map<std::string, std::string> scoreMap, std::vector<std::shared_ptr<GameStrategy>> arrayWithStrategies)
 {
     steps_ = steps;
     currentSteps_ = 0;
     currentRound_ = 0;
     matrix_ = std::move(matrix);
+    scoreMap_ = std::move(scoreMap);
     for (int i = 0; i < arrayWithStrategies.size(); ++i)
     {
         scoresOfStrategies_.push_back(0);
@@ -149,7 +150,7 @@ void Tournament::play()
                     Choice thirdVote = third->vote();
                     std::string currentVotes = std::to_string(firstVote) + std::to_string(secondVote) + std::to_string(thirdVote);
                     currentVotes = convertScoreString(currentVotes);
-                    auto scoreString = scoreTable.find(currentVotes);
+                    auto scoreString = scoreMap_.find(currentVotes);
                     first->strategyScore += convertCharToInt(scoreString->second[0]);
                     second->strategyScore += convertCharToInt(scoreString->second[1]);
                     third->strategyScore += convertCharToInt(scoreString->second[2]);

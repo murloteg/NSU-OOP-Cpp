@@ -1,4 +1,3 @@
-#include <vector>
 #include <boost/program_options.hpp>
 #include "GameController.h"
 
@@ -19,7 +18,8 @@ int main(int argc, char* argv[])
     string mode;
     int steps;
     string configDirectory;
-    string matrix;
+    string matrixOfGame;
+    string scoreMatrix;
 
     po::options_description description;
     description.add_options()
@@ -28,7 +28,8 @@ int main(int argc, char* argv[])
             ("mode", po::value<string>(&mode)->default_value(mode,"detailed"), ":Select simulation mode.")
             ("steps", po::value<int>(&steps)->default_value(0), ":Input number of iterations.")
             ("configDirectory", po::value<string>(&configDirectory)->default_value(configDirectory, "undefined"), ":Select the directory with strategy's configuration files.")
-            ("matrix", po::value<string>(&matrix)->default_value(matrix, "undefined"), ":Select the file with game matrix.")
+            ("matrixOfGame", po::value<string>(&matrixOfGame)->default_value(matrixOfGame, "undefined"), ":Select the file with game matrix of game.")
+            ("scoreMatrix", po::value<string>(&scoreMatrix)->default_value(scoreMatrix, "undefined"), ":Select the file with score matrix.")
             ;
 
     po::variables_map variablesMap;
@@ -100,12 +101,17 @@ int main(int argc, char* argv[])
         configDirectory = variablesMap["configDirectory"].as<string>();
     }
 
-    if (variablesMap.count("matrix"))
+    if (variablesMap.count("matrixOfGame"))
     {
-        matrix = variablesMap["matrix"].as<string>();
+        matrixOfGame = variablesMap["matrixOfGame"].as<string>();
     }
 
-    GameController gameController(strategies, mode, steps, configDirectory, matrix);
+    if (variablesMap.count("scoreMatrix"))
+    {
+        scoreMatrix = variablesMap["scoreMatrix"].as<string>();
+    }
+
+    GameController gameController(strategies, mode, steps, configDirectory, scoreMatrix, matrixOfGame);
     gameController.startGame();
 
     return 0;

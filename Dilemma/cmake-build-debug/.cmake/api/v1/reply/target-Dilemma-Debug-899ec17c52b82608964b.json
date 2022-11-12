@@ -131,6 +131,10 @@
 				},
 				{
 					"backtrace" : 2,
+					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Modes/../GameController"
+				},
+				{
+					"backtrace" : 2,
 					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Tests/../GameController"
 				},
 				{
@@ -181,10 +185,6 @@
 		{
 			"backtrace" : 2,
 			"id" : "factory_lib::@afec5811ca4b60e82f6b"
-		},
-		{
-			"backtrace" : 2,
-			"id" : "modes_lib::@346f7c0331f09390c529"
 		},
 		{
 			"backtrace" : 2,
@@ -247,6 +247,11 @@
 			{
 				"backtrace" : 2,
 				"fragment" : "GameController/libgame_controller_lib.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "Modes/libmodes_lib.a",
 				"role" : "libraries"
 			},
 			{

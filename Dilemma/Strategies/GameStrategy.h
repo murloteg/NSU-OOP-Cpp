@@ -21,15 +21,16 @@ enum Choice
 };
 
 class GameStrategy {
-public:
+protected:
     std::string configDirectory_;
     std::string strategyName_;
+public:
     int strategyScore = 0;
     virtual Choice vote() = 0;
     virtual void update(Choice firstEnemy, Choice secondEnemy) {};
     virtual void restoreStateOfStrategy() {};
-    std::string getStrategyName() const {return strategyName_;}
     virtual void printStrategyName() = 0;
+    std::string getStrategyName() const {return strategyName_;}
     virtual ~GameStrategy() = default;
 };
 

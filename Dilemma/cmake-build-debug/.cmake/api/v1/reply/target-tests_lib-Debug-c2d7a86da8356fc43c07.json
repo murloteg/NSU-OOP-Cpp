@@ -91,6 +91,10 @@
 				},
 				{
 					"backtrace" : 2,
+					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Modes/../GameController"
+				},
+				{
+					"backtrace" : 2,
 					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Factory/../Strategies"
 				},
 				{
@@ -140,10 +144,6 @@
 		{
 			"backtrace" : 2,
 			"id" : "factory_lib::@afec5811ca4b60e82f6b"
-		},
-		{
-			"backtrace" : 2,
-			"id" : "modes_lib::@346f7c0331f09390c529"
 		}
 	],
 	"id" : "tests_lib::@3e3005ae7443f751ac85",

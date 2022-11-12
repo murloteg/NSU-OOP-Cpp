@@ -1,10 +1,11 @@
 #include "Detailed.h"
 
-Detailed::Detailed(int steps, std::string matrix, std::shared_ptr<GameStrategy> first, std::shared_ptr<GameStrategy> second, std::shared_ptr<GameStrategy> third)
+Detailed::Detailed(int steps, std::string matrix, std::map<std::string, std::string> scoreMap, std::shared_ptr<GameStrategy> first, std::shared_ptr<GameStrategy> second, std::shared_ptr<GameStrategy> third)
 {
     steps_ = steps;
     currentSteps_ = 0;
     matrix_ = std::move(matrix);
+    scoreMap_ = std::move(scoreMap);
     firstStrategy_ = std::move(first);
     secondStrategy_ = std::move(second);
     thirdStrategy_ = std::move(third);
@@ -113,7 +114,7 @@ void Detailed::play()
         Choice thirdVote = thirdStrategy_->vote();
         std::string currentVotes = std::to_string(firstVote) + std::to_string(secondVote) + std::to_string(thirdVote);
         currentVotes = convertScoreString(currentVotes);
-        auto scoreString = scoreTable.find(currentVotes);
+        auto scoreString = scoreMap_.find(currentVotes);
         firstStrategy_->strategyScore += convertCharToInt(scoreString->second[0]);
         secondStrategy_->strategyScore += convertCharToInt(scoreString->second[1]);
         thirdStrategy_->strategyScore += convertCharToInt(scoreString->second[2]);

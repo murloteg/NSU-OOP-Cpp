@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "Modes/libmodes_lib.a"
+			"path" : "Factory/libfactory_lib.a"
 		}
 	],
 	"backtrace" : 1,
@@ -12,13 +12,13 @@
 		"commands" : 
 		[
 			"add_library",
-			"target_link_libraries",
 			"include_directories",
-			"target_include_directories"
+			"target_include_directories",
+			"target_link_libraries"
 		],
 		"files" : 
 		[
-			"Modes/CMakeLists.txt",
+			"Factory/CMakeLists.txt",
 			"CMakeLists.txt"
 		],
 		"nodes" : 
@@ -33,19 +33,19 @@
 				"parent" : 0
 			},
 			{
-				"command" : 1,
-				"file" : 0,
-				"line" : 2,
-				"parent" : 0
-			},
-			{
 				"file" : 1
 			},
 			{
-				"command" : 2,
+				"command" : 1,
 				"file" : 1,
 				"line" : 11,
-				"parent" : 3
+				"parent" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 4,
+				"parent" : 0
 			},
 			{
 				"command" : 3,
@@ -70,12 +70,32 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 4,
+					"backtrace" : 3,
 					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/program_options"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Factory/../Strategies"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Factory/../GameController"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/GameController/../Modes"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/GameController/../Factory"
 				},
 				{
 					"backtrace" : 5,
 					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Modes/../Strategies"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Dilemma/Modes/../GameController"
 				}
 			],
 			"language" : "CXX",
@@ -89,45 +109,31 @@
 			},
 			"sourceIndexes" : 
 			[
-				1,
-				2,
-				3,
-				4
+				0
 			]
 		}
 	],
 	"dependencies" : 
 	[
 		{
-			"backtrace" : 2,
-			"id" : "strategies_lib::@7b1a4c656ec2b66574ca"
+			"id" : "game_controller_lib::@0f03e324aabc9768faec"
 		}
 	],
-	"id" : "modes_lib::@346f7c0331f09390c529",
-	"name" : "modes_lib",
-	"nameOnDisk" : "libmodes_lib.a",
+	"id" : "factory_lib::@afec5811ca4b60e82f6b",
+	"name" : "factory_lib",
+	"nameOnDisk" : "libfactory_lib.a",
 	"paths" : 
 	{
-		"build" : "Modes",
-		"source" : "Modes"
+		"build" : "Factory",
+		"source" : "Factory"
 	},
 	"sourceGroups" : 
 	[
 		{
-			"name" : "Header Files",
-			"sourceIndexes" : 
-			[
-				0
-			]
-		},
-		{
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				1,
-				2,
-				3,
-				4
+				0
 			]
 		}
 	],
@@ -135,32 +141,9 @@
 	[
 		{
 			"backtrace" : 1,
-			"path" : "Modes/GameMode.h",
+			"compileGroupIndex" : 0,
+			"path" : "Factory/StrategyFactory.cpp",
 			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "Modes/GameMode.cpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "Modes/Detailed/Detailed.cpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "Modes/Fast/Fast.cpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "Modes/Tournament/Tournament.cpp",
-			"sourceGroupIndex" : 1
 		}
 	],
 	"type" : "STATIC_LIBRARY"
