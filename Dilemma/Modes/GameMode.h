@@ -1,7 +1,6 @@
 #ifndef DILEMMA_GAMEMODE_H
 #define DILEMMA_GAMEMODE_H
 #include "GameStrategy.h"
-#include <vector>
 #include <map>
 
 class GameMode {
