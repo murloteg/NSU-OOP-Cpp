@@ -1,0 +1,10 @@
+#ifndef SOUND_PROCESSOR_CONFIGFILE_H
+#define SOUND_PROCESSOR_CONFIGFILE_H
+
+
+class ConfigFile {
+
+};
+
+
+#endif //SOUND_PROCESSOR_CONFIGFILE_H

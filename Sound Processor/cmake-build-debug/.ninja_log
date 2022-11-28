@@ -1,0 +1,7 @@
+# ninja log v5
+11	2473	1669649921032524660	CMakeFiles/Sound_Processor.dir/main.cpp.o	79a0d1ad0634a09e
+2473	2572	1669649921140972200	Sound_Processor	49f23db144498597
+13	692	1669651207687023889	ParserWAV/CMakeFiles/parser_wav_lib.dir/ParserWAV.cpp.o	a5949fec87f790ed
+693	790	1669651207790478000	ParserWAV/libparser_wav_lib.a	a4eb94641bf88188
+12	2039	1669651209026922777	CMakeFiles/Sound_Processor.dir/main.cpp.o	882ece570da1aa14
+2039	2138	1669651209135287248	Sound_Processor	dfac1b4b1d7ada94
