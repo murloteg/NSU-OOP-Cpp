@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <fstream>
 #include <boost/program_options.hpp>
+#include "ParserWAV.h"
 
 namespace po = boost::program_options;
 using namespace std;
@@ -40,26 +40,10 @@ int main(int argc, char** argv)
 		cout << configFile << endl;
 	}
 
-	string filePath = "../funkorama.wav";
-	std::ifstream file(filePath);
-	int pos = 0;
-	while (!file.eof())
-	{
-		int temp = file.get();
-		cout << temp << " pos: " << pos << endl;
-		++pos;
-		if (pos > 100)
-		{
-			return 0;
-		}
-	}
+	ParserWAV wavFile(audioFiles[1]);
+	wavFile.parseWAV();
+//	wavFile.debugPrintWAV();
+
 
     return 0;
 }
-
-// little-endian
-// pos 20-21 : PCM = 1.
-// pos 22-23 : MONO = 1.
-// pos 24-27 : SAMPLE_RATE = 44100 hz. // 1010 1100 0100 0100
-// pos 34-35 : BPS = 16.
-//    00000001 00001111 00100001 00010100 : 17 768 724

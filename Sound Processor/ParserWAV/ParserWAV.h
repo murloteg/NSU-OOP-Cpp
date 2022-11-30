@@ -3,23 +3,32 @@
 #include <iostream>
 #include <fstream>
 
-enum Consts : int
-{
-	ONE_BYTE = 8
-};
-
 class ParserWAV {
-private:
-	int audioFormat_;
-	int numChannels_;
-	int sampleRate_;
-	int bitsPerSample_;
-	int currentPositionInFile_;
-	std::string fileName_;
 public:
-	ParserWAV(int audioFormat, int numChannels, int sampleRate, int bitsPerSample, std::string fileName);
+	struct WAVHeader
+	{
+		unsigned int chunkId;
+		unsigned int chunkSize;
+		unsigned int format;
+		unsigned int subchunk1Id;
+		unsigned int subchunk1Size;
+		unsigned short audioFormat;
+		unsigned short numChannels;
+		unsigned int sampleRate;
+		unsigned int byteRate;
+		unsigned short blockAlign;
+		unsigned short bitsPerSample;
+		unsigned int subchunk2Id;
+		unsigned int subchunk2Size;
+	};
+	ParserWAV(std::string fileName);
 	void parseWAV();
+	void debugPrintWAV();
 	~ParserWAV() = default;
+private:
+	WAVHeader wavHeader_{};
+	std::string fileName_;
+	static void convertLittleEndianToBigEndian(unsigned int& value);
 };
 
 
