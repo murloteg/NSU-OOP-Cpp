@@ -1,0 +1,1 @@
+add_library(tuple_lib STATIC Tuple.cpp Tuple.h)

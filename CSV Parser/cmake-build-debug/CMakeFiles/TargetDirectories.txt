@@ -1,0 +1,6 @@
+/Users/mac/CLionProjects/Cpp-Projects/CSV Parser/cmake-build-debug/CMakeFiles/CSV_Parser.dir
+/Users/mac/CLionProjects/Cpp-Projects/CSV Parser/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/mac/CLionProjects/Cpp-Projects/CSV Parser/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/mac/CLionProjects/Cpp-Projects/CSV Parser/cmake-build-debug/Tuple/CMakeFiles/tuple_lib.dir
+/Users/mac/CLionProjects/Cpp-Projects/CSV Parser/cmake-build-debug/Tuple/CMakeFiles/edit_cache.dir
+/Users/mac/CLionProjects/Cpp-Projects/CSV Parser/cmake-build-debug/Tuple/CMakeFiles/rebuild_cache.dir
