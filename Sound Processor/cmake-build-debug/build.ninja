@@ -44,13 +44,13 @@ cmake_ninja_workdir = /Users/mac/CLionProjects/Cpp-Projects/Sound$ Processor/cma
 #############################################
 # Order-only phony target for Sound_Processor
 
-build cmake_object_order_depends_target_Sound_Processor: phony || cmake_object_order_depends_target_parser_wav_lib
+build cmake_object_order_depends_target_Sound_Processor: phony || cmake_object_order_depends_target_config_file_lib cmake_object_order_depends_target_converters_lib cmake_object_order_depends_target_parser_wav_lib
 
 build CMakeFiles/Sound_Processor.dir/main.cpp.o: CXX_COMPILER__Sound_Processor_Debug /Users/mac/CLionProjects/Cpp-Projects/Sound$ Processor/main.cpp || cmake_object_order_depends_target_Sound_Processor
   DEFINES = -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DBOOST_PROGRAM_OPTIONS_NO_LIB
   DEP_FILE = CMakeFiles/Sound_Processor.dir/main.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -std=gnu++17
-  INCLUDES = -I"/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/program_options" -I"/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/ParserWAV" -isystem /usr/local/include
+  INCLUDES = -I"/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/program_options" -I"/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/ParserWAV" -I"/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/ConfigFile" -I"/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/Converters" -I"/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/ConfigFile/../Converters" -isystem /usr/local/include
   OBJECT_DIR = CMakeFiles/Sound_Processor.dir
   OBJECT_FILE_DIR = CMakeFiles/Sound_Processor.dir
 
@@ -62,9 +62,9 @@ build CMakeFiles/Sound_Processor.dir/main.cpp.o: CXX_COMPILER__Sound_Processor_D
 #############################################
 # Link the executable Sound_Processor
 
-build Sound_Processor: CXX_EXECUTABLE_LINKER__Sound_Processor_Debug CMakeFiles/Sound_Processor.dir/main.cpp.o | /usr/local/lib/libboost_program_options-mt.dylib ParserWAV/libparser_wav_lib.a || ParserWAV/libparser_wav_lib.a
+build Sound_Processor: CXX_EXECUTABLE_LINKER__Sound_Processor_Debug CMakeFiles/Sound_Processor.dir/main.cpp.o | /usr/local/lib/libboost_program_options-mt.dylib ParserWAV/libparser_wav_lib.a ConfigFile/libconfig_file_lib.a Converters/libconverters_lib.a || ConfigFile/libconfig_file_lib.a Converters/libconverters_lib.a ParserWAV/libparser_wav_lib.a
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk
-  LINK_LIBRARIES = /usr/local/lib/libboost_program_options-mt.dylib  ParserWAV/libparser_wav_lib.a
+  LINK_LIBRARIES = /usr/local/lib/libboost_program_options-mt.dylib  ParserWAV/libparser_wav_lib.a  ConfigFile/libconfig_file_lib.a  Converters/libconverters_lib.a
   OBJECT_DIR = CMakeFiles/Sound_Processor.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -156,7 +156,144 @@ build ParserWAV/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 build ParserWAV/rebuild_cache: phony ParserWAV/CMakeFiles/rebuild_cache.util
 
 # =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/mac/CLionProjects/Cpp-Projects/Sound Processor/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target config_file_lib
+
+
+#############################################
+# Order-only phony target for config_file_lib
+
+build cmake_object_order_depends_target_config_file_lib: phony || cmake_object_order_depends_target_converters_lib
+
+build ConfigFile/CMakeFiles/config_file_lib.dir/ConfigFile.cpp.o: CXX_COMPILER__config_file_lib_Debug /Users/mac/CLionProjects/Cpp-Projects/Sound$ Processor/ConfigFile/ConfigFile.cpp || cmake_object_order_depends_target_config_file_lib
+  DEP_FILE = ConfigFile/CMakeFiles/config_file_lib.dir/ConfigFile.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -std=gnu++17
+  INCLUDES = -I"/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/program_options" -I"/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/ConfigFile/../Converters"
+  OBJECT_DIR = ConfigFile/CMakeFiles/config_file_lib.dir
+  OBJECT_FILE_DIR = ConfigFile/CMakeFiles/config_file_lib.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target config_file_lib
+
+
+#############################################
+# Link the static library ConfigFile/libconfig_file_lib.a
+
+build ConfigFile/libconfig_file_lib.a: CXX_STATIC_LIBRARY_LINKER__config_file_lib_Debug ConfigFile/CMakeFiles/config_file_lib.dir/ConfigFile.cpp.o || Converters/libconverters_lib.a
+  ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = ConfigFile/CMakeFiles/config_file_lib.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = ConfigFile/libconfig_file_lib.a
+  TARGET_PDB = config_file_lib.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build ConfigFile/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd "/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/ConfigFile" && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build ConfigFile/edit_cache: phony ConfigFile/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build ConfigFile/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd "/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/ConfigFile" && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S"/Users/mac/CLionProjects/Cpp-Projects/Sound Processor" -B"/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build ConfigFile/rebuild_cache: phony ConfigFile/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/mac/CLionProjects/Cpp-Projects/Sound Processor/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target converters_lib
+
+
+#############################################
+# Order-only phony target for converters_lib
+
+build cmake_object_order_depends_target_converters_lib: phony || Converters/CMakeFiles/converters_lib.dir
+
+build Converters/CMakeFiles/converters_lib.dir/Converter.cpp.o: CXX_COMPILER__converters_lib_Debug /Users/mac/CLionProjects/Cpp-Projects/Sound$ Processor/Converters/Converter.cpp || cmake_object_order_depends_target_converters_lib
+  DEP_FILE = Converters/CMakeFiles/converters_lib.dir/Converter.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -std=gnu++17
+  INCLUDES = -I"/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/program_options"
+  OBJECT_DIR = Converters/CMakeFiles/converters_lib.dir
+  OBJECT_FILE_DIR = Converters/CMakeFiles/converters_lib.dir
+
+build Converters/CMakeFiles/converters_lib.dir/Mute.cpp.o: CXX_COMPILER__converters_lib_Debug /Users/mac/CLionProjects/Cpp-Projects/Sound$ Processor/Converters/Mute.cpp || cmake_object_order_depends_target_converters_lib
+  DEP_FILE = Converters/CMakeFiles/converters_lib.dir/Mute.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -std=gnu++17
+  INCLUDES = -I"/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/program_options"
+  OBJECT_DIR = Converters/CMakeFiles/converters_lib.dir
+  OBJECT_FILE_DIR = Converters/CMakeFiles/converters_lib.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target converters_lib
+
+
+#############################################
+# Link the static library Converters/libconverters_lib.a
+
+build Converters/libconverters_lib.a: CXX_STATIC_LIBRARY_LINKER__converters_lib_Debug Converters/CMakeFiles/converters_lib.dir/Converter.cpp.o Converters/CMakeFiles/converters_lib.dir/Mute.cpp.o
+  ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = Converters/CMakeFiles/converters_lib.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = Converters/libconverters_lib.a
+  TARGET_PDB = converters_lib.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build Converters/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd "/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/Converters" && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build Converters/edit_cache: phony Converters/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build Converters/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd "/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/Converters" && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S"/Users/mac/CLionProjects/Cpp-Projects/Sound Processor" -B"/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build Converters/rebuild_cache: phony Converters/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
 # Target aliases.
+
+build config_file_lib: phony ConfigFile/libconfig_file_lib.a
+
+build converters_lib: phony Converters/libconverters_lib.a
+
+build libconfig_file_lib.a: phony ConfigFile/libconfig_file_lib.a
+
+build libconverters_lib.a: phony Converters/libconverters_lib.a
 
 build libparser_wav_lib.a: phony ParserWAV/libparser_wav_lib.a
 
@@ -170,7 +307,21 @@ build parser_wav_lib: phony ParserWAV/libparser_wav_lib.a
 #############################################
 # Folder: /Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug
 
-build all: phony Sound_Processor ParserWAV/all
+build all: phony Sound_Processor ParserWAV/all ConfigFile/all Converters/all
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/ConfigFile
+
+build ConfigFile/all: phony ConfigFile/libconfig_file_lib.a
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/Converters
+
+build Converters/all: phony Converters/libconverters_lib.a
 
 # =============================================================================
 
@@ -186,14 +337,14 @@ build ParserWAV/all: phony ParserWAV/libparser_wav_lib.a
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ../CMakeLists.txt ../ParserWAV/CMakeLists.txt /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindBoost.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/UnixPaths.cmake /usr/local/lib/cmake/Boost-1.80.0/BoostConfig.cmake /usr/local/lib/cmake/Boost-1.80.0/BoostConfigVersion.cmake /usr/local/lib/cmake/BoostDetectToolset-1.80.0.cmake /usr/local/lib/cmake/boost_headers-1.80.0/boost_headers-config-version.cmake /usr/local/lib/cmake/boost_headers-1.80.0/boost_headers-config.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/boost_program_options-config-version.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/boost_program_options-config.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-mt-shared.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-mt-static.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-shared.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-static.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | ../CMakeLists.txt ../ConfigFile/CMakeLists.txt ../Converters/CMakeLists.txt ../ParserWAV/CMakeLists.txt /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindBoost.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/UnixPaths.cmake /usr/local/lib/cmake/Boost-1.80.0/BoostConfig.cmake /usr/local/lib/cmake/Boost-1.80.0/BoostConfigVersion.cmake /usr/local/lib/cmake/BoostDetectToolset-1.80.0.cmake /usr/local/lib/cmake/boost_headers-1.80.0/boost_headers-config-version.cmake /usr/local/lib/cmake/boost_headers-1.80.0/boost_headers-config.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/boost_program_options-config-version.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/boost_program_options-config.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-mt-shared.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-mt-static.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-shared.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-static.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ../CMakeLists.txt ../ParserWAV/CMakeLists.txt /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindBoost.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/UnixPaths.cmake /usr/local/lib/cmake/Boost-1.80.0/BoostConfig.cmake /usr/local/lib/cmake/Boost-1.80.0/BoostConfigVersion.cmake /usr/local/lib/cmake/BoostDetectToolset-1.80.0.cmake /usr/local/lib/cmake/boost_headers-1.80.0/boost_headers-config-version.cmake /usr/local/lib/cmake/boost_headers-1.80.0/boost_headers-config.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/boost_program_options-config-version.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/boost_program_options-config.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-mt-shared.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-mt-static.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-shared.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-static.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake: phony
+build ../CMakeLists.txt ../ConfigFile/CMakeLists.txt ../Converters/CMakeLists.txt ../ParserWAV/CMakeLists.txt /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindBoost.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/UnixPaths.cmake /usr/local/lib/cmake/Boost-1.80.0/BoostConfig.cmake /usr/local/lib/cmake/Boost-1.80.0/BoostConfigVersion.cmake /usr/local/lib/cmake/BoostDetectToolset-1.80.0.cmake /usr/local/lib/cmake/boost_headers-1.80.0/boost_headers-config-version.cmake /usr/local/lib/cmake/boost_headers-1.80.0/boost_headers-config.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/boost_program_options-config-version.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/boost_program_options-config.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-mt-shared.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-mt-static.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-shared.cmake /usr/local/lib/cmake/boost_program_options-1.80.0/libboost_program_options-variant-static.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake: phony
 
 
 #############################################

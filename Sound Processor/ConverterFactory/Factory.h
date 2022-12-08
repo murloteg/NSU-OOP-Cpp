@@ -1,0 +1,10 @@
+#ifndef SOUND_PROCESSOR_FACTORY_H
+#define SOUND_PROCESSOR_FACTORY_H
+
+
+class Factory {
+
+};
+
+
+#endif //SOUND_PROCESSOR_FACTORY_H

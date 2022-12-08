@@ -1,0 +1,1 @@
+add_library(converters_lib STATIC Converter.cpp Mute.cpp)

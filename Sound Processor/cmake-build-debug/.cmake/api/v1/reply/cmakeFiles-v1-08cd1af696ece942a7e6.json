@@ -215,6 +215,12 @@
 		},
 		{
 			"path" : "ParserWAV/CMakeLists.txt"
+		},
+		{
+			"path" : "ConfigFile/CMakeLists.txt"
+		},
+		{
+			"path" : "Converters/CMakeLists.txt"
 		}
 	],
 	"kind" : "cmakeFiles",

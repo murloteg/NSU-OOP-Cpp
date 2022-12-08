@@ -33,7 +33,7 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 15,
+				"line" : 17,
 				"parent" : 0
 			},
 			{
@@ -45,7 +45,7 @@
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 14,
+				"line" : 16,
 				"parent" : 0
 			}
 		]
@@ -84,6 +84,18 @@
 					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/ParserWAV"
 				},
 				{
+					"backtrace" : 4,
+					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/ConfigFile"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/Converters"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/ConfigFile/../Converters"
+				},
+				{
 					"backtrace" : 2,
 					"isSystem" : true,
 					"path" : "/usr/local/include"
@@ -109,6 +121,14 @@
 		{
 			"backtrace" : 2,
 			"id" : "parser_wav_lib::@18f52c07f6a62bf77306"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "config_file_lib::@3c3203f12ac691ec046c"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "converters_lib::@10b1ddd461c9ab357cad"
 		}
 	],
 	"id" : "Sound_Processor::@6890427a1f51a3e7e1df",
@@ -132,6 +152,16 @@
 			{
 				"backtrace" : 2,
 				"fragment" : "ParserWAV/libparser_wav_lib.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "ConfigFile/libconfig_file_lib.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "Converters/libconverters_lib.a",
 				"role" : "libraries"
 			}
 		],

@@ -8,7 +8,9 @@
 					"build" : ".",
 					"childIndexes" : 
 					[
-						1
+						1,
+						2,
+						3
 					],
 					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
@@ -34,7 +36,37 @@
 					"source" : "ParserWAV",
 					"targetIndexes" : 
 					[
+						3
+					]
+				},
+				{
+					"build" : "ConfigFile",
+					"jsonFile" : "directory-ConfigFile-Debug-64b6a5137f823d0d4ad6.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.23"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "ConfigFile",
+					"targetIndexes" : 
+					[
 						1
+					]
+				},
+				{
+					"build" : "Converters",
+					"jsonFile" : "directory-Converters-Debug-57ca4666c4020578ee69.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.23"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "Converters",
+					"targetIndexes" : 
+					[
+						2
 					]
 				}
 			],
@@ -45,13 +77,17 @@
 					"directoryIndexes" : 
 					[
 						0,
-						1
+						1,
+						2,
+						3
 					],
 					"name" : "Sound_Processor",
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2,
+						3
 					]
 				}
 			],
@@ -60,8 +96,22 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Sound_Processor::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Sound_Processor-Debug-a4e3d14826197a027d27.json",
+					"jsonFile" : "target-Sound_Processor-Debug-e1dd93af5530831acb70.json",
 					"name" : "Sound_Processor",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "config_file_lib::@3c3203f12ac691ec046c",
+					"jsonFile" : "target-config_file_lib-Debug-a6c2bba8956790b9ad40.json",
+					"name" : "config_file_lib",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "converters_lib::@10b1ddd461c9ab357cad",
+					"jsonFile" : "target-converters_lib-Debug-b234f7319633513e1156.json",
+					"name" : "converters_lib",
 					"projectIndex" : 0
 				},
 				{
