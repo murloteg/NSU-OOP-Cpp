@@ -148,6 +148,9 @@
 		},
 		{
 			"path" : "Tuple/CMakeLists.txt"
+		},
+		{
+			"path" : "CSVParser/CMakeLists.txt"
 		}
 	],
 	"kind" : "cmakeFiles",

@@ -27,16 +27,18 @@ std::ostream& printTuple(std::ostream& outStream, const Tuple& tuple, templateSi
 template<class Tuple, std::size_t position>
 std::ostream& printTuple(std::ostream& outStream, const Tuple& tuple, templateSize_<position>)
 {
-    outStream << std::get<std::tuple_size<Tuple>::value - position>(tuple) << " ";
+    outStream << std::get<std::tuple_size<Tuple>::value - position>(tuple);
+    outStream << ", ";
     return printTuple(outStream, tuple, templateSize_<position - 1>());
 }
 
 template<class... Args>
-std::ostream& operator<<(std::ostream& outStream, const std::tuple<Args...>& tuple)
+std::ostream& operator<<(std::ostream &outStream, const std::tuple<Args...>& tuple)
 {
     printTuple(outStream, tuple, templateSize_<sizeof...(Args)>());
-    outStream << ", ";
+    outStream << std::endl;
     return outStream;
 }
+
 
 #endif //CSV_PARSER_TUPLE_H
