@@ -2,9 +2,18 @@
 #define SOUND_PROCESSOR_CONVERTER_H
 #include <iostream>
 
+enum Converters
+{
+    MUTE = 1,
+    MIX = 2,
+    MY_NAME_CONV = 3
+};
+
 class Converter {
-private:
-    std::string firstWAV_;
+protected:
+    unsigned int firstParameter_;
+    unsigned int secondParameter_;
+    std::string currentWAV_;
 public:
     virtual ~Converter() = default;
 };

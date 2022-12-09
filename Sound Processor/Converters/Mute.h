@@ -4,10 +4,9 @@
 
 class Mute : public Converter {
 private:
-    unsigned int startPointSec_;
-    unsigned int endPointSec_;
+    // TODO: add something.
 public:
-    Mute();
+    Mute(std::string currentWAV, unsigned int start, unsigned int end);
     void mute();
     ~Mute() override = default;
 };

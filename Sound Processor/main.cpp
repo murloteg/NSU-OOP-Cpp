@@ -43,9 +43,10 @@ int main(int argc, char** argv)
 
 	ParserWAV wavFile(audioFiles[1]);
 	wavFile.parseWAV();
-	wavFile.debugPrintWAV();
+//	wavFile.debugPrintWAV();
     ConfigFile config(configFile);
     config.parseFile();
+    config.debugPrint();
 
     return 0;
 }

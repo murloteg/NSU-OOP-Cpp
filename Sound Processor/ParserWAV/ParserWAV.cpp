@@ -63,4 +63,3 @@ void ParserWAV::convertLittleEndianToBigEndian(unsigned int& value)
 
 	value = firstPart | secondPart | thirdPart | fourthPart;
 }
-
