@@ -1,8 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <boost/program_options.hpp>
-#include "ParserWAV.h"
-#include "ConfigFile.h"
+#include "SoundController.h"
 
 namespace po = boost::program_options;
 using namespace std;
@@ -44,9 +43,11 @@ int main(int argc, char** argv)
 	ParserWAV wavFile(audioFiles[1]);
 	wavFile.parseWAV();
 //	wavFile.debugPrintWAV();
-    ConfigFile config(configFile);
-    config.parseFile();
-    config.debugPrint();
+//    ConfigFile config(configFile);
+//    config.parseFile();
+//    config.debugPrint();
+    SoundController soundController(audioFiles[1], configFile);
+    soundController.debugTest();
 
     return 0;
 }

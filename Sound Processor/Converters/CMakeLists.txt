@@ -1,1 +1,1 @@
-add_library(converters_lib STATIC Converter.h Mute.cpp)
+add_library(converters_lib STATIC Converter.h Mute.cpp Mute.h Randomizer.cpp Randomizer.h)

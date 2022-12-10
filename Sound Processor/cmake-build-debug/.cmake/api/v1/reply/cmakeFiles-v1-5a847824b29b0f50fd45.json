@@ -221,6 +221,12 @@
 		},
 		{
 			"path" : "Converters/CMakeLists.txt"
+		},
+		{
+			"path" : "SoundController/CMakeLists.txt"
+		},
+		{
+			"path" : "Factory/CMakeLists.txt"
 		}
 	],
 	"kind" : "cmakeFiles",

@@ -120,6 +120,7 @@ unsigned int ConfigFile::getNextNumber(std::string string)
     return number;
 }
 
+/*
 void ConfigFile::createConverterFromString(std::string stringCommand)
 {
     std::string currentCommand;
@@ -147,12 +148,13 @@ void ConfigFile::createConverterFromString(std::string stringCommand)
     }
     Converter converter = Factory::createConverter(); // TODO: integrate factory.
 }
+*/
 
-void ConfigFile::findNextConverter()
-{
-    if (!commands_.empty())
-    {
-        createConverterFromString(commands_[currentConverterIndex_]);
-    }
-}
+//void ConfigFile::findNextConverter()
+//{
+//    if (!commands_.empty())
+//    {
+//        createConverterFromString(commands_[currentConverterIndex_]);
+//    }
+//}
 

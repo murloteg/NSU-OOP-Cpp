@@ -24,6 +24,7 @@ public:
 	ParserWAV(std::string fileName);
 	void parseWAV();
 	void debugPrintWAV();
+    unsigned int getSampleRate() const {return wavHeader_.sampleRate;};
 	~ParserWAV() = default;
 private:
 	WAVHeader wavHeader_{};

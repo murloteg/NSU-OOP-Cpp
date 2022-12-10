@@ -194,7 +194,7 @@
 					"value" : "CXX compiler"
 				}
 			],
-			"type" : "STRING",
+			"type" : "FILEPATH",
 			"value" : "/Library/Developer/CommandLineTools/usr/bin/c++"
 		},
 		{
@@ -290,7 +290,7 @@
 					"value" : "C compiler"
 				}
 			],
-			"type" : "STRING",
+			"type" : "FILEPATH",
 			"value" : "/Library/Developer/CommandLineTools/usr/bin/cc"
 		},
 		{
@@ -743,7 +743,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "4"
+			"value" : "6"
 		},
 		{
 			"name" : "CMAKE_OBJCOPY",
@@ -1220,18 +1220,6 @@
 			],
 			"type" : "PATH",
 			"value" : "/usr/local/lib/cmake/boost_program_options-1.80.0"
-		},
-		{
-			"name" : "{BOOST}_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "The directory containing a CMake configuration file for {BOOST}."
-				}
-			],
-			"type" : "PATH",
-			"value" : "{BOOST}_DIR-NOTFOUND"
 		}
 	],
 	"kind" : "cache",

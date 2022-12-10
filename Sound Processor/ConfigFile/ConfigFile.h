@@ -3,7 +3,6 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include "Factory.h"
 
 enum Consts
 {
@@ -16,12 +15,11 @@ private:
     std::string currentLine_;
     std::vector<std::string> commands_;
     unsigned int currentConverterIndex_;
-    Converter nextConverter_;
     unsigned int additionalConverterNumber_;
     void skipUntilNextLine(std::ifstream& file);
     void getNextCommand(std::ifstream& file);
-    void findNextConverter();
-    void createConverterFromString(std::string stringCommand);
+//    void findNextConverter();
+//    void createConverterFromString(std::string stringCommand);
     static unsigned int getNextNumber(std::ifstream& file);
     static unsigned int getNextNumber(std::string string);
     static unsigned int getDigit(unsigned char character);

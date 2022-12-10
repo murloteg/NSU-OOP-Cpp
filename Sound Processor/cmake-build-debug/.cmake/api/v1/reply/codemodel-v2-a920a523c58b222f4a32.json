@@ -10,7 +10,9 @@
 					[
 						1,
 						2,
-						3
+						3,
+						4,
+						5
 					],
 					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
@@ -36,7 +38,7 @@
 					"source" : "ParserWAV",
 					"targetIndexes" : 
 					[
-						3
+						5
 					]
 				},
 				{
@@ -66,7 +68,37 @@
 					"source" : "Converters",
 					"targetIndexes" : 
 					[
+						3
+					]
+				},
+				{
+					"build" : "SoundController",
+					"jsonFile" : "directory-SoundController-Debug-ba20ad59e4e10ed136cf.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.23"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "SoundController",
+					"targetIndexes" : 
+					[
 						2
+					]
+				},
+				{
+					"build" : "Factory",
+					"jsonFile" : "directory-Factory-Debug-b15864e7a859d6f2a889.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.23"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "Factory",
+					"targetIndexes" : 
+					[
+						4
 					]
 				}
 			],
@@ -79,7 +111,9 @@
 						0,
 						1,
 						2,
-						3
+						3,
+						4,
+						5
 					],
 					"name" : "Sound_Processor",
 					"targetIndexes" : 
@@ -87,7 +121,9 @@
 						0,
 						1,
 						2,
-						3
+						3,
+						4,
+						5
 					]
 				}
 			],
@@ -96,22 +132,36 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Sound_Processor::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Sound_Processor-Debug-57c5f6f846e5545a6412.json",
+					"jsonFile" : "target-Sound_Processor-Debug-00e72feca98c74e88b3b.json",
 					"name" : "Sound_Processor",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 2,
 					"id" : "config_file_lib::@3c3203f12ac691ec046c",
-					"jsonFile" : "target-config_file_lib-Debug-1f819d1cd56aa7339660.json",
+					"jsonFile" : "target-config_file_lib-Debug-03bde943023dfcd9c256.json",
 					"name" : "config_file_lib",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "controller_lib::@33832b7b2e76bd679c07",
+					"jsonFile" : "target-controller_lib-Debug-8e54683f226950615f1a.json",
+					"name" : "controller_lib",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 3,
 					"id" : "converters_lib::@10b1ddd461c9ab357cad",
-					"jsonFile" : "target-converters_lib-Debug-7aa9047d030236261fa0.json",
+					"jsonFile" : "target-converters_lib-Debug-2e6e8455e4e533296a31.json",
 					"name" : "converters_lib",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "factory_lib::@afec5811ca4b60e82f6b",
+					"jsonFile" : "target-factory_lib-Debug-e0670555501c020a2222.json",
+					"name" : "factory_lib",
 					"projectIndex" : 0
 				},
 				{
