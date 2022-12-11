@@ -1,19 +1,20 @@
 #ifndef SOUND_PROCESSOR_CONVERTER_H
 #define SOUND_PROCESSOR_CONVERTER_H
 #include <iostream>
+#include <fstream>
 
 enum Converters
 {
     MUTE = 1,
     MIX = 2,
-    MY_NAME_CONV = 3
+    MY_NAME_CONV = 3 // FIXME
 };
 
 class Converter {
 protected:
+    unsigned int bufferSize_;
     unsigned int firstParameter_;
     unsigned int secondParameter_;
-    std::string currentWAV_;
 public:
     virtual ~Converter() = default;
 };

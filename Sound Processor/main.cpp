@@ -40,14 +40,16 @@ int main(int argc, char** argv)
 		cout << configFile << endl;
 	}
 
-	ParserWAV wavFile(audioFiles[1]);
-	wavFile.parseWAV();
+//	ParserWAV wavFile(audioFiles[1]);
+//	wavFile.parseWAV();
 //	wavFile.debugPrintWAV();
 //    ConfigFile config(configFile);
 //    config.parseFile();
 //    config.debugPrint();
-    SoundController soundController(audioFiles[1], configFile);
-    soundController.debugTest();
+    std::ofstream output("../" + audioFiles[0]);
+    SoundController soundController(output, audioFiles, configFile);
+//    soundController.debugTest();
+    soundController.conversion();
 
     return 0;
 }

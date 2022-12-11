@@ -237,6 +237,13 @@ build Converters/CMakeFiles/converters_lib.dir/Mute.cpp.o: CXX_COMPILER__convert
   OBJECT_DIR = Converters/CMakeFiles/converters_lib.dir
   OBJECT_FILE_DIR = Converters/CMakeFiles/converters_lib.dir
 
+build Converters/CMakeFiles/converters_lib.dir/Mix.cpp.o: CXX_COMPILER__converters_lib_Debug /Users/mac/CLionProjects/Cpp-Projects/Sound$ Processor/Converters/Mix.cpp || cmake_object_order_depends_target_converters_lib
+  DEP_FILE = Converters/CMakeFiles/converters_lib.dir/Mix.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu++17
+  INCLUDES = -I"/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/program_options"
+  OBJECT_DIR = Converters/CMakeFiles/converters_lib.dir
+  OBJECT_FILE_DIR = Converters/CMakeFiles/converters_lib.dir
+
 build Converters/CMakeFiles/converters_lib.dir/Randomizer.cpp.o: CXX_COMPILER__converters_lib_Debug /Users/mac/CLionProjects/Cpp-Projects/Sound$ Processor/Converters/Randomizer.cpp || cmake_object_order_depends_target_converters_lib
   DEP_FILE = Converters/CMakeFiles/converters_lib.dir/Randomizer.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu++17
@@ -252,7 +259,7 @@ build Converters/CMakeFiles/converters_lib.dir/Randomizer.cpp.o: CXX_COMPILER__c
 #############################################
 # Link the static library Converters/libconverters_lib.a
 
-build Converters/libconverters_lib.a: CXX_STATIC_LIBRARY_LINKER__converters_lib_Debug Converters/CMakeFiles/converters_lib.dir/Mute.cpp.o Converters/CMakeFiles/converters_lib.dir/Randomizer.cpp.o
+build Converters/libconverters_lib.a: CXX_STATIC_LIBRARY_LINKER__converters_lib_Debug Converters/CMakeFiles/converters_lib.dir/Mute.cpp.o Converters/CMakeFiles/converters_lib.dir/Mix.cpp.o Converters/CMakeFiles/converters_lib.dir/Randomizer.cpp.o
   ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = Converters/CMakeFiles/converters_lib.dir

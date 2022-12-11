@@ -1,4 +1,4 @@
 # mute-converter:
-mute 0 30
+mute 10 20
 # mix-converter:
 mix $2 10

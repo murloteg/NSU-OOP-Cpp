@@ -24,11 +24,13 @@ public:
 	ParserWAV(std::string fileName);
 	void parseWAV();
 	void debugPrintWAV();
-    unsigned int getSampleRate() const {return wavHeader_.sampleRate;};
+    unsigned int getByteRate() const {return wavHeader_.byteRate;};
+    int getWAVHeaderLength() const {return minWAVFileHeaderLength_;}
 	~ParserWAV() = default;
 private:
 	WAVHeader wavHeader_{};
 	std::string fileName_;
+    int minWAVFileHeaderLength_;
 	static void convertLittleEndianToBigEndian(unsigned int& value);
 };
 

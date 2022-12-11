@@ -11,15 +11,29 @@ static std::map<std::string, Converters> converters = {std::make_pair("MUTE", MU
 class SoundController {
 private:
     std::string configFileName_;
-    std::string wavFileName_;
-    ParserWAV parserWav_ = ParserWAV(wavFileName_);
-    ConfigFile configFile_ = ConfigFile(configFileName_);
-    std::vector<int> bufferOfSamples_; // size = sampleRate.
+    std::vector<std::string> wavFileNames_;
+    int minWAVFileHeaderLength_;
+    size_t currentConverterNumber_;
+    size_t convertersNumber_;
+    Converter* nextConverter_;
+    std::string nextConverterName_;
+    ParserWAV parserWav_ = ParserWAV("default");
+    ConfigFile configFile_ = ConfigFile("default");
+    unsigned char* bufferOfSamples_; // size = sampleRate.
+    int currentSecondsInFile_;
+    bool isEndOfFile_;
+    std::ofstream& output_;
+    void getNextConverter();
+    void getNextBufferData();
+    void putHeaderInOutput();
+    void putDataInOutput();
+    void skipUntilCurrentSeconds(std::ifstream& file);
+    static void toUpperCase(std::string& string);
 public:
-    SoundController(std::string wavFileName, std::string configFileName);
+    SoundController(std::ofstream& output, std::vector<std::string> wavFileNames, std::string configFileName);
     void conversion(); // use converter.
     void debugTest();
-    ~SoundController() = default; // fix later.
+    ~SoundController(); // fix later.
 };
 
 

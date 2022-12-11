@@ -1,6 +1,7 @@
 #include "ConverterFactory.h"
 
-Converter* ConverterFactory::createConverter(std::string nameOfConverter, std::string wavFileName, unsigned int firstParameter, unsigned int secondParameter)
+Converter* ConverterFactory::createConverter(std::string nameOfConverter, int bufferSize,
+                                             unsigned int firstParameter, unsigned int secondParameter)
 {
     auto converterName = converters.find(nameOfConverter);
     switch (converterName->second)
@@ -8,7 +9,7 @@ Converter* ConverterFactory::createConverter(std::string nameOfConverter, std::s
         // TODO: finish this block.
         case MUTE:
         {
-            return new Mute(wavFileName, firstParameter, secondParameter);
+            return new Mute(bufferSize, firstParameter, secondParameter);
         }
 
         case MIX:
@@ -18,7 +19,7 @@ Converter* ConverterFactory::createConverter(std::string nameOfConverter, std::s
 
         case MY_NAME_CONV: // FIXME later.
         {
-            return new Randomizer(wavFileName, firstParameter, secondParameter);
+//            return new Randomizer(currentWAV, firstParameter, secondParameter);
         }
 
         default:

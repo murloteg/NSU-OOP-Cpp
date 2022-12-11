@@ -2,12 +2,16 @@
 #define SOUND_PROCESSOR_CONVERTERFACTORY_H
 #include "Converter.h"
 #include "Mute.h"
+#include "Mix.h"
 #include "Randomizer.h"
 #include "SoundController.h"
 
 class ConverterFactory {
+private:
+    ///
 public:
-    static Converter* createConverter(std::string nameOfConverter, std::string wavFileName, unsigned int firstParameter, unsigned int secondParameter);
+    static Converter* createConverter(std::string nameOfConverter, int bufferSize,
+                                      unsigned int firstParameter, unsigned int secondParameter);
 };
 
 
