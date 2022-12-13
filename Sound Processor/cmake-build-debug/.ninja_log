@@ -1,4 +1,5 @@
 # ninja log v5
+<<<<<<< HEAD
 11	720	1670776006963055883	Converters/CMakeFiles/converters_lib.dir/Randomizer.cpp.o	fe297e49be3e8f40
 627	689	1670776793481858000	Converters/libconverters_lib.a	7e6e419dafddc37d
 851	899	1670847287999765000	Factory/libfactory_lib.a	e627d50d4d79d29a
@@ -75,3 +76,30 @@
 10	954	1670952308716212457	SoundController/CMakeFiles/controller_lib.dir/SoundController.cpp.o	cb3061a678327f6d
 954	997	1670952308766269000	SoundController/libcontroller_lib.a	41be0b34608b645b
 997	1068	1670952308832143174	Sound_Processor	e8511ff5d0b6bede
+=======
+11	720	1670776006963963184	Converters/CMakeFiles/converters_lib.dir/Mix.cpp.o	c50f9f355ba797c
+1024	1067	1670777173871272000	SoundController/libcontroller_lib.a	41be0b34608b645b
+1009	1076	1670777266931726798	Sound_Processor	c20276cda3790af9
+964	1009	1670777266868570000	ConfigFile/libconfig_file_lib.a	a6bb9ec9d208119b
+10	2016	1670777174806776439	CMakeFiles/Sound_Processor.dir/main.cpp.o	c93d92f9a1a7d421
+11	858	1670777173649774245	Factory/CMakeFiles/factory_lib.dir/ConverterFactory.cpp.o	dd10745bf8089406
+10	66	1670770980565332000	ParserWAV/libparser_wav_lib.a	a4eb94641bf88188
+11	1024	1670777173820690656	SoundController/CMakeFiles/controller_lib.dir/SoundController.cpp.o	cb3061a678327f6d
+9	964	1670777266818425419	ConfigFile/CMakeFiles/config_file_lib.dir/ConfigFile.cpp.o	6ad9bccace96875a
+10	805	1670770972846589895	ParserWAV/CMakeFiles/parser_wav_lib.dir/ParserWAV.cpp.o	5a2870ab3e8afd70
+10	627	1670776793414773703	Converters/CMakeFiles/converters_lib.dir/Mute.cpp.o	704e6d902cb6d299
+946	988	1670777173791751000	Factory/libfactory_lib.a	e627d50d4d79d29a
+627	689	1670776793481858000	Converters/libconverters_lib.a	7e6e419dafddc37d
+11	720	1670776006963055883	Converters/CMakeFiles/converters_lib.dir/Randomizer.cpp.o	fe297e49be3e8f40
+10	816	1670777325094823271	ConfigFile/CMakeFiles/config_file_lib.dir/ConfigFile.cpp.o	6ad9bccace96875a
+816	863	1670777325147492000	ConfigFile/libconfig_file_lib.a	a6bb9ec9d208119b
+863	932	1670777325212946686	Sound_Processor	c20276cda3790af9
+11	832	1670777566184211184	ParserWAV/CMakeFiles/parser_wav_lib.dir/ParserWAV.cpp.o	5a2870ab3e8afd70
+833	876	1670777566234740000	ParserWAV/libparser_wav_lib.a	a4eb94641bf88188
+11	949	1670777566301363888	Factory/CMakeFiles/factory_lib.dir/ConverterFactory.cpp.o	dd10745bf8089406
+949	992	1670777566350365000	Factory/libfactory_lib.a	e627d50d4d79d29a
+11	1112	1670777566462012371	SoundController/CMakeFiles/controller_lib.dir/SoundController.cpp.o	cb3061a678327f6d
+1112	1156	1670777566514604000	SoundController/libcontroller_lib.a	41be0b34608b645b
+10	2053	1670777567398408391	CMakeFiles/Sound_Processor.dir/main.cpp.o	c93d92f9a1a7d421
+2053	2138	1670777567490958736	Sound_Processor	c20276cda3790af9
+>>>>>>> 99c0a896c270a6b61e1ab0f8d00b4ea4bb246e65

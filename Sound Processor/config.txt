@@ -1,6 +1,10 @@
 # mute-converter:
+<<<<<<< HEAD
 mute 5 10
 # mute-converter:
 mute 15 20
+=======
+mute 10 20
+>>>>>>> 99c0a896c270a6b61e1ab0f8d00b4ea4bb246e65
 # mix-converter:
 mix $2 10
