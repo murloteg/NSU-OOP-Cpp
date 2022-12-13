@@ -227,6 +227,9 @@
 		},
 		{
 			"path" : "Factory/CMakeLists.txt"
+		},
+		{
+			"path" : "WAVFile/CMakeLists.txt"
 		}
 	],
 	"kind" : "cmakeFiles",

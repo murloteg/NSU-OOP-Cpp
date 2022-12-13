@@ -1,6 +1,9 @@
 #include "ParserWAV.h"
 
-ParserWAV::ParserWAV(std::string fileName) :fileName_(fileName) {}
+ParserWAV::ParserWAV(std::string fileName) :fileName_(fileName)
+{
+    minWAVFileHeaderLength_ = 0;
+}
 
 void ParserWAV::parseWAV()
 {
@@ -8,10 +11,15 @@ void ParserWAV::parseWAV()
 	if (file.is_open())
 	{
 		file.read(reinterpret_cast<char*>(&wavHeader_), sizeof(wavHeader_));
+//        convertLittleEndianToBigEndian(wavHeader_.chunkId);
+//        convertLittleEndianToBigEndian(wavHeader_.format);
+//        convertLittleEndianToBigEndian(wavHeader_.subchunk1Id);
+        minWAVFileHeaderLength_ = 44; // in bytes. FIXME: put it in enum-class.
 		std::string currentString;
 		while (currentString != "data")
 		{
 			unsigned char symbol = file.get();
+            ++minWAVFileHeaderLength_;
 			if (currentString.empty() && symbol == 'd')
 			{
 				currentString += symbol;
@@ -32,16 +40,13 @@ void ParserWAV::parseWAV()
 				currentString.clear();
 			}
 		}
-		std::cout << currentString << std::endl; // TODO: continue work on this chapter.
+        // TODO: continue work on this chapter.
 	}
+    file.close();
 }
 
 void ParserWAV::debugPrintWAV()
 {
-	convertLittleEndianToBigEndian(wavHeader_.chunkId);
-	convertLittleEndianToBigEndian(wavHeader_.format);
-	convertLittleEndianToBigEndian(wavHeader_.subchunk1Id);
-
 	std::cout << wavHeader_.chunkId << std::endl;
 	std::cout << wavHeader_.chunkSize << std::endl;
 	std::cout << wavHeader_.subchunk1Id << std::endl;

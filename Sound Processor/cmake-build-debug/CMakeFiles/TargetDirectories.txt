@@ -16,3 +16,6 @@
 /Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/Factory/CMakeFiles/factory_lib.dir
 /Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/Factory/CMakeFiles/edit_cache.dir
 /Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/Factory/CMakeFiles/rebuild_cache.dir
+/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/WAVFile/CMakeFiles/wav_file_lib.dir
+/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/WAVFile/CMakeFiles/edit_cache.dir
+/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/WAVFile/CMakeFiles/rebuild_cache.dir

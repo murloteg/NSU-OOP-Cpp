@@ -10,7 +10,7 @@ int main(int argc, char** argv)
 	po::options_description description("Options");
 	description.add_options()
 	("help", "get info about options")
-	("wav", po::value<vector <string> >(), "input next WAV file; the first file in list will be used for output")
+	("wav", po::value<vector <string> >(), "input next WAV file; the first.txt file in list will be used for output")
 	("config", po::value<string>(), "enter a config file with description of transformations")
 	;
 
@@ -40,14 +40,16 @@ int main(int argc, char** argv)
 		cout << configFile << endl;
 	}
 
-	ParserWAV wavFile(audioFiles[1]);
-	wavFile.parseWAV();
+//	ParserWAV wavFile(audioFiles[1]);
+//	wavFile.parseWAV();
 //	wavFile.debugPrintWAV();
 //    ConfigFile config(configFile);
 //    config.parseFile();
 //    config.debugPrint();
-    SoundController soundController(audioFiles[1], configFile);
-    soundController.debugTest();
+    std::ofstream output("../" + audioFiles[0]);
+    SoundController soundController(audioFiles, configFile);
+//    soundController.debugTest();
+    soundController.conversion();
 
     return 0;
 }

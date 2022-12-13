@@ -6,8 +6,8 @@ class Mute : public Converter {
 private:
     // TODO: add something.
 public:
-    Mute(std::string currentWAV, unsigned int start, unsigned int end);
-    void mute();
+    Mute(unsigned int bufferSize, unsigned int start, unsigned int end);
+    unsigned char* mute(unsigned char* buffer, unsigned int currentSecondsInFile);
     ~Mute() override = default;
 };
 

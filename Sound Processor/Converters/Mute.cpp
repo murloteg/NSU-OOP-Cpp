@@ -1,14 +1,20 @@
 #include "Mute.h"
 
-Mute::Mute(std::string currentWAV, unsigned int start, unsigned int end)
+Mute::Mute(unsigned int bufferSize, unsigned int start, unsigned int end)
 {
+    bufferSize_ = bufferSize;
     firstParameter_ = start;
     secondParameter_ = end;
-    currentWAV_ = currentWAV;
 }
 
-// TODO: finish this block.
-void Mute::mute()
+unsigned char* Mute::mute(unsigned char* buffer, unsigned int currentSecondsInFile)
 {
-
+    if (firstParameter_ <= currentSecondsInFile && currentSecondsInFile <= secondParameter_)
+    {
+        for (int i = 0; i < bufferSize_; ++i)
+        {
+            buffer[i] = 0;
+        }
+    }
+    return buffer;
 }

@@ -12,7 +12,8 @@
 						2,
 						3,
 						4,
-						5
+						5,
+						6
 					],
 					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
@@ -100,6 +101,21 @@
 					[
 						4
 					]
+				},
+				{
+					"build" : "WAVFile",
+					"jsonFile" : "directory-WAVFile-Debug-d061d845890301e38898.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.23"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "WAVFile",
+					"targetIndexes" : 
+					[
+						6
+					]
 				}
 			],
 			"name" : "Debug",
@@ -113,7 +129,8 @@
 						2,
 						3,
 						4,
-						5
+						5,
+						6
 					],
 					"name" : "Sound_Processor",
 					"targetIndexes" : 
@@ -123,7 +140,8 @@
 						2,
 						3,
 						4,
-						5
+						5,
+						6
 					]
 				}
 			],
@@ -132,7 +150,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Sound_Processor::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Sound_Processor-Debug-00e72feca98c74e88b3b.json",
+					"jsonFile" : "target-Sound_Processor-Debug-e5473c12f5edd16b383a.json",
 					"name" : "Sound_Processor",
 					"projectIndex" : 0
 				},
@@ -153,7 +171,7 @@
 				{
 					"directoryIndex" : 3,
 					"id" : "converters_lib::@10b1ddd461c9ab357cad",
-					"jsonFile" : "target-converters_lib-Debug-2e6e8455e4e533296a31.json",
+					"jsonFile" : "target-converters_lib-Debug-371938b8febf334b1525.json",
 					"name" : "converters_lib",
 					"projectIndex" : 0
 				},
@@ -169,6 +187,13 @@
 					"id" : "parser_wav_lib::@18f52c07f6a62bf77306",
 					"jsonFile" : "target-parser_wav_lib-Debug-06cb720f00658e141af0.json",
 					"name" : "parser_wav_lib",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "wav_file_lib::@8e1eaa5812265dc12e6f",
+					"jsonFile" : "target-wav_file_lib-Debug-b0a2291714157e5b9691.json",
+					"name" : "wav_file_lib",
 					"projectIndex" : 0
 				}
 			]
