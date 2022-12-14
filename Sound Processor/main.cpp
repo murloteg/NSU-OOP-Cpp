@@ -47,11 +47,7 @@ int main(int argc, char** argv)
 //    config.parseFile();
 //    config.debugPrint();
     std::ofstream output("../" + audioFiles[0]);
-<<<<<<< HEAD
     SoundController soundController(audioFiles, configFile);
-=======
-    SoundController soundController(output, audioFiles, configFile);
->>>>>>> 99c0a896c270a6b61e1ab0f8d00b4ea4bb246e65
 //    soundController.debugTest();
     soundController.conversion();
 

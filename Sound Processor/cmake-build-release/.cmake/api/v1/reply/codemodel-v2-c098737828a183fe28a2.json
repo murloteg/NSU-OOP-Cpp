@@ -15,7 +15,7 @@
 						5,
 						6
 					],
-					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"jsonFile" : "directory-.-Release-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.23"
@@ -29,7 +29,7 @@
 				},
 				{
 					"build" : "ParserWAV",
-					"jsonFile" : "directory-ParserWAV-Debug-2b0429701fa9a7a278d8.json",
+					"jsonFile" : "directory-ParserWAV-Release-2b0429701fa9a7a278d8.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.23"
@@ -44,7 +44,7 @@
 				},
 				{
 					"build" : "ConfigFile",
-					"jsonFile" : "directory-ConfigFile-Debug-64b6a5137f823d0d4ad6.json",
+					"jsonFile" : "directory-ConfigFile-Release-64b6a5137f823d0d4ad6.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.23"
@@ -59,7 +59,7 @@
 				},
 				{
 					"build" : "Converters",
-					"jsonFile" : "directory-Converters-Debug-57ca4666c4020578ee69.json",
+					"jsonFile" : "directory-Converters-Release-57ca4666c4020578ee69.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.23"
@@ -74,7 +74,7 @@
 				},
 				{
 					"build" : "SoundController",
-					"jsonFile" : "directory-SoundController-Debug-ba20ad59e4e10ed136cf.json",
+					"jsonFile" : "directory-SoundController-Release-ba20ad59e4e10ed136cf.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.23"
@@ -89,7 +89,7 @@
 				},
 				{
 					"build" : "Factory",
-					"jsonFile" : "directory-Factory-Debug-b15864e7a859d6f2a889.json",
+					"jsonFile" : "directory-Factory-Release-b15864e7a859d6f2a889.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.23"
@@ -104,7 +104,7 @@
 				},
 				{
 					"build" : "WAVFile",
-					"jsonFile" : "directory-WAVFile-Debug-d061d845890301e38898.json",
+					"jsonFile" : "directory-WAVFile-Release-d061d845890301e38898.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.23"
@@ -118,7 +118,7 @@
 					]
 				}
 			],
-			"name" : "Debug",
+			"name" : "Release",
 			"projects" : 
 			[
 				{
@@ -150,49 +150,49 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Sound_Processor::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Sound_Processor-Debug-e5473c12f5edd16b383a.json",
+					"jsonFile" : "target-Sound_Processor-Release-fc822b563746beadab94.json",
 					"name" : "Sound_Processor",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 2,
 					"id" : "config_file_lib::@3c3203f12ac691ec046c",
-					"jsonFile" : "target-config_file_lib-Debug-03bde943023dfcd9c256.json",
+					"jsonFile" : "target-config_file_lib-Release-516e765db6946af11168.json",
 					"name" : "config_file_lib",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 4,
 					"id" : "controller_lib::@33832b7b2e76bd679c07",
-					"jsonFile" : "target-controller_lib-Debug-8e54683f226950615f1a.json",
+					"jsonFile" : "target-controller_lib-Release-501b8b892fc2f23a231d.json",
 					"name" : "controller_lib",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 3,
 					"id" : "converters_lib::@10b1ddd461c9ab357cad",
-					"jsonFile" : "target-converters_lib-Debug-371938b8febf334b1525.json",
+					"jsonFile" : "target-converters_lib-Release-7070d9bb82738c58b3f2.json",
 					"name" : "converters_lib",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 5,
 					"id" : "factory_lib::@afec5811ca4b60e82f6b",
-					"jsonFile" : "target-factory_lib-Debug-e0670555501c020a2222.json",
+					"jsonFile" : "target-factory_lib-Release-770b42d5b1613044283f.json",
 					"name" : "factory_lib",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 1,
 					"id" : "parser_wav_lib::@18f52c07f6a62bf77306",
-					"jsonFile" : "target-parser_wav_lib-Debug-06cb720f00658e141af0.json",
+					"jsonFile" : "target-parser_wav_lib-Release-e8b1b44c10605799dee4.json",
 					"name" : "parser_wav_lib",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 6,
 					"id" : "wav_file_lib::@8e1eaa5812265dc12e6f",
-					"jsonFile" : "target-wav_file_lib-Debug-b0a2291714157e5b9691.json",
+					"jsonFile" : "target-wav_file_lib-Release-80b0cf52b6a580860fca.json",
 					"name" : "wav_file_lib",
 					"projectIndex" : 0
 				}
@@ -202,7 +202,7 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug",
+		"build" : "/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-release",
 		"source" : "/Users/mac/CLionProjects/Cpp-Projects/Sound Processor"
 	},
 	"version" : 

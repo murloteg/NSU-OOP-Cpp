@@ -6,8 +6,8 @@ class Mix : public Converter {
 private:
 
 public:
-    Mix();
-    void mix();
+    Mix(unsigned int bufferSize, unsigned int start, unsigned int end);
+    unsigned char* mix(unsigned char* buffer, unsigned int currentSecondsInFile); // FIXME
     ~Mix() override = default;
 };
 

@@ -19,6 +19,7 @@ private:
     std::string configFileName_;
     std::vector<std::string> wavFileNames_;
     int minWAVFileHeaderLength_;
+    unsigned char* wavHeader_;
     size_t currentConverterNumber_;
     size_t convertersNumber_;
     Converter* nextConverter_;
@@ -28,29 +29,17 @@ private:
     unsigned char* bufferOfSamples_; // size = sampleRate.
     int currentSecondsInFile_;
     bool isEndOfFile_;
-<<<<<<< HEAD
     std::fstream input_;
     std::fstream output_;
-=======
-    std::ofstream& output_;
->>>>>>> 99c0a896c270a6b61e1ab0f8d00b4ea4bb246e65
     void getNextConverter();
     void getNextBufferData();
     void putHeaderInOutput();
     void putDataInOutput();
-<<<<<<< HEAD
-    void skipUntilCurrentSeconds(std::fstream& file);
     void prepareInputFile();
     void returnFinallyOutput();
     static void toUpperCase(std::string& string);
 public:
     SoundController(std::vector<std::string> wavFileNames, std::string configFileName);
-=======
-    void skipUntilCurrentSeconds(std::ifstream& file);
-    static void toUpperCase(std::string& string);
-public:
-    SoundController(std::ofstream& output, std::vector<std::string> wavFileNames, std::string configFileName);
->>>>>>> 99c0a896c270a6b61e1ab0f8d00b4ea4bb246e65
     void conversion(); // use converter.
     void debugTest();
     ~SoundController(); // fix later.

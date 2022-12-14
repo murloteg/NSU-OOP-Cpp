@@ -14,7 +14,7 @@ Converter* ConverterFactory::createConverter(std::string nameOfConverter, int bu
 
         case MIX:
         {
-            break;
+            return new Mix(bufferSize, firstParameter, secondParameter);
         }
 
         case MY_NAME_CONV: // FIXME later.
