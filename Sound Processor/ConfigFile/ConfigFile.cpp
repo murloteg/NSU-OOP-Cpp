@@ -9,14 +9,14 @@ ConfigFile::ConfigFile(std::string fileName) : fileName_(fileName)
 void ConfigFile::parseFile()
 {
     std::string fullPathFile = "../" + fileName_;
-    std::ifstream file(fullPathFile);
+    std::fstream file;
+    file.open(fullPathFile, std::fstream::in);
     if (file.is_open())
     {
-        unsigned char character;
+        int characterCode = file.get();
         while (!file.eof())
         {
-            character = file.get();
-            if (character == '#')
+            if (characterCode == '#')
             {
                 skipUntilNextLine(file);
                 getNextCommand(file);
@@ -26,51 +26,67 @@ void ConfigFile::parseFile()
             {
                 getNextCommand(file);
             }
+            characterCode = file.get();
         }
     }
 }
 
-void ConfigFile::skipUntilNextLine(std::ifstream &file)
+void ConfigFile::skipUntilNextLine(std::fstream &file)
 {
-    unsigned char character;
+    int characterCode;
     while (!file.eof())
     {
-        if (character == '\n')
+        if (characterCode == '\n')
         {
             return;
         }
-        character = file.get();
+        characterCode = file.get();
     }
 }
 
-void ConfigFile::getNextCommand(std::ifstream &file)
+void ConfigFile::appendValueToString(std::string &string)
 {
-    unsigned char character = file.get();
-    while (!file.eof())
+    int number = additionalWAVNumbers_.back();
+    std::string temporaryString;
+    while (number > 0)
     {
-        if (character == '\n')
+        char value = number % 10;
+        temporaryString += number;
+        number /= 10;
+    }
+    std::reverse(temporaryString.begin(), temporaryString.end());
+    string += temporaryString;
+    string += ' ';
+}
+
+void ConfigFile::getNextCommand(std::fstream &file)
+{
+
+    int characterCode = file.get();
+    while (true)
+    {
+        if (characterCode == '\n' || characterCode == EOF)
         {
             commands_.push_back(currentLine_);
             if (currentLine_.find('$') == std::string::npos)
             {
-                additionalConverterNumbers_.push_back(UNDEFINED);
+                additionalWAVNumbers_.push_back(UNDEFINED);
             }
             currentLine_.clear();
             return;
         }
 
-        else if (character == '$')
+        else if (characterCode == '$')
         {
-            currentLine_ += '$';
-            currentLine_ += ' ';
-            additionalConverterNumbers_.push_back(getNextNumber(file));
-            character = file.get();
+            additionalWAVNumbers_.push_back(getNextNumber(file));
+            appendValueToString(currentLine_);
+            characterCode = file.get();
         }
 
         else
         {
-            currentLine_ += character;
-            character = file.get();
+            currentLine_ += static_cast<char>(characterCode);
+            characterCode = file.get();
         }
     }
 }
@@ -85,7 +101,7 @@ unsigned int ConfigFile::getDigit(unsigned char character)
     return character - '0';
 }
 
-unsigned int ConfigFile::getNextNumber(std::ifstream &file)
+unsigned int ConfigFile::getNextNumber(std::fstream &file)
 {
     unsigned char character = file.get();;
     unsigned int number = 0;
@@ -114,7 +130,7 @@ void ConfigFile::debugPrint()
         std::cout << command << std::endl;
     }
     std::cout << "ADDITIONAL WAV:" << std::endl;
-    for (auto item : additionalConverterNumbers_)
+    for (auto item : additionalWAVNumbers_)
     {
         std::cout << item << " ";
     }
@@ -181,15 +197,20 @@ std::string ConfigFile::prepareAndConvertParameters()
 
 unsigned int ConfigFile::getFirstParameter()
 {
-    if (additionalConverterNumbers_[currentCommandIndex_] == UNDEFINED)
+    if (additionalWAVNumbers_[currentCommandIndex_] == UNDEFINED)
     {
         return firstParameters_[currentCommandIndex_];
     }
-    return additionalConverterNumbers_[currentCommandIndex_];
+    return additionalWAVNumbers_[currentCommandIndex_];
 }
 
 unsigned int ConfigFile::getSecondParameter()
 {
     unsigned int secondParameter = secondParameters_[currentCommandIndex_];
     return secondParameter;
+}
+
+int ConfigFile::getAdditionalWAVNumbers(unsigned int index)
+{
+    return additionalWAVNumbers_[index];
 }

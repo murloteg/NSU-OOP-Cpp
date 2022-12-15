@@ -7,7 +7,8 @@ private:
 
 public:
     Mix(unsigned int bufferSize, unsigned int start, unsigned int end);
-    unsigned char* mix(unsigned char* buffer, unsigned int currentSecondsInFile); // FIXME
+    void getConverterDescription() override;
+    void conversion(unsigned char* firstBuffer, unsigned char* secondBuffer, unsigned int currentSecondsInFile) override;
     ~Mix() override = default;
 };
 

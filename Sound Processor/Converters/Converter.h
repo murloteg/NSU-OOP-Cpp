@@ -17,6 +17,8 @@ protected:
     unsigned int secondParameter_;
 public:
     virtual ~Converter() = default;
+    virtual void conversion(unsigned char* firstBuffer, unsigned char* secondBuffer, unsigned int currentSecondsInFile) = 0;
+    virtual void getConverterDescription() = 0;
 };
 
 

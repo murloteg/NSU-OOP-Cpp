@@ -1,6 +1,2 @@
-# mute-converter:
-mute 5 10
-# mute-converter:
-mute 15 20
 # mix-converter:
 mix $2 10

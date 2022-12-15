@@ -6,12 +6,6 @@
 #include "ConverterFactory.h"
 #include <map>
 
-enum FileConsts
-{
-    FIRST = 1,
-    SECOND = 0
-};
-
 static std::map<std::string, Converters> converters = {std::make_pair("MUTE", MUTE), std::make_pair("MIX", MIX), std::make_pair("FIX_THIS", MY_NAME_CONV)};
 
 class SoundController {
@@ -27,12 +21,14 @@ private:
     ParserWAV parserWav_ = ParserWAV("default");
     ConfigFile configFile_ = ConfigFile("default");
     unsigned char* bufferOfSamples_; // size = sampleRate.
+    unsigned char* additionalBufferOfSamples_;
     int currentSecondsInFile_;
     bool isEndOfFile_;
     std::fstream input_;
     std::fstream output_;
     void getNextConverter();
     void getNextBufferData();
+    void getNextDataForAdditionalWAV(int numberOfAdditionalWAV);
     void putHeaderInOutput();
     void putDataInOutput();
     void prepareInputFile();

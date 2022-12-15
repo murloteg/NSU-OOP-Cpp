@@ -7,14 +7,21 @@ Mute::Mute(unsigned int bufferSize, unsigned int start, unsigned int end)
     secondParameter_ = end;
 }
 
-unsigned char* Mute::mute(unsigned char* buffer, unsigned int currentSecondsInFile)
+void Mute::getConverterDescription()
+{
+    std::cout << "This converter mutes interval of seconds from input WAV file.\n"
+                 "======Configuration Parameters:======\n"
+                 "[1]: left value of interval (in sec.)\n"
+                 "[2]: right value of interval (in sec.)" << std::endl;
+}
+
+void Mute::conversion(unsigned char* firstBuffer, unsigned char* secondBuffer, unsigned int currentSecondsInFile)
 {
     if (firstParameter_ <= currentSecondsInFile && currentSecondsInFile <= secondParameter_)
     {
         for (int i = 0; i < bufferSize_; ++i)
         {
-            buffer[i] = 0;
+            firstBuffer[i] = 0;
         }
     }
-    return buffer;
 }

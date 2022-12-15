@@ -14,6 +14,7 @@ SoundController::SoundController(std::vector<std::string> wavFileNames, std::str
     minWAVFileHeaderLength_ = parserWav_.getWAVHeaderLength();
     convertersNumber_ = configFile_.getNumberOfConverters();
     bufferOfSamples_ = new unsigned char [parserWav_.getByteRate()];
+    additionalBufferOfSamples_ = new unsigned char [parserWav_.getByteRate()];
     wavHeader_ = new unsigned char [minWAVFileHeaderLength_];
     prepareInputFile();
     nextConverter_ = nullptr;
@@ -25,48 +26,27 @@ void SoundController::conversion()
     {
         putHeaderInOutput();
         getNextConverter();
-        auto converterName = converters.find(nextConverterName_);
-        switch (converterName->second)
+        while (!isEndOfFile_)
         {
-            case MUTE:
+            getNextBufferData();
+            int numberOfAdditionalWAV = configFile_.getAdditionalWAVNumbers(currentConverterNumber_);
+            if (numberOfAdditionalWAV != UNDEFINED)
             {
-                while (!isEndOfFile_)
-                {
-                    auto converter = dynamic_cast<Mute*>(nextConverter_);
-                    getNextBufferData();
-                    bufferOfSamples_ = converter->mute(bufferOfSamples_, currentSecondsInFile_);
-                    putDataInOutput();
-                    ++currentSecondsInFile_;
-                }
-                configFile_.increaseCurrentCommandIndex_();
-                break;
+                getNextDataForAdditionalWAV(numberOfAdditionalWAV);
             }
-
-            case MIX:
-            {
-                break;
-                auto converter = dynamic_cast<Mix*>(nextConverter_);
-//                converter->mute();
-                break;
-            }
-
-            case MY_NAME_CONV: // FIXME later.
-            {
-                return;
-                auto converter = dynamic_cast<Randomizer*>(nextConverter_);
-//                converter->mute();
-                break;
-            }
-
-            default:
-            {
-                break;
-            }
+            nextConverter_->conversion(bufferOfSamples_, additionalBufferOfSamples_, currentSecondsInFile_);
+            putDataInOutput();
+            ++currentSecondsInFile_;
         }
+        configFile_.increaseCurrentCommandIndex_();
         currentSecondsInFile_ = 0;
         isEndOfFile_ = false;
-        input_.seekg(0, std::ios::beg);
-        output_.seekg(0, std::ios::beg);
+        input_.open("../SoundController/firstStorage.wav", std::fstream::in);
+        output_.open("../SoundController/secondStorage.wav", std::fstream::in);
+        input_.clear();
+        output_.clear();
+        input_.close();
+        output_.close();
         ++currentConverterNumber_;
     }
     returnFinallyOutput();
@@ -79,6 +59,34 @@ void SoundController::getNextConverter()
     nextConverter_ = ConverterFactory::createConverter(nextConverterName_, parserWav_.getByteRate(),
                                                        configFile_.getFirstParameter(),
                                                        configFile_.getSecondParameter());
+}
+
+void SoundController::getNextDataForAdditionalWAV(int numberOfAdditionalWAV)
+{
+    input_.open("../" + wavFileNames_[numberOfAdditionalWAV], std::fstream::in);
+    ParserWAV additionalParser(wavFileNames_[numberOfAdditionalWAV]);
+    additionalParser.parseWAV();
+    if (input_.is_open())
+    {
+        input_.seekg(additionalParser.getWAVHeaderLength() + parserWav_.getByteRate() * currentSecondsInFile_, std::fstream::beg);
+        for (int i = 0; i < parserWav_.getByteRate(); ++i)
+        {
+            if (isEndOfFile_)
+            {
+                return;
+            }
+
+
+            if (input_.eof())
+            {
+                additionalBufferOfSamples_[i] = bufferOfSamples_[i];
+                continue;
+            }
+            int characterCode = input_.get();
+            additionalBufferOfSamples_[i] = characterCode;
+        }
+    }
+    input_.close();
 }
 
 void SoundController::getNextBufferData()
@@ -94,7 +102,7 @@ void SoundController::getNextBufferData()
 
     if (input_.is_open())
     {
-        input_.seekg(minWAVFileHeaderLength_ + parserWav_.getByteRate() * currentSecondsInFile_, std::ios::beg);
+        input_.seekg(minWAVFileHeaderLength_ + parserWav_.getByteRate() * currentSecondsInFile_, std::fstream::beg);
         for (int i = 0; i < parserWav_.getByteRate(); ++i)
         {
             if (input_.eof())
@@ -102,8 +110,8 @@ void SoundController::getNextBufferData()
                 isEndOfFile_ = true;
                 return;
             }
-            unsigned char character = input_.get();
-            bufferOfSamples_[i] = character;
+            int characterCode = input_.get();
+            bufferOfSamples_[i] = characterCode;
         }
     }
     input_.close();
@@ -164,6 +172,10 @@ void SoundController::putDataInOutput()
 
 void SoundController::prepareInputFile()
 {
+    for (int i = 0; i < parserWav_.getByteRate(); ++i)
+    {
+        additionalBufferOfSamples_[i] = 0;
+    }
     std::fstream result("../" + wavFileNames_[0], std::fstream::out | std::fstream::trunc);
     result.close();
     std::fstream firstWAV("../" + wavFileNames_[1], std::fstream::in);
@@ -173,12 +185,12 @@ void SoundController::prepareInputFile()
         int counter = 0;
         while (!firstWAV.eof())
         {
-            unsigned char character = firstWAV.get();
+            int characterCode = firstWAV.get();
             if (counter < minWAVFileHeaderLength_)
             {
-                wavHeader_[counter] = character;
+                wavHeader_[counter] = characterCode;
             }
-            input_ << character;
+            input_ << static_cast<char>(characterCode);
             ++counter;
         }
     }
@@ -201,22 +213,22 @@ void SoundController::returnFinallyOutput()
     {
         while (!output_.eof())
         {
-            unsigned char character = output_.get();
-            result << character;
+            int characterCode = output_.get();
+            result << static_cast<char>(characterCode);
         }
     }
     output_.close();
     result.close();
-    input_.open("../SoundController/firstStorage.wav", std::fstream::out | std::fstream::trunc);
-    input_.close();
+    output_.open("../SoundController/firstStorage.wav", std::fstream::out | std::fstream::trunc);
+    output_.close();
     output_.open("../SoundController/secondStorage.wav", std::fstream::out | std::fstream::trunc);
     output_.close();
 }
 
-
 SoundController::~SoundController()
 {
     delete[] bufferOfSamples_;
+    delete[] additionalBufferOfSamples_;
     delete[] wavHeader_;
     output_.close();
     input_.close();

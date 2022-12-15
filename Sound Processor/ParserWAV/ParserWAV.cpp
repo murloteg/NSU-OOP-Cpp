@@ -11,9 +11,9 @@ void ParserWAV::parseWAV()
 	if (file.is_open())
 	{
 		file.read(reinterpret_cast<char*>(&wavHeader_), sizeof(wavHeader_));
-//        convertLittleEndianToBigEndian(wavHeader_.chunkId);
-//        convertLittleEndianToBigEndian(wavHeader_.format);
-//        convertLittleEndianToBigEndian(wavHeader_.subchunk1Id);
+        convertLittleEndianToBigEndian(wavHeader_.chunkId);
+        convertLittleEndianToBigEndian(wavHeader_.format);
+        convertLittleEndianToBigEndian(wavHeader_.subchunk1Id);
         minWAVFileHeaderLength_ = 44; // in bytes. FIXME: put it in enum-class.
 		std::string currentString;
 		while (currentString != "data")
