@@ -1,0 +1,8 @@
+#slow-converter
+slow 10 20
+#mute-converter
+mute 30 60
+#mix-converter
+mix $2 30
+#slow-converter
+slow 40 60

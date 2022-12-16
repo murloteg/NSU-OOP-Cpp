@@ -13,7 +13,7 @@ void ConfigFile::parseFile()
     file.open(fullPathFile, std::fstream::in);
     if (file.is_open())
     {
-        int characterCode = file.get();
+        int characterCode = file.peek();
         while (!file.eof())
         {
             if (characterCode == '#')
@@ -26,7 +26,7 @@ void ConfigFile::parseFile()
             {
                 getNextCommand(file);
             }
-            characterCode = file.get();
+            characterCode = file.peek();
         }
     }
     try

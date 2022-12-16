@@ -21,6 +21,11 @@ std::shared_ptr<Converter> ConverterFactory::createConverter(std::string nameOfC
             return std::shared_ptr<Converter>(new Randomizer(bufferSize, firstParameter, secondParameter));
         }
 
+        case SLOW:
+        {
+            return std::shared_ptr<Converter>(new Slow(bufferSize, firstParameter, secondParameter));
+        }
+
         default:
         {
             return nullptr;

@@ -8,7 +8,8 @@ enum Converters
 {
     MUTE = 1,
     MIX = 2,
-    RANDOMIZER = 3
+    RANDOMIZER = 3,
+    SLOW = 4
 };
 
 class Converter {

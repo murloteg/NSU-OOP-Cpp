@@ -117,15 +117,15 @@
 	[
 		{
 			"backtrace" : 2,
+			"id" : "parser_wav_lib::@8e6f39602a5f86807fb7"
+		},
+		{
+			"backtrace" : 2,
 			"id" : "config_file_lib::@3c3203f12ac691ec046c"
 		},
 		{
 			"backtrace" : 2,
 			"id" : "converters_lib::@10b1ddd461c9ab357cad"
-		},
-		{
-			"backtrace" : 2,
-			"id" : "parser_wav_lib::@8e6f39602a5f86807fb7"
 		}
 	],
 	"id" : "factory_lib::@afec5811ca4b60e82f6b",

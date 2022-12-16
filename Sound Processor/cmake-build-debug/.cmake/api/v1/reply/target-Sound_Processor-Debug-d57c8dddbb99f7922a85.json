@@ -148,6 +148,10 @@
 	[
 		{
 			"backtrace" : 2,
+			"id" : "parser_wav_lib::@8e6f39602a5f86807fb7"
+		},
+		{
+			"backtrace" : 2,
 			"id" : "config_file_lib::@3c3203f12ac691ec046c"
 		},
 		{
@@ -157,10 +161,6 @@
 		{
 			"backtrace" : 2,
 			"id" : "controller_lib::@33832b7b2e76bd679c07"
-		},
-		{
-			"backtrace" : 2,
-			"id" : "parser_wav_lib::@8e6f39602a5f86807fb7"
 		}
 	],
 	"id" : "Sound_Processor::@6890427a1f51a3e7e1df",

@@ -7,7 +7,20 @@ ParserWAVHeader::ParserWAVHeader(std::string fileName) : fileName_(fileName)
 
 void ParserWAVHeader::parseWAVHeader()
 {
-	std::fstream file("../" + fileName_, std::fstream::in);
+    std::fstream file("../" + fileName_, std::fstream::in);
+    try
+    {
+        if (!file.is_open())
+        {
+            throw std::invalid_argument("invalid file name");
+        }
+    }
+    catch (std::exception& exception)
+    {
+        exception.what();
+        return;
+    }
+
 	if (file.is_open())
 	{
 		file.read(reinterpret_cast<char*>(&wavHeader_), sizeof(wavHeader_));

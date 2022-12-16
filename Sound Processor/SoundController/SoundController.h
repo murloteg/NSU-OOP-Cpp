@@ -11,7 +11,8 @@ enum UtilityConsts
     DIFFERENCE_UPPER_CASE = 32
 };
 
-static std::map<std::string, Converters> converters = {std::make_pair("MUTE", MUTE), std::make_pair("MIX", MIX), std::make_pair("RANDOMIZER", RANDOMIZER)};
+static std::map<std::string, Converters> converters = {std::make_pair("MUTE", MUTE), std::make_pair("MIX", MIX),
+                                                       std::make_pair("RANDOMIZER", RANDOMIZER), std::make_pair("SLOW", SLOW)};
 
 class SoundController {
 private:

@@ -4,6 +4,7 @@
 #include "Mute.h"
 #include "Mix.h"
 #include "Randomizer.h"
+#include "Slow.h"
 #include "SoundController.h"
 
 class ConverterFactory {
