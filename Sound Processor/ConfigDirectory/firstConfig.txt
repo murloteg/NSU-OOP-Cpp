@@ -1,0 +1,10 @@
+#mute-converter:
+mute 1 50
+#mix-converter:
+mix $3 5
+#mute-converter:
+mute 50 80
+#mix-converter:
+mix $2 50
+#mute-converter:
+mute 100 120

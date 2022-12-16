@@ -1,9 +1,9 @@
 /Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/CMakeFiles/Sound_Processor.dir
 /Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/CMakeFiles/edit_cache.dir
 /Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/ParserWAV/CMakeFiles/parser_wav_lib.dir
-/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/ParserWAV/CMakeFiles/edit_cache.dir
-/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/ParserWAV/CMakeFiles/rebuild_cache.dir
+/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/ParserWAVHeader/CMakeFiles/parser_wav_lib.dir
+/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/ParserWAVHeader/CMakeFiles/edit_cache.dir
+/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/ParserWAVHeader/CMakeFiles/rebuild_cache.dir
 /Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/ConfigFile/CMakeFiles/config_file_lib.dir
 /Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/ConfigFile/CMakeFiles/edit_cache.dir
 /Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/ConfigFile/CMakeFiles/rebuild_cache.dir
@@ -16,6 +16,3 @@
 /Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/Factory/CMakeFiles/factory_lib.dir
 /Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/Factory/CMakeFiles/edit_cache.dir
 /Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/Factory/CMakeFiles/rebuild_cache.dir
-/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/WAVFile/CMakeFiles/wav_file_lib.dir
-/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/WAVFile/CMakeFiles/edit_cache.dir
-/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/WAVFile/CMakeFiles/rebuild_cache.dir

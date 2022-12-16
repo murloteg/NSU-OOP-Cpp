@@ -1,13 +1,17 @@
-#ifndef SOUND_PROCESSOR_RANDOMIZATOR_H
-#define SOUND_PROCESSOR_RANDOMIZATOR_H
+#ifndef SOUND_PROCESSOR_RANDOMIZER_H
+#define SOUND_PROCESSOR_RANDOMIZER_H
 #include "Converter.h"
+#include <random>
 
-/* Changing certain number of samples (random values) */
-class Randomizer : public Converter{
+class Randomizer : public Converter {
 private:
-    int numberOfSamples_;
+    int changedSamples_;
+    static unsigned char getRandomChar();
 public:
-    Randomizer(std::string currentWAV, unsigned int start, unsigned int end);
+    Randomizer(unsigned int bufferSize, unsigned int start, unsigned int numberOfSamples);
+    void getConverterDescription() override;
+    void conversion(std::vector<unsigned char>& firstBuffer, std::vector<unsigned char>& secondBuffer, unsigned int currentSecondsInFile) override;
+    ~Randomizer() override = default;
 };
 
-#endif //SOUND_PROCESSOR_RANDOMIZATOR_H
+#endif //SOUND_PROCESSOR_RANDOMIZER_H

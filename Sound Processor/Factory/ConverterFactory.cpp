@@ -1,15 +1,13 @@
 #include "ConverterFactory.h"
 
-std::shared_ptr<Converter> ConverterFactory::createConverter(std::string nameOfConverter, int bufferSize,
+std::shared_ptr<Converter> ConverterFactory::createConverter(std::string nameOfConverter, unsigned int bufferSize,
                                              unsigned int firstParameter, unsigned int secondParameter)
 {
     auto converterName = converters.find(nameOfConverter);
     switch (converterName->second)
     {
-        // TODO: finish this block.
         case MUTE:
         {
-
             return std::shared_ptr<Converter>(new Mute(bufferSize, firstParameter, secondParameter));
         }
 
@@ -18,14 +16,14 @@ std::shared_ptr<Converter> ConverterFactory::createConverter(std::string nameOfC
             return std::shared_ptr<Converter>(new Mix(bufferSize, firstParameter, secondParameter));
         }
 
-        case MY_NAME_CONV: // FIXME later.
+        case RANDOMIZER:
         {
-//            return std::shared_ptr<Converter>(new Randomizer(bufferSize, firstParameter, secondParameter));
+            return std::shared_ptr<Converter>(new Randomizer(bufferSize, firstParameter, secondParameter));
         }
 
         default:
         {
-            break;
+            return nullptr;
         }
     }
 }

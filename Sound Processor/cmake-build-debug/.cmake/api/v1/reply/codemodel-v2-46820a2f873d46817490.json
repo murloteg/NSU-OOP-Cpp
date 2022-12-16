@@ -1,0 +1,188 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4,
+						5
+					],
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.23"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "ParserWAVHeader",
+					"jsonFile" : "directory-ParserWAVHeader-Debug-d49d584e6e96e09b024c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.23"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "ParserWAVHeader",
+					"targetIndexes" : 
+					[
+						5
+					]
+				},
+				{
+					"build" : "ConfigFile",
+					"jsonFile" : "directory-ConfigFile-Debug-64b6a5137f823d0d4ad6.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.23"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "ConfigFile",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "Converters",
+					"jsonFile" : "directory-Converters-Debug-57ca4666c4020578ee69.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.23"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "Converters",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "SoundController",
+					"jsonFile" : "directory-SoundController-Debug-ba20ad59e4e10ed136cf.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.23"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "SoundController",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "Factory",
+					"jsonFile" : "directory-Factory-Debug-b15864e7a859d6f2a889.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.23"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "Factory",
+					"targetIndexes" : 
+					[
+						4
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					],
+					"name" : "Sound_Processor",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Sound_Processor::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Sound_Processor-Debug-7b1af8d11efcdc870045.json",
+					"name" : "Sound_Processor",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "config_file_lib::@3c3203f12ac691ec046c",
+					"jsonFile" : "target-config_file_lib-Debug-03bde943023dfcd9c256.json",
+					"name" : "config_file_lib",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "controller_lib::@33832b7b2e76bd679c07",
+					"jsonFile" : "target-controller_lib-Debug-b6d65d9b4b3ab947e06b.json",
+					"name" : "controller_lib",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "converters_lib::@10b1ddd461c9ab357cad",
+					"jsonFile" : "target-converters_lib-Debug-371938b8febf334b1525.json",
+					"name" : "converters_lib",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "factory_lib::@afec5811ca4b60e82f6b",
+					"jsonFile" : "target-factory_lib-Debug-cac9d7904e7ffe5fbe67.json",
+					"name" : "factory_lib",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "parser_wav_lib::@8e6f39602a5f86807fb7",
+					"jsonFile" : "target-parser_wav_lib-Debug-32c2ea907eabd0514ca5.json",
+					"name" : "parser_wav_lib",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug",
+		"source" : "/Users/mac/CLionProjects/Cpp-Projects/Sound Processor"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}

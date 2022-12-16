@@ -1,1 +1,0 @@
-add_library(parser_wav_lib STATIC ParserWAV.h ParserWAV.cpp)

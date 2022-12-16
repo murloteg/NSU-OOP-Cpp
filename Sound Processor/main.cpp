@@ -40,11 +40,8 @@ int main(int argc, char** argv)
 		cout << configFile << endl;
 	}
 
-//    ConfigFile config(configFile);
-//    config.parseFile();
-//    config.debugPrint();
     SoundController soundController(audioFiles, configFile);
-//    soundController.debugTest();
     soundController.conversion();
+
     return 0;
 }

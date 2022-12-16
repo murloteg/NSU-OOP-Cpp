@@ -1,1 +1,0 @@
-add_library(wav_file_lib STATIC WAVFile.cpp WAVFile.h)

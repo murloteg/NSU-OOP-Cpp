@@ -8,7 +8,7 @@ enum Converters
 {
     MUTE = 1,
     MIX = 2,
-    MY_NAME_CONV = 3 // FIXME
+    RANDOMIZER = 3
 };
 
 class Converter {
