@@ -1,6 +1,6 @@
 #include "ConverterFactory.h"
 
-Converter* ConverterFactory::createConverter(std::string nameOfConverter, int bufferSize,
+std::shared_ptr<Converter> ConverterFactory::createConverter(std::string nameOfConverter, int bufferSize,
                                              unsigned int firstParameter, unsigned int secondParameter)
 {
     auto converterName = converters.find(nameOfConverter);
@@ -9,17 +9,18 @@ Converter* ConverterFactory::createConverter(std::string nameOfConverter, int bu
         // TODO: finish this block.
         case MUTE:
         {
-            return new Mute(bufferSize, firstParameter, secondParameter);
+
+            return std::shared_ptr<Converter>(new Mute(bufferSize, firstParameter, secondParameter));
         }
 
         case MIX:
         {
-            return new Mix(bufferSize, firstParameter, secondParameter);
+            return std::shared_ptr<Converter>(new Mix(bufferSize, firstParameter, secondParameter));
         }
 
         case MY_NAME_CONV: // FIXME later.
         {
-//            return new Randomizer(currentWAV, firstParameter, secondParameter);
+//            return std::shared_ptr<Converter>(new Randomizer(bufferSize, firstParameter, secondParameter));
         }
 
         default:

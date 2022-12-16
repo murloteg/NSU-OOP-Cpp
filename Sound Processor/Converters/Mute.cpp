@@ -15,7 +15,7 @@ void Mute::getConverterDescription()
                  "[2]: right value of interval (in sec.)" << std::endl;
 }
 
-void Mute::conversion(unsigned char* firstBuffer, unsigned char* secondBuffer, unsigned int currentSecondsInFile)
+void Mute::conversion(std::vector<unsigned char>& firstBuffer, std::vector<unsigned char>& secondBuffer, unsigned int currentSecondsInFile)
 {
     if (firstParameter_ <= currentSecondsInFile && currentSecondsInFile <= secondParameter_)
     {

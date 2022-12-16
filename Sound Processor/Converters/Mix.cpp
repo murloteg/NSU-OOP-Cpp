@@ -16,7 +16,7 @@ void Mix::getConverterDescription()
                  "the converter starts mixing" << std::endl;
 }
 
-void Mix::conversion(unsigned char* firstBuffer, unsigned char* secondBuffer, unsigned int currentSecondsInFile)
+void Mix::conversion(std::vector<unsigned char>& firstBuffer, std::vector<unsigned char>& secondBuffer, unsigned int currentSecondsInFile)
 {
     if (currentSecondsInFile >= secondParameter_)
     {

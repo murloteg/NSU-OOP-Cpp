@@ -1,2 +1,8 @@
-# mix-converter:
-mix $2 10
+#mute-converter:
+mute 1 25
+#mix-converter:
+mix $3 1
+#mute-converter:
+mute 25 35
+#mix-converter:
+mix $1 24

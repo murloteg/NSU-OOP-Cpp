@@ -2,6 +2,7 @@
 #define SOUND_PROCESSOR_CONVERTER_H
 #include <iostream>
 #include <fstream>
+#include <vector>
 
 enum Converters
 {
@@ -17,7 +18,7 @@ protected:
     unsigned int secondParameter_;
 public:
     virtual ~Converter() = default;
-    virtual void conversion(unsigned char* firstBuffer, unsigned char* secondBuffer, unsigned int currentSecondsInFile) = 0;
+    virtual void conversion(std::vector<unsigned char>& firstBuffer, std::vector<unsigned char>& secondBuffer, unsigned int currentSecondsInFile) = 0;
     virtual void getConverterDescription() = 0;
 };
 

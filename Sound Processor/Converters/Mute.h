@@ -8,7 +8,7 @@ private:
 public:
     Mute(unsigned int bufferSize, unsigned int start, unsigned int end);
     void getConverterDescription() override;
-    void conversion(unsigned char* firstBuffer, unsigned char* secondBuffer, unsigned int currentSecondsInFile) override;
+    void conversion(std::vector<unsigned char>& firstBuffer, std::vector<unsigned char>& secondBuffer, unsigned int currentSecondsInFile) override;
     ~Mute() override = default;
 };
 

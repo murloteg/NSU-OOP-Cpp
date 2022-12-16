@@ -13,8 +13,8 @@ SoundController::SoundController(std::vector<std::string> wavFileNames, std::str
     configFile_.parseFile();
     minWAVFileHeaderLength_ = parserWav_.getWAVHeaderLength();
     convertersNumber_ = configFile_.getNumberOfConverters();
-    bufferOfSamples_ = new unsigned char [parserWav_.getByteRate()];
-    additionalBufferOfSamples_ = new unsigned char [parserWav_.getByteRate()];
+    bufferOfSamples_.resize(parserWav_.getByteRate());
+    additionalBufferOfSamples_.resize(parserWav_.getByteRate());
     wavHeader_ = new unsigned char [minWAVFileHeaderLength_];
     prepareInputFile();
     nextConverter_ = nullptr;
@@ -38,6 +38,7 @@ void SoundController::conversion()
             putDataInOutput();
             ++currentSecondsInFile_;
         }
+
         configFile_.increaseCurrentCommandIndex_();
         currentSecondsInFile_ = 0;
         isEndOfFile_ = false;
@@ -45,8 +46,11 @@ void SoundController::conversion()
         output_.open("../SoundController/secondStorage.wav", std::fstream::in);
         input_.clear();
         output_.clear();
+        input_.seekg(0, std::ios::beg);
+        output_.seekg(0, std::ios::beg);
         input_.close();
         output_.close();
+        clearVectors();
         ++currentConverterNumber_;
     }
     returnFinallyOutput();
@@ -61,6 +65,14 @@ void SoundController::getNextConverter()
                                                        configFile_.getSecondParameter());
 }
 
+void SoundController::clearVectors()
+{
+    bufferOfSamples_.clear();
+    additionalBufferOfSamples_.clear();
+    bufferOfSamples_.resize(parserWav_.getByteRate());
+    additionalBufferOfSamples_.resize(parserWav_.getByteRate());
+}
+
 void SoundController::getNextDataForAdditionalWAV(int numberOfAdditionalWAV)
 {
     input_.open("../" + wavFileNames_[numberOfAdditionalWAV], std::fstream::in);
@@ -68,14 +80,13 @@ void SoundController::getNextDataForAdditionalWAV(int numberOfAdditionalWAV)
     additionalParser.parseWAV();
     if (input_.is_open())
     {
-        input_.seekg(additionalParser.getWAVHeaderLength() + parserWav_.getByteRate() * currentSecondsInFile_, std::fstream::beg);
+        input_.seekg(additionalParser.getWAVHeaderLength() + parserWav_.getByteRate() * currentSecondsInFile_, std::ios::beg);
         for (int i = 0; i < parserWav_.getByteRate(); ++i)
         {
             if (isEndOfFile_)
             {
                 return;
             }
-
 
             if (input_.eof())
             {
@@ -102,7 +113,7 @@ void SoundController::getNextBufferData()
 
     if (input_.is_open())
     {
-        input_.seekg(minWAVFileHeaderLength_ + parserWav_.getByteRate() * currentSecondsInFile_, std::fstream::beg);
+        input_.seekg(minWAVFileHeaderLength_ + parserWav_.getByteRate() * currentSecondsInFile_, std::ios::beg);
         for (int i = 0; i < parserWav_.getByteRate(); ++i)
         {
             if (input_.eof())
@@ -172,10 +183,6 @@ void SoundController::putDataInOutput()
 
 void SoundController::prepareInputFile()
 {
-    for (int i = 0; i < parserWav_.getByteRate(); ++i)
-    {
-        additionalBufferOfSamples_[i] = 0;
-    }
     std::fstream result("../" + wavFileNames_[0], std::fstream::out | std::fstream::trunc);
     result.close();
     std::fstream firstWAV("../" + wavFileNames_[1], std::fstream::in);
@@ -202,11 +209,11 @@ void SoundController::returnFinallyOutput()
 {
     if (currentConverterNumber_ % 2 == 0)
     {
-        output_.open("../SoundController/secondStorage.wav", std::fstream::in);
+        output_.open("../SoundController/firstStorage.wav", std::fstream::in);
     }
     else
     {
-        output_.open("../SoundController/firstStorage.wav", std::fstream::in);
+        output_.open("../SoundController/secondStorage.wav", std::fstream::in);
     }
     std::fstream result("../" + wavFileNames_[0], std::fstream::out | std::fstream::trunc);
     if (output_.is_open() && result.is_open())
@@ -227,8 +234,8 @@ void SoundController::returnFinallyOutput()
 
 SoundController::~SoundController()
 {
-    delete[] bufferOfSamples_;
-    delete[] additionalBufferOfSamples_;
+    bufferOfSamples_.clear();
+    additionalBufferOfSamples_.clear();
     delete[] wavHeader_;
     output_.close();
     input_.close();

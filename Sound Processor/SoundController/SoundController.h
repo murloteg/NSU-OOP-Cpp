@@ -16,16 +16,17 @@ private:
     unsigned char* wavHeader_;
     size_t currentConverterNumber_;
     size_t convertersNumber_;
-    Converter* nextConverter_;
+    std::shared_ptr<Converter> nextConverter_;
     std::string nextConverterName_;
     ParserWAV parserWav_ = ParserWAV("default");
     ConfigFile configFile_ = ConfigFile("default");
-    unsigned char* bufferOfSamples_; // size = sampleRate.
-    unsigned char* additionalBufferOfSamples_;
+    std::vector<unsigned char> bufferOfSamples_; // size = sampleRate.
+    std::vector<unsigned char> additionalBufferOfSamples_;
     int currentSecondsInFile_;
     bool isEndOfFile_;
     std::fstream input_;
     std::fstream output_;
+    void clearVectors();
     void getNextConverter();
     void getNextBufferData();
     void getNextDataForAdditionalWAV(int numberOfAdditionalWAV);

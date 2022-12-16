@@ -10,7 +10,7 @@ class ConverterFactory {
 private:
     ///
 public:
-    static Converter* createConverter(std::string nameOfConverter, int bufferSize,
+    static std::shared_ptr<Converter> createConverter(std::string nameOfConverter, int bufferSize,
                                       unsigned int firstParameter, unsigned int secondParameter);
 };
 
