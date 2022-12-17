@@ -6,3 +6,9 @@ mute 30 60
 mix $2 30
 #slow-converter
 slow 40 60
+#mute-converter
+mute 60 90
+#mix-converter
+mix $3 60
+#slow-converter
+slow 70 90

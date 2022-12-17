@@ -4,7 +4,7 @@
 
 class Mute : public Converter {
 private:
-    // TODO: add something.
+    void getConverterName() override {std::cout << "MUTE:" << std::endl;}
 public:
     Mute(unsigned int bufferSize, unsigned int start, unsigned int end);
     void getConverterDescription() override;

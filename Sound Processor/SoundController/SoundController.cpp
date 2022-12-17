@@ -5,7 +5,7 @@ SoundController::SoundController(std::vector<std::string> wavFileNames, std::str
     wavFileNames_ = wavFileNames;
     parserWav_ = ParserWAVHeader(wavFileNames_[1]);
     parserWav_.parseWAVHeader();
-    configFile_ = ConfigFile(configFileName);
+    configFile_ = ConfigFileParser(configFileName);
     configFile_.parseFile();
     convertersNumber_ = configFile_.getNumberOfConverters();
     bufferOfSamples_.resize(parserWav_.getByteRate());
@@ -36,7 +36,6 @@ void SoundController::conversion()
             putDataInOutput();
             ++currentSecondsInFile_;
         }
-
         configFile_.increaseCurrentCommandIndex();
         currentSecondsInFile_ = 0;
         isEndOfFile_ = false;
@@ -51,20 +50,13 @@ void SoundController::getNextConverter()
 {
     nextConverterName_ = configFile_.getNextCommandAndPrepareArguments();
     toUpperCase(nextConverterName_);
-    try
-    {
         nextConverter_ = ConverterFactory::createConverter(nextConverterName_, parserWav_.getByteRate(),
                                                            configFile_.getFirstParameter(),
                                                            configFile_.getSecondParameter());
         if (nextConverter_ == nullptr)
         {
-            throw std::invalid_argument("invalid command in configuration file");
+            throw std::invalid_argument("invalid command in configuration file.");
         }
-    }
-    catch (std::exception& exception)
-    {
-        exception.what();
-    }
 }
 
 void SoundController::clearVectors()
@@ -198,9 +190,19 @@ void SoundController::putDataInOutput()
 void SoundController::startingPreparations()
 {
     std::fstream result("../" + wavFileNames_[0], std::fstream::out | std::fstream::trunc);
+    if (!result.is_open())
+    {
+        throw std::invalid_argument("cannot open output WAV file.");
+    }
     result.close();
     std::fstream firstWAV("../" + wavFileNames_[1], std::fstream::in);
     input_.open(firstStoragePath_, std::fstream::out | std::fstream::trunc);
+    output_.open(secondStoragePath_, std::fstream::out | std::fstream::trunc);
+    if (!input_.is_open() || !output_.is_open())
+    {
+        throw std::invalid_argument("cannot open storage file.");
+    }
+
     if (firstWAV.is_open())
     {
         int counter = 0;
@@ -217,6 +219,7 @@ void SoundController::startingPreparations()
     }
     firstWAV.close();
     input_.close();
+    output_.close();
 }
 
 void SoundController::prepareFinallyOutput()

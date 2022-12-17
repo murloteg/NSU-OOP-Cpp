@@ -5,16 +5,19 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_executable(Sound_Processor main.cpp)
 
-find_package(Boost COMPONENTS program_options)
-set(BOOST_INCLUDE_LIBRARIES program_options)
-set(BOOST_ENABLE_CMAKE ON)
-include_directories(${BOOST_INCLUDE_LIBRARIES})
-
+add_subdirectory(CommandLineParser)
 add_subdirectory(ParserWAVHeader)
-add_subdirectory(ConfigFile)
+add_subdirectory(ConfigFileParser)
 add_subdirectory(Converters)
 add_subdirectory(SoundController)
 add_subdirectory(Factory)
+add_subdirectory(Description)
 
-target_include_directories(Sound_Processor PUBLIC ParserWAVHeader ConfigFile SoundController Converters Factory)
-target_link_libraries(Sound_Processor PUBLIC Boost::program_options parser_wav_lib config_file_lib controller_lib converters_lib factory_lib)
+target_include_directories(Sound_Processor PUBLIC CommandLineParser ParserWAVHeader ConfigFileParser SoundController Converters Factory Description)
+target_link_libraries(Sound_Processor PUBLIC command_line_parser
+                                            parser_wav_lib
+                                            parser_config_file_lib
+                                            controller_lib
+                                            converters_lib
+                                            factory_lib
+                                            description_lib)

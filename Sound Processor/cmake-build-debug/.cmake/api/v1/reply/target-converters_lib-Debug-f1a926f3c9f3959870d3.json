@@ -11,13 +11,11 @@
 	{
 		"commands" : 
 		[
-			"add_library",
-			"include_directories"
+			"add_library"
 		],
 		"files" : 
 		[
-			"Converters/CMakeLists.txt",
-			"CMakeLists.txt"
+			"Converters/CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -29,15 +27,6 @@
 				"file" : 0,
 				"line" : 1,
 				"parent" : 0
-			},
-			{
-				"file" : 1
-			},
-			{
-				"command" : 1,
-				"file" : 1,
-				"line" : 11,
-				"parent" : 2
 			}
 		]
 	},
@@ -51,13 +40,6 @@
 				},
 				{
 					"fragment" : "-std=gnu++17"
-				}
-			],
-			"includes" : 
-			[
-				{
-					"backtrace" : 3,
-					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/program_options"
 				}
 			],
 			"language" : "CXX",

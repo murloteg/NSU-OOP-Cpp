@@ -4,7 +4,7 @@
 
 class Mix : public Converter {
 private:
-
+    void getConverterName() override {std::cout << "MIX:" << std::endl;}
 public:
     Mix(unsigned int bufferSize, unsigned int start, unsigned int end);
     void getConverterDescription() override;

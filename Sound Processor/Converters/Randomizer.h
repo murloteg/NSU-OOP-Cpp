@@ -7,6 +7,7 @@ class Randomizer : public Converter {
 private:
     int changedSamples_;
     static unsigned char getRandomChar();
+    void getConverterName() override {std::cout << "RANDOMIZER:" << std::endl;}
 public:
     Randomizer(unsigned int bufferSize, unsigned int start, unsigned int numberOfSamples);
     void getConverterDescription() override;

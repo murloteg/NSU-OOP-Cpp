@@ -8,17 +8,9 @@ ParserWAVHeader::ParserWAVHeader(std::string fileName) : fileName_(fileName)
 void ParserWAVHeader::parseWAVHeader()
 {
     std::fstream file("../" + fileName_, std::fstream::in);
-    try
+    if (!file.is_open())
     {
-        if (!file.is_open())
-        {
-            throw std::invalid_argument("invalid file name");
-        }
-    }
-    catch (std::exception& exception)
-    {
-        exception.what();
-        return;
+        throw std::invalid_argument("invalid input WAV file name.");
     }
 
 	if (file.is_open())
@@ -27,6 +19,11 @@ void ParserWAVHeader::parseWAVHeader()
         convertLittleEndianToBigEndian(wavHeader_.chunkId);
         convertLittleEndianToBigEndian(wavHeader_.format);
         convertLittleEndianToBigEndian(wavHeader_.subchunk1Id);
+        if (wavHeader_.chunkId != RIFF || wavHeader_.format != WAVE || wavHeader_.subchunk1Id != FMT)
+        {
+            throw std::invalid_argument("invalid file encoding.");
+        }
+
         minWAVFileHeaderLength_ = MIN_HEADER_SIZE;
 		std::string currentString;
 		while (currentString != "data")

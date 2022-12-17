@@ -1,7 +1,7 @@
 #ifndef SOUND_PROCESSOR_SOUNDCONTROLLER_H
 #define SOUND_PROCESSOR_SOUNDCONTROLLER_H
 #include "ParserWAVHeader.h"
-#include "ConfigFile.h"
+#include "ConfigFileParser.h"
 #include "Converter.h"
 #include "ConverterFactory.h"
 #include <map>
@@ -24,7 +24,7 @@ private:
     std::shared_ptr<Converter> nextConverter_;
     std::string nextConverterName_;
     ParserWAVHeader parserWav_ = ParserWAVHeader("default");
-    ConfigFile configFile_ = ConfigFile("default");
+    ConfigFileParser configFile_ = ConfigFileParser("default");
     std::vector<unsigned char> wavHeader_;
     std::vector<unsigned char> bufferOfSamples_;
     std::vector<unsigned char> additionalBufferOfSamples_;

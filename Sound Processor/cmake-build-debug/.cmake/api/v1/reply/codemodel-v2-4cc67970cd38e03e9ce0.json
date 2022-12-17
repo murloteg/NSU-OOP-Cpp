@@ -12,7 +12,9 @@
 						2,
 						3,
 						4,
-						5
+						5,
+						6,
+						7
 					],
 					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
@@ -27,6 +29,21 @@
 					]
 				},
 				{
+					"build" : "CommandLineParser",
+					"jsonFile" : "directory-CommandLineParser-Debug-580f555081d219e49607.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.23"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "CommandLineParser",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
 					"build" : "ParserWAVHeader",
 					"jsonFile" : "directory-ParserWAVHeader-Debug-d49d584e6e96e09b024c.json",
 					"minimumCMakeVersion" : 
@@ -38,22 +55,22 @@
 					"source" : "ParserWAVHeader",
 					"targetIndexes" : 
 					[
-						5
+						7
 					]
 				},
 				{
-					"build" : "ConfigFile",
-					"jsonFile" : "directory-ConfigFile-Debug-64b6a5137f823d0d4ad6.json",
+					"build" : "ConfigFileParser",
+					"jsonFile" : "directory-ConfigFileParser-Debug-937af069bb8dc11839e8.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.23"
 					},
 					"parentIndex" : 0,
 					"projectIndex" : 0,
-					"source" : "ConfigFile",
+					"source" : "ConfigFileParser",
 					"targetIndexes" : 
 					[
-						1
+						6
 					]
 				},
 				{
@@ -98,6 +115,21 @@
 					"source" : "Factory",
 					"targetIndexes" : 
 					[
+						5
+					]
+				},
+				{
+					"build" : "Description",
+					"jsonFile" : "directory-Description-Debug-0584f038222ce6ee058b.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.23"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "Description",
+					"targetIndexes" : 
+					[
 						4
 					]
 				}
@@ -113,7 +145,9 @@
 						2,
 						3,
 						4,
-						5
+						5,
+						6,
+						7
 					],
 					"name" : "Sound_Processor",
 					"targetIndexes" : 
@@ -123,7 +157,9 @@
 						2,
 						3,
 						4,
-						5
+						5,
+						6,
+						7
 					]
 				}
 			],
@@ -132,42 +168,56 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Sound_Processor::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Sound_Processor-Debug-d57c8dddbb99f7922a85.json",
+					"jsonFile" : "target-Sound_Processor-Debug-4419c592336a93a80274.json",
 					"name" : "Sound_Processor",
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 2,
-					"id" : "config_file_lib::@3c3203f12ac691ec046c",
-					"jsonFile" : "target-config_file_lib-Debug-03bde943023dfcd9c256.json",
-					"name" : "config_file_lib",
-					"projectIndex" : 0
-				},
-				{
-					"directoryIndex" : 4,
-					"id" : "controller_lib::@33832b7b2e76bd679c07",
-					"jsonFile" : "target-controller_lib-Debug-b6d65d9b4b3ab947e06b.json",
-					"name" : "controller_lib",
-					"projectIndex" : 0
-				},
-				{
-					"directoryIndex" : 3,
-					"id" : "converters_lib::@10b1ddd461c9ab357cad",
-					"jsonFile" : "target-converters_lib-Debug-f5f9e9ca0672d0c3beea.json",
-					"name" : "converters_lib",
+					"directoryIndex" : 1,
+					"id" : "command_line_parser::@0d1be0ff672095a94efe",
+					"jsonFile" : "target-command_line_parser-Debug-782bdc5ecb9a79aefd01.json",
+					"name" : "command_line_parser",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 5,
+					"id" : "controller_lib::@33832b7b2e76bd679c07",
+					"jsonFile" : "target-controller_lib-Debug-c0a3f2251c04dd8c1db6.json",
+					"name" : "controller_lib",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "converters_lib::@10b1ddd461c9ab357cad",
+					"jsonFile" : "target-converters_lib-Debug-f1a926f3c9f3959870d3.json",
+					"name" : "converters_lib",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "description_lib::@5bd64c39b33dd31d9e74",
+					"jsonFile" : "target-description_lib-Debug-a0c324e45de6b6f77563.json",
+					"name" : "description_lib",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
 					"id" : "factory_lib::@afec5811ca4b60e82f6b",
-					"jsonFile" : "target-factory_lib-Debug-8710f6100738dfe416b0.json",
+					"jsonFile" : "target-factory_lib-Debug-27d97263840805f0df1b.json",
 					"name" : "factory_lib",
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 1,
+					"directoryIndex" : 3,
+					"id" : "parser_config_file_lib::@f130d53e4cb1df66b08e",
+					"jsonFile" : "target-parser_config_file_lib-Debug-ab356f9d264b960f2136.json",
+					"name" : "parser_config_file_lib",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
 					"id" : "parser_wav_lib::@8e6f39602a5f86807fb7",
-					"jsonFile" : "target-parser_wav_lib-Debug-32c2ea907eabd0514ca5.json",
+					"jsonFile" : "target-parser_wav_lib-Debug-a96455701efa8de491ea.json",
 					"name" : "parser_wav_lib",
 					"projectIndex" : 0
 				}

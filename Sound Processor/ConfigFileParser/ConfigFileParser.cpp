@@ -1,12 +1,12 @@
-#include "ConfigFile.h"
+#include "ConfigFileParser.h"
 
-ConfigFile::ConfigFile(std::string fileName) : fileName_(fileName)
+ConfigFileParser::ConfigFileParser(std::string fileName) : fileName_(fileName)
 {
     currentLine_ = "";
     currentCommandIndex_ = 0;
 }
 
-void ConfigFile::parseFile()
+void ConfigFileParser::parseFile()
 {
     std::string fullPathFile = "../ConfigDirectory/" + fileName_;
     std::fstream file;
@@ -19,7 +19,6 @@ void ConfigFile::parseFile()
             if (characterCode == '#')
             {
                 skipUntilNextLine(file);
-                getNextCommand(file);
             }
 
             else
@@ -33,17 +32,17 @@ void ConfigFile::parseFile()
     {
         if (commands_.empty())
         {
-            throw std::invalid_argument("warning: cannot find configuration commands");
+            throw std::invalid_argument("warning: cannot find configuration commands.");
         }
     }
     catch (std::exception& exception)
     {
-        exception.what();
+        std::cout << exception.what() << std::endl;
         return;
     }
 }
 
-void ConfigFile::skipUntilNextLine(std::fstream &file)
+void ConfigFileParser::skipUntilNextLine(std::fstream &file)
 {
     int characterCode;
     while (!file.eof())
@@ -56,7 +55,7 @@ void ConfigFile::skipUntilNextLine(std::fstream &file)
     }
 }
 
-void ConfigFile::appendValueToString(std::string &string)
+void ConfigFileParser::appendValueToString(std::string &string)
 {
     int number = additionalWAVNumbers_.back();
     std::string temporaryString;
@@ -70,7 +69,7 @@ void ConfigFile::appendValueToString(std::string &string)
     string += ' ';
 }
 
-void ConfigFile::getNextCommand(std::fstream &file)
+void ConfigFileParser::getNextCommand(std::fstream &file)
 {
     int characterCode = file.get();
     while (true)
@@ -102,17 +101,17 @@ void ConfigFile::getNextCommand(std::fstream &file)
     }
 }
 
-bool ConfigFile::isDigit(unsigned char character)
+bool ConfigFileParser::isDigit(unsigned char character)
 {
     return '0' <= character && character <= '9';
 }
 
-unsigned int ConfigFile::convertCharToDigit(unsigned char character)
+unsigned int ConfigFileParser::convertCharToDigit(unsigned char character)
 {
     return character - '0';
 }
 
-unsigned int ConfigFile::getNextNumber(std::fstream &file)
+unsigned int ConfigFileParser::getNextNumber(std::fstream &file)
 {
     unsigned char character = file.get();
     unsigned int number = 0;
@@ -133,7 +132,7 @@ unsigned int ConfigFile::getNextNumber(std::fstream &file)
     return number;
 }
 
-unsigned int ConfigFile::getNextNumber(std::string string, int& stringIndex)
+unsigned int ConfigFileParser::getNextNumber(std::string string, int& stringIndex)
 {
     int currentStringIndex = stringIndex;
     int number = UNDEFINED;
@@ -158,7 +157,7 @@ unsigned int ConfigFile::getNextNumber(std::string string, int& stringIndex)
     return number;
 }
 
-std::string ConfigFile::getNextCommandAndPrepareArguments()
+std::string ConfigFileParser::getNextCommandAndPrepareArguments()
 {
     std::string currentCommand;
     bool successfulReading = false;
@@ -190,7 +189,7 @@ std::string ConfigFile::getNextCommandAndPrepareArguments()
     return currentCommand;
 }
 
-unsigned int ConfigFile::getFirstParameter()
+unsigned int ConfigFileParser::getFirstParameter()
 {
     if (additionalWAVNumbers_[currentCommandIndex_] == UNDEFINED)
     {
@@ -199,17 +198,17 @@ unsigned int ConfigFile::getFirstParameter()
     return additionalWAVNumbers_[currentCommandIndex_];
 }
 
-unsigned int ConfigFile::getSecondParameter()
+unsigned int ConfigFileParser::getSecondParameter()
 {
     return secondParameters_[currentCommandIndex_];
 }
 
-int ConfigFile::getAdditionalWAVNumbers()
+int ConfigFileParser::getAdditionalWAVNumbers()
 {
     return additionalWAVNumbers_[currentCommandIndex_];
 }
 
-ConfigFile::~ConfigFile()
+ConfigFileParser::~ConfigFileParser()
 {
     commands_.clear();
     additionalWAVNumbers_.clear();

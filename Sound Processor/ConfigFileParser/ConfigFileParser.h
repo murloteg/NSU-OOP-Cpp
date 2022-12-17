@@ -1,5 +1,5 @@
-#ifndef SOUND_PROCESSOR_CONFIGFILE_H
-#define SOUND_PROCESSOR_CONFIGFILE_H
+#ifndef SOUND_PROCESSOR_CONFIGFILEPARSER_H
+#define SOUND_PROCESSOR_CONFIGFILEPARSER_H
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -9,7 +9,7 @@ enum Consts
     UNDEFINED = -1
 };
 
-class ConfigFile {
+class ConfigFileParser {
 private:
     std::string fileName_;
     std::string currentLine_;
@@ -26,7 +26,7 @@ private:
     static bool isDigit(unsigned char character);
     static unsigned int convertCharToDigit(unsigned char character);
 public:
-    explicit ConfigFile(std::string fileName);
+    explicit ConfigFileParser(std::string fileName);
     void parseFile();
     std::string getNextCommandAndPrepareArguments();
     unsigned int getFirstParameter();
@@ -34,8 +34,8 @@ public:
     int getAdditionalWAVNumbers();
     size_t getNumberOfConverters() {return commands_.size();}
     void increaseCurrentCommandIndex() {++currentCommandIndex_;}
-    ~ConfigFile();
+    ~ConfigFileParser();
 };
 
 
-#endif //SOUND_PROCESSOR_CONFIGFILE_H
+#endif //SOUND_PROCESSOR_CONFIGFILEPARSER_H

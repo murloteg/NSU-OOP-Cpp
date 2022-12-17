@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "SoundController/libcontroller_lib.a"
+			"path" : "Factory/libfactory_lib.a"
 		}
 	],
 	"backtrace" : 1,
@@ -12,14 +12,12 @@
 		"commands" : 
 		[
 			"add_library",
-			"include_directories",
-			"target_include_directories",
-			"target_link_libraries"
+			"target_link_libraries",
+			"target_include_directories"
 		],
 		"files" : 
 		[
-			"SoundController/CMakeLists.txt",
-			"CMakeLists.txt"
+			"Factory/CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -33,24 +31,15 @@
 				"parent" : 0
 			},
 			{
-				"file" : 1
-			},
-			{
 				"command" : 1,
-				"file" : 1,
-				"line" : 11,
-				"parent" : 2
+				"file" : 0,
+				"line" : 3,
+				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
 				"line" : 2,
-				"parent" : 0
-			},
-			{
-				"command" : 3,
-				"file" : 0,
-				"line" : 3,
 				"parent" : 0
 			}
 		]
@@ -71,31 +60,27 @@
 			[
 				{
 					"backtrace" : 3,
-					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/program_options"
-				},
-				{
-					"backtrace" : 4,
-					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/SoundController/../ParserWAVHeader"
-				},
-				{
-					"backtrace" : 4,
-					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/SoundController/../ConfigFile"
-				},
-				{
-					"backtrace" : 4,
-					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/SoundController/../Converters"
-				},
-				{
-					"backtrace" : 4,
-					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/SoundController/../Factory"
-				},
-				{
-					"backtrace" : 5,
 					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/Factory/../Converters"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 3,
 					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/Factory/../SoundController"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/SoundController/../ParserWAVHeader"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/SoundController/../ConfigFileParser"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/SoundController/../Converters"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/SoundController/../Factory"
 				}
 			],
 			"language" : "CXX",
@@ -116,16 +101,25 @@
 	"dependencies" : 
 	[
 		{
-			"id" : "factory_lib::@afec5811ca4b60e82f6b"
+			"backtrace" : 2,
+			"id" : "parser_wav_lib::@8e6f39602a5f86807fb7"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "parser_config_file_lib::@f130d53e4cb1df66b08e"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "converters_lib::@10b1ddd461c9ab357cad"
 		}
 	],
-	"id" : "controller_lib::@33832b7b2e76bd679c07",
-	"name" : "controller_lib",
-	"nameOnDisk" : "libcontroller_lib.a",
+	"id" : "factory_lib::@afec5811ca4b60e82f6b",
+	"name" : "factory_lib",
+	"nameOnDisk" : "libfactory_lib.a",
 	"paths" : 
 	{
-		"build" : "SoundController",
-		"source" : "SoundController"
+		"build" : "Factory",
+		"source" : "Factory"
 	},
 	"sourceGroups" : 
 	[
@@ -149,12 +143,12 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "SoundController/SoundController.cpp",
+			"path" : "Factory/ConverterFactory.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"path" : "SoundController/SoundController.h",
+			"path" : "Factory/ConverterFactory.h",
 			"sourceGroupIndex" : 1
 		}
 	],

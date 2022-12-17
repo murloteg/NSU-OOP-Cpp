@@ -1,2 +1,8 @@
+#mute-converter
+mute 1 3
 #randomizer-converter
 randomizer 3 100000
+#mute-converter
+mute 30 60
+#mix-converter
+mix $3 30

@@ -17,10 +17,12 @@ protected:
     unsigned int bufferSize_;
     unsigned int firstParameter_;
     unsigned int secondParameter_;
+    virtual void getConverterName() = 0;
+    static void putSeparator() {std::cout << "=======================================\n\n";}
 public:
-    virtual ~Converter() = default;
     virtual void conversion(std::vector<unsigned char>& firstBuffer, std::vector<unsigned char>& secondBuffer, unsigned int currentSecondsInFile) = 0;
     virtual void getConverterDescription() = 0;
+    virtual ~Converter() = default;
 };
 
 

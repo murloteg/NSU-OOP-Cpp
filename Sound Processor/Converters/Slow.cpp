@@ -9,7 +9,12 @@ Slow::Slow(unsigned int bufferSize, unsigned int start, unsigned int end)
 
 void Slow::getConverterDescription()
 {
-    // TODO:
+    getConverterName();
+    std::cout << "This converter slow down current WAV file from the specified time interval.\n"
+                 "======Configuration Parameters:======\n"
+                 "[1]: start position in WAV file (in sec.)\n"
+                 "[2]: end position in WAV file (in sec.)" << std::endl;
+    putSeparator();
 }
 
 void Slow::conversion(std::vector<unsigned char> &firstBuffer, std::vector<unsigned char> &secondBuffer,

@@ -5,7 +5,10 @@
 
 enum WAVHeaderConsts
 {
-    MIN_HEADER_SIZE = 44
+    MIN_HEADER_SIZE = 44,
+    RIFF = 0x52494646,
+    WAVE = 0x57415645,
+    FMT = 0x666d7420
 };
 
 class ParserWAVHeader {

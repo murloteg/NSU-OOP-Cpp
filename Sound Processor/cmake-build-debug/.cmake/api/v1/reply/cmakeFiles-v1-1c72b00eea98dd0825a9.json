@@ -147,6 +147,9 @@
 			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake"
 		},
 		{
+			"path" : "CommandLineParser/CMakeLists.txt"
+		},
+		{
 			"isCMake" : true,
 			"isExternal" : true,
 			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/FindBoost.cmake"
@@ -217,7 +220,7 @@
 			"path" : "ParserWAVHeader/CMakeLists.txt"
 		},
 		{
-			"path" : "ConfigFile/CMakeLists.txt"
+			"path" : "ConfigFileParser/CMakeLists.txt"
 		},
 		{
 			"path" : "Converters/CMakeLists.txt"
@@ -227,6 +230,9 @@
 		},
 		{
 			"path" : "Factory/CMakeLists.txt"
+		},
+		{
+			"path" : "Description/CMakeLists.txt"
 		}
 	],
 	"kind" : "cmakeFiles",

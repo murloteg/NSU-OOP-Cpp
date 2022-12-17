@@ -10,10 +10,12 @@ Randomizer::Randomizer(unsigned int bufferSize, unsigned int start, unsigned int
 
 void Randomizer::getConverterDescription()
 {
+    getConverterName();
     std::cout << "This converter randomly change specified number of samples starting from certain position in WAV file.\n"
                  "======Configuration Parameters:======\n"
                  "[1]: start position in WAV file (in sec.)\n"
                  "[2]: number of samples to be changed" << std::endl;
+    putSeparator();
 }
 
 unsigned char Randomizer::getRandomChar()

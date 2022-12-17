@@ -1,0 +1,1 @@
+add_library(parser_config_file_lib STATIC ConfigFileParser.cpp ConfigFileParser.h)

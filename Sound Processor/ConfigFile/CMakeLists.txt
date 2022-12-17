@@ -1,1 +1,0 @@
-add_library(config_file_lib STATIC ConfigFile.cpp ConfigFile.h)

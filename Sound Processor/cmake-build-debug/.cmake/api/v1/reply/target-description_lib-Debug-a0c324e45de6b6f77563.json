@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "ParserWAVHeader/libparser_wav_lib.a"
+			"path" : "Description/libdescription_lib.a"
 		}
 	],
 	"backtrace" : 1,
@@ -12,12 +12,12 @@
 		"commands" : 
 		[
 			"add_library",
-			"include_directories"
+			"target_link_libraries",
+			"target_include_directories"
 		],
 		"files" : 
 		[
-			"ParserWAVHeader/CMakeLists.txt",
-			"CMakeLists.txt"
+			"Description/CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -31,13 +31,16 @@
 				"parent" : 0
 			},
 			{
-				"file" : 1
+				"command" : 1,
+				"file" : 0,
+				"line" : 3,
+				"parent" : 0
 			},
 			{
-				"command" : 1,
-				"file" : 1,
-				"line" : 11,
-				"parent" : 2
+				"command" : 2,
+				"file" : 0,
+				"line" : 2,
+				"parent" : 0
 			}
 		]
 	},
@@ -57,7 +60,7 @@
 			[
 				{
 					"backtrace" : 3,
-					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/program_options"
+					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/Description/../Converters"
 				}
 			],
 			"language" : "CXX",
@@ -71,29 +74,36 @@
 			},
 			"sourceIndexes" : 
 			[
-				1
+				0
 			]
 		}
 	],
-	"id" : "parser_wav_lib::@8e6f39602a5f86807fb7",
-	"name" : "parser_wav_lib",
-	"nameOnDisk" : "libparser_wav_lib.a",
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "converters_lib::@10b1ddd461c9ab357cad"
+		}
+	],
+	"id" : "description_lib::@5bd64c39b33dd31d9e74",
+	"name" : "description_lib",
+	"nameOnDisk" : "libdescription_lib.a",
 	"paths" : 
 	{
-		"build" : "ParserWAVHeader",
-		"source" : "ParserWAVHeader"
+		"build" : "Description",
+		"source" : "Description"
 	},
 	"sourceGroups" : 
 	[
 		{
-			"name" : "Header Files",
+			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
 				0
 			]
 		},
 		{
-			"name" : "Source Files",
+			"name" : "Header Files",
 			"sourceIndexes" : 
 			[
 				1
@@ -104,13 +114,13 @@
 	[
 		{
 			"backtrace" : 1,
-			"path" : "ParserWAVHeader/ParserWAVHeader.h",
+			"compileGroupIndex" : 0,
+			"path" : "Description/Description.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "ParserWAVHeader/ParserWAVHeader.cpp",
+			"path" : "Description/Description.h",
 			"sourceGroupIndex" : 1
 		}
 	],

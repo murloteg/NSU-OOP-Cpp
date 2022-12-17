@@ -1,47 +1,25 @@
-#include <iostream>
-#include <vector>
-#include <boost/program_options.hpp>
 #include "SoundController.h"
+#include "CommandLineParser.h"
 
-namespace po = boost::program_options;
-using namespace std;
 int main(int argc, char** argv)
 {
-	po::options_description description("Options");
-	description.add_options()
-	("help", "get info about options")
-	("wav", po::value<vector <string> >(), "input next WAV file; the first.txt file in list will be used for output")
-	("config", po::value<string>(), "enter a config file with description of transformations")
-	;
+    CommandLineParser commandLineParser(argc, argv);
+    StatusesOfWork status = commandLineParser.parseCommandLine();
+    if (status == HELP_STATUS || status == ERROR_STATUS)
+    {
+        return 0;
+    }
 
-	po::variables_map variablesMap;
-	po::store(po::parse_command_line(argc, argv, description), variablesMap);
-	vector<string> audioFiles;
-	string configFile;
-
-	if (variablesMap.count("help") || variablesMap.count("h"))
-	{
-		cout << description << endl;
-		return 0;
-	}
-
-	if (variablesMap.count("wav") || variablesMap.count("WAV"))
-	{
-		audioFiles = variablesMap["wav"].as<vector <string> >();
-		for (auto& item : audioFiles)
-		{
-			cout << item << endl;
-		}
-	}
-
-	if (variablesMap.count("config"))
-	{
-		configFile = variablesMap["config"].as<string>();
-		cout << configFile << endl;
-	}
-
-    SoundController soundController(audioFiles, configFile);
-    soundController.conversion();
+    try
+    {
+        SoundController soundController(commandLineParser.getAudioFiles(), commandLineParser.getConfigFile());
+        soundController.conversion();
+    }
+    catch (std::exception& exception)
+    {
+        std::cout << exception.what() << std::endl;
+        return -1;
+    }
 
     return 0;
 }

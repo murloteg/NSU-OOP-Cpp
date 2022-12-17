@@ -39,12 +39,17 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+  include("/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/CommandLineParser/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
   include("/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/ParserWAVHeader/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/ConfigFile/cmake_install.cmake")
+  include("/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/ConfigFileParser/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
@@ -60,6 +65,11 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
   include("/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/Factory/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/cmake-build-debug/Description/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)

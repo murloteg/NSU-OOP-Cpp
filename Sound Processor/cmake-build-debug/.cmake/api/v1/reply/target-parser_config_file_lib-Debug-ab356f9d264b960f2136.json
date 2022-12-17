@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "ConfigFile/libconfig_file_lib.a"
+			"path" : "ConfigFileParser/libparser_config_file_lib.a"
 		}
 	],
 	"backtrace" : 1,
@@ -11,13 +11,11 @@
 	{
 		"commands" : 
 		[
-			"add_library",
-			"include_directories"
+			"add_library"
 		],
 		"files" : 
 		[
-			"ConfigFile/CMakeLists.txt",
-			"CMakeLists.txt"
+			"ConfigFileParser/CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -29,15 +27,6 @@
 				"file" : 0,
 				"line" : 1,
 				"parent" : 0
-			},
-			{
-				"file" : 1
-			},
-			{
-				"command" : 1,
-				"file" : 1,
-				"line" : 11,
-				"parent" : 2
 			}
 		]
 	},
@@ -51,13 +40,6 @@
 				},
 				{
 					"fragment" : "-std=gnu++17"
-				}
-			],
-			"includes" : 
-			[
-				{
-					"backtrace" : 3,
-					"path" : "/Users/mac/CLionProjects/Cpp-Projects/Sound Processor/program_options"
 				}
 			],
 			"language" : "CXX",
@@ -75,13 +57,13 @@
 			]
 		}
 	],
-	"id" : "config_file_lib::@3c3203f12ac691ec046c",
-	"name" : "config_file_lib",
-	"nameOnDisk" : "libconfig_file_lib.a",
+	"id" : "parser_config_file_lib::@f130d53e4cb1df66b08e",
+	"name" : "parser_config_file_lib",
+	"nameOnDisk" : "libparser_config_file_lib.a",
 	"paths" : 
 	{
-		"build" : "ConfigFile",
-		"source" : "ConfigFile"
+		"build" : "ConfigFileParser",
+		"source" : "ConfigFileParser"
 	},
 	"sourceGroups" : 
 	[
@@ -105,12 +87,12 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "ConfigFile/ConfigFile.cpp",
+			"path" : "ConfigFileParser/ConfigFileParser.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"path" : "ConfigFile/ConfigFile.h",
+			"path" : "ConfigFileParser/ConfigFileParser.h",
 			"sourceGroupIndex" : 1
 		}
 	],

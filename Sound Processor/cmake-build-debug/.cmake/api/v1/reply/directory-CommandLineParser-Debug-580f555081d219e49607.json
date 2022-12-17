@@ -8,7 +8,7 @@
 	"installers" : [],
 	"paths" : 
 	{
-		"build" : "ConfigFile",
-		"source" : "ConfigFile"
+		"build" : "CommandLineParser",
+		"source" : "CommandLineParser"
 	}
 }

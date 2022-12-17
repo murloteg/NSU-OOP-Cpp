@@ -9,7 +9,7 @@ enum SlowConsts
 
 class Slow : public Converter {
 private:
-
+    void getConverterName() override {std::cout << "SLOW:" << std::endl;}
 public:
     Slow(unsigned int bufferSize, unsigned int start, unsigned int end);
     void getConverterDescription() override;

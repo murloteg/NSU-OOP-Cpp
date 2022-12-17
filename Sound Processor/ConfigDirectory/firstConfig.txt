@@ -8,3 +8,7 @@ mute 50 80
 mix $2 50
 #mute-converter:
 mute 100 120
+#randomizer-converter
+randomizer 120 10000
+#slow-converter
+slow 120 140

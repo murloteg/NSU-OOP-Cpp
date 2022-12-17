@@ -9,11 +9,12 @@ Mix::Mix(unsigned int bufferSize, unsigned int start, unsigned int end)
 
 void Mix::getConverterDescription()
 {
+    getConverterName();
     std::cout << "This converter mixes two WAV files.\n"
                  "======Configuration Parameters:======\n"
                  "[1]: number of additional WAV file\n"
-                 "[2]: certain seconds in first file, where "
-                 "the converter starts mixing" << std::endl;
+                 "[2]: start position in WAV file (in sec.)" << std::endl;
+    putSeparator();
 }
 
 void Mix::conversion(std::vector<unsigned char>& firstBuffer, std::vector<unsigned char>& secondBuffer, unsigned int currentSecondsInFile)
@@ -22,6 +23,11 @@ void Mix::conversion(std::vector<unsigned char>& firstBuffer, std::vector<unsign
     {
         for (int i = 0; i < bufferSize_; ++i)
         {
+            if (firstBuffer[i] == 0)
+            {
+                firstBuffer[i] = secondBuffer[i];
+                continue;
+            }
             firstBuffer[i] = (secondBuffer[i] + firstBuffer[i]) / 2;
         }
     }
